@@ -1,0 +1,16 @@
+.modal-tabela {
+    display: flex;
+}
+
+.modal-tabela:hover {
+    background: #ccc;
+}
+
+.modal-tabela-coluna1 {
+    flex: 1;
+    text-align: center
+}
+
+.modal-tabela-coluna2 {
+    flex: 7;
+}

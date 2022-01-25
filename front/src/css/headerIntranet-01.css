@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    position: fixed;
+    left: 8px; 
+    top: 100;
+}
+
+.menu {
+    width: 100%;
+    height: 42px;
+    background: #222;
+    font-family: Arial;
+}
+
+.menu ul {
+    list-style: none;
+    position: relative;
+    float: right;
+}
+
+.menu ul li {
+    /* width: 120px; */
+    float: left;
+    font-size: 15px;
+}
+
+.menu a {
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background-color: #222;
+    color: #fff;
+}
+
+.menu ul ul {
+    position: absolute;
+    visibility: hidden;
+}
+
+.menu ul li:hover ul {
+    visibility: visible;
+}
+
+.menu a:hover {
+    color: lightgreen;
+
+    /* background-color: #f4f4f4;
+    color: #555;
+    height: 40px; */
+}
+
+
+.menu ul ul li {
+    float: none;
+    border-bottom: solid 1px #ccc;
+    
+}
+
+.menu ul ul li a {
+    background-color: rgb(121, 121, 121);
+    padding: 5px 10px;
+}
+
+.menu ul ul li a:hover {
+    background-color: rgb(27, 27, 27);
+    color: lightgreen;
+
+}
+
+label[for="bt_menu"] {
+    padding: 5px;
+    background-color: #222;
+    color: #fff;
+    font-family: "Arial";
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+    display: none;
+    float: right;
+}
+
+#bt_menu {
+    display: none;
+}
+
+.espaco {
+    display: none;
+}
+
+@media(max-width: 810px) {
+
+    .espaco {
+        display: block;
+    }
+    
+    label[for="bt_menu"] {
+        display: block;
+    }
+
+    #bt_menu:checked ~ .menu {
+        margin-left: 0%;
+        transition: all .4s;
+    }
+
+    .menu {
+        margin-top: 5px;
+        margin-left: -100%;
+        transition: all .4s;
+    }
+
+    .menu ul {
+        float: none;
+    }
+
+    .menu ul li {
+        width: 100%;
+        float: none;
+    }
+
+    .menu ul ul {
+        position: static;
+        overflow: hidden;
+        max-height: 0;
+        transition: all .4s;
+    }
+
+    .menu ul li:hover ul {
+        height: auto;
+        max-height: 200px;
+    }
+}

@@ -1,0 +1,36 @@
+.labelForm {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 0%;
+}
+
+.radioFormItens {
+    border-radius: 5%;
+    
+}
+
+.radioForm {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+
+}
+
+.radioLabel {
+    margin-left: 5px;
+
+}
+
+.radioItem {
+    -ms-transform: scale(2); /* IE 9 */
+    -webkit-transform: scale(2); /* Chrome, Safari, Opera */
+    transform: scale(2);
+}
+
+
+.checkItem {
+    -ms-transform: scale(0.8); /* IE 9 */
+    -webkit-transform: scale(0.8); /* Chrome, Safari, Opera */
+    transform: scale(0.8);
+    width: 30px;
+}
