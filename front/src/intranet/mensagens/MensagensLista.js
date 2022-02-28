@@ -26,6 +26,78 @@ const MensagensLista = () => {
                     : null
             }
 
+
+            {/* ************************ Expediente - Carnaval 2022 */}
+            <MensagemText
+                titulo="Expediente - Carnaval"
+                data="09/02/2022"
+                cor="red"
+                texto={
+                    <p class="card-text" style={{ fontSize: '1.5rem' }}>
+                        <br />
+                        <span style={{ fontWeight: 'bold' }}>Encerramento:</span>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.2rem', flex: 1 }}>
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue' }}>Admininistração </span></div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue' }}>Obras </span></div>
+                                    <div><span style={{ marginLeft: 30 }}>Dia 25/FEV/2022, sexta-feira, no horário normal </span></div>
+                                </div>
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue' }}>Assistência Técnica </span></div>
+                            </div>
+
+                        </div>
+
+                        <div style={{ marginTop: '30px' }}>
+                            <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Retorno:</span>
+
+                        </div>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.2rem', flex: 1 }}>
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue' }}>Admininistração </span></div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue' }}>Obras </span></div>
+                                    <div><span style={{ marginLeft: 30 }}>Dia 02/MAR/2022, quarta-feira, no horário normal </span></div>
+                                </div>
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue' }}>Assistência Técnica </span></div>
+                            </div>
+
+                        </div>
+                        <br />
+
+                    </p>
+
+                } />
+
+            {/* ************************ bolinho sueli */}
+            <MensagemText
+                titulo="Aniversário"
+                data="07/02/2022"
+                cor="#28A745"
+                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                    <br />
+                    <span style={{ color: 'blue' }}>Sueli</span>,  comemorando seu aniversário, convida a
+                    todos para aquele tradicional
+                    <span style={{ color: 'green' }}>
+                        <strong>
+                            <em> bolinho</em>
+                        </strong>
+                    </span>, hoje, às 16:00, no 11º andar (recepção).
+                </p>} />
+
+            {/* ************************ niver Sueli */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="07/02/2022"
+                cor="#28A745"
+                img="img/aniv04.png"
+                nome="SUELI"
+                local="(RH)"
+                dataExt="05/fevereiro - Sábado"
+            />
+
             {/* ************************ niver Luize */}
             <MensagemNiver
                 titulo="Aniversário"
@@ -417,6 +489,7 @@ const MensagensLista = () => {
                 local="(RH)"
                 dataExt="04/fevereiro - Sexta-feira"
             />
+
 
 
             {/* ************************ Expediente - Carnaval 2021 */}
