@@ -28,6 +28,7 @@ export const cpfMask = value => {
   }
 
   export const cpfFormat = value => {
+        value = value.replace(/\D/g, '')
       if (value.length === 0) return value
       let a = value.replace(/\D/g, '')
       let b=a.substring(0,3)
@@ -55,7 +56,7 @@ export const clearFormat = value => {
 }
 
 export const validarCPF = (cpf) => {
-      if (cpf.length === 0) return cpf
+      if (cpf.length === 0) return false
   var numeros, digitos, soma, i, resultado, digitos_iguais;
   digitos_iguais = 1;
   if (cpf.length < 11)
@@ -140,4 +141,35 @@ export const formatarNumero = (n) => {
 
   export const formatarData = data => {
       return data
+  }
+
+  export const convertToReal = (number, options = {}) => {
+
+
+
+      const { moneySign = false } = options;
+  
+      if(Number.isNaN(number) || !number) return 
+  
+      if(typeof number === "string") { // n1
+          number = Number(number);
+      }
+  
+      let res;
+  
+      const config = moneySign ? {style: 'currency', currency: 'BRL'} : {minimumFractionDigits: 2};
+  
+      moneySign
+      ? res = number.toLocaleString('pt-BR', config)
+      : res = number.toLocaleString('pt-BR', config)
+  
+      const needComma = number => number <= 1000;
+      if(needComma(number)) {
+          res = res.toString().replace(".", ",");
+      }
+  
+      return res; // n2
+
+//       const numero = 123456789.98
+//     var dinheiro = numero.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
   }

@@ -1,3 +1,12 @@
+.modal {
+  position: absolute;
+  background: transparent;
+  height: 300px;
+  width: 300px;
+  left: calc(50vw - 150px);
+  top: calc(50vh - 150px);
+}
+
 .sk-circle {
     margin: 100px auto;
     width: 40px;
@@ -17,7 +26,7 @@
     margin: 0 auto;
     width: 15%;
     height: 15%;
-    background-color:blue;
+    background-color:white;
     border-radius: 100%;
     -webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
             animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;

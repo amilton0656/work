@@ -1,22 +1,14 @@
-import React, { Fragment } from 'react'
-import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom'
+import './App.css'
 
-import store from './config/store'
-import './css/meu.css'
-
-import Rotas from './rotas/Rotas'
+import IntraneLayout from './modulos/intranet/IntranetLayout'
 
 function App() {
   return (
-    <Router>
-      <Provider store={store}>
-        <Fragment >
-          <Rotas />
-        </Fragment>
-      </Provider>
-    </Router>
-  );
-}
+    
+    <div className='app-main'>
+        <IntraneLayout />
+    </div>
+    )
+  }
 
-export default App
+  export default App;
