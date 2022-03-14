@@ -173,3 +173,17 @@ export const formatarNumero = (n) => {
 //       const numero = 123456789.98
 //     var dinheiro = numero.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
   }
+
+  export const isMobile = () => {
+      let isMobile = false
+
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ) {
+            isMobile = true
+      } else if (userAgent.match(/Android/i)) {
+          isMobile = true;
+      }
+
+      return isMobile
+  }

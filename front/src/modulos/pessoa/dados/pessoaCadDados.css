@@ -1,0 +1,31 @@
+.pessoa-container {
+    background: steelblue;
+    width: 100%;
+    border: 1px solid white;
+}
+
+.pessoa-main {
+    width: 100%;
+}
+
+.pessoa-container__header-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pessoa-form {
+    width: 100%;
+}
+
+@media only screen and (min-width: 460px) {
+    .pessoa-main {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .pessoa-form {
+        width: 70%;
+    }
+
+    
+}

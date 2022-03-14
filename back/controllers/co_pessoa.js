@@ -10,15 +10,13 @@ exports.addPessoa = (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json('Usuário não encontrado.')
+      res.status(500).json('Erro ao cadastrar.')
     })
 }
 
 exports.updPessoa = (req, res, next) => {
   const body = req.body
   const id_pessoa = body.id_pessoa
-
-  console.log('body', body, 'id id ', id_pessoa)
 
   Pessoa.findByPk(id_pessoa)
     .then(pessoa => {
@@ -29,7 +27,7 @@ exports.updPessoa = (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json('Usuário não encontrado.')
+      res.status(500).json('Pessoa não encontrada.')
     })
 }
 
@@ -45,7 +43,7 @@ exports.delPessoa = (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json('Usuário não encontrado.')
+      res.status(500).json('Pessoa não encontrada.')
     })
 }
 
@@ -57,7 +55,7 @@ exports.getPessoaById = (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json('Usuário não encontrado.')
+      res.status(500).json('Pessoa não encontrada.')
     })
 }
 
@@ -88,7 +86,7 @@ exports.getPessoas = (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json('Usuário não encontrado.')
+      res.status(500).json('Ocorreu um erro ao buscar os registros.')
     })
 }
 

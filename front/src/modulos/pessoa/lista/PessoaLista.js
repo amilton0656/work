@@ -7,9 +7,12 @@ import { FaRegFilePdf } from 'react-icons/fa'
 import clienteAxios from '../../../config/axios'
 import Swal from 'sweetalert2'
 import Spinner from '../../../spinner/Spinner'
+import Button from '../../../components/Button'
+import { isMobile } from '../../../util/util'
+import './pessoaLista.css'
 
-import classes from './PessoaLista.module.css'
-import classes2 from '../PessoaCad.module.css'
+// import classes from './PessoaLista.module.css'
+// import classes2 from '../PessoaCad.module.css'
 import { pessoasActions } from '../../../store/pessoaReducers'
 import Nav from '../../proponente/nav/NavProponente'
 
@@ -29,15 +32,13 @@ const PessoaLista = () => {
 
     const navigate = useNavigate()
 
-
     const { token } = useSelector(state => state.login.login)
-
 
     const dispatch = useDispatch()
 
     const atualizar = () => {
         setIsLoading(true)
-        clienteAxios.get('/pessoa/lista', { headers: { Authorization: token } })
+        clienteAxios.get('/pessoas', { headers: { Authorization: token } })
             .then(resposta => {
                 setPessoas(resposta.data)
                 setPessoasAll(resposta.data)
@@ -85,6 +86,11 @@ const PessoaLista = () => {
     const clickHandle = (id) => {
         setIcones(!icones)
         setId(id)
+        // const elem = document.getElementById('ck-linha')
+        // elem.checked = !elem.checked
+        // const elem2 = document.getElementsById('abcde')
+        // elem2.style.width = '100px'
+        // // elem2[0].style.width = '100px'
     }
 
 
@@ -118,7 +124,6 @@ const PessoaLista = () => {
             )
     }
 
-
     if (!pessoas) {
         return <div>Não há registros</div>
     }
@@ -135,83 +140,140 @@ const PessoaLista = () => {
         let formDataI
         let formDataII
 
-        clienteAxios.get(`/pessoa/lista/id/${id_pessoa}`)
-                .then(resposta => {
-                    const id_pessoa = resposta.data.id_pessoa
-                    formDataI = resposta.data
 
-                    clienteAxios.get(`/pessoacomplemento/lista/id/${id_pessoa}`)
-                        .then(resposta => {
-                            if (resposta.data.length === 0) {
-                                formDataII = {}
-                            } else {
-                                formDataII = resposta.data[0]
-                            }
+        clienteAxios.get(`/pessoa/lista/id/${id_pessoa}`)
+            .then(resposta => {
+                const id_pessoa = resposta.data.id_pessoa
+                formDataI = resposta.data
+
+                clienteAxios.get(`/pessoacomplemento/lista/id/${id_pessoa}`)
+                    .then(resposta => {
+                        if (resposta.data.length === 0) {
+                            formDataII = {}
+                        } else {
+                            formDataII = resposta.data[0]
+                        }
 
                         PessoaFichaCadastralPdf(formDataI, formDataII)
 
-                        })
-                        .catch(err => {
-                            console.log('Erro ao buscar ', err)
-                        })
-                })
-                .catch(err => {
-                    console.log('Erro ao buscar ', err)
-                })
+                    })
+                    .catch(err => {
+                        console.log('Erro ao buscar ', err)
+                    })
+            })
+            .catch(err => {
+                console.log('Erro ao buscar ', err)
+            })
 
-        
+
+    }
+
+    const styleButton = {
+        width: '80px',
+        background: 'lightgreen',
+        color: 'blue'
     }
 
     return (
-        <div className={classes.container}>
-            <Nav />
+        <div className='pessoa-list__layout'>
+            {/* <Nav /> */}
             {isLoading && <Spinner />}
-            <main className={classes.main}>
-                <div className={classes.containerHeaderButtons}>
-                    <h2>Proponentes</h2>
-                    <button type="button" onClick={() => goToForm(null)}>Novo</button>
-                    <button type="button" onClick={() => PessoaListaPdf(pessoas)}>PDF</button>
-                    <button type="button" onClick={() => navigate('/', { replace: true })}>Sair</button>
-                </div>
-                <ul className={classes.containerLista}>
-                    <div className={classes.busca}>
-                        <div className={classes2.inputBox}>
-                            <label htmlFor="busca">Busca:</label>
-                            <input
-                                className={classes2['login-input']}
-                                id="busca"
-                                name="busca"
-                                onChange={textHandler}
-                                value={busca}
-                            />
-                        </div>
-                        {/* <div style={{ textAlign: 'right' }}><button className={classes.pdf} onClick={() => PessoaListaPdf(pessoas)}><FaRegFilePdf size={30} color='grey' style={{ paddingTop: 0 }} /></button></div> */}
+            {/* <main className='pessoa-list__main'> */}
+            <div className='pessoa-list__header'>
+                <h2>Proponentes</h2>
+                <div className='pessoa-list__header-buttons'>
+
+                    <div>
+                        <Button
+                            className='pessoa-list__header-button'
+                            bg='lightgreen'
+                            c='green'
+                            title='Novo'
+                            onClick={() => goToForm(null)}
+                        />
                     </div>
-                    {
-                        pessoas.map(pessoa => (
-                            <div>
-                                <div className={classes.item} key={pessoa.id_pessoa}>
-                                    <li
-                                        className={classes.linha}
-                                        onClick={() => clickHandle(pessoa.id_pessoa)}>{pessoa.nome}
-                                    </li>
+                    <div>
+                        <Button
+                            className='pessoa-list__header-button'
+                            bg='green'
+                            title='PDF'
+                            onClick={() => PessoaListaPdf(pessoas)}
+                        />
+                    </div>
+                    <div>
+                        <Button
+                            className='pessoa-list__header-button'
+                            bg='grey'
+                            title='Sair'
+                            onClick={() => navigate('/', { replace: true })}
+                        />
+                    </div>
 
-                                    {icones && id === pessoa.id_pessoa &&
-                                        <div>
-                                            <button onClick={() => goToForm(pessoa)}><FaRegEdit size={30} color='blue' /></button>
-                                            <button onClick={() => FichaCadastral(pessoa.id_pessoa)}><FaRegFilePdf size={30} color='grey' /></button>
-                                            <button onClick={() => deletePessoaHandler(pessoa.id_pessoa)}><BsTrash size={30} color='red' /></button>
-                                        </div>
-                                    }
+                    {/* <Button style={styleButton}>
+                        <button
+                            className='form-botaoBox__button'
+                            type="button"
+                            onClick={() => goToForm(null)}
+                        >Novo</button>
+                    </Button>
+                    <Button style={styleButton}>
+                        <button
+                            className='form-botaoBox__button'
+                            type="button"
+                            onClick={() => PessoaListaPdf(pessoas)}
+                        >PDF</button>
+                    </Button>
+                    <Button style={styleButton}>
+                        <button
+                            className='form-botaoBox__button'
+                            type="button"
+                            onClick={() => navigate('/', { replace: true })}
+                        >Sair</button>
+                    </Button> */}
 
-                                </div>
+                </div>
+                <div className='pessoa-list__busca'>
+
+                    <div className='pessoa-list__input-box'>
+                        <label htmlFor="busca">Busca:</label>
+                        <input
+                            className='form-input pessoa-list__input-busca'
+                            id="busca"
+                            name="busca"
+                            onChange={textHandler}
+                            value={busca}
+                        />
+                    </div>
+                </div>
+            </div>
+            <ul className='pessoa-list__container-list'>
+                <input id={'ck-linha'} type='checkbox' />
+
+                {
+                    pessoas.map(pessoa => (
+                        <div style={{ background: 'white' }}>
+                            <div className='pessoa-list__item' key={pessoa.id_pessoa}>
+                                <li
+                                    className='pessoa-list__linha'
+                                    onClick={() => clickHandle(pessoa.id_pessoa)}>{pessoa.nome}
+                                </li>
+
+                                {icones && id === pessoa.id_pessoa &&
+                                    <div className='pessoa_list__icones'>
+                                        <button className='pessoa_list__icones-button' onClick={() => goToForm(pessoa)}><FaRegEdit size={30} color='blue' /></button>
+                                        <button className='pessoa_list__icones-button' onClick={() => FichaCadastral(pessoa.id_pessoa)}><FaRegFilePdf size={30} color='grey' /></button>
+                                        <button className='pessoa_list__icones-button' onClick={() => deletePessoaHandler(pessoa.id_pessoa)}><BsTrash size={30} color='red' /></button>
+                                    </div>
+                                }
+
                             </div>
-                        )
-                        )
-                    }
-                </ul>
+                        </div>
+                    )
+                    )
+                }
+            </ul>
 
-            </main>
+            {/* </main> */}
         </div>
     );
 }

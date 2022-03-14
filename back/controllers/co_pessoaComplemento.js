@@ -4,27 +4,26 @@ const PessoaComplemento = require('../models/mo_pessoaComplemento')
 
 exports.addPessoaComplemento = (req, res, next) => {
   const pessoaComplemento = req.body
-  PessoaComplemento.create(pessoa)
+  PessoaComplemento.create(pessoaComplemento)
     .then(pessoaComplemento => {
       res.status(200).json(pessoaComplemento)
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json('Complemento não encontrado.')
+      res.status(500).json('Erro ao cadastrar.')
     })
 }
 
 exports.updPessoaComplemento = (req, res, next) => {
   const body = req.body
-  const id_dados = body.id_dados
+  const id_pessoa = body.id_pessoa
 
-  console.log('body', body, 'id id ', id_dados)
-
-  PessoaComplemento.findByPk(id_dados)
-    .then(pessoaComplemento => {
-      pessoaComplemento.update(body)
+  PessoaComplemento.findByPk(id_pessoa)
+    .then(complemento => {
+      console.log('achou pessoacomolemento ', complemento)
+      complemento.update(body)
     })
-    .then(pessoaComplemento => {
+    .then(complemento => {
       res.status(200).json(body)
     })
     .catch(err => {
