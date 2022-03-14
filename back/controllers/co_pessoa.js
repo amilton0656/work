@@ -15,10 +15,12 @@ exports.addPessoa = (req, res, next) => {
 }
 
 exports.updPessoa = (req, res, next) => {
-  const id = req.params.id
   const body = req.body
+  const id_pessoa = body.id_pessoa
 
-  Pessoa.findByPk(id)
+  console.log('body', body, 'id id ', id_pessoa)
+
+  Pessoa.findByPk(id_pessoa)
     .then(pessoa => {
       pessoa.update(body)
     })

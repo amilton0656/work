@@ -14,8 +14,8 @@ router.get('/pessoacompleta/:id', pessoaController.getPessoaCompletaById)
 router.get('/pessoa/nome/:nome', md_auth.auth, pessoaController.getPessoaByNome)
 router.get('/pessoa/cpf/:cpf', md_auth.auth, pessoaController.getPessoaByCpf)
 router.get('/pessoa/cnpj/:cnpj', md_auth.auth, pessoaController.getPessoaByCnpj)
-router.post('/pessoa', md_auth.auth, pessoaController.addPessoa)
-router.put('/pessoa/:id', md_auth.auth, pessoaController.updPessoa)
-router.delete('/pessoa/:id', md_auth.auth, pessoaController.delPessoa)
+router.post('/pessoa/add', md_auth.auth, pessoaController.addPessoa)
+router.put('/pessoa/upd', md_auth.auth, pessoaController.updPessoa)
+router.delete('/pessoa/del/:id', md_auth.auth, pessoaController.delPessoa)
 
 module.exports = router

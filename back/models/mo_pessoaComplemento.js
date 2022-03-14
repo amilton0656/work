@@ -29,7 +29,7 @@ const PessoaComplemento = sequelize.define('pessoas_complemento', {
   regime_casamento: Sequelize.INTEGER,
   pacto_nupcial: Sequelize.TEXT,
   id_conjuge: Sequelize.INTEGER,
-  nome_conjuge: Sequelize.STRING(50),
+  conjuge_nome: Sequelize.STRING(50),
   empresa_nome: Sequelize.STRING(50),
   financ_descricao: Sequelize.STRING(50),
   financ_valor: Sequelize.DECIMAL(10, 2),

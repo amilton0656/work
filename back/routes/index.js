@@ -1,5 +1,6 @@
 const usuarioRoutes = require('./ro_usuario')
 const pessoaRoutes = require('./ro_pessoa')
+const pessoaComplementoRoutes = require('./ro_pessoaComplemento')
 const pessoaContatoRoutes = require('./ro_pessoaContato')
 const empreendimentoRoutes = require('./ro_empreendimento')
 const empreendimentoBlocoRoutes = require('./ro_empreendimentoBloco')
@@ -14,6 +15,7 @@ const propostaRoutes = require('./ro_proposta')
 module.exports = [
     usuarioRoutes,
     pessoaRoutes,
+    pessoaComplementoRoutes,
     pessoaContatoRoutes,
     empreendimentoRoutes,
     empreendimentoBlocoRoutes,
