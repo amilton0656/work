@@ -7,7 +7,10 @@ import Mensagem from '../../components/Mensagem';
 import Card from '../../components/Card';
 import { BsFileX } from 'react-icons/bs';
 
-const Teste = () => {
+import Modal from './components/Modal/Modal'
+import Backdrop from './components/Backdrop/Backdrop';
+
+const ExMensagem = () => {
 
     const [show, setShow] = useState(true)
 
@@ -25,21 +28,14 @@ const Teste = () => {
                 <li>xxxxxxxxxxxxxxxxxxxx</li>
                 <li>xxxxxxxxxxxxxxxxxxxx</li>
                 <li>xxxxxxxxxxxxxxxxxxxx</li>
-                <li>xxxxxxxxxxxxxxxxxxxx</li>
+                <li>xxxxxxxxxxxxxxxx</li>
             </ul>
-            <buton onClick={() => setShow(true)}>Click me abaixo</buton>
-
-            {show && 
-                <Mensagem onClick={() => setShow(false)} bg='steelblue' c='white'>
-
-                    <buton onClick={() => alert('sdjfsjdflksdf')}>Click me acima</buton>
-
-    
-                </Mensagem>
-            }
+            <button onClick={() => setShow(true)}>Click me abaixo</button>
+            <Modal show = {show} closed = {() => setShow(false)} />
+            <Backdrop show = {show} closed = {() => setShow(false)} />
         </div>
 
     );
 }
 
-export default Teste;
+export default ExMensagem;

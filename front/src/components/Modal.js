@@ -8,10 +8,14 @@ const Backdrop = props => {
 }
 
 const ModalOverlay = props => {
+
+    console.log('ModalOverlay')
+
     return (
         <div>
             <div className={classes.modal}>
                 <div className={classes.content}>
+                    <div>chegou aqui</div>
                     {props.children}
                 </div>
             </div>

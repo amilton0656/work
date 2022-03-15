@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import Button from "../../components/Button";
+// import Button from "../../components/Button";
 import { FaRegEdit } from 'react-icons/fa'
 
 
-import Mensagem from '../../components/Mensagem';
-import Card from '../../components/Card';
+// import Mensagem from '../../components/Mensagem';
+// import Card from '../../components/Card';
 import { BsFileX } from 'react-icons/bs';
 
-const Teste = () => {
+const ExMensagem = () => {
 
     const [show, setShow] = useState(true)
 
@@ -27,8 +27,10 @@ const Teste = () => {
                 <li>xxxxxxxxxxxxxxxxxxxx</li>
                 <li>xxxxxxxxxxxxxxxxxxxx</li>
             </ul>
-            <buton onClick={() => setShow(true)}>Click me abaixo</buton>
-
+            {/* <buton onClick={() => setShow(true)}>Click me abaixo</buton>
+            <Modal show = {this.state.modalIsOpen} closed = {this.closeModal} />
+            <Backdrop show = {this.state.modalIsOpen} closed = {this.closeModal} /> */}
+{/* 
             {show && 
                 <Mensagem onClick={() => setShow(false)} bg='steelblue' c='white'>
 
@@ -36,10 +38,10 @@ const Teste = () => {
 
     
                 </Mensagem>
-            }
+            } */}
         </div>
 
     );
 }
 
-export default Teste;
+export default ExMensagem;

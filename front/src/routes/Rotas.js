@@ -17,6 +17,8 @@ import PessoaCadDados from '../modulos/pessoa/dados/PessoaCadDados'
 import TesteScroll from '../modulos/testes/TesteScroll'
 import Teste from '../modulos/testes/Teste'
 import Menu01 from '../exemplos/menus/Menu01'
+import FundoModal from '../modulos/testes/FundoModal'
+import ExMensagem from '../components/mensagem/ExMensagem'
 
 const Rotas = () => {
 
@@ -44,7 +46,7 @@ const Rotas = () => {
                 <Route path="/pessoa/lista" element={<PessoaLista />} />
                 <Route path="/pessoa/formdados" element={<PessoaCadDados />} />
 
-                <Route path="/teste" element={<Teste />} />
+                <Route path="/teste" element={<ExMensagem />} />
                 <Route path="/menu" element={<Menu01 />} />
 
             </Routes>

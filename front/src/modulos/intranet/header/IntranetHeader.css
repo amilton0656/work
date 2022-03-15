@@ -77,6 +77,17 @@
 
 /* *****     menu dropdown com submenus     ***** */
 
+/* *****     fundo     ***** */
+
+.intra-header__dropdown-fundo {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    left: 0;
+    display: none;
+}
+
 /* *****     botao sanduiche     ***** */
 
 #intra-header-input-menu {
@@ -109,6 +120,7 @@
     top: 80px;
     right: -350px;
     transition: all .5s;
+
 }
 
 .intra-header__nav-dropdown-mob-ul {
@@ -154,6 +166,10 @@
 
 #intra-header__nav-input-mob:checked ~ nav {
     transform: translateX(-350px)
+}
+
+#intra-header__nav-input-mob:checked ~ #intra-header__fundo {
+    display: block;
 }
 
 /* *****     swubmenu empreends     ***** */

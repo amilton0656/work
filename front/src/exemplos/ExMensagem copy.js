@@ -7,7 +7,7 @@ import Mensagem from '../../components/Mensagem';
 import Card from '../../components/Card';
 import { BsFileX } from 'react-icons/bs';
 
-const Teste = () => {
+const ExMensagem = () => {
 
     const [show, setShow] = useState(true)
 
@@ -42,4 +42,4 @@ const Teste = () => {
     );
 }
 
-export default Teste;
+export default ExMensagem;

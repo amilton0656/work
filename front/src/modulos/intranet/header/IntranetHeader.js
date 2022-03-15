@@ -7,6 +7,7 @@ import predio from './img/predios.png'
 import { FiMenu } from 'react-icons/fi'
 import IntranetHeaderNav from './IntranetHeaderNav'
 import IntranetDropdown from './IntranetDropdown'
+import Modal from '../../../components/Modal'
 
 import {
     menuEmpreendimentos,
@@ -17,6 +18,7 @@ import {
     menuUteis,
     IntranetDropdownItems
 } from './IntranetMenuItems';
+import { FaRegBell, FaRegIdBadge } from 'react-icons/fa'
 
 const style = {
     backgroundImage: `url(${logo})`
@@ -36,6 +38,7 @@ const MenuDropdown = props => {
 
     return (
 
+
         <nav id='intra-header__mob_dropdown' className='intra-header__nav-dropdown-mob'>
             <ul className='intra-header__nav-dropdown-mob-ul'>
                 {
@@ -54,6 +57,8 @@ const MenuDropdown = props => {
                 }
             </ul>
         </nav>
+
+
     )
 }
 
@@ -65,14 +70,14 @@ const SubMenuDropdown = (props) => {
             check.checked = false
         }}>
             <div>
-                <div className='intra-header__nav-dropdown-mob-ul-li-label-sub' style={{ height: '50px', padding: '20px' }}>
+                {/* <div className='intra-header__nav-dropdown-mob-ul-li-label-sub' style={{ height: '50px', padding: '20px' }}>
                 {`<<<   Menu Intranet`}
-                </div>
+                </div> */}
                 <div 
                     className='intra-header__nav-dropdown-mob-ul-li-label' 
                     style={{ 
                         height: '50px', 
-                        padding: '20px',
+                        padding: '50px',
                         display: 'flex',
                         alignItems: 'center',
                         color: 'lightgreen',
@@ -97,7 +102,6 @@ const SubMenuDropdown = (props) => {
                 }
             </ul>
         </div>
-
     )
 
 }
@@ -138,6 +142,13 @@ const IntranetHeader = () => {
 
     }
 
+    const onClickButtonHandle2 = () => {
+    
+        const check = document.getElementById('intra-header__nav-input-mob')
+        check.checked = false
+
+    }
+
     return (
         <>
             <nav id='intra-header_navbar' className='intra-header__main' >
@@ -148,9 +159,11 @@ const IntranetHeader = () => {
                 <nav className='intra-header__nav'>
                     <IntranetHeaderNav />
                 </nav>
+
                 <div className='intra-header__button-container' onClick={() => onClickButtonHandle()}>
                     <input id='intra-header__nav-input-mob' type='checkbox' />
                     <label htmlFor='intra-header__nav-input-mob' style={{height: '60px'}}><FiMenu id="intra-header__button-menu" size={35} /></label>
+                    <div id='intra-header__fundo' className='intra-header__dropdown-fundo' onClick={() => onClickButtonHandle2()}></div>
                     <MenuDropdown />
                 </div>
             </nav>
