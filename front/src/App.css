@@ -53,6 +53,10 @@
     align-items: center;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 @media (min-width: 1px) and (max-width: 459px) {
     
 }

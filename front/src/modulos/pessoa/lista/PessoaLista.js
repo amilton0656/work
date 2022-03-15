@@ -247,7 +247,6 @@ const PessoaLista = () => {
                 </div>
             </div>
             <ul className='pessoa-list__container-list'>
-                <input id={'ck-linha'} type='checkbox' />
 
                 {
                     pessoas.map(pessoa => (
