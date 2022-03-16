@@ -24,3 +24,40 @@
     border: 1px solid white;
     padding: 5px 0;
 }
+
+.intra-cub__periodo-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    overflow: hidden;
+}
+
+
+@media print {
+
+
+    @page {
+        size: A4;  
+        margin: 70pt 60pt 170pt;
+        counter-increment: page;
+    }
+
+    .printable div,
+    .printable h3 {
+        visibility: visible;
+        width: 100%;
+        margin: 0;
+    }
+
+    .title {
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
+  }

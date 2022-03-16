@@ -1,0 +1,28 @@
+.input-button__form {
+    /* This bit sets up the horizontal layout */
+    display:flex;
+    flex-direction:row;
+    width: 100%;
+    outline: auto;
+    border:1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    background: white;
+    outline: none;
+  }
+
+  .input-button__input {
+    width: 100%;
+    border:none;
+    font-size: 1rem;
+    background: white;
+  }
+  
+  .input-button__input:focus {
+    outline: none;
+  }
+  
+  .input-button__button {
+    border: none;
+    background: white;
+  }

@@ -14,4 +14,4 @@ const modal = (props) => {
     )
 } 
 
-export default modal;
+export default modal

@@ -155,7 +155,7 @@ const EmprestimoSACLista = props => {
                 <h2 style={{ color: 'black', textAlign: 'center' }}>Simulação - SAC</h2>
 
                 <Parametros formData={formData} totalDesembolso={totalDesembolso} />
-                <ul className='emprestimo__container-tabela'>
+                <ul className='emprestimo__container-tabela '>
                     <li key={-1} className='emprestimo__tabela-linha'>
                         <div className='emprestimo__tabela-indice' style={{ fontWeight: 'bold' }}>Mês</div>
                         <div className='emprestimo__tabela-valor' style={{ fontWeight: 'bold' }}>Aporte</div>

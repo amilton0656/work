@@ -11,7 +11,8 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    margin-right: 100px;;
+    margin-right: 100px;
+    z-index: 11;
 }
 
 .intra-nav__dropdown-item {
@@ -19,6 +20,7 @@
     margin: 0;
     text-align: center;
     position: relative;
+    z-index: 11;
     height: 100%;
     padding: 0 10px;
     /* font-weight: 600; */

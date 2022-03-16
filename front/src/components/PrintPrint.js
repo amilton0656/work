@@ -1,28 +1,41 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import ReactToPrint from 'react-to-print';
+import { useNavigate } from 'react-router-dom'
 
 // import { ComponentToPrint } from './ComponentToPrint';
 
-const Componente = () => {
+export class ComponentToPrint extends React.PureComponent {
+  render() {
     return (
-        <div>
-            Componente
-        </div>
-    )
+      <div>{this.props.children}</div>
+    );
+  }
 }
 
-const PrintPrint = () => {
+const PrintPrint = props => {
+
+  const navigate = useNavigate()
+
   const componentRef = useRef();
 
+  useEffect(() => {
+    document.getElementById("meubotao").click();
+  }, [])
+
   return (
-    <div>
+    <div style={{display:'none'}}>
       <ReactToPrint
-        trigger={() => <button>Print this out!</button>}
         content={() => componentRef.current}
+        trigger={() => <button id='meubotao' />}
+        onAfterPrint={() => navigate(-1)}
       />
-      <Componente ref={componentRef} />
+      <ComponentToPrint ref={componentRef}>
+        {/* <div>teste impressao</div> */}
+        {props.children}
+      </ComponentToPrint>
     </div>
   );
 };
 
 export default PrintPrint
+

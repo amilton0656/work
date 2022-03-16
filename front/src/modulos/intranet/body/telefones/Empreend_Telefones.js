@@ -5,9 +5,14 @@ import clienteAxios from '../../../../config/axios'
 import { FiSearch } from 'react-icons/fi'
 import { AiOutlineClose } from 'react-icons/ai'
 
+import Input from '../../../../components/Input'
+import Card from '../../../../components/Card'
+import InputWithButton from '../../../../components/InputWithButton'
+
 import Empreend_TelefonesNome from './Empreend_TelefonesNome'
 
 import './Empreend_Telefones.css'
+import ProponenteCadDados from '../../../pessoa/dados/PessoaCadDados'
 
 
 const Empreend_Telefones = ({ history }) => {
@@ -40,73 +45,75 @@ const Empreend_Telefones = ({ history }) => {
         setMostrarTelefones(false)
     )
 
+    const onChangeHandle = e => {
+        setNomeAbuscar(e.target.value)
+   
+    }
+
     return (
         <div>
             <div className="intra-fones__main">
+                <Card styles={{ background: '#7FFFD4' }}>
 
-                <form className='intra-fones__form' onSubmit={onSubmit}>
-                        <div className='intra-fones__buttons-Container'>
-                        <button type="submit" className='intra-fones__button'><span style = {{marginRight: '20px'}}>Buscar Telefone</span>  <FiSearch size={20} color='black'/></button>
-                        <button type="button" className='intra-fones__button' onClick={() => limparTelefones()}
-                        ><span style = {{marginRight: '20px'}}>Fechar</span>  <AiOutlineClose size={20} color='black'/></button>
+                    <form className='intra-fones__form'>
+                        {/* <div className='intra-fones__busca-container'>
+                            <div className='intra-fones__input-container'>
+                                <label>Buscar Telefone:</label>
+                                <input
+                                    type="text"
+                                    class="intra-fones__input"
+                                    value={nomeAbuscar}
+                                    onChange={e => setNomeAbuscar(e.target.value)}
+                                />
+                            </div>
+                            <button type="submit" className='intra-fones__button intra-fones__button-inside'><FiSearch size={20} color='black' style={{margin: '40px 0 0 10px'}} /></button>
 
-                        </div>
-                    <div className='intra-fones__input-container'>
-                        <input
-                            type="text"
-                            class="intra-fones__input"
+                        </div> */}
+                        <InputWithButton
+                            label = 'Buscar Telefone:'
+                            id = 'nomeAbuscar'
                             value={nomeAbuscar}
-                            onChange={e => setNomeAbuscar(e.target.value)}
-                        />
+                            onChange={onChangeHandle}
+                            onClick={onSubmit}
+                        >
+                        <FiSearch size={20} color='black'/>
+                        </InputWithButton>
+                    </form>
 
-                    </div>
-                </form>
 
 
-
-                {/* <button 
-                    onClick={() => {getContatos('AMILTON')}}
-                    className="btn btn-primary " 
-                    style={{ width: '100%', 
-                            padding: '7px', 
-                            fontSize: '20px', 
-                            marginBottom: '4px',
-                            fontWeigt: 'bold', 
-                            marginTop: '0', 
-                            justifyContent: 'flex-start' 
-                            }}>Telefones
-            </button> */}
-
-                {/* <Link to={"/telefone"} className="btn btn-primary "
-                style={{
-                    width: '100%',
-                    padding: '6px',
-                    fontSize: '20px',
-                    fontWeigt: 'bold',
-                    marginTop: '0',
-
-                    justifyContent: 'flex-start'
-                }}>
-                Telefones
-            </Link> */}
+                </Card>
 
             </div>
 
             {
-                mostrar
-                    ? <div>
-                        {
-                            telefones
-                                ? telefones.map(pessoa => (
-                                    mostrarTelefones
-                                    ? <Empreend_TelefonesNome contatos={pessoa} />
-                                    : null
-                                ))
-                                : null
-                        }
+                mostrarTelefones
+                    ?
+                    <div style={{ marginTop: '10px' }}>
+
+                        <Card >
+                            {mostrarTelefones &&
+                                <div className='intra-fones__fecharfones-Container' onClick={() => limparTelefones()}>
+                                    <button type="button" className='intra-fones__button' 
+                                    ><span style={{ marginRight: '20px', paddingTop: '3px', color: 'white' }}>Fechar</span>  <AiOutlineClose size={20} color='white' /></button>
+
+                                </div>
+
+                            }
+                            {
+                                telefones
+                                    ? telefones.map(pessoa => (
+                                        mostrarTelefones
+                                            ? <Empreend_TelefonesNome contatos={pessoa} />
+                                            : null
+                                    ))
+                                    : <div style={{ padding: '10px', textAlign: 'center' }}>Nada encontrado</div>
+                            }
+                        </Card>
                     </div>
                     : null
             }
+
 
         </div>
     )

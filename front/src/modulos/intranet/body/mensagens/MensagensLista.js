@@ -21,7 +21,7 @@ const MensagensLista = () => {
             <MensagemCub />
             {
                 tamanhoTela < 700
-                    ? <div style ={{width: '94%', margin: '0 auto'}}>
+                    ? <div>
                         <Empreend_Telefones />
                     </div>
                     : null

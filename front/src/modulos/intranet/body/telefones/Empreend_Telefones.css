@@ -1,13 +1,15 @@
 .intra-fones__main {
-    width: 100%;
+    /* width: 100%; */
+    margin: 10px;
+    /* margin: 0 auto;
     height: 150px;
-    background: #7FFFD4;
+    background: #73fdcf;
     margin: 10px 0;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); */
 }
 
 .intra-fones__form {
-    padding: 20px;
+    padding: 5px;
 }
 
 .intra-fones__buttons-Container {
@@ -27,20 +29,54 @@
     font-size: 1rem;
     color: black;
     font-weight: none;
+    display: flex;
+    align-content: center;
+
 }
 
-.intra-fones__input-container{
+.intra-fones__busca-container {
     display: flex;
-    justify-content: center;
+}
+
+.intra-fones__button-inside {
+    padding: 0;
+    /* position: absolute; */
+    top: 38px;
+    right: 10px;
+}
+
+.intra-fones__fecharfones-Container{
+    display: flex;
+    justify-content: flex-end;
     width: 100%;
+    margin-top: 10px;
+    background: steelblue;
+    color: white;
+    border-radius: 10px;
+}
+
+.intra-fones__input-container {
+    display: flex; 
+    flex-direction: column; 
+    width: 100%;
+    /* position: relative; */
+    /* z-index: 0; */
+
 }
 
 .intra-fones__input{
     width: 100%;
-    padding: 0.6rem 0.3rem;
+    padding: 0.6rem 0.5rem;
     font-size: 1rem;
     border-radius: 5px;
     border: 1px solid grey;
     background: white;
-    margin-top: 5px;;
+    color: rgb(160, 161, 160);
+}
+
+@media (min-width: 990px) {
+    .intra-fones__main {
+        width: 100%;
+        margin: 10px 0;
+    }
 }
