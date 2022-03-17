@@ -53,11 +53,33 @@
     max-width: 100%;
 }
 
+.emprestimo__header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    margin-bottom: 15px;
+}
+
+.emprestimo__header-container-titulo {
+    font-size: 2rem;
+    color: black;
+    font-weight: bold;
+}
+
+.emprestimo__header-container-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
 .emprestimo__container-tabela {
     border: 1px solid grey;
     /* margin-top: 20px; */
     padding: 10px 0;
-    width: 750px;
+    width: 100%;
     overflow: hidden;
 }
 

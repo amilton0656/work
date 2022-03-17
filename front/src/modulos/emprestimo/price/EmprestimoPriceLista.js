@@ -115,24 +115,15 @@ const EmprestimoPriceLista = props => {
     return (
         <div className='emprestimo__centralizar-lista'>
             <div className='emprestimo__lista'>
-                <div className='emprestimo__header hide-component'>
-                    <div className='center'>
-                        <Button
-                            className='w200'
-                            title='Gerar PDF'
-                            onClick={() => EmprestimoPriceListaPDF(formData, listaPDF, totalDesembolso)}
-                        />
-                    </div>
 
-                    <div className='center'>
-                        <Button
-                            className='w200'
-                            title='Imprimir'
-                            onClick={() => window.print()}
-                        />
-                    </div>
+                <div className='emprestimo__header-container'>
+                    <span className='emprestimo__header-container-titulo'>Simulação - Price</span>
+                    <button
+                        className='emprestimo__header-container-button hide-component'
+                        onClick={() => window.print()}
+                    >Imprimir</button>
                 </div>
-                <h2 style={{ color: 'black', textAlign: 'center' }}>Simulação - Price</h2>
+
                 <Parametros formData={formData} totalDesembolso={totalDesembolso} />
                 <ul className='emprestimo__container-tabela'>
                     <li key={-1} className='emprestimo__tabela-linha'>

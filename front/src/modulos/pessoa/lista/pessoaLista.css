@@ -79,7 +79,16 @@
 .pessoa-list__linha {
     font-size: 1.2rem;
     list-style: none;
+    list-style-type: none;
     position: relative;
+    cursor: pointer;
+}
+.pessoa-list__item:hover {
+    background: lightgray;
+}
+
+.pessoa-list__bold {
+    font-weight: bold;
 }
 
 .pessoa_list__icones {
@@ -166,6 +175,14 @@
 
     .pessoa-list__busca {
         margin: 0;
+    }
+
+}
+
+@media print {
+    .pessoa-list__linha {
+        list-style: none;
+        list-style-type: none;
     }
 
 }

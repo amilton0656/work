@@ -1,26 +1,28 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { BsTrash } from 'react-icons/bs'
-import { FaRegEdit } from 'react-icons/fa'
-import { FaRegFilePdf } from 'react-icons/fa'
+
 import clienteAxios from '../../../config/axios'
 import Swal from 'sweetalert2'
 import Spinner from '../../../spinner/Spinner'
 import Button from '../../../components/Button'
 import { isMobile } from '../../../util/util'
+import PrintPrint from '../../../components/PrintPrint'
+import Cabecalho from '../../../components/Cabecalho'
 import './pessoaLista.css'
 
-// import classes from './PessoaLista.module.css'
-// import classes2 from '../PessoaCad.module.css'
 import { pessoasActions } from '../../../store/pessoaReducers'
-import Nav from '../../proponente/nav/NavProponente'
+// import Nav from '../../proponente/nav/NavProponente'
+
 
 import PessoaListaPdf from './PessoaListaPdf'
 import PessoaFichaCadastralPdf from './PessoaFichaCadastralPdf'
+import ListaIcones from './ListaIcones'
+
+const nomeEmpresa = 'COTA Empreendimentos Imobiliários Ltda'
 
 const PessoaLista = () => {
-
+    
     const [pessoasAll, setPessoasAll] = useState([])
     const [pessoas, setPessoas] = useState([])
     const [icones, setIcones] = useState(false)
@@ -28,7 +30,10 @@ const PessoaLista = () => {
     const [busca, setBusca] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [getLista, setGetLista] = useState(true)
-    const [formDataI, setFormDataI] = useState({})
+    const [print, setPrint] = useState(false)
+    
+    let pagina = 0
+
 
     const navigate = useNavigate()
 
@@ -55,6 +60,11 @@ const PessoaLista = () => {
         atualizar()
         setGetLista(false)
     }, [])
+
+
+    useEffect(() => {
+        setPrint(false)
+    }, [print])
 
     const deletePessoaHandler = id => {
         Swal.fire({
@@ -83,14 +93,16 @@ const PessoaLista = () => {
 
     }
 
-    const clickHandle = (id) => {
-        setIcones(!icones)
-        setId(id)
-        // const elem = document.getElementById('ck-linha')
-        // elem.checked = !elem.checked
-        // const elem2 = document.getElementsById('abcde')
-        // elem2.style.width = '100px'
-        // // elem2[0].style.width = '100px'
+    const clickHandle = (idClicked) => {
+
+        if (idClicked === id) {
+            setIcones(!icones)
+        } else {
+            setIcones(true)
+            setId(idClicked)
+
+        }
+
     }
 
 
@@ -164,8 +176,6 @@ const PessoaLista = () => {
             .catch(err => {
                 console.log('Erro ao buscar ', err)
             })
-
-
     }
 
     const styleButton = {
@@ -174,106 +184,127 @@ const PessoaLista = () => {
         color: 'blue'
     }
 
+
+
+
+
     return (
-        <div className='pessoa-list__layout'>
-            {/* <Nav /> */}
-            {isLoading && <Spinner />}
-            {/* <main className='pessoa-list__main'> */}
-            <div className='pessoa-list__header'>
-                <h2>Proponentes</h2>
-                <div className='pessoa-list__header-buttons'>
+        <>
+            <div className='pessoa-list__layout'>
+                {isLoading && <Spinner />}
+                <div className='pessoa-list__header'>
+                    <h2>Pessoas</h2>
+                    <div className='pessoa-list__header-buttons'>
 
-                    <div>
-                        <Button
-                            className='pessoa-list__header-button'
-                            bg='lightgreen'
-                            c='green'
-                            title='Novo'
-                            onClick={() => goToForm(null)}
-                        />
-                    </div>
-                    <div>
-                        <Button
-                            className='pessoa-list__header-button'
-                            bg='green'
-                            title='PDF'
-                            onClick={() => PessoaListaPdf(pessoas)}
-                        />
-                    </div>
-                    <div>
-                        <Button
-                            className='pessoa-list__header-button'
-                            bg='grey'
-                            title='Sair'
-                            onClick={() => navigate('/', { replace: true })}
-                        />
-                    </div>
-
-                    {/* <Button style={styleButton}>
-                        <button
-                            className='form-botaoBox__button'
-                            type="button"
-                            onClick={() => goToForm(null)}
-                        >Novo</button>
-                    </Button>
-                    <Button style={styleButton}>
-                        <button
-                            className='form-botaoBox__button'
-                            type="button"
-                            onClick={() => PessoaListaPdf(pessoas)}
-                        >PDF</button>
-                    </Button>
-                    <Button style={styleButton}>
-                        <button
-                            className='form-botaoBox__button'
-                            type="button"
-                            onClick={() => navigate('/', { replace: true })}
-                        >Sair</button>
-                    </Button> */}
-
-                </div>
-                <div className='pessoa-list__busca'>
-
-                    <div className='pessoa-list__input-box'>
-                        <label htmlFor="busca">Busca:</label>
-                        <input
-                            className='form-input pessoa-list__input-busca'
-                            id="busca"
-                            name="busca"
-                            onChange={textHandler}
-                            value={busca}
-                        />
-                    </div>
-                </div>
-            </div>
-            <ul className='pessoa-list__container-list'>
-
-                {
-                    pessoas.map(pessoa => (
-                        <div style={{ background: 'white' }}>
-                            <div className='pessoa-list__item' key={pessoa.id_pessoa}>
-                                <li
-                                    className='pessoa-list__linha'
-                                    onClick={() => clickHandle(pessoa.id_pessoa)}>{pessoa.nome}
-                                </li>
-
-                                {icones && id === pessoa.id_pessoa &&
-                                    <div className='pessoa_list__icones'>
-                                        <button className='pessoa_list__icones-button' onClick={() => goToForm(pessoa)}><FaRegEdit size={30} color='blue' /></button>
-                                        <button className='pessoa_list__icones-button' onClick={() => FichaCadastral(pessoa.id_pessoa)}><FaRegFilePdf size={30} color='grey' /></button>
-                                        <button className='pessoa_list__icones-button' onClick={() => deletePessoaHandler(pessoa.id_pessoa)}><BsTrash size={30} color='red' /></button>
-                                    </div>
-                                }
-
-                            </div>
+                        <div>
+                            <Button
+                                className='pessoa-list__header-button'
+                                bg='lightgreen'
+                                c='green'
+                                title='Novo'
+                                onClick={() => goToForm(null)}
+                            />
                         </div>
-                    )
-                    )
-                }
-            </ul>
+                        <div>
+                            <Button
+                                className='pessoa-list__header-button'
+                                bg='green'
+                                title='Imprimir'
+                                // onClick={() => PessoaListaPdf(pessoas)}
+                                onClick={() => setPrint(true)}
+                            />
+                        </div>
+                        <div>
+                            <Button
+                                className='pessoa-list__header-button'
+                                bg='grey'
+                                title='Sair'
+                                onClick={() => navigate('/', { replace: true })}
+                            />
+                        </div>
 
-            {/* </main> */}
-        </div>
+                    </div>
+                    <div className='pessoa-list__busca'>
+
+                        <div className='pessoa-list__input-box'>
+                            <label htmlFor="busca">Busca:</label>
+                            <input
+                                className='form-input pessoa-list__input-busca'
+                                id="busca"
+                                name="busca"
+                                onChange={textHandler}
+                                value={busca}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <ul className='pessoa-list__container-list'>
+
+                    {
+                        pessoas.map(pessoa => (
+                            <div style={{ background: 'white' }}>
+                                <div className='pessoa-list__item' key={pessoa.id_pessoa} onClick={() => clickHandle(pessoa.id_pessoa)} >
+                                    <li
+                                        className={icones && id === pessoa.id_pessoa ? 'pessoa-list__linha pessoa-list__bold' : 'pessoa-list__linha'}
+
+                                    >{pessoa.nome}
+                                    </li>
+
+                                    {icones && id === pessoa.id_pessoa &&
+                                        <ListaIcones
+                                            onClick1={() => goToForm(pessoa)}
+                                            onClick2={() => FichaCadastral(pessoa.id_pessoa)}
+                                            onClick3={() => deletePessoaHandler(pessoa.id_pessoa)}
+                                        />
+                                    }
+
+                                </div>
+                            </div>
+                        )
+                        )
+                    }
+                </ul>
+            </div>
+            {
+                print &&
+                <PrintPrint>
+                    <div style={{ padding: '30px ' }}>
+                        <Cabecalho
+                            nomeEmpresa={nomeEmpresa}
+                            tituloDocumento='Relação de Pessoas'
+                            pagina = {++pagina}
+                        />
+                        {
+                            pessoas.map((pessoa, index) => (
+                                <div style={{ background: 'white' }}>
+
+                                    <div
+                                        className={index > 0 && index % 38 === 0 ? 'pessoa-list__item page-break' : 'pessoa-list__item'}
+                                        key={pessoa.id_pessoa}
+                                        onClick={() => clickHandle(pessoa.id_pessoa)}
+                                    >
+                                        <li >
+                                            {pessoa.nome}
+
+                                        </li>
+
+                                    </div>
+                                        {index > 0 && index % 38 === 0 &&
+                                            <Cabecalho
+                                                nomeEmpresa={nomeEmpresa}
+                                                tituloDocumento='Relação de Pessoas'
+                                                pagina = {++pagina}
+                                            />
+                                        }
+                                </div>
+                            )
+                            )
+                        }
+
+                    </div>
+                </PrintPrint>
+            }
+        </>
     );
 }
 

@@ -21,6 +21,7 @@ const Empreend_Telefones = ({ history }) => {
     const [mostrar, setMostrar] = useState(false)
     const [nomeAbuscar, setNomeAbuscar] = useState('')
     const [mostrarTelefones, setMostrarTelefones] = useState(false)
+    const [print, setprint] = useState(false)
 
     const onSubmit = (e) => {
 
@@ -95,7 +96,7 @@ const Empreend_Telefones = ({ history }) => {
                             {mostrarTelefones &&
                                 <div className='intra-fones__fecharfones-Container' onClick={() => limparTelefones()}>
                                     <button type="button" className='intra-fones__button' 
-                                    ><span style={{ marginRight: '20px', paddingTop: '3px', color: 'white' }}>Fechar</span>  <AiOutlineClose size={20} color='white' /></button>
+                                    ><span style={{ marginRight: '20px', paddingTop: '3px', color: 'grey' }}>Fechar</span>  <AiOutlineClose size={20} color='grey' /></button>
 
                                 </div>
 
@@ -113,7 +114,6 @@ const Empreend_Telefones = ({ history }) => {
                     </div>
                     : null
             }
-
 
         </div>
     )

@@ -81,13 +81,13 @@ const MensagemCub = () => {
                     onClick={() => handleMostrarMais()}
 
                 >{
-                        aberto
-                            ? <span>Fechar  X</span>
+                    mostrarMais
+                            ? null
                             : <span>Útimos 12 meses...</span>
                     }</p>
                 {
                     mostrarMais
-                        ? <MensagemCubPeriodo />
+                        ? <MensagemCubPeriodo setMostrarMais={setMostrarMais} />
                         : null
                 }
             </Card>

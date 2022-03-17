@@ -1,0 +1,54 @@
+.lista-icones {
+    width: 0px;
+    margin: 2px 0;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    background: white;
+    z-index: 20;
+    padding: 10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    /* top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%); */
+    /* background: rgba(0,0,0,0.3); */
+}
+
+.lista-icones__button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.lista-icones__button:hover {
+    cursor: pointer;
+
+    background: lightgreen;
+    border-radius: 10px;
+}
+
+.lista-open {
+    opacity: 1;
+    width: 300px;
+
+}
+
+.lista-closed {
+    opacity: 0;
+    width: 0%;
+}
+
+#checkIcones {
+    display: none;
+}
+
+#checkIcones:checked ~ .lista-icones{
+    opacity: 1;
+    width: 300px;
+}

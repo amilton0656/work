@@ -1,14 +1,36 @@
+import React, {  useEffect, useState} from 'react'
 
+import { BsTrash } from 'react-icons/bs'
+import { FaRegEdit } from 'react-icons/fa'
+import { FaRegFilePdf } from 'react-icons/fa'
+
+import './listaIcones.css'
 
 const ListaIcones = props => {
-    return ( 
-        <div className='pessoa_list__icones'>
-                                        <button className='pessoa_list__icones-button' onClick={() => goToForm(pessoa)}><FaRegEdit size={30} color='blue' /></button>
-                                        <button className='pessoa_list__icones-button' onClick={() => FichaCadastral(pessoa.id_pessoa)}><FaRegFilePdf size={30} color='grey' /></button>
-                                        <button className='pessoa_list__icones-button' onClick={() => deletePessoaHandler(pessoa.id_pessoa)}><BsTrash size={30} color='red' /></button>
-                                        <input id={`linha-${pessoa.id_pessoa}`} type='checkbox' style={{display: 'none'}} />
-       </div>
-     );
+
+  const [show, setShow] = useState(true)
+
+
+  useEffect(() => {
+
+    const check = document.getElementById('checkIcones')
+    check.checked = true
+
+  }, [])
+
+
+  const cssClasses = ['lista-icones', show ? 'lista-open' : 'lista-closed']
+
+  return (
+    <>
+      <input id='checkIcones' type='checkbox' />
+    <div className='lista-icones' onBlur={() => alert('skdjhfsjdhskdh')}>
+      <button className='lista-icones__button' onClick={props.onClick1}><FaRegEdit size={30} color='blue' /></button>
+      <button className='lista-icones__button' onClick={props.onClick2}><FaRegFilePdf size={30} color='grey' /></button>
+      <button className='lista-icones__button' onClick={props.onClick3}><BsTrash size={30} color='red' /></button>    
+    </div>
+    </>
+  );
 }
- 
+
 export default ListaIcones;

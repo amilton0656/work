@@ -31,7 +31,7 @@ const Header = props => {
     }
     return (
         <div className='pessoa-container__header-buttons'>
-            <h2 style={{ marginLeft: '5px' }}>Proponente</h2>
+            <h2 style={{ marginLeft: '5px' }}>Cadastro de Pessoa</h2>
 
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Button
@@ -456,7 +456,7 @@ const ProponenteCadDados = props => {
         <div className='pessoa-container'>
             <main className='pessoa-main'>
                 <Header />
-                <Form className='pessoa-form'>
+                <Form className=''>
                     <div>{formDataI.id_pessoa}</div>
 
                     <RadioBox

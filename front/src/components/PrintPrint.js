@@ -4,10 +4,12 @@ import { useNavigate } from 'react-router-dom'
 
 // import { ComponentToPrint } from './ComponentToPrint';
 
+import './printprint.css'
+
 export class ComponentToPrint extends React.PureComponent {
   render() {
     return (
-      <div>{this.props.children}</div>
+      <div style = {{listStyle: 'none'}}>{this.props.children}</div>
     );
   }
 }
@@ -30,7 +32,6 @@ const PrintPrint = props => {
         onAfterPrint={() => navigate(-1)}
       />
       <ComponentToPrint ref={componentRef}>
-        {/* <div>teste impressao</div> */}
         {props.children}
       </ComponentToPrint>
     </div>

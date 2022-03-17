@@ -12,7 +12,7 @@ const ErpLayout = () => {
     return ( 
         <main className='erp-main'>
             <div className='erp-card'>
-                <Link className='erp-link' to='/pessoa/lista'>Proponente</Link>
+                <Link className='erp-link' to='/pessoa/lista'>Pessoas</Link>
             </div>
             <div className='erp-card'>
                 <Link className='erp-link' to='/emprestimosac'>Simulação SAC</Link>

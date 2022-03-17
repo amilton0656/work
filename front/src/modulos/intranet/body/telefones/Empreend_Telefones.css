@@ -45,7 +45,7 @@
     right: 10px;
 }
 
-.intra-fones__fecharfones-Container{
+/* .intra-fones__fecharfones-Container{
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -53,6 +53,18 @@
     background: steelblue;
     color: white;
     border-radius: 10px;
+} */
+
+.intra-fones__fecharfones-Container{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 10px;
+    /* background: steelblue; */
+    color: grey;
+    /* border-radius: 10px; */
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
 }
 
 .intra-fones__input-container {

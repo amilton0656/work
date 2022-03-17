@@ -116,43 +116,14 @@ const EmprestimoSACLista = props => {
     return (
         <div className='emprestimo__centralizar-lista'>
             <div className='emprestimo__lista'>
-                <div className='emprestimo__header hide-component'>
 
-                    <div className='center'>
-                        <Button
-                            className='w200'
-                            title='Gerar PDF'
-                            onClick={() => EmprestimoSACListaPDF(formData, listaPDF, totalDesembolso)}
-                        />
-                    </div>
-
-                    <div className='center'>
-                        <Button
-                            className='w200'
-                            title='Imprimir'
-                            onClick={() => window.print()}
-                        />
-                    </div>
-
-                    {/* <Button>
-                        <button
-                            className='form-botaoBox__button w150'
-                            type="button"
-                            onClick={() => EmprestimoSACListaPDF(formData, listaPDF, totalDesembolso)}
-                        >Gerar PDF</button>
-                    </Button>
-
-                    <Button>
-                        <button
-                            className='form-botaoBox__button w150'
-                            type="button"
-                            onClick={() => window.print()}
-                        >Imprimir</button>
-                    </Button> */}
-
+                <div className='emprestimo__header-container'>
+                    <span className='emprestimo__header-container-titulo'>Simulação - SAC</span>
+                    <button
+                        className='emprestimo__header-container-button hide-component'
+                        onClick={() => window.print()}
+                    >Imprimir</button>
                 </div>
-
-                <h2 style={{ color: 'black', textAlign: 'center' }}>Simulação - SAC</h2>
 
                 <Parametros formData={formData} totalDesembolso={totalDesembolso} />
                 <ul className='emprestimo__container-tabela '>
