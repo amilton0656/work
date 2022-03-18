@@ -1,0 +1,21 @@
+table.report-container {
+    page-break-after:always;
+}
+thead.report-header {
+    display:table-header-group;
+}
+tfoot.report-footer {
+    display:table-footer-group;
+} 
+
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@page {
+    size: A4;
+    margin: 11mm 17mm 17mm 17mm;
+  }

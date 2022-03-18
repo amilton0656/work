@@ -21,6 +21,9 @@ import FundoModal from '../modulos/testes/FundoModal'
 import ExMensagem from '../components/mensagem/ExMensagem'
 import InputButton from '../components/InputWithButton'
 import PrintPrint from '../components/PrintPrint'
+import TesteReport from '../exemplos/TesteReport'
+
+
 const Rotas = () => {
 
     const navi = useNavigate()
@@ -47,7 +50,7 @@ const Rotas = () => {
                 <Route path="/pessoa/lista" element={<PessoaLista />} />
                 <Route path="/pessoa/formdados" element={<PessoaCadDados />} />
 
-                <Route path="/teste" element={<Teste3 />} />
+                <Route path="/teste" element={<TesteReport />} />
                 <Route path="/menu" element={<Menu01 />} />
 
             </Routes>
