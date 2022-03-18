@@ -16,6 +16,7 @@ import { pessoasActions } from '../../../store/pessoaReducers'
 
 
 import PessoaListaPdf from './PessoaListaPdf'
+import PessoaFichaCadastral from './PessoaFichaCadastral'
 import PessoaFichaCadastralPdf from './PessoaFichaCadastralPdf'
 import ListaIcones from './ListaIcones'
 
@@ -148,34 +149,36 @@ const PessoaLista = () => {
     }
 
     const FichaCadastral = (id_pessoa) => {
+        console.log('fich')
+        navigate('/pessoa/fichacadastral', {state: id_pessoa})
 
-        let formDataI
-        let formDataII
+        // let formDataI
+        // let formDataII
 
 
-        clienteAxios.get(`/pessoa/lista/id/${id_pessoa}`)
-            .then(resposta => {
-                const id_pessoa = resposta.data.id_pessoa
-                formDataI = resposta.data
+        // clienteAxios.get(`/pessoa/lista/id/${id_pessoa}`)
+        //     .then(resposta => {
+        //         const id_pessoa = resposta.data.id_pessoa
+        //         formDataI = resposta.data
 
-                clienteAxios.get(`/pessoacomplemento/lista/id/${id_pessoa}`)
-                    .then(resposta => {
-                        if (resposta.data.length === 0) {
-                            formDataII = {}
-                        } else {
-                            formDataII = resposta.data[0]
-                        }
+        //         clienteAxios.get(`/pessoacomplemento/lista/id/${id_pessoa}`)
+        //             .then(resposta => {
+        //                 if (resposta.data.length === 0) {
+        //                     formDataII = {}
+        //                 } else {
+        //                     formDataII = resposta.data[0]
+        //                 }
 
-                        PessoaFichaCadastralPdf(formDataI, formDataII)
+        //                 PessoaFichaCadastralPdf(formDataI, formDataII)
 
-                    })
-                    .catch(err => {
-                        console.log('Erro ao buscar ', err)
-                    })
-            })
-            .catch(err => {
-                console.log('Erro ao buscar ', err)
-            })
+        //             })
+        //             .catch(err => {
+        //                 console.log('Erro ao buscar ', err)
+        //             })
+        //     })
+        //     .catch(err => {
+        //         console.log('Erro ao buscar ', err)
+        //     })
     }
 
     const styleButton = {

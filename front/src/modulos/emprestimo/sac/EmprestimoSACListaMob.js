@@ -48,9 +48,9 @@ const Parametros = props => {
         { title: 'Taxa Juros (% a.a.):', value: convertToReal(formData.taxaJurosAA) },
         { title: 'Taxa Juros (% a.m.):', value: formData.taxaJurosAMx },
         { title: 'Comissão (1) - Perc:', value: convertToReal(formData.comissao1Perc) },
-        { title: 'Comissão (1) - Valor:', value: convertToReal(formData.comissao1Valor) },
-        { title: 'Comissão (2) - Perc:', value: formData.comissao2Perc },
-        { title: 'Comissão (2) - Valor:', value: convertToReal(formData.comissao2Valor) },
+        { title: 'Comissão (1) - Valor:', value: formData.comissao1Valor },
+        { title: 'Comissão (2) - Perc:', value: convertToReal(formData.comissao2Perc) },
+        { title: 'Comissão (2) - Valor:', value: formData.comissao2Valor },
         { title: 'Total do desembolso::', value: totalDesembolso },
     ]
 

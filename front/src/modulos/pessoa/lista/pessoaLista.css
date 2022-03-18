@@ -180,6 +180,9 @@
 }
 
 @media print {
+    @page {
+        size: A4;
+    }
     .pessoa-list__linha {
         list-style: none;
         list-style-type: none;

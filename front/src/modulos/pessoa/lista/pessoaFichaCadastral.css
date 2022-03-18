@@ -1,0 +1,66 @@
+body {
+    box-sizing: border-box;
+
+}
+
+.pessoa-ficha__main {
+    padding: 10px 50px;
+    width: 700px;
+}
+.pessoa-ficha__titulo {
+    font-size: 2rem;
+    text-align: left;
+    margin: 5px 0 20px 0;
+    padding: 10px;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+
+}
+
+.pessoa-ficha__linha-container {
+    display: flex;
+    width: 700px;
+    padding: 3px;
+}
+
+.pessoa-ficha__linha-title {
+    width: 250px;
+    text-align: left;
+}
+
+.pessoa-ficha__subtitle {
+    font-size: 1.2rem;
+    padding: 5px;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    margin: 20px 0;
+    width: 100%;
+}
+.pessoa-ficha__subtitle-container {
+    border: 1px solid grey;
+}
+
+.pessoa-ficha__assinatura-container {
+    border-top: 1px solid grey;
+    margin-top: 20px;
+    padding-top: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pessoa-ficha__assinatura {
+    border-top: 1px solid grey;
+    display: inline-block;
+    /* margin-top: 50px; */
+    text-align: center;
+    padding: 0 20px;
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 0; 
+
+    }
+}

@@ -1,21 +1,26 @@
-table.report-container {
-    page-break-after:always;
-}
-thead.report-header {
-    display:table-header-group;
-}
-tfoot.report-footer {
-    display:table-footer-group;
-} 
 
-@media print {
+
+  /* @media print {
+} */
+
+/* @media print {
     body {
-        margin: 0;
-        padding: 0;
-    }
-}
+        counter-reset: chapternum;
+      }
+      
+      ul::before {
+        counter-increment: chapternum;
+        content: counter(chapternum) ". ";
+      }
 
-@page {
-    size: A4;
-    margin: 11mm 17mm 17mm 17mm;
-  }
+    @page {
+        size: A4 landscape;
+    }
+
+
+
+    ul {
+            page-break-before:auto;
+        
+    }
+} */

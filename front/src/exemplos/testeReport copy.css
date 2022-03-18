@@ -1,0 +1,28 @@
+table.report-container {
+    page-break-after:always;
+}
+thead.report-header {
+    /* display:table-header-group; */
+}
+tfoot.report-footer {
+    display:table-footer-group;
+} 
+
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+body {
+    /* Set "my-sec-counter" to 0 */
+    counter-reset: numpagina;
+  }
+
+  #cabecalho::before {
+    /* Increment "my-sec-counter" by 1 */
+    counter-increment: numpagina;
+    content: "Section " counter(numpagina) ". ";
+  }
+

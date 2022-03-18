@@ -51,7 +51,7 @@ const Parametros = props => {
         { title: 'Comissão (1) - Valor:', value: formData.comissao1Valor },
         { title: 'Comissão (2) - Perc:', value: convertToReal(formData.comissao2Perc) },
         { title: 'Comissão (2) - Valor:', value: formData.comissao2Valor },
-        { title: 'Total do desembolso::', value: convertToReal(totalDesembolso) },
+        { title: 'Total do desembolso:', value: convertToReal(totalDesembolso) },
     ]
 
 

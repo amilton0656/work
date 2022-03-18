@@ -79,7 +79,7 @@
     border: 1px solid grey;
     /* margin-top: 20px; */
     padding: 10px 0;
-    width: 100%;
+    width: 750px;
     overflow: hidden;
 }
 
@@ -253,5 +253,9 @@ display: inline-block;
 
     .main-emprestimo__form {
         padding: 20px;
+    }
+
+    .emprestimo__container-tabela {
+        width: 100%;
     }
 }
