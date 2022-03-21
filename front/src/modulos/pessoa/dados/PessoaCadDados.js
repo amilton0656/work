@@ -31,9 +31,9 @@ const Header = props => {
     }
     return (
         <div className='pessoa-container__header-buttons'>
-            <h2 style={{ marginLeft: '5px' }}>Cadastro de Pessoa</h2>
+            <h2 className='pessoa-main__title'>Cadastro de Pessoa</h2>
 
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                 <Button
                     className='w150'
                     bg='transparent'
@@ -41,6 +41,7 @@ const Header = props => {
                     title='<<<  Voltar'
                     onClick={getOutHandle}
                     style={{ textAlign: 'right' }}
+                    span='btn-span-right'
                 />
             </div>
 
@@ -145,7 +146,11 @@ const ProponenteCadDados = props => {
 
     const addHandle = event => {
 
+        console.log('enter')
+
         event.preventDefault()
+
+        return null
 
         let id_pessoa
 
@@ -153,7 +158,7 @@ const ProponenteCadDados = props => {
             .then(resposta => {
                 id_pessoa = resposta.data.id_pessoa
                 // dispatch(pessoasActions.setPessoa(resposta.data))
-                console.log('depois de cad voltou ', resposta.data )
+                console.log('depois de cad voltou ', resposta.data)
 
             })
             .then(resposta => {
@@ -213,6 +218,12 @@ const ProponenteCadDados = props => {
 
     }
 
+    const onKeyPressHandle = e => {
+        if (e.which === 13 || e.keyCode == 13) {
+            alert('digitou enter')
+        }
+    }
+
     const atualizaComplemento = () => {
         if (formDataI.id_pessoa) {
             clienteAxios.get(`/pessoacomplemento/lista/id/${formDataI.id_pessoa}`, { headers: { Authorization: token } })
@@ -228,6 +239,7 @@ const ProponenteCadDados = props => {
     const textHandlerI = (event) => {
 
         let dataEntered = event.target.value
+
 
         if ([
             'nome',
@@ -451,18 +463,51 @@ const ProponenteCadDados = props => {
             })
     }
 
+    // const nextField = e => {
+    //     if (e.keyCode == 13) {
+    //         let next
+    //         switch (e.target.name) {
+
+    //             case 'tipo_pessoa':
+    //                 next = 'cpf_cnpj'
+    //                 break
+
+    //             case 'cpf_cnpj':
+    //                 next = 'nome'
+    //                 break
+
+    //             case 'nome':
+    //                 next = 'cep'
+    //                 break
+
+    //             case 'cep':
+    //                 next = 'endereco'
+    //                 break
+    //         }
+
+    //         document.getElementById(next).focus();
+    //     }
+    // }
+
+    const nextField = (keyCode, field) => {
+        if (keyCode == 13) {
+        document.getElementById(field).focus()
+        }
+    }
+
 
     return (
         <div className='pessoa-container'>
             <main className='pessoa-main'>
                 <Header />
-                <Form className=''>
+                <Form className='pessoa-form'>
                     <div>{formDataI.id_pessoa}</div>
 
                     <RadioBox
                         name='tipo_pessoa'
                         label='Tipo de Pessoa:'
                         direction='row'
+                            onClick={() => document.getElementById('cpf_cnpj').focus()}
                     >
 
                         <div className='form-radioBoxLinha'>
@@ -473,6 +518,7 @@ const ProponenteCadDados = props => {
                                 onChange={textHandlerI}
                                 value={formDataI.tipo_pessoa}
                                 checked={formDataI.tipo_pessoa.toString() === "1"}
+                                
                             /><label htmlFor="tipo_pessoa1">Física</label>
 
                         </div>
@@ -486,6 +532,7 @@ const ProponenteCadDados = props => {
                                 onChange={textHandlerI}
                                 value={formDataI.tipo_pessoa}
                                 checked={formDataI.tipo_pessoa.toString() === "2"}
+                                
                             /><label htmlFor="tipo_pessoa2">Jurídica</label>
 
                         </div>
@@ -502,6 +549,7 @@ const ProponenteCadDados = props => {
                             onChange={textHandlerI}
                             onBlur={verCPF}
                             className='w200'
+                            onKeyDown={e => nextField(e.keyCode, 'nome')}
                         />
                         {
                             !cpfValido &&
@@ -518,8 +566,10 @@ const ProponenteCadDados = props => {
                         type='text'
                         id='nome'
                         name='nome'
+                        next='cpf_cnpj'
                         value={formDataI.nome}
                         onChange={textHandlerI}
+                        onKeyDown={e => nextField(e.keyCode, 'cep')}
                     />
 
                     {/* CEP */}
@@ -531,6 +581,7 @@ const ProponenteCadDados = props => {
                         value={formDataI.cep}
                         onChange={textHandlerI}
                         className='w100'
+                        onKeyDown={e => nextField(e.keyCode, 'endereco')}
                     />
 
                     {/* Endereço */}
@@ -541,6 +592,7 @@ const ProponenteCadDados = props => {
                         name='endereco'
                         value={formDataI.endereco}
                         onChange={textHandlerI}
+                        onKeyDown={e => nextField(e.keyCode, 'complemento')}
                     />
 
                     {/* Complemento */}
@@ -551,6 +603,7 @@ const ProponenteCadDados = props => {
                         name='complemento'
                         value={formDataI.complemento}
                         onChange={textHandlerI}
+                        onKeyDown={e => nextField(e.keyCode, 'bairro')}
                     />
 
                     {/* Bairro */}
@@ -561,6 +614,7 @@ const ProponenteCadDados = props => {
                         name='bairro'
                         value={formDataI.bairro}
                         onChange={textHandlerI}
+                        onKeyDown={e => nextField(e.keyCode, 'municipio')}
                     />
 
                     {/* Município */}
@@ -571,6 +625,7 @@ const ProponenteCadDados = props => {
                         name='municipio'
                         value={formDataI.municipio}
                         onChange={textHandlerI}
+                        onKeyDown={e => nextField(e.keyCode, 'uf')}
                     />
 
                     {/* UF */}

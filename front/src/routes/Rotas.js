@@ -16,13 +16,13 @@ import PessoaLista from '../modulos/pessoa/lista/PessoaLista'
 import PessoaCadDados from '../modulos/pessoa/dados/PessoaCadDados'
 import PessoaFichaCadastral from '../modulos/pessoa/lista/PessoaFichaCadastral'
 import TesteScroll from '../modulos/testes/TesteScroll'
-import Teste3 from '../modulos/testes/Teste3'
 import Menu01 from '../exemplos/menus/Menu01'
 import FundoModal from '../modulos/testes/FundoModal'
 import ExMensagem from '../components/mensagem/ExMensagem'
 import InputButton from '../components/InputWithButton'
 import PrintPrint from '../components/PrintPrint'
 import TesteReport from '../exemplos/TesteReport'
+import Teste from '../exemplos/Teste'
 
 
 const Rotas = () => {
@@ -52,7 +52,7 @@ const Rotas = () => {
                 <Route path="/pessoa/formdados" element={<PessoaCadDados />} />
                 <Route path="/pessoa/fichacadastral" element={<PessoaFichaCadastral />} />
 
-                <Route path="/teste" element={<TesteReport />} />
+                <Route path="/teste" element={<Teste />} />
                 <Route path="/menu" element={<Menu01 />} />
 
             </Routes>

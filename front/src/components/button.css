@@ -18,10 +18,12 @@
     justify-content: center;
 }
 
+.btn-span-right {
+    justify-content: flex-end;
+}
+
 .btn-center span {
     margin-right: 10px;
-
-
 }
 
 .btn-main:hover {

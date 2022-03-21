@@ -57,6 +57,32 @@
     font-weight: bold;
 }
 
+.d-flex {
+    display: flex;
+}
+
+.d-row {
+    flex-direction: column;
+}
+
+.d-col {
+    flex-direction: column;
+}
+
+.dh {
+    justify-content: center;
+}
+.dv {
+    align-items: center;
+}
+.d-sb {
+    justify-content: space-between;
+}
+
+.d-sa {
+    justify-content: space-around;
+}
+
 @media (min-width: 1px) and (max-width: 459px) {
     
 }

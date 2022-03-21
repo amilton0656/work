@@ -15,8 +15,9 @@ const Button = props => {
                 style={{background, color, height, fontSize, ...props.style} }
                 className={`btn-main ${props.className}`} 
                 onClick={props.onClick}
+                type={props.type}
             >
-                <div className='btn-center'>
+                <div className={`btn-center ${props.span}`}>
                  <span>{props.title}</span> {props.children}
 
                 </div>

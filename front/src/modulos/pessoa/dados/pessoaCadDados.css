@@ -6,6 +6,14 @@
 
 .pessoa-main {
     width: 100%;
+    max-width: 600px;
+    min-width: 410px;
+}
+
+.pessoa-main__title {
+    margin-left: 5px;
+    font-size: 1.5rem;
+    color: white;
 }
 
 .pessoa-container__header-buttons {
@@ -17,14 +25,27 @@
     width: 100%;
 }
 
+@media only screen and (min-width: 830px) {
+
+    .pessoa-main__title {
+        font-size: 1.5rem;
+    }
+
+}
+
 @media only screen and (min-width: 460px) {
     .pessoa-main {
         width: 60%;
         margin: 0 auto;
     }
 
+    .pessoa-main__title {
+        font-size: 2rem;
+    }
+
+
     .pessoa-form {
-        width: 70%;
+        padding: 10px 30px;
     }
 
     
