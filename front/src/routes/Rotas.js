@@ -22,7 +22,7 @@ import ExMensagem from '../components/mensagem/ExMensagem'
 import InputButton from '../components/InputWithButton'
 import PrintPrint from '../components/PrintPrint'
 import TesteReport from '../exemplos/TesteReport'
-import Teste from '../exemplos/Teste'
+import Teste from '../modulos/testes/Teste'
 
 
 const Rotas = () => {

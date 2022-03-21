@@ -1,0 +1,29 @@
+
+.menu-nav {
+    width: 200px;
+    height: 100vh;
+    background: lightseagreen;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menu-nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+.menu-nav ul li {
+    list-style: none;
+    padding: 10px 15px;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.menu-nav ul li:hover {
+    background: lightgrey;
+    cursor: pointer;
+}
