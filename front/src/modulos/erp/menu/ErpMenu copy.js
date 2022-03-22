@@ -16,7 +16,6 @@ import {
     subUtilitarios,
     subQualidade,
     subSistema,
-    subTeste,
 
     sub2AmericaOfficenter
 
@@ -143,7 +142,6 @@ const ErpMenu = props => {
                                     {item.id === '0112' && <SubMenu items={subQualidade} />}
                                     {item.id === '0113' && <SubMenu items={subSistema} />}
                                     {item.id === '0114' && <SubMenu items={subPessoas} />}
-                                    {item.id === '0115' && <SubMenu items={subTeste} />}
                                 </ul>
                             </li>
 

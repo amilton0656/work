@@ -1,6 +1,6 @@
 
 export const items = [
-    {title: 'Simulações', id: '0101'},
+    {title: 'Simulações', id: '0101', sub: true},
     {title: 'Empreendimentos', id: '0102'},
     {title: 'Incorporação', id: '0103'},
     {title: 'Comercial', id: '0104'},
@@ -154,6 +154,10 @@ export const subSimulacoes = [
 
 export const subPessoas = [
     {title: 'Pessoas', navigate: '/pessoa/lista'},
+]
+
+export const subTeste = [
+    {title: 'Teste', navigate: '/teste'},
 ]
 
 
