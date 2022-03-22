@@ -1,37 +1,37 @@
 
 export const items = [
-    {title: 'Simulações', id: '0101', sub: true},
-    {title: 'Empreendimentos', id: '0102'},
-    {title: 'Incorporação', id: '0103'},
-    {title: 'Comercial', id: '0104'},
-    {title: 'Engenharia', id: '0105'},
-    {title: 'Suprimentos', id: '0106'},
-    {title: 'Financeiro', id: '0107'},
-    {title: 'Gerencial', id: '0108'},
-    {title: 'Administração', id: '0109'},
-    {title: 'Suporte', id: '0110'},
-    {title: 'Utilitários', id: '0111'},
-    {title: 'Qualidade', id: '0112'},
-    {title: 'Sistema', id: '0113'},
-    {title: 'Pessoas', id: '0114'},
-    {title: 'Teste', id: '0115'},
+    {title: 'Simulações', id: '01', sub: true},
+    {title: 'Empreendimentos', id: '02', sub: true},
+    {title: 'Incorporação', id: '03', sub: true},
+    {title: 'Comercial', id: '04', sub: true},
+    {title: 'Engenharia', id: '05', sub: true},
+    {title: 'Suprimentos', id: '06', sub: true},
+    {title: 'Financeiro', id: '07', sub: true},
+    {title: 'Gerencial', id: '08', sub: true},
+    {title: 'Administração', id: '09', sub: true},
+    {title: 'Suporte', id: '10', sub: true},
+    {title: 'Utilitários', id: '11', sub: true},
+    {title: 'Qualidade', id: '12', sub: true},
+    {title: 'Sistema', id: '13', sub: true},
+    {title: 'Pessoas', id: '14', sub: true},
+    {title: 'Teste', id: '15', sub: true}
 ]
 
 export const subEmpreendimentos = [
-    {title: 'America Officenter', id: '010201', sub: true},
-    {title: 'City Office Square'},
-    {title: 'Green Village Residence'},
-    {title: 'Punta Blu Mall Boutique & Residence'},
-    {title: 'Imóveis de Terceiros - Grande Fpolis'},
-    {title: 'Imóveis de Terceiros - Itejaí'},
-    {title: 'Imóveis de Terceiros - Bombinhas'},
-    {title: 'Shopping Max & Flora - Locações'},
-    {title: 'Outros Imóveis - Locações'},
-    {title: 'Punta Blu Mall Boutique - Locações'},
+    {title: 'America Officenter', id: '0201', sub: true},
+    {title: 'City Office Square', id: '0202', sub: true},
+    {title: 'Green Village Residence', id: '0203', sub: true},
+    {title: 'Punta Blu Mall Boutique & Residence', id: '0204', sub: true},
+    {title: 'Imóveis de Terceiros - Grande Fpolis', id: '0205', sub: true},
+    {title: 'Imóveis de Terceiros - Itejaí', id: '0206', sub: true},
+    {title: 'Imóveis de Terceiros - Bombinhas', id: '0207', sub: true},
+    {title: 'Shopping Max & Flora - Locações', id: '0208', sub: true},
+    {title: 'Outros Imóveis - Locações', id: '0209', sub: true},
+    {title: 'Punta Blu Mall Boutique - Locações', id: '0210', sub: true},
 ]
 
 export const subIncorporacao = [
-    {title: 'Viabilidade'},
+    {title: 'Viabilidade', navigate: '/emprestimoprice'},
     {title: 'Planejamento do Lançamento'}
 ]
 
@@ -148,8 +148,8 @@ export const subSistema = [
 ]
 
 export const subSimulacoes = [
-    {title: 'SAC', navigate: '/emprestimosac'},
-    {title: 'Price', navigate: '/emprestimoprice'}
+    {title: 'SAC', id: '0101', navigate: '/emprestimosac'},
+    {title: 'Price', id: '0102', navigate: '/emprestimoprice'}
 ]
 
 export const subPessoas = [
@@ -164,7 +164,7 @@ export const subTeste = [
 // ************
 
 export const sub2AmericaOfficenter = [
-    {title: 'Tab. Vendas - Bancária - Corretor'},
+    {title: 'Tab. Vendas - Bancária - Corretor', id: '020101', sub: true},
     {title: 'Tab. Vendas - Bancária - Cota'},
     {title: 'Tab. Vendas - Direta - Corretor'},
     {title: 'Tab. Vendas - Direta - Cota'},
@@ -174,6 +174,11 @@ export const sub2AmericaOfficenter = [
     {title: 'Memorial Descritivo'},
     {title: 'Plantas Humanizadas'},
     {title: 'Perspectivas'},
+]
+
+export const sub2AmericaOfficenterMais = [
+    {title: 'Azul'},
+    {title: 'Verde'},
 ]
 
 

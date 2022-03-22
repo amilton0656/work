@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import Login from '../login/Login'
 import ErpLayout from './ErpLayout'
 import ErpMenu from './menu/ErpMenu'
+import Menu from './menu/Menu'
 
 const Erp = () => {
 
@@ -11,7 +12,7 @@ const Erp = () => {
     return ( 
         <>
             {!auth && <Login />}
-            {auth && <ErpMenu />}
+            {auth && <Menu />}
         </>
      )
 }
