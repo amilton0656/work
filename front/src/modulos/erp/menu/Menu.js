@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { IconContext } from "react-icons";
 import {
     items,
     subSimulacoes,
@@ -26,45 +27,44 @@ import './menu.css'
 
 const clickHandle = (nivel, id) => {
 
-    const elems = document.querySelectorAll(nivel)
+    let elem
 
-    console.log(elems, 'nv ', nivel)
+    const elems = document.querySelectorAll(nivel)
 
     elems.forEach(element => {
         if (element.id !== id) {
             element.checked = false
         } else {
             element.checked = !element.checked
+
+            if (id === 'ck-02' && element.checked === true) {
+                document.getElementById('ck-0201').checked = false
+                document.getElementById('ck-020101').checked = false
+            }
         }
+
     })
+
 }
 
-const clickHandle2 = (nivel, id) => {
 
-    const elems = document.querySelectorAll(nivel)
-
-    console.log(elems, 'nv ', nivel)
-
-    elems.forEach(element => {
-        if (element.id !== id) {
-            element.checked = false
-        } else {
-            element.checked = !element.checked
-        }
-    })
-}
 
 const ItemNivel01 = ({ item }) => {
 
     return (
         <li key={item.id} id={`sub-${item.id}`} className='nerp-nav__li' >
-            <input type='checkbox' id={`ck-${item.id}`} className='nv01' />
-            <span>
-                <IoMdArrowDropright
-                    id={`ico-${item.id}`}
-                    size={20}
-                    color='black'
-                />
+            <input type='checkbox' id={`ck-${item.id}`} className='nv01' style={{ display: 'none' }} />
+            <span className='nerp-nav__alinha-icone'>
+                <IconContext.Provider value={{ color: "blue", className: "ico" }}>
+                    <div>
+                        <IoMdArrowDropright
+                            id={`ico-${item.id}`}
+                            size={20}
+                            color='black'
+                        />
+                    </div>
+                </IconContext.Provider>
+
                 <span htmlFor={`ck-${item.id}`} onClick={() => clickHandle('.nv01', `ck-${item.id}`)} >{item.title}</span>
             </span>
             {item.id === '01' && <Nivel02 grupo={item.id} items={subSimulacoes} />}
@@ -82,7 +82,6 @@ const ItemNivel01 = ({ item }) => {
             {item.id === '13' && <Nivel02 grupo={item.id} items={subSistema} />}
             {item.id === '14' && <Nivel02 grupo={item.id} items={subPessoas} />}
             {item.id === '15' && <Nivel02 grupo={item.id} items={subTeste} />}
-
         </li>
     )
 }
@@ -92,7 +91,7 @@ const Nivel02 = props => {
     const { grupo, items } = props
 
     return (
-        <ul id={`nv-${grupo}`} className='nerp-nav__ul'>
+        <ul id={`nv-${grupo}`} className='nerp-nav__ul not-show'>
             {
                 items.map(item => {
                     if (item.sub === true) {
@@ -113,13 +112,17 @@ const Nivel02 = props => {
 const ItemNivel02 = ({ item }) => {
     return (
         <li key={item.id} className='nerp-nav__li'>
-            <input type='checkbox' id={`ck-${item.id}`} className='nv02' />
-            <span>
-                <IoMdArrowDropright
-                    id={`ico-${item.id}`}
-                    size={20}
-                    color='black'
-                />
+            <input type='checkbox' id={`ck-${item.id}`} className='nv02' style={{ display: 'none' }} />
+            <span className='nerp-nav__alinha-icone'>
+                <IconContext.Provider value={{ color: "blue", className: "ico" }}>
+                    <div>
+                        <IoMdArrowDropright
+                            id={`ico-${item.id}`}
+                            size={20}
+                            color='black'
+                        />
+                    </div>
+                </IconContext.Provider>
                 <span htmlFor={`ck-${item.id}`} onClick={() => clickHandle('.nv02', `ck-${item.id}`)} >{item.title}</span>
             </span>
             {item.id === '0201' && <Nivel03 grupo={item.id} items={sub2AmericaOfficenter} />}
@@ -135,7 +138,7 @@ const Nivel03 = props => {
     const { grupo, items } = props
 
     return (
-        <ul id={`nv-${grupo}`} className='nerp-nav__ul'>
+        <ul id={`nv-${grupo}`} className='nerp-nav__ul not-show'>
             {
                 items.map(item => {
                     if (item.sub === true) {
@@ -156,16 +159,20 @@ const Nivel03 = props => {
 const ItemNivel03 = ({ item }) => {
     return (
         <li key={item.id} className='nerp-nav__li'>
-            <input type='checkbox' id={`ck-${item.id}`} className='nv03' />
-            <span>
-                <IoMdArrowDropright
-                    id={`ico-${item.id}`}
-                    size={20}
-                    color='black'
-                />
-                <span htmlFor={`ck-${item.id}`} onClick={() => clickHandle2('.nv03', `ck-${item.id}`)} >{item.title}</span>
+            <input type='checkbox' id={`ck-${item.id}`} className='nv03' style={{ display: 'none' }} />
+            <span className='nerp-nav__alinha-icone'>
+                <IconContext.Provider value={{ color: "blue", className: "ico" }}>
+                    <div>
+                        <IoMdArrowDropright
+                            id={`ico-${item.id}`}
+                            size={20}
+                            color='black'
+                        />
+                    </div>
+                </IconContext.Provider>
+                <span htmlFor={`ck-${item.id}`} onClick={() => clickHandle('.nv03', `ck-${item.id}`)} >{item.title}</span>
             </span>
-            {item.id === '020101' && <Nivel04 items={sub2AmericaOfficenterMais} />}
+            {item.id === '020101' && <Nivel04 grupo={item.id} items={sub2AmericaOfficenterMais} />}
 
 
         </li>
@@ -177,7 +184,7 @@ const Nivel04 = props => {
     const { grupo, items } = props
 
     return (
-        <ul id={`nv-${grupo}`} className='nerp-nav__ul'>
+        <ul id={`nv-${grupo}`} className='nerp-nav__ul not-show'>
             {
                 items.map(item => {
                     if (item.sub === true) {
@@ -199,13 +206,17 @@ const ItemNivel04 = ({ item }) => {
     return (
         <li key={item.id} className='nerp-nav__li'>
             <input type='checkbox' id={`ck-${item.id}`} className='nv04' style={{ display: 'none' }} />
-            <span>
-                <IoMdArrowDropright
-                    id={`ico-${item.id}`}
-                    size={20}
-                    color='black'
-                />
-                <span htmlFor={`ck-${item.id}`} onClick={() => clickHandle2('.nv04', `ck-${item.id}`)} >{item.title}</span>
+            <span className='nerp-nav__alinha-icone'>
+                <IconContext.Provider value={{ color: "blue", className: "ico" }}>
+                    <div>
+                        <IoMdArrowDropright
+                            id={`ico-${item.id}`}
+                            size={20}
+                            color='black'
+                        />
+                    </div>
+                </IconContext.Provider>
+                <span htmlFor={`ck-${item.id}`} onClick={() => clickHandle('.nv04', `ck-${item.id}`)} >{item.title}</span>
             </span>
 
 
@@ -217,7 +228,7 @@ const Nivel05 = props => {
     const { grupo, items } = props
 
     return (
-        <ul id={`nv-${grupo}`} className='nerp-nav__ul'>
+        <ul id={`nv-${grupo}`} className='nerp-nav__ul not-show'>
             {
                 items.map(item => {
                     if (item.sub === true) {
@@ -239,13 +250,17 @@ const ItemNivel05 = ({ item }) => {
     return (
         <li key={item.id} className='nerp-nav__li'>
             <input type='checkbox' id={`ck-${item.id}`} className='nv05' style={{ display: 'none' }} />
-            <span>
-                <IoMdArrowDropright
-                    id={`ico-${item.id}`}
-                    size={20}
-                    color='black'
-                />
-                <span htmlFor={`ck-${item.id}`} onClick={() => clickHandle2('.nv05', `ck-${item.id}`)} >{item.title}</span>
+            <span className='nerp-nav__alinha-icone'>
+                <IconContext.Provider value={{ color: "blue", className: "ico" }}>
+                    <div>
+                        <IoMdArrowDropright
+                            id={`ico-${item.id}`}
+                            size={20}
+                            color='black'
+                        />
+                    </div>
+                </IconContext.Provider>
+                <span htmlFor={`ck-${item.id}`} onClick={() => clickHandle('.nv05', `ck-${item.id}`)} >{item.title}</span>
             </span>
             {/* {item.id === '010201' && <Nivel02 items={sub2AmericaOfficenter} />} */}
 

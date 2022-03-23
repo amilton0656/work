@@ -28,7 +28,7 @@
     align-items: center;
 }
 
-/* #nv-01,
+#nv-01,
 #nv-02,
 #nv-03,
 #nv-04,
@@ -47,108 +47,165 @@
     transition: max-height 0.3s;
     overflow: hidden;
     max-height: 0;
-} */
-
-.not-show  {
-    transition: max-height 0.3s;
-    overflow: hidden;
-    max-height: 0;
+}
+/* 
+#ck-01:checked ~ #nv-01 {
+    max-height: 300px;
 }
 
-
-input:checked ~ span .ico {
+#ck-01:checked ~ span #ico-01 {
     transform: rotate(45deg);
-}
-
-#ck-01:checked ~ #nv-01 {
-    max-height: 300px;
-}
-
-#ck-01:checked ~ #nv-01 {
-    max-height: 300px;
 }
 
 #ck-02:checked ~ #nv-02 {
     max-height: 300px;
 }
 
+#ck-02:checked ~ span #ico-02 {
+    transform: rotate(45deg);
+}
+
 #ck-03:checked ~ #nv-03 {
     max-height: 300px;
+}
+
+#ck-03:checked ~ span #ico-03 {
+    transform: rotate(45deg);
 }
 
 #ck-04:checked ~ #nv-04 {
     max-height: 300px;
 }
 
+#ck-04:checked ~ span #ico-04 {
+    transform: rotate(45deg);
+}
+
 #ck-05:checked ~ #nv-05 {
     max-height: 300px;
+}
+
+#ck-05:checked ~ span #ico-05 {
+    transform: rotate(45deg);
 }
 
 #ck-06:checked ~ #nv-06 {
     max-height: 300px;
 }
 
+#ck-06:checked ~ span #ico-06 {
+    transform: rotate(45deg);
+}
+
 #ck-07:checked ~ #nv-07 {
     max-height: 300px;
+}
+
+#ck-07:checked ~ span #ico-07 {
+    transform: rotate(45deg);
 }
 
 #ck-08:checked ~ #nv-08 {
     max-height: 300px;
 }
 
+#ck-08:checked ~ span #ico-08 {
+    transform: rotate(45deg);
+}
+
 #ck-09:checked ~ #nv-09 {
     max-height: 300px;
+}
+
+#ck-09:checked ~ span #ico-09 {
+    transform: rotate(45deg);
 }
 
 #ck-10:checked ~ #nv-10 {
     max-height: 300px;
 }
 
+#ck-10:checked ~ span #ico-10 {
+    transform: rotate(45deg);
+}
+
 #ck-11:checked ~ #nv-11 {
     max-height: 300px;
+}
+
+#ck-11:checked ~ span #ico-11 {
+    transform: rotate(45deg);
 }
 
 #ck-12:checked ~ #nv-12 {
     max-height: 300px;
 }
 
+#ck-12:checked ~ span #ico-12 {
+    transform: rotate(45deg);
+}
+
 #ck-13:checked ~ #nv-13 {
     max-height: 300px;
+}
+
+#ck-13:checked ~ span #ico-13 {
+    transform: rotate(45deg);
 }
 
 #ck-14:checked ~ #nv-14 {
     max-height: 300px;
 }
 
+#ck-14:checked ~ span #ico-14 {
+    transform: rotate(45deg);
+}
+
 #ck-15:checked ~ #nv-15 {
     max-height: 300px;
 }
 
+#ck-15:checked ~ span #ico-15 {
+    transform: rotate(45deg);
+} */
+
 
 /* nível 02 */
 
-/* #nv-0201
+#nv-0201
  {
     transition: max-height 0.3s;
     overflow: hidden;
     max-height: 0;
-} */
+}
+
+
 
 #ck-0201:checked ~ #nv-0201 {
     max-height: 300px;
 }
 
+#ck-0201:checked ~ span #ico-0201 {
+    transform: rotate(45deg);
+}
+
 /* nível 03 */
 
-/* #nv-020101
+#nv-020101
  {
     transition: max-height 0.3s;
     overflow: hidden;
     max-height: 0;
-} */
+}
+
+
 
 #ck-020101:checked ~ #nv-020101 {
     max-height: 300px;
+}
+
+#ck-020101:checked ~ span #ico-020101 {
+    transform: rotate(45deg);
 }
 
 .nerp-nav__li input:checked ~ span {
