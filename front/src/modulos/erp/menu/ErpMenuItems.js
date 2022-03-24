@@ -164,7 +164,7 @@ export const subTeste = [
 // ************
 
 export const sub2AmericaOfficenter = [
-    {title: 'Tab. Vendas - Bancária - Corretor', id: '020101', sub: true},
+    {title: 'Tab. Vendas - Bancária - Corretor', id: '020101'},
     {title: 'Tab. Vendas - Bancária - Cota'},
     {title: 'Tab. Vendas - Direta - Corretor'},
     {title: 'Tab. Vendas - Direta - Cota'},
@@ -176,9 +176,19 @@ export const sub2AmericaOfficenter = [
     {title: 'Perspectivas'},
 ]
 
-export const sub2AmericaOfficenterMais = [
-    {title: 'Azul'},
-    {title: 'Verde'},
+export const sub2CityOfficeSquare = [
+    {title: 'Tab. Vendas - Bancária - Corretor'},
+    {title: 'Tab. Vendas - Bancária - Cota'},
+    {title: 'Tab. Vendas - Direta - Corretor'},
+    {title: 'Tab. Vendas - Direta - Cota'},
+    {title: 'Política de Vendas'},
+    {title: 'Disponibilidade'},
+    {title: 'Quadro de Áreas - NB 12.721'},
+    {title: 'Memorial Descritivo'},
+    {title: 'Plantas Humanizadas'},
+    {title: 'Perspectivas'},
 ]
+
+
 
 

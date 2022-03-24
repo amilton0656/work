@@ -1,51 +1,67 @@
 .erp-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: steelblue;
+    background: none;
+    background-image: url('../../img/fundo-erp01.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
     padding: 10px;
     height: 100vh;
+    
+    width: 100%;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
+.erp-initial {
+  /* width: 280px;
+  height: 280px;
+  position: fixed;
+  right: 10px;
+  top: 50px;
+  text-align: right; */
+  width: 90%;
+  margin: 250px auto;
+  border: 'px solid white';
+  background: transparent;
+  
+}
 
-.erp-card {
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 14px;
-    background-color: white;
-    width: 150px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 10px;
+.erp-logo__container {
+  width: 100%;
+  height: 100%;
+  /* max-width: 300px; */
+  margin: 0 auto;
+}
+
+.erp-logo {
+  width: 100%;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.erp-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+
+}
+
+@media (min-width: 460px) {
+  .erp-initial {
+    width: 280px;
+    height: 280px;
+    position: fixed;
+    right: 30px;
+    top: -220px;
+    text-align: right;
+    border: 'px solid white';
+    background: transparent;
+    
   }
 
-  .erp-link {
-    text-decoration: none;
-    color: blue;
-  }
+}
 
-  .erp-link:visited {
-    color: green;
-  }
-
-  .erp-link:hover {
-    color: rgb(2, 2, 116);
-  }
-
-
-
-  @media (min-width: 460px) {
-    .erp-main {
-        background: steelblue;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: start;
-        align-items: start;
-    }
-  }

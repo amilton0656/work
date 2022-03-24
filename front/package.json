@@ -19,7 +19,8 @@
     "react-scripts": "5.0.0",
     "react-to-print": "^2.14.4",
     "sweetalert2": "^11.4.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.4"
   },
   "scripts": {
     "start": "set PORT=3002 &&  react-scripts start",

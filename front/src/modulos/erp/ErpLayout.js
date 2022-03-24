@@ -1,31 +1,27 @@
-// import classes from './LayoutInicial.module.css'
 
-import { Link } from 'react-router-dom'
-
-import Card from '../../components/Card'
+import ErpMenu from './menu/ErpMenu';
+// import Rotas from '../../routes/Rotas'
+import fundo from '../../img/fundo-erp01.jpg'
 
 import './erpLayout.css'
 
 
 const ErpLayout = () => {
 
-    return ( 
+    return (
         <main className='erp-main'>
-            <div className='erp-card'>
-                <Link className='erp-link' to='/pessoa/lista'>Pessoas</Link>
-            </div>
-            <div className='erp-card'>
-                <Link className='erp-link' to='/emprestimosac'>Simulação SAC</Link>
-            </div>
-            <div className='erp-card'>
-                <Link className='erp-link' to='/emprestimoprice'>Simulação Price</Link>
-            </div>
+            <div className='erp-initial'>
+                <div className='erp-logo__container'>
+                    <img className='erp-logo' src='img/cota-logo.jpg' />
+                <div className='erp-title'>
+                Sistema Interno
+                </div>
+                </div>
 
-            <div className='erp-card'>
-                <Link className='erp-link' to='/teste'>Teste</Link>
             </div>
+            <ErpMenu show={true} />
         </main>
-     );
+    );
 }
- 
+
 export default ErpLayout;
