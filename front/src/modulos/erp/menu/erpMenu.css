@@ -1,5 +1,5 @@
 :root {
-    --erp-menu__altura: 700px;
+    --erp-menu__altura: 1000px;
 }
 
 
@@ -23,10 +23,15 @@
     overflow-y: scroll;
 }
 
+.nerp-nav__space {
+    margin-left: 8px;
+}
+
+
 .nerp-nav__ul {
     height: 100%;
     padding: 0;
-    margin: 0 30px;
+    margin: 0 5px 0 30px;
 }
 
 .nerp-nav__li {
@@ -39,13 +44,10 @@
     cursor: pointer;
 }
 
-.nerp-nav__space {
-    margin-left: 10px;
-}
-
 .nerp-nav__alinha-icone {
     display: flex;
     align-items: center;
+    
 }
 
 .not-show  {
@@ -54,91 +56,72 @@
     max-height: 0;
 }
 
+.ico {
+    transform: rotate(0deg);
+    transition: 0.2s ease-in-out;
+}
+
 input:checked ~ span .ico {
-    transform: rotate(45deg);
-}
-
-#ck-01:checked ~ #nv-01 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-01:checked ~ #nv-01 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-02:checked ~ #nv-02 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-03:checked ~ #nv-03 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-04:checked ~ #nv-04 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-05:checked ~ #nv-05 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-06:checked ~ #nv-06 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-07:checked ~ #nv-07 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-08:checked ~ #nv-08 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-09:checked ~ #nv-09 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-10:checked ~ #nv-10 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-11:checked ~ #nv-11 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-12:checked ~ #nv-12 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-13:checked ~ #nv-13 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-14:checked ~ #nv-14 {
-    max-height: var(--erp-menu__altura);
-}
-
-#ck-15:checked ~ #nv-15 {
-    max-height: var(--erp-menu__altura);
+    transform: rotate(90deg);
+    transition: 0.2s ease-in-out;
 }
 
 
-/* nível 02 */
+#ck-01:checked ~ #nv-01,
+#ck-02:checked ~ #nv-02,
+#ck-03:checked ~ #nv-03,
+#ck-04:checked ~ #nv-04,
+#ck-05:checked ~ #nv-05,
+#ck-06:checked ~ #nv-06,
+#ck-07:checked ~ #nv-07,
+#ck-08:checked ~ #nv-08,
+#ck-09:checked ~ #nv-09,
+#ck-10:checked ~ #nv-10,
+#ck-11:checked ~ #nv-11,
+#ck-12:checked ~ #nv-12,
+#ck-13:checked ~ #nv-13,
+#ck-14:checked ~ #nv-14,
+#ck-15:checked ~ #nv-15,
+
+#ck-0201:checked ~ #nv-0201,
+#ck-020101:checked ~ #nv-020101,
+
+#ck-0202:checked ~ #nv-0202,
+#ck-0203:checked ~ #nv-0203,
+#ck-0204:checked ~ #nv-0204,
+
+#ck-020401:checked ~ #nv-020401,
+#ck-020402:checked ~ #nv-020402,
+
+#ck-0205:checked ~ #nv-0205,
+#ck-0206:checked ~ #nv-0206,
+#ck-0207:checked ~ #nv-0207,
+#ck-0208:checked ~ #nv-0208,
+#ck-0209:checked ~ #nv-0209,
+#ck-0210:checked ~ #nv-0210,
+
+#ck-0301:checked ~ #nv-0301,
+#ck-0302:checked ~ #nv-0302,
+
+#ck-0404:checked ~ #nv-0404,
+#ck-0405:checked ~ #nv-0405,
+
+#ck-0501:checked ~ #nv-0501,
+#ck-0504:checked ~ #nv-0504,
+#ck-0506:checked ~ #nv-0506,
+#ck-0507:checked ~ #nv-0507,
+#ck-0509:checked ~ #nv-0509,
+
+#ck-0601:checked ~ #nv-0601,
+#ck-0602:checked ~ #nv-0602,
+#ck-0606:checked ~ #nv-0606,
+#ck-0609:checked ~ #nv-0609,
+#ck-0620:checked ~ #nv-0620
 
 
-#ck-0201:checked ~ #nv-0201 {
+{
     max-height: var(--erp-menu__altura);
-}
-
-#ck-0202:checked ~ #nv-0202 {
-    max-height: var(--erp-menu__altura);
-}
-
-/* nível 03 */
-
-
-#ck-020101:checked ~ #nv-020101 {
-    max-height: var(--erp-menu__altura);
+    transition: 0.3s ease-in-out;
 }
 
 .nerp-nav__li input:checked ~ span {
@@ -161,6 +144,8 @@ input:checked ~ span .ico {
 
 .erp-menu__icone-container:hover {
     cursor: pointer;
+    background: rgba(255, 255, 255, .4);
+    transition: 0.2s ease-in-out;
 }
 
 .erp-menu__icone-hamburger {
@@ -211,8 +196,8 @@ input:checked ~ span .ico {
 }
 
 #nerp-nav__ck-show:checked ~ label .erp-menu__icone-container {
-    left: 330px;
-    transition: 0.7s ease-in-out;
+    left: 300px;
+    transition: 0.2s ease-in-out;
     background: rgba(0, 0, 0, .4);
 }
 
@@ -236,9 +221,15 @@ input:checked ~ span .ico {
 @media (min-width: 460px) {
     
     #nerp-nav__ck-show:checked ~ label .erp-menu__icone-container {
-        left: 465px;
+        left: 430px;
         transition: 0.5s ease-in-out;
-        background: rgba(255, 255, 255, .2);
+        background: rgba(255, 255, 255, .3);
+    }
+
+    #nerp-nav__ck-show:checked ~ label .erp-menu__icone-container:hover {
+        transition: 0.5s ease-in-out;
+        background: rgba(255, 255, 255, .4);
+        transition: 0.1s ease-in-out;
     }
 
     

@@ -27,7 +27,7 @@ const EmprestimoSACListaPDF = (formData, listaPDF, totalDesembolso) => {
         }
     ]
 
-    const planData = listaPDF.map(cli => {
+    const planData = listaPDF.map((cli, i) => {
         return [
             {text: cli.mes, style: {alignment: 'right'}},
             {text: cli.aporte, style: {alignment: 'right'}},

@@ -8,8 +8,8 @@ const Menu = props => {
         <nav className="menu-nav">
             <ul>
            {
-               items.map(item => (
-                <li>
+               items.map((item, i) => (
+                <li key={i}>
                     <span>{item.title}</span><span><IoMdArrowDropright size={25} color='black' style={{paddingTop: '6px'}} /></span></li>
                ))
            }

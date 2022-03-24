@@ -73,8 +73,8 @@ const Parametros = props => {
     return (
         <div>
             {
-                abc.map(linha => (
-                    <div className='emprestimo__paramsLinha'>
+                abc.map((linha, i) => (
+                    <div key={i} className='emprestimo__paramsLinha'>
                         <div className='emprestimo__paramsItems'>
                             <div className='emprestimo__paramsItemTitle'>{linha.title}</div>
                             <div className='emprestimo__paramsItemValue' style={{ textAlign: 'right' }}>{linha.value}</div>
@@ -135,9 +135,9 @@ const EmprestimoPriceLista = props => {
                         <div className='emprestimo__tabela-valor' style={{ fontWeight: 'bold' }}>Saldo</div>
 
                     </li>
-                    {listaPDF.map(item => {
+                    {listaPDF.map((item, i) => {
                         return (
-                            <ItemLinha item={item} />
+                            <ItemLinha key={i} item={item} />
                         )
                     }
                     )}

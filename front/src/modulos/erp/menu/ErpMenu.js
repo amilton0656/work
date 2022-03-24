@@ -21,8 +21,39 @@ import {
     subTeste,
 
     sub2AmericaOfficenter,
-    sub2CityOfficeSquare
+    sub2CityOfficeSquare,
+    sub2GreenVillageResidence,
+    sub2PuntaBlu,
+    sub2PuntaBluMallBoutique,
+    sub2PuntaBluResidence,
+    sub2ImoveisTerceirosGrandeFpolis,
+    sub2ImoveisTerceirosItajai,
+    sub2ImoveisTerceirosBombinhas,
+    sub2ShoppingMaxFloraLocacoes,
+    sub2OutrosImoveis,
+    sub2PuntaBluMallBoutiqueLocacoes,
+
+    sub2Viabilidade,
+    sub2PlanejamentoLancamento,
+
+    sub2DocumentacaoEntrega,
+    sub2Marketing,
+
+    sub2Projeto,
+    sub2Orcamento,
+    sub2Cronograma,
+    sub2Acompanhamento,
+    sub2Obra,
+
+    sub2ContasReceber,
+    sub2ContasPagar,
+    sub2IndicesEconomicos,
+    sub2Contabilidade,
+    sub2Simulacoes
+
+
 } from './ErpMenuItems'
+
 import { IoMdArrowDropright } from 'react-icons/io'
 
 import './erpMenu.css'
@@ -51,6 +82,15 @@ const clickHandle = (nivel, id) => {
                 document.getElementById('ck-0209').checked = false
                 document.getElementById('ck-0210').checked = false
             }
+
+            if (id === 'ck-0204' && element.checked === false) {
+                document.getElementById('ck-020401').checked = false
+                document.getElementById('ck-020402').checked = false
+            }
+
+            if (id === 'ck-020401' && element.checked === true) {
+                document.getElementById('ck-020402').checked = false
+            }
         }
 
     })
@@ -61,6 +101,7 @@ const Ico = ({ item, classe }) => {
     return (
         <>
             <input type='checkbox' id={`ck-${item.id}`} className={classe} style={{ display: 'none' }} />
+
             <span className='nerp-nav__alinha-icone'>
                 <IconContext.Provider value={{ className: "ico" }}>
                     <div>
@@ -72,7 +113,9 @@ const Ico = ({ item, classe }) => {
                     </div>
                 </IconContext.Provider>
 
+
                 <span htmlFor={`ck-${item.id}`} onClick={() => clickHandle(`.${classe}`, `ck-${item.id}`)} style={{ paddingBottom: '4px' }}>{item.title}</span>
+
             </span>
         </>
     )
@@ -109,16 +152,16 @@ const Nivel02 = props => {
     const { grupo, items } = props
 
     return (
-        <ul id={`nv-${grupo}`} className='nerp-nav__ul not-show'>
+        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul show not-show'>
             {
-                items.map(item => {
+                items.map((item, i) => {
                     if (item.sub === true) {
-                        return <ItemNivel02 item={item} />
+                        return <ItemNivel02 key={i} item={item} />
                     } else {
                         if (item.navigate) {
-                            return <SubMenuNavigate item={item} />
+                            return <SubMenuNavigate key={i} item={item} />
                         } else {
-                            return <SubMenuLink item={item} />
+                            return <SubMenuLink key={i} item={item} />
                         }
                     }
                 })
@@ -133,8 +176,33 @@ const ItemNivel02 = ({ item }) => {
             <Ico item={item} classe='nv02' />
             {item.id === '0201' && <Nivel03 grupo={item.id} items={sub2AmericaOfficenter} />}
             {item.id === '0202' && <Nivel03 grupo={item.id} items={sub2CityOfficeSquare} />}
+            {item.id === '0203' && <Nivel03 grupo={item.id} items={sub2GreenVillageResidence} />}
+            {item.id === '0204' && <Nivel03 grupo={item.id} items={sub2PuntaBlu} />}
+            {item.id === '0205' && <Nivel03 grupo={item.id} items={sub2ImoveisTerceirosGrandeFpolis} />}
+            {item.id === '0206' && <Nivel03 grupo={item.id} items={sub2ImoveisTerceirosItajai} />}
+            {item.id === '0207' && <Nivel03 grupo={item.id} items={sub2ImoveisTerceirosBombinhas} />}
+            {item.id === '0208' && <Nivel03 grupo={item.id} items={sub2ShoppingMaxFloraLocacoes} />}
+            {item.id === '0209' && <Nivel03 grupo={item.id} items={sub2OutrosImoveis} />}
+            {item.id === '0210' && <Nivel03 grupo={item.id} items={sub2PuntaBluMallBoutiqueLocacoes} />}
 
+            {item.id === '0301' && <Nivel03 grupo={item.id} items={sub2Viabilidade} />}
+            {item.id === '0302' && <Nivel03 grupo={item.id} items={sub2PlanejamentoLancamento} />}
 
+            {item.id === '0404' && <Nivel03 grupo={item.id} items={sub2DocumentacaoEntrega} />}
+            {item.id === '0405' && <Nivel03 grupo={item.id} items={sub2Marketing} />}
+
+            {item.id === '0501' && <Nivel03 grupo={item.id} items={sub2Projeto} />}
+            {item.id === '0504' && <Nivel03 grupo={item.id} items={sub2Orcamento} />}
+            {item.id === '0506' && <Nivel03 grupo={item.id} items={sub2Cronograma} />}
+            {item.id === '0507' && <Nivel03 grupo={item.id} items={sub2Acompanhamento} />}
+            {item.id === '0509' && <Nivel03 grupo={item.id} items={sub2Obra} />}
+
+            {item.id === '0601' && <Nivel03 grupo={item.id} items={sub2ContasReceber} />}
+            {item.id === '0602' && <Nivel03 grupo={item.id} items={sub2ContasPagar} />}
+            {item.id === '0606' && <Nivel03 grupo={item.id} items={sub2IndicesEconomicos} />}
+            {item.id === '0609' && <Nivel03 grupo={item.id} items={sub2Contabilidade} />}
+            {item.id === '0620' && <Nivel03 grupo={item.id} items={sub2Simulacoes} />}
+            
         </li>
     )
 }
@@ -144,16 +212,16 @@ const Nivel03 = props => {
     const { grupo, items } = props
 
     return (
-        <ul id={`nv-${grupo}`} className='nerp-nav__ul not-show'>
+        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul show not-show'>
             {
-                items.map(item => {
+                items.map((item, i) => {
                     if (item.sub === true) {
-                        return <ItemNivel03 item={item} />
+                        return <ItemNivel03 key={i} item={item} />
                     } else {
                         if (item.navigate) {
-                            return <SubMenuNavigate item={item} />
+                            return <SubMenuNavigate key={i} item={item} />
                         } else {
-                            return <SubMenuLink item={item} />
+                            return <SubMenuLink key={i} item={item} />
                         }
                     }
                 })
@@ -166,7 +234,8 @@ const ItemNivel03 = ({ item }) => {
     return (
         <li key={item.id} className='nerp-nav__li'>
             <Ico item={item} classe='nv03' />
-            {/* {item.id === '020101' && <Nivel04 grupo={item.id} items={sub2AmericaOfficenterMais} />} */}
+            {item.id === '020401' && <Nivel04 grupo={item.id} items={sub2PuntaBluMallBoutique} />}
+            {item.id === '020402' && <Nivel04 grupo={item.id} items={sub2PuntaBluResidence} />}
 
 
         </li>
@@ -178,16 +247,16 @@ const Nivel04 = props => {
     const { grupo, items } = props
 
     return (
-        <ul id={`nv-${grupo}`} className='nerp-nav__ul not-show'>
+        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul show not-show'>
             {
-                items.map(item => {
+                items.map((item, i) => {
                     if (item.sub === true) {
-                        return <ItemNivel04 item={item} />
+                        return <ItemNivel04 key={i} item={item} />
                     } else {
                         if (item.navigate) {
-                            return <SubMenuNavigate item={item} />
+                            return <SubMenuNavigate key={i} item={item} />
                         } else {
-                            return <SubMenuLink item={item} />
+                            return <SubMenuLink key={i} item={item} />
                         }
                     }
                 })
@@ -197,6 +266,7 @@ const Nivel04 = props => {
 }
 
 const ItemNivel04 = ({ item }) => {
+    console.log('nivel 04 ', item.id, item)
     return (
         <li key={item.id} className='nerp-nav__li'>
             <Ico item={item} classe='nv04' />
@@ -208,16 +278,16 @@ const Nivel05 = props => {
     const { grupo, items } = props
 
     return (
-        <ul id={`nv-${grupo}`} className='nerp-nav__ul not-show'>
+        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul show not-show'>
             {
-                items.map(item => {
+                items.map((item, i) => {
                     if (item.sub === true) {
-                        return <ItemNivel05 item={item} />
+                        return <ItemNivel05 key={i} item={item} />
                     } else {
                         if (item.navigate) {
-                            return <SubMenuNavigate item={item} />
+                            return <SubMenuNavigate key={i} item={item} />
                         } else {
-                            return <SubMenuLink item={item} />
+                            return <SubMenuLink key={i} item={item} />
                         }
                     }
                 })
@@ -269,19 +339,19 @@ const ErpMenu = ({ show }) => {
             <label htmlFor='nerp-nav__ck-show' style={{ position: 'fixed', zIndex: 100 }} >
                 <ErpMenuIcone />
             </label>
-            <div id='nerp-nav__dropdown-fundo' className='nerp-nav__dropdown-fundo'  onClick={() => clickFundoHandle()}></div>
+            <div id='nerp-nav__dropdown-fundo' className='nerp-nav__dropdown-fundo' onClick={() => clickFundoHandle()}></div>
 
             <nav className='nerp-nav'>
                 <ul className='nerp-nav__ul'>
                     {
-                        items.map(item => {
+                        items.map((item, i) => {
                             if (item.sub === true) {
-                                return <ItemNivel01 item={item} />
+                                return <ItemNivel01 key={i} item={item} />
                             } else {
                                 if (item.navigate) {
-                                    return <SubMenuNavigate item={item} />
+                                    return <SubMenuNavigate key={i} item={item} />
                                 } else {
-                                    return <SubMenuLink item={item} />
+                                    return <SubMenuLink key={i} item={item} />
                                 }
                             }
                         })

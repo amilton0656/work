@@ -58,8 +58,8 @@ const Parametros = props => {
     return (
         <div style ={{padding: '0 20px'}}>
             {
-                abc.map(linha => (
-                    <div className='emprestimo__paramsLinha-mob'>
+                abc.map((linha, i) => (
+                    <div key={i} className='emprestimo__paramsLinha-mob'>
                         <div className='emprestimo__paramsItems-mob'>
                             <div className='emprestimo__paramsItemTitle'>{linha.title}</div>
                             <div className='emprestimo__paramsItemValue' style={{ textAlign: 'right' }}>{linha.value}</div>
@@ -84,9 +84,9 @@ const Lista = props => {
                 <div className='emprestimo__tabela-valor ' style={{ fontWeight: 'bold', width: '20%' }}>Saldo</div>
 
             </li>
-            {props.listaPDF.map(item => {
+            {props.listaPDF.map((item, i) => {
                 return (
-                    <ItemLinha item={item} />
+                    <ItemLinha key={i} item={item} />
                 )
             }
             )}
@@ -154,9 +154,9 @@ const EmprestimoPriceListaMob = props => {
                         <div className='emprestimo__tabela-valor ' style={{ fontWeight: 'bold', width: '20%' }}>Saldo</div>
 
                     </li>
-                    {listaPDF.map(item => { 
+                    {listaPDF.map((item, i) => { 
                         return (
-                            <ItemLinha item={item} />
+                            <ItemLinha key={i} item={item} />
                         )
                     }
                     )}

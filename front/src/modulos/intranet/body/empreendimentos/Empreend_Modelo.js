@@ -11,13 +11,13 @@ const EmpreendimentoModelo = ({ logo, fachada }) => {
 
             <div className="intra-empreend-card">
                 <Card stype ={{width: '95%'}}>
-                    <a onclick="pg_const()" href="#">
+                    <a onClick={() => {}} href="#">
                         <div>
                             <div>
-                                <img src={logo} class="intra-empreend-card-fluid" alt="foto" />
+                                <img src={logo} className="intra-empreend-card-fluid" alt="foto" />
                             </div>
                             <div>
-                                <img src={fachada} class="intra-empreend-card-fluid" alt="foto" />
+                                <img src={fachada} className="intra-empreend-card-fluid" alt="foto" />
                             </div>
                         </div>
                     </a>

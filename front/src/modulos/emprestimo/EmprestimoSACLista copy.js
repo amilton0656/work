@@ -62,8 +62,8 @@ const Parametros = props => {
     return (
         <div>
             {
-                abc.map(linha => (
-                    <div className={classes2.paramsLinha}>
+                abc.map((linha, i) => (
+                    <div key={i} className={classes2.paramsLinha}>
                         <div className={classes2.paramsItems}>
                             <div className={classes2.paramsItemTitle}>{linha.title}</div>
                             <div className={classes2.paramsItemValue} style={{textAlign: 'right'}}>{linha.value}</div>
@@ -201,7 +201,7 @@ const EmprestimoSACLista = props => {
                         <div className={classes2.valor} style={{ fontWeight: 'bold' }}>Saldo</div>
 
                     </li>
-                    {lista.map(item => {
+                    {lista.map((item, i) => {
                         cont++
                         if (cont === 3) {
                             classe = 'newPage'
@@ -209,7 +209,7 @@ const EmprestimoSACLista = props => {
                             classe = ''
                         }
                         return (
-                            <div>
+                            <div key={i}>
                                 <div>{item}</div>
                             </div>
                             )

@@ -1,6 +1,6 @@
 
 export const items = [
-    {title: 'Simulações', id: '01', sub: true},
+    // {title: 'Simulações', id: '01', sub: true},
     {title: 'Empreendimentos', id: '02', sub: true},
     {title: 'Incorporação', id: '03', sub: true},
     {title: 'Comercial', id: '04', sub: true},
@@ -31,31 +31,31 @@ export const subEmpreendimentos = [
 ]
 
 export const subIncorporacao = [
-    {title: 'Viabilidade', navigate: '/emprestimoprice'},
-    {title: 'Planejamento do Lançamento'}
+    {title: 'Viabilidade', navigate: '/emprestimoprice', sub: true, id: '0301'},
+    {title: 'Planejamento do Lançamento', sub: true, id: '0302'}
 ]
 
 export const subComercial = [
     {title: 'Proposta Comercial'},
     {title: 'Vendas Mensais'},
     {title: 'Documentos e Certidões'},
-    {title: 'Documentação para Entrega'},
-    {title: 'Marketing'},
+    {title: 'Documentação para Entrega', sub: true, id: '0404'},
+    {title: 'Marketing', sub: true, id: '0405'},
     {title: 'Histórico de Contatos'},
     {title: 'Entrega de Unidade'},
     {title: 'Reserva de Unidades'},
 ]
 
 export const subEngenharia = [
-    {title: 'Projeto'},
+    {title: 'Projeto', sub: true, id: '0501'},
     {title: 'Acompanhamento de Projetos'},
     {title: 'Orçamento Express'},
-    {title: 'Orçamento'},
+    {title: 'Orçamento', sub: true, id: '0504'},
     {title: 'Planejamento'},
-    {title: 'Cronograma'},
-    {title: 'Acompanhamento'},
+    {title: 'Cronograma', sub: true, id: '0506'},
+    {title: 'Acompanhamento', sub: true, id: '0507'},
     {title: 'Planejamento de Compras'},
-    {title: 'Obras'},
+    {title: 'Obras', sub: true, id: '0509'},
     {title: 'Fluxo - Custo da Obra'},
     {title: 'Entrega de Unidade'},
 ]
@@ -65,15 +65,15 @@ export const subSuprimentos = [
 ]
 
 export const subFinanceiro = [
-    {title: 'Contas a Receber'},
-    {title: 'Contas a Pagar'},
+    {title: 'Contas a Receber', sub: true, id: '0601'},
+    {title: 'Contas a Pagar', sub: true, id: '0602'},
     {title: 'Controle Bancário'},
     {title: 'Caixa'},
     {title: 'Fluxo'},
-    {title: 'Índices Econômicos'},
+    {title: 'Índices Econômicos', sub: true, id: '0606'},
     {title: 'Empreiteiras'},
     {title: 'RH'},
-    {title: 'Contabilidade'},
+    {title: 'Contabilidade', sub: true, id: '0609'},
     {title: 'Formas de Pagamento'},
     {title: 'Empreendimentos'},
     {title: 'Planos de Contas'},
@@ -84,6 +84,7 @@ export const subFinanceiro = [
     {title: 'Medição Obra'},
     {title: 'Valores Tabela Locação'},
     {title: 'Assistência Técnica'},
+    {title: 'Simulações', sub: true, id: '0620'},
 ]
 
 export const subGerencial = [
@@ -161,10 +162,10 @@ export const subTeste = [
 ]
 
 
-// ************
+// *****     Empreendimentos     *****
 
 export const sub2AmericaOfficenter = [
-    {title: 'Tab. Vendas - Bancária - Corretor', id: '020101'},
+    {title: 'Tab. Vendas - Bancária - Corretor'},
     {title: 'Tab. Vendas - Bancária - Cota'},
     {title: 'Tab. Vendas - Direta - Corretor'},
     {title: 'Tab. Vendas - Direta - Cota'},
@@ -188,6 +189,231 @@ export const sub2CityOfficeSquare = [
     {title: 'Plantas Humanizadas'},
     {title: 'Perspectivas'},
 ]
+
+export const sub2GreenVillageResidence = [
+    {title: 'Tab. Vendas - Bancária - Corretor'},
+    {title: 'Tab. Vendas - Bancária - Cota'},
+    {title: 'Política de Vendas'},
+    {title: 'Disponibilidade'},
+    {title: 'Quadro de Áreas - NB 12.721'},
+    {title: 'Memorial Descritivo'},
+    {title: 'Plantas Humanizadas'},
+    {title: 'Perspectivas'},
+]
+
+export const sub2PuntaBlu = [
+    {title: 'Punta Blu Mall Boutique', sub: true, id: '020401'},
+    {title: 'Punta Blu Residence', sub: true, id: '020402'},
+]
+
+export const sub2PuntaBluMallBoutique = [
+    {title: 'Tab. Vendas - Bancária - Corretor'},
+    {title: 'Tab. Vendas - Bancária - Cota'},
+    {title: 'Tab. Vendas - Direta - Corretor'},
+    {title: 'Tab. Vendas - Direta - Cota'},
+    {title: 'Política de Vendas'},
+    {title: 'Disponibilidade'},
+    {title: 'Quadro de Áreas - NB 12.721'},
+    {title: 'Memorial Descritivo'},
+    {title: 'Plantas Humanizadas'},
+    {title: 'Perspectivas'},
+]
+
+export const sub2PuntaBluResidence = [
+    {title: 'Tab. Vendas - Bancária - Corretor'},
+    {title: 'Tab. Vendas - Bancária - Cota'},
+    {title: 'Tab. Vendas - Direta - Corretor'},
+    {title: 'Tab. Vendas - Direta - Cota'},
+    {title: 'Política de Vendas'},
+    {title: 'Disponibilidade'},
+    {title: 'Quadro de Áreas - NB 12.721'},
+    {title: 'Memorial Descritivo'},
+    {title: 'Plantas Humanizadas'},
+    {title: 'Perspectivas'},
+]
+
+export const sub2ImoveisTerceirosGrandeFpolis = [
+    {title: 'Tab. Vendas - Corretor'},
+    {title: 'Tab. Vendas - Cota'},
+    {title: 'Política de Vendas'},
+    {title: 'Disponibilidade'},
+    {title: 'Quadro de Áreas - NB 12.721'},
+    {title: 'Memorial Descritivo'},
+    {title: 'Plantas Humanizadas'},
+    {title: 'Perspectivas'},
+]
+
+export const sub2ImoveisTerceirosItajai = [
+    {title: 'Tab. Vendas - Corretor'},
+    {title: 'Tab. Vendas - Cota'},
+    {title: 'Política de Vendas'},
+    {title: 'Disponibilidade'},
+    {title: 'Quadro de Áreas - NB 12.721'},
+    {title: 'Memorial Descritivo'},
+    {title: 'Plantas Humanizadas'},
+    {title: 'Perspectivas'},
+]
+
+export const sub2ImoveisTerceirosBombinhas = [
+    {title: 'Tab. Vendas - Corretor'},
+    {title: 'Tab. Vendas - Cota'},
+    {title: 'Política de Vendas'},
+    {title: 'Disponibilidade'},
+    {title: 'Quadro de Áreas - NB 12.721'},
+    {title: 'Memorial Descritivo'},
+    {title: 'Plantas Humanizadas'},
+    {title: 'Perspectivas'},
+]
+
+export const sub2ShoppingMaxFloraLocacoes = [
+    {title: 'Tab. Vendas - Corretor'},
+    {title: 'Tab. Vendas - Cota'},
+    {title: 'Política de Vendas'},
+    {title: 'Disponibilidade'}
+]
+
+export const sub2OutrosImoveis = [
+    {title: 'Tab. Vendas - Corretor'},
+    {title: 'Tab. Vendas - Cota'},
+    {title: 'Política de Vendas'},
+    {title: 'Disponibilidade'}
+]
+
+export const sub2PuntaBluMallBoutiqueLocacoes = [
+    {title: 'Tab. Vendas - Corretor'},
+    {title: 'Tab. Vendas - Cota'},
+    {title: 'Política de Vendas'},
+    {title: 'Disponibilidade'}
+]
+
+// *****     Incorporação     *****
+
+export const sub2Viabilidade = [ 
+    {title: 'Land bank'},
+    {title: 'Estudo de Viabilidade'},
+    {title: 'Empreendimentos'},
+    {title: 'Imóveis para Locação'}
+]
+
+export const sub2PlanejamentoLancamento = [
+    {title: 'Documentos'},
+    {title: 'Planejamento do Lançamento'},
+    {title: 'Cronograma de Atividades'},
+]
+
+// *****     Comercial     *****
+
+export const sub2DocumentacaoEntrega = [
+    {title: 'Cliente'},
+    {title: 'Cota'},
+    {title: 'Imóvel'},
+    {title: 'Tipo de Documento'},
+    {title: 'Emissão de Documentos'},
+    {title: 'Solicitação de Documentos'},
+    {title: 'Entrega de Documentos'},
+]
+
+export const sub2Marketing = [
+    {title: 'Cadastro de Pessoas', navigate: '/pessoa/lista'},
+    {title: 'Captação'},
+    {title: 'Cadastro de Eventos'},
+    {title: 'Contratos'},
+    {title: 'Orçamento'},
+    {title: 'Envio de Tabelas'},
+    {title: 'Vendas por Período'},
+]
+
+// *****     Engenharia     *****
+
+export const sub2Projeto = [
+    {title: 'Arquivo'},
+    {title: 'Documentação'},
+    {title: 'Solicitações'},
+    {title: 'Disciplina'},
+    {title: 'Fase'},
+    {title: 'Pavimentos'},
+]
+
+export const sub2Orcamento = [
+    {title: 'Orçamento'},
+    {title: 'Plano de Contas - Orçamento'},
+    {title: 'Plano de Contas - Físico/Financeiro'},
+    {title: 'Medição'},
+    {title: 'Composição'},
+    {title: 'Escopo'},
+]
+
+export const sub2Cronograma = [
+    {title: 'Físico/Financeiro'},
+    {title: 'Medição'},
+]
+
+export const sub2Acompanhamento = [
+    {title: 'IDC - Índice de Desvio de Custo'},
+    {title: 'IDP - Índice de Desvio de Prazo'},
+    {title: 'PPC - Plano de Prazo Constuídos'},
+    {title: 'IBP - Índi e de Boas Práticas'},
+]
+
+export const sub2Obra = [
+    {title: 'Diário da Obra'},
+    {title: 'Inspeção de Serviços'},
+    {title: 'Documentação'},
+    {title: 'RNC'},
+    {title: 'Segurança'},
+    {title: 'Estoque'},
+    {title: 'Acabamentos'},
+    {title: 'Assistência Técnica'},
+    {title: 'Serviço Esecutado'},
+    {title: 'Entrega de Unidade'},
+]
+
+// *****     Financeiro     *****
+
+export const sub2ContasReceber = [
+    {title: 'Contratos'},
+    {title: 'Processos de Financiamento Bancário'},
+    {title: 'Custo Operacional'},
+    {title: 'Clientes'},
+    {title: 'Boletos'},
+    {title: 'Ferramentas'},
+    {title: 'Relatórios'},
+    {title: 'Aluguéis'},
+    {title: 'Resumo das Locações'},
+    {title: 'Contas a Receber'},
+    {title: 'Recibos'},
+    {title: 'Vendas de Bens Móveis'},
+    {title: 'Simulações'},
+]
+
+export const sub2ContasPagar = [
+    {title: 'Corretagem por Período'},
+    {title: 'Débitos'},
+    {title: 'Contas a Pagar'},
+]
+
+export const sub2IndicesEconomicos = [
+    {title: 'Índices'},
+    {title: 'Índices por Período'},
+    {title: 'Correção de Valores'},
+]
+
+export const sub2Contabilidade = [
+    {title: 'Plano de Contas'},
+    {title: 'Exportar para Contabilidade'},
+    {title: 'Controle Patrimonial'},
+    {title: 'Estoque'},
+    {title: 'Vendas por Período'},
+]
+
+export const sub2Simulacoes = [
+    {title: 'SAC', id: '062001', navigate: '/emprestimosac'},
+    {title: 'Price', id: '062002', navigate: '/emprestimoprice'}
+]
+
+
+
+
 
 
 

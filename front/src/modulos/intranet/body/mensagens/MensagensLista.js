@@ -34,7 +34,7 @@ const MensagensLista = () => {
                 data="09/02/2022"
                 cor="red"
                 texto={
-                    <p class="card-text" style={{ fontSize: '1.5rem' }}>
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
                         <br />
                         <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Encerramento:</span>
 
@@ -68,7 +68,7 @@ const MensagensLista = () => {
                         </div>
                         <br />
 
-                    </p>
+                    </div>
 
                 } />
 
@@ -77,7 +77,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="07/02/2022"
                 cor="#28A745"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Sueli</span>,  comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -131,7 +131,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="10/12/2021"
                 cor="steelblue"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Paulão</span>,  comemorando antecipadamente seu aniversário, convida a
                     todos para aquele tradicional
@@ -156,7 +156,7 @@ const MensagensLista = () => {
                 data="02/12/2021"
                 cor="red"
                 texto={
-                    <p class="card-text" style={{ fontSize: '1.5rem' }}>
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
                         <br />
                         <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Encerramento:</span>
 
@@ -186,7 +186,7 @@ const MensagensLista = () => {
                         </div>
                         <br />
 
-                    </p>
+                    </div>
 
                 } />
 
@@ -196,7 +196,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="16/11/2021"
                 cor="#28A745"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Cinira</span>,  comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -233,7 +233,7 @@ const MensagensLista = () => {
                 titulo="Aniversários"
                 data="23/09/2021"
                 cor="#28A745"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Eugênio e Cida</span>, antecipando a comemoração dos seus aniversários, convidam a
                     todos para aquele tradicional
@@ -259,7 +259,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="15/09/2021"
                 cor="#steelblue"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Lidia</span>, comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -282,7 +282,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="12/08/2021"
                 cor="#28A745"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Tania</span>,  comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -306,7 +306,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="04/08/2021"
                 cor="steelblue"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Antônio</span>,  comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -329,7 +329,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="21/05/2021"
                 cor="steelblue"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Liliane</span>,  comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -352,7 +352,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="26/04/2021"
                 cor="#28A745"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Heliane</span>, comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -388,7 +388,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="23/04/2021"
                 cor="steelblue"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Marco</span>, comemorando antecipadamente seu aniversário, convida a
                     todos para aquele tradicional
@@ -414,7 +414,7 @@ const MensagensLista = () => {
                 data="30/03/2021"
                 cor="red"
                 texto={
-                    <p class="card-text" style={{ fontSize: '1.1em', textAlign: 'justify' }}>
+                    <p className="card-text" style={{ fontSize: '1.1em', textAlign: 'justify' }}>
                         <br />
                         Em função do feriado da Sexta-feira Santa
                         <br />
@@ -430,7 +430,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="04/02/2021"
                 cor="steelblue"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Sueli</span>,  comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -456,7 +456,7 @@ const MensagensLista = () => {
                 data="03/02/2021"
                 cor="red"
                 texto={
-                    <p class="card-text" style={{ fontSize: '1.5rem' }}>
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
                         <br />
                         <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Encerramento:</span>
 
@@ -485,7 +485,7 @@ const MensagensLista = () => {
                         </div>
                         <br />
 
-                    </p>
+                    </div>
 
                 } />
 
@@ -495,7 +495,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="19/01/2021"
                 cor="#28A745"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Luize</span>,  comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -523,7 +523,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="11/12/2020"
                 cor="steelblue"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Paulão</span>,  comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -547,7 +547,7 @@ const MensagensLista = () => {
                 data="18/11/2020"
                 cor="red"
                 texto={
-                    <p class="card-text" style={{ fontSize: '1.5rem' }}>
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
                         <br />
                         <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Encerramento:</span>
 
@@ -576,7 +576,7 @@ const MensagensLista = () => {
                         </div>
                         <br />
 
-                    </p>
+                    </div>
 
                 } />
 
@@ -586,7 +586,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="13/11/2020"
                 cor="steelblue"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Cinira</span>, comemorando antecipadamente seu aniversário, convida a
                     todos para aquele tradicional
@@ -648,7 +648,7 @@ const MensagensLista = () => {
                 data="13/08/2020"
                 cor="red"
                 texto={
-                    <p class="card-text" style={{ fontSize: '1.1em', textAlign: 'justify' }}>
+                    <p className="card-text" style={{ fontSize: '1.1em', textAlign: 'justify' }}>
                         <br />
                         Bom dia colaboradores !
                         <br />
@@ -699,7 +699,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="11/12/2020"
                 cor="steelblue"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Paulão</span>,  comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -768,7 +768,7 @@ const MensagensLista = () => {
                 data="18/03/2020"
                 cor="red"
                 texto={
-                    <p class="card-text" style={{ fontSize: '1.5rem' }}>
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
                         <br />
                         <span style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>Encerramento:</span>
 
@@ -797,7 +797,7 @@ const MensagensLista = () => {
                         </div>
                         <br />
 
-                    </p>
+                    </div>
 
                 } />
 
@@ -809,7 +809,7 @@ const MensagensLista = () => {
                 data="18/02/2020"
                 cor="red"
                 texto={
-                    <p class="card-text" style={{ fontSize: '1.5rem' }}>
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
                         <br />
                         <span style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>Encerramento:</span>
 
@@ -838,7 +838,7 @@ const MensagensLista = () => {
                         </div>
                         <br />
 
-                    </p>
+                    </div>
 
                 } />
 
@@ -869,7 +869,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="14/11/2019"
                 cor="steelblue"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Cinira</span>, comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -904,7 +904,7 @@ const MensagensLista = () => {
                 data="07/11/2019"
                 cor="red"
                 texto={
-                    <p class="card-text" style={{ fontSize: '1.5rem' }}>
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
                         <br />
                         <span style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>Encerramento:</span>
 
@@ -933,7 +933,7 @@ const MensagensLista = () => {
                         </div>
                         <br />
 
-                    </p>
+                    </div>
 
                 } />
 
@@ -977,7 +977,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="27/08/2019"
                 cor="steelblue"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Vanessa</span>, comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -999,7 +999,7 @@ const MensagensLista = () => {
                 data="13/08/2019"
                 cor="red"
                 texto={
-                    <p class="card-text" style={{ fontSize: '1.1em', textAlign: 'justify' }}>
+                    <p className="card-text" style={{ fontSize: '1.1em', textAlign: 'justify' }}>
                         <br />
                         Bom dia colaboradores !
                         <br />
@@ -1027,7 +1027,7 @@ const MensagensLista = () => {
                 titulo="Aniversário"
                 data="12/08/2019"
                 cor="green"
-                texto={<p class="card-text" style={{ fontSize: '1.1em' }}>
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Tania</span>, comemorando seu aniversário, convida a
                     todos para aquele tradicional
@@ -1050,7 +1050,7 @@ const MensagensLista = () => {
                 cor="steelblue"
                 texto={
                     <div>
-                        <p class="card-text" style={{ fontSize: '1.1em' }}>
+                        <p className="card-text" style={{ fontSize: '1.1em' }}>
                             <br />
                             <span className='intra-card__texto-nome'>Antônio</span>, que fez aniversário na última sexta-feira,
                             convida a
@@ -1067,7 +1067,7 @@ const MensagensLista = () => {
                 texto={
                     <div>
                         <br />
-                        <p class="card-text" style={{ fontSize: '1.2rem' }}>
+                        <p className="card-text" style={{ fontSize: '1.2rem' }}>
                             Comunicamos que o Sr. DOUGLAS FERNANDO RODRIGUES
                             não faz mais parte do nosso quadro de funcionários.
                             <br />
@@ -1082,7 +1082,7 @@ const MensagensLista = () => {
                 texto={
                     <div>
                         <br />
-                        <p class="card-text" style={{ fontSize: '1.2rem' }}>
+                        <p className="card-text" style={{ fontSize: '1.2rem' }}>
                             Em razão do feriado de Corpus Christi, quinta-feira,
                             <br />
                             não haverá expediente no dia 21/JUN/2019 - sexta-feira.

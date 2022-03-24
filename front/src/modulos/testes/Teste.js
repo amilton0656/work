@@ -9,9 +9,9 @@ const Teste = () => {
 
     const writeExcel = (fileExtension, fileName) => {
         var data = [
-            {"name":"John", "city": "Seattle"},
-            {"name":"Mike", "city": "Los Angeles"},
-            {"name":"Zach", "city": "New York"}
+            {"Nome":"Amilton", "Email":"amilton@cota.com.br", "Telefone":"48 99986 4257"},
+            {"Nome":"Joaquim", "Email":"jo@gmail.com", "Telefone":"48 99988 8888"},
+            {"Nome":"Maria", "Email":"ma@email.com", "Telefone":"48 99955 5555"}
         ];
         
         /* this line is only needed if you are not adding a script tag reference */
@@ -22,10 +22,10 @@ const Teste = () => {
         
         /* add to workbook */
         var wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "People");
+        XLSX.utils.book_append_sheet(wb, ws, "Teste Excel");
         
         /* generate an XLSX file */
-        XLSX.writeFile(wb, "sheetjs.xlsx");
+        XLSX.writeFile(wb, "testeExcel.xlsx");
 
     }
 
@@ -72,7 +72,7 @@ const Teste = () => {
     return (
         <div>
 
-            <button onClick={writeExcel('xlsx','teste')}>Enviar</button>
+            <button onClick={() => writeExcel('xlsx','teste')}>Enviar</button>
 
             <input 
                 type='file'
