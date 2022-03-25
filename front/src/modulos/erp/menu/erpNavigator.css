@@ -1,0 +1,81 @@
+:root {
+    --erp-menu__altura: 1000px;
+}
+
+#nerp-nav__ck-show:checked ~ .nerp-nav {
+    transform: translateX(450px);
+    transition: all .5s; 
+}
+
+.erp-nav {
+    background: white;
+    max-width: max-content;
+    min-width: min-content;
+    height: 100%;
+    position: absolute;
+    /* left: -450px; */
+    top: 0;
+    transform: translateX(0px);
+    transition: all .5s;
+    padding-top: 20px;
+    margin: 0;
+    overflow-y: scroll;
+}
+
+.nerp-nav__space {
+    margin-left: 8px;
+}
+
+.nerp-nav__ul {
+    height: 100%;
+    padding: 0;
+    margin: 0 5px 0 30px;
+}
+
+.nerp-nav__li {
+    list-style: none;
+    padding: 10px 0px;
+}
+
+.nerp-nav__li:hover {
+    cursor: pointer;
+}
+
+.nerp-nav__alinha-icone {
+    display: flex;
+    align-items: center;
+    
+}
+
+.not-show  {
+    transition: max-height 0.3s;
+    overflow: hidden;
+    max-height: 0;
+}
+
+.ico {
+    transform: rotate(0deg);
+    transition: 0.2s ease-in-out;
+}
+
+input:checked ~ span .ico {
+    transform: rotate(90deg);
+    transition: 0.2s ease-in-out;
+}
+
+/* *****     Esconde lista     ***** */
+.ck-mostrar ~ .ul-mostrar  {
+    transition: max-height 0.3s;
+    overflow: hidden;
+    max-height: 0;
+}
+
+/* *****     Mostra lista     ***** */
+.ck-mostrar:checked ~ .ul-mostrar {
+    max-height: var(--erp-menu__altura);
+    transition: 0.3s ease-in-out;
+}
+
+.nerp-nav__li input:checked ~ span {
+    font-weight: bold;
+}

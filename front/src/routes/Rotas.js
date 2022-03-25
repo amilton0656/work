@@ -15,6 +15,9 @@ import EmprestimoPriceListaPDF from '../modulos/emprestimo/price/EmprestimoPrice
 import PessoaLista from '../modulos/pessoa/lista/PessoaLista'
 import PessoaCadDados from '../modulos/pessoa/dados/PessoaCadDados'
 import PessoaFichaCadastral from '../modulos/pessoa/lista/PessoaFichaCadastral'
+
+import ErpNavigator from '../modulos/erp/menu/ErpNavigator'
+
 import TesteScroll from '../modulos/testes/TesteScroll'
 import Menu01 from '../exemplos/menus/Menu01'
 import FundoModal from '../modulos/testes/FundoModal'
@@ -51,6 +54,8 @@ const Rotas = () => {
                 <Route path="/pessoa/lista" element={<PessoaLista />} />
                 <Route path="/pessoa/formdados" element={<PessoaCadDados />} />
                 <Route path="/pessoa/fichacadastral" element={<PessoaFichaCadastral />} />
+
+                <Route path="/erp/navigator" element={<ErpNavigator />} />
 
                 <Route path="/teste" element={<Teste />} />
                 <Route path="/menu" element={<Menu01 />} />

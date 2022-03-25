@@ -154,7 +154,7 @@ export const subSimulacoes = [
 ]
 
 export const subPessoas = [
-    {title: 'Pessoas', navigate: '/pessoa/lista'},
+    {title: 'Pessoas', navigate: '/erp/navigator'},
 ]
 
 export const subTeste = [

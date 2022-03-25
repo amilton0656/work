@@ -3,22 +3,25 @@ import * as XLSX from 'xlsx'
 
 
 
-const Teste = () => {
+const Teste = props => {
 
     const [linhas, setLinhas] = useState([])
 
-    const writeExcel = (fileExtension, fileName) => {
+    const lista = props.lista
+    console.log('chegando ', props.lista)
+
+    const writeExcel = (fileExtension, fileName, lista) => {
         var data = [
-            {"Nome":"Amilton", "Email":"amilton@cota.com.br", "Telefone":"48 99986 4257"},
-            {"Nome":"Joaquim", "Email":"jo@gmail.com", "Telefone":"48 99988 8888"},
-            {"Nome":"Maria", "Email":"ma@email.com", "Telefone":"48 99955 5555"}
+            {Nome:"Amilton", "Email":"amilton@cota.com.br", "Telefone":"48 99986 4257"},
+            {Nome:"Joaquim", "Email":"jo@gmail.com", "Telefone":"48 99988 8888"},
+            {Nome:"Maria", "Email":"ma@email.com", "Telefone":"48 99955 5555"}
         ];
         
         /* this line is only needed if you are not adding a script tag reference */
         if(typeof XLSX == 'undefined') XLSX = require('xlsx');
         
         /* make the worksheet */
-        var ws = XLSX.utils.json_to_sheet(data);
+        var ws = XLSX.utils.json_to_sheet(lista);
         
         /* add to workbook */
         var wb = XLSX.utils.book_new();
@@ -72,7 +75,7 @@ const Teste = () => {
     return (
         <div>
 
-            <button onClick={() => writeExcel('xlsx','teste')}>Enviar</button>
+            <button onClick={() => writeExcel('xlsx','teste', lista)}>Enviar</button>
 
             <input 
                 type='file'
