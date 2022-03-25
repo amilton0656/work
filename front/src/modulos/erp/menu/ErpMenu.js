@@ -100,7 +100,7 @@ const clickHandle = (nivel, id) => {
 const Ico = ({ item, classe }) => {
     return (
         <>
-            <input type='checkbox' id={`ck-${item.id}`} className={classe} style={{ display: 'none' }} />
+            <input type='checkbox' id={`ck-${item.id}`} className={`${classe} ck-mostrar`} style={{ display: 'none' }} />
 
             <span className='nerp-nav__alinha-icone'>
                 <IconContext.Provider value={{ className: "ico" }}>
@@ -152,7 +152,7 @@ const Nivel02 = props => {
     const { grupo, items } = props
 
     return (
-        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul show not-show'>
+        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul ul-mostrar not-show'>
             {
                 items.map((item, i) => {
                     if (item.sub === true) {
@@ -212,7 +212,7 @@ const Nivel03 = props => {
     const { grupo, items } = props
 
     return (
-        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul show not-show'>
+        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul ul-mostrar not-show'>
             {
                 items.map((item, i) => {
                     if (item.sub === true) {
@@ -247,7 +247,7 @@ const Nivel04 = props => {
     const { grupo, items } = props
 
     return (
-        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul show not-show'>
+        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul not-show'>
             {
                 items.map((item, i) => {
                     if (item.sub === true) {
@@ -278,7 +278,7 @@ const Nivel05 = props => {
     const { grupo, items } = props
 
     return (
-        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul show not-show'>
+        <ul key={`nv-${grupo}`} id={`nv-${grupo}`} className='nerp-nav__ul ul-mostrar not-show'>
             {
                 items.map((item, i) => {
                     if (item.sub === true) {
