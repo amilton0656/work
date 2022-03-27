@@ -1,78 +1,65 @@
 const Recurso = require('../models/mo_recurso')
 
-// exports.addIndice = (req, res, next) => {
-//   const indice = req.body
-//   Indice.create(indice)
-//     .then(indice => {
-//       res.status(200).json(indice)
-//     })
-//     .catch(err => {
-//       console.log(err)
-//       res.status(500).json('Usuário não encontrado.')
-//     })
-// }
+exports.addRecurso = (req, res, next) => {
+  const recurso = req.body
 
-// exports.updIndice = (req, res, next) => {
-//   const id = req.params.id
-//   const body = req.body
+  console.log('recurso', recurso)
 
-//   Indice.findByPk(id)
-//     .then(indice => {
-//       indice.update(body)
-//     })
-//     .then(indice => {
-//       res.status(200).json(body)
-//     })
-//     .catch(err => {
-//       console.log(err)
-//       res.status(500).json('Usuário não encontrado.')
-//     })
-// }
+  Recurso.create(recurso)
+    .then(recurso => {
+      res.status(200).json(recurso)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json('Problemas ao cadastrar.')
+    })
+}
 
-// exports.delIndice = (req, res, next) => {
-//   const id = req.params.id
+exports.updRecurso = (req, res, next) => {
+  const body = req.body
+  const id_recurso = body.id_recurso
 
-//   Indice.findByPk(id)
-//     .then(indice => {
-//       indice.destroy(indice)
-//     })
-//     .then(id => {
-//       res.status(200).json(id)
-//     })
-//     .catch(err => {
-//       console.log(err)
-//       res.status(500).json('Usuário não encontrado.')
-//     })
-// }
+  Recurso.findByPk(id_recurso)
+    .then(recurso => {
+      recurso.update(body)
+    })
+    .then(recurso => {
+      res.status(200).json(body)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json('Problemas ao atualizar.')
+    })
+}
 
-// exports.getIndiceById = (req, res, next) => {
-//   const id = req.params.id
-//   Indice.findByPk(id)
-//     .then(indice => {
-//       res.status(200).json(indice)
-//     })
-//     .catch(err => {
-//       console.log(err)
-//       res.status(500).json('Usuário não encontrado.')
-//     })
-// }
+exports.delRecurso = (req, res, next) => {
+  const id = req.params.id
 
-// exports.getIndiceByNome = (req, res, next) => {
-//   const { nome } = req.params
-//   const busca = '%' + nome.toLowerCase() + '%'
+  Recurso.findByPk(id)
+    .then(recurso => {
+      recurso.destroy(recurso)
+    })
+    .then(id => {
+      res.status(200).json(id)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json('Problemas ao excluir.')
+    })
+}
 
-//   Indice.sequelize.query(`select id_indice, nome
-//   from indices
-//   where lower(nome) like :busca`,
-//   { replacements: { busca } })
-//     .then(indice => {
-//       res.status(200).json(indice[0])
-//     })
-//     .catch(err => {
-//       res.status(500).send({ message: "Ocorreu um erro ao buscar os registros" });
-//     });
-// }
-
+exports.getRecursoById = (req, res, next) => {
+  const id = req.params.id
+  console.log('id ', id)
+  Recurso.findByPk(id)
+    .then(recurso => {
+      res.status(200).json(recurso)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json('Recurso não encontrado.')
+    })
+}
 
 exports.getRecursos = (req, res, next) => {
   Recurso.sequelize.query(`

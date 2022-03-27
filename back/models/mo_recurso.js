@@ -5,7 +5,6 @@ const sequelize = require('../util/DBconnection')
 const Recurso = sequelize.define('recurso', {
   id_recurso: {
     type: Sequelize.INTEGER,
-    autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
@@ -14,7 +13,10 @@ const Recurso = sequelize.define('recurso', {
   tx_nomeform: Sequelize.STRING(150),
   tx_nomeacao: Sequelize.STRING(100),
   ordem: Sequelize.INTEGER,
-  menu: Sequelize.INTEGER
+  menu: Sequelize.INTEGER,
+  link: Sequelize.STRING(255),
+  nav: Sequelize.STRING(255),
+  notshow: Sequelize.BOOLEAN
 }, {
   tableName: 'recurso',
   timestamp: false,

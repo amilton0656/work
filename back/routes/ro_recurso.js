@@ -1,17 +1,16 @@
 const express = require('express');
 
-const indiceController = require('../controllers/co_recurso')
+const Controller = require('../controllers/co_recurso')
 
 const md_auth = require('../util/autenticacao')
 
 const router = express.Router()
 
-router.get('/recursos', indiceController.getRecursos)
-// router.get('/indice/:id', indiceController.getIndiceById)
-// router.get('/indice/nome/:nome', indiceController.getIndiceByNome)
-// router.post('/indice', md_auth.auth, indiceController.addIndice)
-// router.put('/indice/:id', md_auth.auth, indiceController.updIndice)
-// router.delete('/indice/:id', md_auth.auth, indiceController.delIndice)
+router.get('/recursos', Controller.getRecursos)
+router.get('/recurso/:id', Controller.getRecursoById)
+router.post('/recurso/add', md_auth.auth, Controller.addRecurso)
+router.put('/recurso/upd', md_auth.auth, Controller.updRecurso)
+router.delete('/recurso/del/:id', md_auth.auth, Controller.delRecurso)
 
 
 module.exports = router

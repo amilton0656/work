@@ -9,48 +9,39 @@ import Button from '../../components/Button'
 import { isMobile } from '../../util/util'
 import PrintPrint from '../../components/PrintPrint'
 import Cabecalho from '../../components/Cabecalho'
-// import './pessoaLista.css'
-
-import Teste from '../testes/Teste'
+import '..//pessoa/lista/pessoaLista.css'
 
 import { pessoasActions } from '../../store/pessoaReducers'
+
+import ListaIcones from '../pessoa/lista/ListaIcones'
 
 const nomeEmpresa = 'COTA Empreendimentos Imobiliários Ltda'
 
 const RecursoLista = () => {
-
+    
     const [recursos, setRecursos] = useState([])
-    const [recursosEditados, setRecursosEditados] = useState([])
 
+    const [pessoasAll, setPessoasAll] = useState([])
+    const [pessoas, setPessoas] = useState([])
+    const [icones, setIcones] = useState(false)
+    const [id, setId] = useState('')
+    const [busca, setBusca] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
+    const [getLista, setGetLista] = useState(true)
+    const [print, setPrint] = useState(false)
+    
+    let pagina = 0
+
+    const navigate = useNavigate()
+
+    const { token } = useSelector(state => state.login.login)
+
+    const dispatch = useDispatch()
 
     const atualizar = () => {
-        clienteAxios.get('/recursos')
+        clienteAxios.get('/recursos',{ headers: { Authorization: token } })
             .then(resposta => {
                 setRecursos(resposta.data)
-                console.log('resp ', resposta.data)
-                // let editados = []
-                // resposta.data.map((item) => {
-                //     let num = parseInt(item.id_recurso_recurso)
-                //     if (num < 100) {
-                //         num = 10000000000 + (num * 100000000)
-                //     } else if (num < 10000) {
-                //         num = 10000000000 + (num * 1000000)
-                //     } else if (num < 1000000) {
-                //         num = 10000000000 + (num * 10000)
-                //     } else if (num < 100000000) {
-                //         num = 10000000000 + (num * 100)
-                //     } else if (num < 10000000000) {
-                //         num = 10000000000 + num
-                //     }
-
-                //     editados.push({ id: item.id_recurso, idEdit: num, nome: item.nm_recurso })
-                //     console.log(num)
-                // })
-                // console.log(editados.sort(function (a, b) {
-                //     return a.id - b.id;
-                // }))
-                // console.log('editados', editados)
-                // setRecursos(editados)
             })
             .catch(err => {
             })
@@ -58,89 +49,170 @@ const RecursoLista = () => {
 
     useEffect(() => {
         atualizar()
+        setGetLista(false)
     }, [])
 
+
     useEffect(() => {
+        setPrint(false)
+    }, [print])
 
+    const deleteHandler = id => {
+        Swal.fire({
+            title: 'Tem certeza?',
+            text: "Você está excluindo este registro!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'OK, excluído!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                clienteAxios.delete(`/recurso/del/${id}`, { headers: { Authorization: token } })
+                    .then(resposta => {
+                        atualizar()
+                    })
+                    .catch(err => {
+                        // dispatch(descargaEmpreendimentosError())
+                    })
 
-    }, [recursos])
+                Swal.fire(
+                    'Excluído!'
+                )
+            }
+        })
 
-    // if (!recursos.length > 0) {
-    //     return null
-    // } else {
+    }
 
-    //     // const nivel01 = recursos.filter(item => item.id_recurso < 100)
-    //     // console.log('nivel01', nivel01)
+    const clickHandle = (idClicked) => {
 
+        if (idClicked === id) {
+            setIcones(!icones)
+        } else {
+            setIcones(true)
+            setId(idClicked)
+        }
+    }
 
-    // }
+    const textHandler = (event) => {
+        setBusca(event.target.value.toUpperCase())
+        onBuscar(event.target.value.toUpperCase())
+    }
 
+    const onBuscar = busca => {
 
+        const filtra = new Promise((resolve, reject) => {
 
+            resolve(
+                pessoasAll.filter(function (pessoa) {
+                    const pp = pessoa.nome
+                    if (pp) {
+                        return pp.toLowerCase().search(
+                            busca.toLowerCase()) !== -1
+                    }
+                })
+            )
+        }
 
+        )
+
+        filtra
+            .then(res => {
+                setPessoas(res)
+            }
+            )
+    }
+
+    if (!recursos) {
+        return <div>Não há registros</div>
+    }
+
+    const goToForm = (recurso) => {
+        setGetLista(true)
+        const id = recurso ? recurso.id_recurso : null
+        navigate('/recurso/formdados', { state: id })
+    }
+
+    const FichaCadastral = (id_recurso) => {
+        navigate('/pessoa/fichacadastral', {state: id_recurso})
+ 
+    }
+
+    const styleButton = {
+        width: '80px',
+        background: 'lightgreen',
+        color: 'blue'
+    }
 
     return (
         <>
             <div className='pessoa-list__layout'>
-                {recursos.length > 0 && <Teste lista={recursos} />}
+                {isLoading && <Spinner />}
+                <div className='pessoa-list__header'>
+                    <h2>Recursos</h2>
+                    <div className='pessoa-list__header-buttons'>
 
+                        <div>
+                            <Button
+                                className='pessoa-list__header-button'
+                                bg='lightgreen'
+                                c='green'
+                                title='Novo'
+                                onClick={() => goToForm(null)}
+                            />
+                        </div>
+                        <div>
+                            <Button
+                                className='pessoa-list__header-button'
+                                bg='green'
+                                title='Imprimir'
+                                // onClick={() => PessoaListaPdf(pessoas)}
+                                onClick={() => setPrint(true)}
+                            />
+                        </div>
+                        <div>
+                            <Button
+                                className='pessoa-list__header-button'
+                                bg='grey'
+                                title='Sair'
+                                onClick={() => navigate('/', { replace: true })}
+                            />
+                        </div>
+
+                    </div>
+                    <div className='pessoa-list__busca'>
+
+                        <div className='pessoa-list__input-box'>
+                            <label htmlFor="busca">Busca:</label>
+                            <input
+                                className='form-input pessoa-list__input-busca'
+                                id="busca"
+                                name="busca"
+                                onChange={textHandler}
+                                value={busca}
+                            />
+                        </div>
+                    </div>
+                </div>
                 <ul className='pessoa-list__container-list'>
+
                     {
-                        recursos.filter(nivel01 => nivel01.id_recurso < 100).map(nivel01 => (
+                        recursos.map(recurso => (
                             <div style={{ background: 'white' }}>
-                                <div className='pessoa-list__item' key={nivel01.id_recurso} >
-                                    <li key={nivel01.id_recurso} className='pessoa-list__linha'> {nivel01.id_recurso} - {nivel01.nm_recurso}
-                                        {
-                                            recursos.filter(nivel02 => nivel02.id_recurso > ((nivel01.id_recurso * 100)) && nivel02.id_recurso < ((nivel01.id_recurso * 100) + 100)).map(nivel02 => (
-                                                <div style={{ background: 'white' }}>
-                                                    <div className='pessoa-list__item' key={nivel02.id_recurso} >
-                                                    <li key={nivel02.id_recurso} className='pessoa-list__linha'> {nivel02.id_recurso} - {nivel02.nm_recurso}
-                                                            {
-                                                                recursos.filter(nivel03 => nivel03.id_recurso > ((nivel02.id_recurso * 100)) && nivel03.id_recurso < ((nivel02.id_recurso * 100) + 100)).map(nivel03 => (
-                                                                    <div style={{ background: 'white' }}>
-                                                                        <div className='pessoa-list__item' key={nivel03.id_recurso} >
-                                                                        <li key={nivel03.id_recurso} className='pessoa-list__linha'> {nivel03.id_recurso} - {nivel03.nm_recurso}
-                                                                                {
-                                                                                    recursos.filter(nivel04 => nivel04.id_recurso > ((nivel03.id_recurso * 100)) && nivel04.id_recurso < ((nivel03.id_recurso * 100) + 100)).map(nivel04 => (
-                                                                                        <div style={{ background: 'white' }}>
-                                                                                            <div className='pessoa-list__item' key={nivel04.id_recurso} >
-                                                                                            <li key={nivel04.id_recurso} className='pessoa-list__linha'> {nivel04.id_recurso} - {nivel04.nm_recurso}
-                                                                                                    {
-                                                                                                        recursos.filter(nivel05 => nivel05.id_recurso > ((nivel04.id_recurso * 100)) && nivel05.id_recurso < ((nivel04.id_recurso * 100) + 100)).map(nivel05 => (
-                                                                                                            <div style={{ background: 'white' }}>
-                                                                                                                <div className='pessoa-list__item' key={nivel05.id_recurso} >
-                                                                                                                <li key={nivel05.id_recurso} className='pessoa-list__linha'> {nivel05.id_recurso} - {nivel05.nm_recurso}
-                                                                                                                    </li>
+                                <div className='recurso-list__item' key={recurso.id_recurso} onClick={() => clickHandle(recurso.id_recurso)} >
+                                    <li
+                                        className={icones && id === recurso.id_recurso ? 'recurso-list__linha recurso-list__bold' : 'recurso-list__linha'}
 
-
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        ))
-                                                                                                    }
-                                                                                                </li>
-
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    ))
-                                                                                }
-                                                                            </li>
-
-
-                                                                        </div>
-                                                                    </div>
-                                                                ))
-                                                            }
-                                                        </li>
-
-
-                                                    </div>
-                                                </div>
-                                            ))
-                                        }
-
+                                    >{recurso.id_recurso} - {recurso.nm_recurso}
                                     </li>
 
+                                    {icones && id === recurso.id_recurso &&
+                                        <ListaIcones
+                                            onClick1={() => goToForm(recurso)}
+                                            onClick2={() => FichaCadastral(recurso.id_recurso)}
+                                            onClick3={() => deleteHandler(recurso.id_recurso)}
+                                        />
+                                    }
 
                                 </div>
                             </div>
@@ -149,7 +221,45 @@ const RecursoLista = () => {
                     }
                 </ul>
             </div>
+            {
+                print &&
+                <PrintPrint>
+                    <div style={{ padding: '30px ' }}>
+                        <Cabecalho
+                            nomeEmpresa={nomeEmpresa}
+                            tituloDocumento='Relação de Pessoas'
+                            pagina = {++pagina}
+                        />
+                        {
+                            pessoas.map((recurso, index) => (
+                                <div style={{ background: 'white' }}>
 
+                                    <div
+                                        className={index > 0 && index % 38 === 0 ? 'recurso-list__item page-break' : 'recurso-list__item'}
+                                        key={recurso.id_recurso}
+                                        onClick={() => clickHandle(recurso.id_recurso)}
+                                    >
+                                        <li >
+                                            {recurso.id_recurso} - {recurso.nm_recurso}
+
+                                        </li>
+
+                                    </div>
+                                        {index > 0 && index % 38 === 0 &&
+                                            <Cabecalho
+                                                nomeEmpresa={nomeEmpresa}
+                                                tituloDocumento='Relação de Pessoas'
+                                                pagina = {++pagina}
+                                            />
+                                        }
+                                </div>
+                            )
+                            )
+                        }
+
+                    </div>
+                </PrintPrint>
+            }
         </>
     );
 }

@@ -1,9 +1,131 @@
 :root {
-    --erp-menu__altura: 1000px;
+    --erp-menu__altura: 1500px;
 }
 
-#nerp-nav__ck-show:checked ~ .nerp-nav {
-    transform: translateX(450px);
+/* *****     Ícone     ***** */
+
+.erp-menu__icone-container {
+    background: rgba(255, 255, 255, .2);
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 20px;
+    left: 340px;
+    border-radius: 500%;
+    transition: 0.5s ease-in-out;
+}
+
+.erp-menu__icone-container:hover {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background: rgba(255, 255, 255, .5);
+}
+
+.erp-menu__icone-hamburger {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: white;
+    position: relative;
+    top: 24px;
+    left: 9px;
+    transition: 0.5s ease-in-out;
+}
+.erp-menu__icone-hamburger:before,
+.erp-menu__icone-hamburger:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: white;
+    position: absolute;
+    transition: 0.5s ease-in-out;
+}
+
+.erp-menu__icone-hamburger:before {
+    top: -10px;
+}
+
+.erp-menu__icone-hamburger:after {
+    bottom: -10px;
+}
+
+#erp-nav__ck-show:checked ~ label .erp-menu__icone-hamburger {
+    transform: rotate(45deg);
+    background: white;
+}
+
+#erp-nav__ck-show:checked ~ label .erp-menu__icone-hamburger:before {
+    transform: rotate(90deg);
+    top: 0;
+    background: white;
+}
+
+#erp-nav__ck-show:checked ~ label .erp-menu__icone-hamburger:after {
+    transform: rotate(90deg);
+    bottom: 0;
+    background: white;
+}
+
+#erp-nav__ck-show:checked ~ label .erp-menu__icone-container {
+    transition: 0.2s ease-in-out;
+    background: rgba(0, 0, 0, .6);
+}
+
+#erp-nav__dropdown-fundo {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+#erp-nav__ck-show:checked ~ #erp-nav__dropdown-fundo {
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+}
+
+
+@media (min-width: 460px) {
+
+    
+#erp-nav__ck-show:checked ~ .erp-nav {
+    transform: translateX(600px);
+    transition: all 0.5s ease-in-out; 
+}
+    
+    .erp-menu__icone-container {
+        left: 30px;
+        transition: all 0.8s ease-in-out;
+        background: rgba(255, 255, 255, .3);
+    }
+
+    #erp-nav__ck-show:checked ~ label .erp-menu__icone-container:hover {
+        transition: all 0.2s ease-in-out;
+        background: rgba(255, 255, 255, .6);
+    }
+
+    #erp-nav__ck-show:checked ~ label .erp-menu__icone-container {
+        left: 450px;
+        transition: all 0.3s ease-in-out;
+        background: rgba(255, 255, 255, .3);
+    }
+    
+
+
+    
+}
+
+/* *****     side-menu     ***** */
+
+input[id^=ck-] {
+    display: none;
+}
+
+#erp-nav__ck-show:checked ~ .erp-nav {
+    transform: translateX(600px);
     transition: all .5s; 
 }
 
@@ -13,7 +135,7 @@
     min-width: min-content;
     height: 100%;
     position: absolute;
-    /* left: -450px; */
+    left: -600px;
     top: 0;
     transform: translateX(0px);
     transition: all .5s;
@@ -26,32 +148,42 @@
     margin-left: 8px;
 }
 
-.nerp-nav__ul {
+.erp-nav__ul {
     height: 100%;
     padding: 0;
-    margin: 0 5px 0 30px;
+    margin: 0 0 0 10px;
 }
 
-.nerp-nav__li {
+.erp-nav__li {
     list-style: none;
-    padding: 10px 0px;
+    padding: 0px 0px;
+    margin: 0;
+    max-width: 400;
 }
 
-.nerp-nav__li:hover {
+.erp-nav__label { 
+    width: 100%;
+    font-weight: normal;
+    font-size: 1.2rem;
+    margin-left: 6px;
+}
+
+.erp-nav__label:hover {
     cursor: pointer;
 }
 
-.nerp-nav__alinha-icone {
+.erp-nav__alinha-icone {
     display: flex;
     align-items: center;
     
 }
 
-.not-show  {
-    transition: max-height 0.3s;
-    overflow: hidden;
-    max-height: 0;
+
+.ico {
+    margin: 12px 0 0 0;
 }
+
+
 
 .ico {
     transform: rotate(0deg);
@@ -63,19 +195,43 @@ input:checked ~ span .ico {
     transition: 0.2s ease-in-out;
 }
 
-/* *****     Esconde lista     ***** */
+.ul-mostrar {
+    margin: 0;
+    padding: 2px 0 2px 20px;
+
+}
+
+/* *****     Esconde lista de subitens     ***** */
 .ck-mostrar ~ .ul-mostrar  {
     transition: max-height 0.3s;
     overflow: hidden;
-    max-height: 0;
+    max-height: 0px;
 }
 
-/* *****     Mostra lista     ***** */
+/* *****     Mostra lista de subitens     ***** */
 .ck-mostrar:checked ~ .ul-mostrar {
     max-height: var(--erp-menu__altura);
     transition: 0.3s ease-in-out;
 }
 
-.nerp-nav__li input:checked ~ span {
+.erp-nav__li input:checked + label {
     font-weight: bold;
 }
+
+.ck-mostrar:checked ~ span label {
+    font-weight: bold;
+    color: grey;
+}
+
+@media (min-width: 460px) {
+    
+.erp-nav__li {
+    max-width: 400px;
+}
+
+.erp-nav__label { 
+    font-size: 1.1rem;
+}
+}
+
+

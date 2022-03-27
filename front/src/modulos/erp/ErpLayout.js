@@ -1,6 +1,5 @@
 
-import ErpMenu from './menu/ErpMenu';
-// import Rotas from '../../routes/Rotas'
+import ErpNavigator from './menu/ErpNavigator';
 import fundo from '../../img/fundo-erp01.jpg'
 
 import './erpLayout.css'
@@ -19,7 +18,7 @@ const ErpLayout = () => {
                 </div>
 
             </div>
-            <ErpMenu show={true} />
+            <ErpNavigator show={true} />
         </main>
     );
 }

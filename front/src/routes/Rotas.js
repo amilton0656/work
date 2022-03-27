@@ -16,6 +16,10 @@ import PessoaLista from '../modulos/pessoa/lista/PessoaLista'
 import PessoaCadDados from '../modulos/pessoa/dados/PessoaCadDados'
 import PessoaFichaCadastral from '../modulos/pessoa/lista/PessoaFichaCadastral'
 
+import RecursoCad from '../modulos/recurso/RecursoCad'
+import RecursoLista from '../modulos/recurso/RecursoLista'
+
+
 import ErpNavigator from '../modulos/erp/menu/ErpNavigator'
 
 import TesteScroll from '../modulos/testes/TesteScroll'
@@ -55,9 +59,12 @@ const Rotas = () => {
                 <Route path="/pessoa/formdados" element={<PessoaCadDados />} />
                 <Route path="/pessoa/fichacadastral" element={<PessoaFichaCadastral />} />
 
+                <Route path="/recurso/lista" element={<RecursoLista />} />
+                <Route path="/recurso/formdados" element={<RecursoCad />} />
+
                 <Route path="/erp/navigator" element={<ErpNavigator />} />
 
-                <Route path="/teste" element={<Teste />} />
+                <Route path="/teste" element={<RecursoLista />} />
                 <Route path="/menu" element={<Menu01 />} />
 
             </Routes>

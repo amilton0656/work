@@ -32,7 +32,7 @@ exports.updPessoa = (req, res, next) => {
 }
 
 exports.delPessoa = (req, res, next) => {
-  const id = req.params.id
+  const id_recurso = req.params.id_recurso
 
   Pessoa.findByPk(id)
     .then(pessoa => {
