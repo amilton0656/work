@@ -13,8 +13,9 @@ exports.addPessoaContato = (req, res, next) => {
 }
 
 exports.updPessoaContato = (req, res, next) => {
-  const id = req.params.id
+  const id = req.body.id_contato
   const body = req.body
+
 
   PessoaContato.findByPk(id)
     .then(pessoaContato => {
@@ -54,6 +55,26 @@ exports.getPessoaContatoById = (req, res, next) => {
     .catch(err => {
       console.log(err)
       res.status(500).json('Contato não encontrado.')
+    })
+}
+
+exports.getPessoaContatos = (req, res, next) => {
+
+  const id = req.params.id
+
+  console.log('params ',req.params)
+
+  PessoaContato.sequelize.query(`
+  select *
+  from pessoas_contatos
+  where id_pessoa = :id`,
+  { replacements: { id } })
+    .then(contatos => {
+      res.status(200).json(contatos[0])
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json('Contatos não encontrados.')
     })
 }
 

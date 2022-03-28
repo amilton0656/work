@@ -1,4 +1,5 @@
 export const cpfMask = value => {
+      if (!value) return ''
       if (value.length === 0) return value
       return value
             .replace(/\D/g, '') // substitui qualquer caracter que nao seja numero por nada
@@ -9,6 +10,7 @@ export const cpfMask = value => {
 }
 
 export const cnpjMask = value => {
+      if (!value) return ''
       if (value.length === 0) return value
       return value
             .replace(/\D/g, '')
@@ -20,7 +22,10 @@ export const cnpjMask = value => {
 }
 
 export const cepMask = value => {
+
+      if (!value) return ''
       if (value.length === 0) return value
+
       return value
             .replace(/\D/g, '')
             .replace(/(\d{5})(\d)/, '$1-$2')
@@ -28,6 +33,7 @@ export const cepMask = value => {
 }
 
 export const cpfFormat = value => {
+      if (!value) return ''
       value = value.replace(/\D/g, '')
       if (value.length === 0) return value
       let a = value.replace(/\D/g, '')
@@ -39,6 +45,7 @@ export const cpfFormat = value => {
 }
 
 export const cnpjFormat = value => {
+      if (!value) return ''
       if (value.length === 0) return value
       let a = value.replace(/\D/g, '')
       let b = a.substring(0, 2)
@@ -56,6 +63,7 @@ export const clearFormat = value => {
 }
 
 export const validarCPF = (cpf) => {
+      if (!cpf) return false
       if (cpf.length === 0) return false
       var numeros, digitos, soma, i, resultado, digitos_iguais;
       digitos_iguais = 1;
@@ -89,6 +97,7 @@ export const validarCPF = (cpf) => {
 }
 
 export const validarCNPJ = (s) => {
+      if (!s) return false
       if (s.length === 0) return s
       let cnpj = s.replace(/[^\d]+/g, '')
 
@@ -125,6 +134,7 @@ export const validarCNPJ = (s) => {
 }
 
 export const formatarNumero = (n) => {
+      if (!n) return ''
       var n = n.toString();
       var r = '';
       var x = 0;
@@ -142,8 +152,7 @@ export const formatarData = data => {
 }
 
 export const convertToReal = (number, options = {}) => {
-
-
+      if (!number) return ''
 
       const { moneySign = false } = options;
 

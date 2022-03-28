@@ -50,7 +50,7 @@ const Header = props => {
     )
 }
 
-const ProponenteCadDados = props => {
+const PessoaCadDados = props => {
 
     const dispatch = useDispatch()
 
@@ -101,12 +101,13 @@ const ProponenteCadDados = props => {
 
     useEffect(() => {
 
-        console.log('id_pessoa ', id_pessoa)
-
         if (id_pessoa) {
             clienteAxios.get(`/pessoa/${id_pessoa}`, { headers: { Authorization: token } })
                 .then(resposta => {
-                    console.log('id_pessoa_datda ', resposta.data)
+                    resposta.data.cep = cepMask(resposta.data.cep)
+                    resposta.data.cpf_cnpj=resposta.data.tipo_pessoa.toString() === '1' 
+                        ? cpfMask(resposta.data.cpf_cnpj)
+                        : cnpjMask(resposta.data.cpf_cnpj)
                     setFormDataI(resposta.data)
                     const id_pessoa = resposta.data.id_pessoa
 
@@ -118,8 +119,10 @@ const ProponenteCadDados = props => {
                     clienteAxios.get(`/pessoacomplemento/id/${id_pessoa}`, { headers: { Authorization: token } })
                         .then(resposta => {
                             if (resposta.data.length === 0) {
+                                resposta.data.conjuge_cpf = cpfMask(resposta.data.conjuge_cpf)
                                 setFormDataII({ ...initialStateII, id_pessoa })
                             } else {
+                                resposta.data[0].conjuge_cpf = cpfMask(resposta.data[0].conjuge_cpf)
                                 setFormDataII(resposta.data[0])
                             }
                             dispatch(pessoasActions.setComplemento(resposta.data))
@@ -146,8 +149,6 @@ const ProponenteCadDados = props => {
 
     const addHandle = event => {
 
-        console.log('enter')
-
         event.preventDefault()
 
         return null
@@ -158,8 +159,6 @@ const ProponenteCadDados = props => {
             .then(resposta => {
                 id_pessoa = resposta.data.id_pessoa
                 // dispatch(pessoasActions.setPessoa(resposta.data))
-                console.log('depois de cad voltou ', resposta.data)
-
             })
             .then(resposta => {
 
@@ -194,7 +193,6 @@ const ProponenteCadDados = props => {
                 if (formDataII.id_dados) {
                     clienteAxios.put('/pessoacomplemento/upd', formDataII, { headers: { Authorization: token } })
                         .then(resposta => {
-                            console.log('alterou put complemento ')
                             // dispatch(pessoasActions.setComplemento(resposta.data))
                             navigate('/pessoa/lista', { state: true })
                         })
@@ -402,7 +400,7 @@ const ProponenteCadDados = props => {
                 <Button
                     type='button'
                     className='w150'
-                    title='Salvare'
+                    title='Salvar'
                     onClick={editHandle}
                 />
             </div>
@@ -668,9 +666,10 @@ const ProponenteCadDados = props => {
                         </select>
                     </div>
 
-                    {/* formDataI.id_pessoa && <PessoaContatosLista */}
 
-                    {1 && <PessoaContatosLista
+
+                    {
+                    1 && <PessoaContatosLista
                         id_pessoa={formDataI.id_pessoa}
                         formDataI={formDataI}
                         formDataII={formDataII}
@@ -1011,6 +1010,7 @@ const ProponenteCadDados = props => {
                                 id="remuneracao"
                                 name="remuneracao"
                                 value={formDataII.remuneracao}
+                                onChange={() =>{}}
                             />
 
 
@@ -1028,6 +1028,7 @@ const ProponenteCadDados = props => {
                                         className='w150'
                                         id="financ_valor"
                                         name="financ_valor"
+                                        onChange={() =>{}}
                                     />
 
                                     {/* Comprometimento - Prazo */}
@@ -1068,4 +1069,4 @@ const ProponenteCadDados = props => {
     );
 }
 
-export default ProponenteCadDados;
+export default PessoaCadDados;

@@ -70,8 +70,8 @@ const RecursoCad = props => {
             console.log('vai buscar ', id_recurso)
             clienteAxios.get(`/recurso/${id_recurso}`, { headers: { Authorization: token } })
                 .then(resposta => {
+                    resposta.data.notshow = resposta.data.notshow === null ? 0 : resposta.data.notshow
                     setFormData(resposta.data)
-                    console.log('trouxe ', id_recurso)
                 })
                 .catch(err => {
                     console.log('Erro ao buscar ', err)
@@ -117,6 +117,11 @@ const RecursoCad = props => {
 
         let dataEntered = event.target.value
 
+        if (event.target.name === 'notshow') {
+            console.log('chegu .. ',event.target.value)
+            dataEntered = event.target.value === false ? '0' : '1'
+        }
+
         setFormData({
             ...formData,
             [event.target.name]: dataEntered
@@ -130,6 +135,8 @@ const RecursoCad = props => {
     }
 
     const onClickButton=id_recurso ? editHandle : addHandle
+
+    console.log('o que veio ',formData.notshow)
     
     return (
         <div className='pessoa-container'>
@@ -255,7 +262,10 @@ const RecursoCad = props => {
                             className='form-input'
                             id="notshow"
                             name="notshow"
-                            defaultChecked={formData.notshow}
+                            defaultChecked={formData.notshow === null || 
+                                            formData.notshow.toString() === '0' ||
+                                            formData.notshow === false
+                                            ? false : true}
                             onChange={textHandler}
                             value={formData.notshow}
                         />

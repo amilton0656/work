@@ -61,6 +61,7 @@ const InputNumber = props => {
                 className={`form-input ${props.className}`}
                 value={valorE}
                 onKeyDown={getKey}
+                onChange={props.onChange}
             />
         </div>
     );

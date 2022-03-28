@@ -16,7 +16,7 @@ const Recurso = sequelize.define('recurso', {
   menu: Sequelize.INTEGER,
   link: Sequelize.STRING(255),
   nav: Sequelize.STRING(255),
-  notshow: Sequelize.BOOLEAN
+  notshow: Sequelize.INTEGER
 }, {
   tableName: 'recurso',
   timestamp: false,

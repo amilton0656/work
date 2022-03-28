@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import classes from './PessoaContatosLista.module.css'
 import clienteAxios from '../../../config/axios'
 import Swal from 'sweetalert2'
 import { BsTrash } from 'react-icons/bs'
 import { FaRegEdit } from 'react-icons/fa'
 import { pessoasActions } from '../../../store/pessoaReducers'
+import ListaIcones from '../lista/ListaIcones'
 
 import PessoaContatosCad from './PessoaContatosCad'
+
+import './pessoaContatosLista.css'
 
 const contatosx = [
     {
@@ -34,7 +36,6 @@ const contatosx = [
     },
 ]
 
-
 const PessoaContatosLista = props => {
 
     const [showCad, setShowCad] = useState(false)
@@ -43,19 +44,19 @@ const PessoaContatosLista = props => {
     const [contatos, setContatos] = useState([])
     const [novo, setNovo] = useState(props.id_pessoa || '')
 
-    const classe = showCad ? classes.showCad : classes.hideCad
+    const classe = showCad ? 'contato-showcad' : 'contato-hidecad'
 
     const { token } = useSelector(state => state.login.login)
 
     const { pessoa } = useSelector(state => state.pessoas)
 
-    const abc = useSelector(state => state.pessoas.contatos)   
+    const abc = useSelector(state => state.pessoas.contatos)
 
     const dispatch = useDispatch()
 
     const clickHandle = (contato) => {
         setIcones(!icones)
-        setShowCad(false)
+        // setShowCad(false)
         setContato(contato)
     }
 
@@ -69,7 +70,7 @@ const PessoaContatosLista = props => {
         setShowCad(!showCad)
         setContato('')
 
-    } 
+    }
 
     const editContatoHandle = (contato) => {
         setIcones(false)
@@ -78,15 +79,18 @@ const PessoaContatosLista = props => {
     }
 
     const atualizar = () => {
-        clienteAxios.get(`/pessoacontato/lista/${props.id_pessoa}`, { headers: { Authorization: token } })
-            .then(resposta => {
-                setContatos(resposta.data)
-                dispatch(pessoasActions.loadContatos(resposta.data))
+        if (props.id_pessoa) {
+            clienteAxios.get(`/pessoacontatos/${props.id_pessoa}`, { headers: { Authorization: token } })
+                .then(resposta => {
+                    setContatos(resposta.data)
+                    dispatch(pessoasActions.loadContatos(resposta.data))
+                })
+                .catch(err => {
+                    // dispatch(descargaEmpreendimentosError())
+                })
 
-            })
-            .catch(err => {
-                // dispatch(descargaEmpreendimentosError())
-            })
+        }
+
     }
 
     const deletePessoaHandler = id => {
@@ -100,7 +104,7 @@ const PessoaContatosLista = props => {
             confirmButtonText: 'OK, excluído!'
         }).then((result) => {
             if (result.isConfirmed) {
-                clienteAxios.delete(`/pessoacontato/del/${id}`)
+                clienteAxios.delete(`/pessoacontato/del/${id}`, { headers: { Authorization: token } })
                     .then(resposta => {
                         atualizar()
                     })
@@ -118,43 +122,52 @@ const PessoaContatosLista = props => {
 
     useEffect(() => {
         atualizar()
-    }, [showCad])
+    }, [props.id_pessoa])
 
-    
+
 
     return (
-        <main >
-            <div className={classes.containerHeader}>
-                <h3>Contatos</h3>
-                <div className={classes.containerButton}>
-                    <button type="button" className={classe} type="button" onClick={novoContatoHandle}>+</button>
-                </div>
+        <main className='contato-main'>
+            <div className='contato-container__header'>
+                <div>Contatos</div>
+                <button
+                    data-tool-tip='Cadastrar novo contato.'
+                    type="button"
+                    className={`contato-button ${classe}`}
+                    onClick={novoContatoHandle}
+                ></button>
             </div>
-            {showCad && <PessoaContatosCad 
-                setShowCad={setShowCad} 
-                id_pessoa={props.id_pessoa} 
-                contato={contato} 
+            {showCad && <PessoaContatosCad
+                setShowCad={setShowCad}
+                id_pessoa={props.id_pessoa}
+                contato={contato}
                 atualizar={atualizar}
             />}
-            <ul className={classes.items}>
+            <ul className='items'>
                 {
                     contatos.map(item => (
-                        <div>
-                        <div className={classes.item} key={item.id_pessoa}>
-                            <li
-                                className={classes.linha}
-                                onClick={() => clickHandle(item)}>{item.contato}
-                            </li>
-                            
+                        <li
+                            className='item' key={item.id_pessoa}
+                            onClick={() => clickHandle(item)}
+                        >
+                            {item.contato}
+
+
                             {icones && contato.id_contato === item.id_contato &&
-                            <div>
-                                <button type="button" onClick={() => editContatoHandle(item)}><FaRegEdit size={30} color='blue'/></button>
-                                <button type="button" onClick={() => deletePessoaHandler(item.id_contato)}><BsTrash size={30} color='red'/></button>
-                            </div>
+                                <ListaIcones
+                                    onClick1={() => editContatoHandle(item)}
+                                    onClick3={() => deletePessoaHandler(item.id_contato)}
+                                />
                             }
 
-                        </div>
-                        </div>
+                            {/* {icones && contato.id_contato === item.id_contato &&
+                                <div>
+                                    <button type="button" onClick={() => editContatoHandle(item)}><FaRegEdit size={30} color='blue' /></button>
+                                    <button type="button" onClick={() => deletePessoaHandler(item.id_contato)}><BsTrash size={30} color='red' /></button>
+                                </div>
+                            } */}
+
+                        </li>
                     ))
                 }
             </ul>

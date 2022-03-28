@@ -149,7 +149,6 @@ const PessoaLista = () => {
     }
 
     const FichaCadastral = (id_pessoa) => {
-        console.log('fich')
         navigate('/pessoa/fichacadastral', {state: id_pessoa})
 
         // let formDataI
@@ -188,15 +187,12 @@ const PessoaLista = () => {
     }
 
 
-
-
-
     return (
         <>
             <div className='pessoa-list__layout'>
                 {isLoading && <Spinner />}
                 <div className='pessoa-list__header'>
-                    <h2>Pessoas</h2>
+                    <h2>Pessoasxxx</h2>
                     <div className='pessoa-list__header-buttons'>
 
                         <div>

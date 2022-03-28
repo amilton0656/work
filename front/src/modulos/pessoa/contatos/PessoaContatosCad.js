@@ -6,10 +6,12 @@ import clienteAxios from '../../../config/axios'
 import { pessoasActions } from '../../../store/pessoaReducers'
 import RadioBox from '../../../components/RadioBox'
 import Input from '../../../components/Input'
+import Form from '../../../components/Form'
+import Button from '../../../components/Button'
 
 const initialState = {
     contato: '',
-    observacao: '',
+    observavao: '',
     whatsapp: '0',
     id_tipo: '1'
 }
@@ -25,10 +27,10 @@ const PessoaContatosCad = props => {
         setFormData({ id_pessoa: props.id_pessoa, ...formData })
     }, [])
 
-    const submitHandler = event => {
+    const addHandle = event => {
         event.preventDefault()
 
-        clienteAxios.post('/pessoacontato/add', formData)
+        clienteAxios.post('/pessoacontato/add', formData, { headers: { Authorization: token } })
             .then(resposta => {
                 dispatch(pessoasActions.loadContatos(resposta.data))
             })
@@ -39,9 +41,11 @@ const PessoaContatosCad = props => {
         props.setShowCad(false)
     }
 
-    const editHandler = () => {
+    const editHandle = () => {
 
-        clienteAxios.put('/pessoacontato/upd', formData)
+        console.log('indo ', formData)
+
+        clienteAxios.put('/pessoacontato/upd', formData, { headers: { Authorization: token } })
             .then(resposta => {
                 props.atualizar()
             })
@@ -74,23 +78,39 @@ const PessoaContatosCad = props => {
         })
     }
 
-    const botao = formData.id_contato
-        ? <button className={classes['botaoBox-button']} type="button" onClick={editHandler}>Salvar</button>
-        : <button className={classes['botaoBox-button']} type="button" onClick={submitHandler}>Salvar</button>
+ 
+        const botao = !!formData.id_contato
+        ? (
+            <div style={{ marginTop: '20px', width: '100%', textAlign: 'center' }}>
+                <Button
+                    bg = 'rgba(0,128,0,0.8'
+                    type='button'
+                    className='w150'
+                    title='Salvar Contato'
+                    onClick={editHandle}
+                />
+            </div>
 
+        )
+        : (
+            <div style={{ marginTop: '20px', width: '100%', textAlign: 'center' }}>
+                <Button
+                    bg = 'rgba(0,128,0,0.8'
+                    type='button'
+                    className='w150'
+                    title='Salvar Contato'
+                    onClick={addHandle}
+                />
+            </div>
+        )
+        
     return (
-        <main >
-            <form>
-
-                {/* Tipo */}
-
-                {/* <div className={classes.inputBox} > */}
-                {/* <label htmlFor="tipo">Tipo :</label>
-                    <div className={classes.radioBox} style = {{display: 'flex', flexDirection: 'row'}}> */}
+        <main style ={{paddingTop: '10px'}} >
+            <Form>
 
                 <RadioBox
-                    name='tipo_pessoa'
-                    label='Tipo de Pessoa:'
+                    name='tipo_contato'
+                    label='Tipo:'
                     direction='row'
                 >
                     <div className='form-radioBoxLinha'>
@@ -102,7 +122,6 @@ const PessoaContatosCad = props => {
                             value={formData.id_tipo}
                             checked={formData.id_tipo.toString() === "1"}
                         /><label htmlFor="tipo1">Telefone</label>
-
                     </div>
 
                     <div className='form-radioBoxLinha'>
@@ -118,7 +137,6 @@ const PessoaContatosCad = props => {
                     </div>
                 </RadioBox>
 
-
                 {/* Contato */}
                 <Input
                     required
@@ -130,17 +148,17 @@ const PessoaContatosCad = props => {
                     onChange={textHandler}
                 />
 
-
                 {/* Observação */}
                 <Input
                     required
                     label='Observação:'
                     type='text'
-                    id='observacao'
-                    name='observacao'
-                    value={formData.observacao}
+                    id='observavao'
+                    name='observavao'
+                    value={formData.observavao}
                     onChange={textHandler}
                 />
+
                 {/* Whats */}
                 <div className='form-checkboxBox'>
                     <input
@@ -154,11 +172,10 @@ const PessoaContatosCad = props => {
                     />
                     <label htmlFor="whatsapp">whatsApp:</label>
                 </div>
-                {/* </div> */}
-                <div className={classes.botaoBox}>
+                <div>
                     {botao}
                 </div>
-            </form>
+            </Form>
         </main>
     );
 }

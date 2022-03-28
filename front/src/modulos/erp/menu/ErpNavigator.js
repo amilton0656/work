@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import { useEffect, useState } from 'react'
 import { IoMdArrowDropright } from 'react-icons/io'
@@ -11,14 +12,16 @@ import './erpNavigator.css'
 const nomeEmpresa = 'COTA Empreendimentos Imobiliários Ltda'
 
 
+
 const ErpNavigator = () => {
-
+    
     const [recursos, setRecursos] = useState([])
-
+    
+    const { token } = useSelector(state => state.login.login)
     
 
     const atualizar = () => {
-        clienteAxios.get('/recursos')
+        clienteAxios.get('/recursos/not', { headers: { Authorization: token } })
             .then(resposta => {
                 setRecursos(resposta.data)
             })

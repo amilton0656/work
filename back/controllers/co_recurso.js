@@ -61,7 +61,23 @@ exports.getRecursoById = (req, res, next) => {
     })
 }
 
-exports.getRecursos = (req, res, next) => {
+exports.getRecursosNotShow = (req, res, next) => {
+  Recurso.sequelize.query(`
+  select *
+  from recurso
+  where notshow is null or
+  notshow = 0
+  order by id_recurso`)
+    .then(recursos => {
+      res.status(200).json(recursos[0])
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json('Recursos não encontrados.')
+    })
+}
+
+exports.getAllRecursos = (req, res, next) => {
   Recurso.sequelize.query(`
   select *
   from recurso
