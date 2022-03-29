@@ -11,30 +11,7 @@ import PessoaContatosCad from './PessoaContatosCad'
 
 import './pessoaContatosLista.css'
 
-const contatosx = [
-    {
-        id_contato: 1,
-        contato: '3028 1000',
-        observacao: 'cota',
-        whatsapp: '0',
-        id_tipo: 1
-    },
-    {
-        id_contato: 2,
-        contato: '99986 4257',
-        observacao: '',
-        whatsapp: '1',
-        id_tipo: 1
-    },
-    {
-        id_contato: 3,
-        contato: 'amilton@cota.com.br',
-        observacao: 'bla bla bla',
-        whatsapp: '1',
-        id_tipo: 1
 
-    },
-]
 
 const PessoaContatosLista = props => {
 
@@ -127,36 +104,39 @@ const PessoaContatosLista = props => {
 
 
     return (
+
         <main className='contato-main'>
+            <input id='ck-contato' type='checkbox' onClick={novoContatoHandle} />
             <div className='contato-container__header'>
                 <div>Contatos</div>
-                <button
+                <label htmlFor='ck-contato' className={`contato-button ${classe}`}></label>
+                {/* <button
                     data-tool-tip='Cadastrar novo contato.'
                     type="button"
                     className={`contato-button ${classe}`}
                     onClick={novoContatoHandle}
-                ></button>
+                    ></button> */}
             </div>
-            {showCad && <PessoaContatosCad
+            {1 && <PessoaContatosCad
                 setShowCad={setShowCad}
                 id_pessoa={props.id_pessoa}
                 contato={contato}
                 atualizar={atualizar}
-            />}
+                />}
             <ul className='items'>
                 {
                     contatos.map(item => (
                         <li
-                            className='item' key={item.id_pessoa}
-                            onClick={() => clickHandle(item)}
+                        className='item' key={item.id_pessoa}
+                        onClick={() => clickHandle(item)}
                         >
                             {item.contato}
 
 
                             {icones && contato.id_contato === item.id_contato &&
                                 <ListaIcones
-                                    onClick1={() => editContatoHandle(item)}
-                                    onClick3={() => deletePessoaHandler(item.id_contato)}
+                                onClick1={() => editContatoHandle(item)}
+                                onClick3={() => deletePessoaHandler(item.id_contato)}
                                 />
                             }
 
@@ -164,8 +144,8 @@ const PessoaContatosLista = props => {
                                 <div>
                                     <button type="button" onClick={() => editContatoHandle(item)}><FaRegEdit size={30} color='blue' /></button>
                                     <button type="button" onClick={() => deletePessoaHandler(item.id_contato)}><BsTrash size={30} color='red' /></button>
-                                </div>
-                            } */}
+                                    </div>
+                                } */}
 
                         </li>
                     ))

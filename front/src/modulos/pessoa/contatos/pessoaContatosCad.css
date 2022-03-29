@@ -1,0 +1,12 @@
+.pessoa-contato-cad__main {
+    padding-top: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.7s ease;
+}
+
+#ck-contato:checked ~ .pessoa-contato-cad__main {
+    max-height: 400px;
+    transition: all 0.5s ease;
+}
+

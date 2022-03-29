@@ -669,7 +669,7 @@ const PessoaCadDados = props => {
 
 
                     {
-                    1 && <PessoaContatosLista
+                    formDataI.id_pessoa && <PessoaContatosLista
                         id_pessoa={formDataI.id_pessoa}
                         formDataI={formDataI}
                         formDataII={formDataII}

@@ -9,6 +9,8 @@ import Input from '../../../components/Input'
 import Form from '../../../components/Form'
 import Button from '../../../components/Button'
 
+import './pessoaContatosCad.css'
+
 const initialState = {
     contato: '',
     observavao: '',
@@ -105,7 +107,7 @@ const PessoaContatosCad = props => {
         )
         
     return (
-        <main style ={{paddingTop: '10px'}} >
+        <main className='pessoa-contato-cad__main' style ={{paddingTop: '10px'}} >
             <Form>
 
                 <RadioBox
