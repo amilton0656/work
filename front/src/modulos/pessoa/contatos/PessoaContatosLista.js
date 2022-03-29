@@ -15,44 +15,37 @@ import './pessoaContatosLista.css'
 
 const PessoaContatosLista = props => {
 
-    const [showCad, setShowCad] = useState(false)
     const [icones, setIcones] = useState(false)
     const [contato, setContato] = useState('')
     const [contatos, setContatos] = useState([])
-    const [novo, setNovo] = useState(props.id_pessoa || '')
-
-    const classe = showCad ? 'contato-showcad' : 'contato-hidecad'
 
     const { token } = useSelector(state => state.login.login)
-
-    const { pessoa } = useSelector(state => state.pessoas)
-
-    const abc = useSelector(state => state.pessoas.contatos)
 
     const dispatch = useDispatch()
 
     const clickHandle = (contato) => {
+        if (!icones) {
+            document.getElementById('ck-contato').checked = false
+        }
         setIcones(!icones)
-        // setShowCad(false)
         setContato(contato)
     }
 
     const novoContatoHandle = () => {
-
-        if (!pessoa) {
-            props.addHandle()
-            setNovo(1)
-        }
-
-        setShowCad(!showCad)
-        setContato('')
-
+        console.log('novo')
+        const elem = document.getElementById('ck-contato')
+        console.log('novo', elem.checked)
+        elem.checked = !elem.checked
+        console.log('novo', elem.checked)
+        setContato({})
     }
 
     const editContatoHandle = (contato) => {
         setIcones(false)
-        setShowCad(true)
+        const elem = document.getElementById('ck-contato')
+        elem.checked = true
         setContato(contato)
+        
     }
 
     const atualizar = () => {
@@ -65,7 +58,6 @@ const PessoaContatosLista = props => {
                 .catch(err => {
                     // dispatch(descargaEmpreendimentosError())
                 })
-
         }
 
     }
@@ -106,32 +98,24 @@ const PessoaContatosLista = props => {
     return (
 
         <main className='contato-main'>
-            <input id='ck-contato' type='checkbox' onClick={novoContatoHandle} />
+            <input id='ck-contato' type='checkbox'  />
             <div className='contato-container__header'>
                 <div>Contatos</div>
-                <label htmlFor='ck-contato' className={`contato-button ${classe}`}></label>
-                {/* <button
-                    data-tool-tip='Cadastrar novo contato.'
-                    type="button"
-                    className={`contato-button ${classe}`}
-                    onClick={novoContatoHandle}
-                    ></button> */}
+                <label className='contato-button' onClick={novoContatoHandle}></label>
             </div>
-            {1 && <PessoaContatosCad
-                setShowCad={setShowCad}
+            <PessoaContatosCad
                 id_pessoa={props.id_pessoa}
                 contato={contato}
                 atualizar={atualizar}
-                />}
-            <ul className='items'>
+                />
+            <ul className='contato-items'>
                 {
                     contatos.map(item => (
                         <li
-                        className='item' key={item.id_pessoa}
+                        className='contato-item' key={item.id_pessoa}
                         onClick={() => clickHandle(item)}
                         >
                             {item.contato}
-
 
                             {icones && contato.id_contato === item.id_contato &&
                                 <ListaIcones
@@ -139,13 +123,6 @@ const PessoaContatosLista = props => {
                                 onClick3={() => deletePessoaHandler(item.id_contato)}
                                 />
                             }
-
-                            {/* {icones && contato.id_contato === item.id_contato &&
-                                <div>
-                                    <button type="button" onClick={() => editContatoHandle(item)}><FaRegEdit size={30} color='blue' /></button>
-                                    <button type="button" onClick={() => deletePessoaHandler(item.id_contato)}><BsTrash size={30} color='red' /></button>
-                                    </div>
-                                } */}
 
                         </li>
                     ))

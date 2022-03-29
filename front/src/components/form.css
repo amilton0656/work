@@ -11,6 +11,11 @@
 
 } 
 
+.form-form-100 {
+    width: 100%;
+    padding: 10px 5px;
+}
+
 .form-inputBox {
     display: flex;
     flex-direction: column;
@@ -161,4 +166,6 @@ padding: 0px;
         width: 100%;
         margin: 0 auto;
     }
+
+
 }

@@ -24,6 +24,9 @@
     color: white; 
     position: relative;
     cursor: pointer;
+
+    transform: rotate(0deg);
+    transition: all 0.5s ease;
 }
 
 .contato-button::before {
@@ -33,6 +36,13 @@
     top: -4px;
     left: 9px;
 }
+
+#ck-contato:checked ~ div .contato-button {
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+
 
 /* .contato-button::after {
     content: attr(data-tool-tip);
@@ -62,27 +72,23 @@
 
 
 
-.items {
+.contato-items {
     /* width: 100%; */
     margin-top: 5px;
     display: flex;
     flex-direction: column;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 0 10px;
 }
 
-.item {
+.contato-item {
     border-top: 1px solid grey;
     padding: 5px;
     width: 100%;
     list-style: none;
 }
-
-.contato-showcad {
-    transform: rotate(45deg);
-    transition: all 0.5s ease;
-}
-
-.contato-hidecad {
-    transform: rotate(0deg);
-    transition: all 0.5s ease;
+.contato-item:first-child {
+    border-top: none;
 }
 

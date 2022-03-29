@@ -18,15 +18,20 @@ const IntranetLayout = () => {
 
     const [tamanhoTela, setTamanhoTela] = useState(window.innerWidth)
 
+    const closeSubsHandle = () => {
+        const elems = document.querySelectorAll(`input[id*=ck-intra]`)
+        for ( var i = 0 ; i < elems.length ; i++ ) {
+            elems[i].checked = false
+        }
+    }
+
     return (
         <>
-            <div className='intra-main'>
+            <div className='intra-main'  >
 
                 <IntranetHeader />
 
-
-
-                <div className='intra-body'>
+                <div className='intra-body' onClick={() => closeSubsHandle()}>
 
                     <div className="intra-noticias">
                         <MensagensLista />

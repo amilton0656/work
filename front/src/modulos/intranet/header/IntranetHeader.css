@@ -15,8 +15,6 @@
     background-image: url('./img/predios.png'); 
     background-repeat: repeat-x;
     background-position: bottom;
-    /* background-image: linear-gradient(url('./img/predios.png'), 45deg, darkgrey, red); */
-    /* background-color: linear-gradient(to top, darkgrey, red); */
     color: rgb(65, 64, 64);
     font-weight: 80%;
     transition: 0.5s;
@@ -26,35 +24,20 @@
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3),
 }
 
-/* .intra-header__logo {
-    height: 60px;
-    background: rgb(246, 243, 243);
-    border-radius: 5px;
-    border: 1px solid red;
-    margin-top: 0;
-    box-shadow: 5px 5px 5px 0.1px rgba(48, 44, 44, 0.3), 0 6px 20px 0 rgba(48, 44, 44, 0.2);
-    margin: auto 10px;
-} */
-
 .intra-header__container-logo {
     background: white; 
-    height: 70px; 
-    width: 170px;
-    margin-left: 20px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    margin-bottom: 30px;
+    height: 60px; 
+    width: 160px;
+    padding: 2px 5px 5px 10px;
+    margin: 0px 13px;
+    border-radius: 7px;
+
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
 }
 
 .intra-header__logo {
     height: 55px;
     background: white;
-    /* border-radius: 5px;
-    border: 1px solid red; */
-    /* margin-top: 15px; */
-    /* box-shadow: 5px 5px 5px 0.1px rgba(48, 44, 44, 0.3), 0 6px 20px 0 rgba(48, 44, 44, 0.2); */
-    margin: 12px 0 0 13px;
 }
 
 .intra-header__nav {
@@ -301,5 +284,11 @@
         width: 200px;
 
     }
+
+    
+
+}
+
+@media (min-width: 460px) {
 
 }

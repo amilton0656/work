@@ -26,8 +26,12 @@ const PessoaContatosCad = props => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        setFormData({ id_pessoa: props.id_pessoa, ...formData })
-    }, [])
+        if (props.contato.id_contato) {
+            setFormData(props.contato)
+        } else {
+            setFormData({ id_pessoa: props.id_pessoa, ...initialState })
+        }
+    }, [props.contato])
 
     const addHandle = event => {
         event.preventDefault()
@@ -40,7 +44,7 @@ const PessoaContatosCad = props => {
                 console.log('Erro ao cadastrar ', err)
             })
 
-        props.setShowCad(false)
+            document.getElementById('ck-contato').checked = false
     }
 
     const editHandle = () => {
@@ -55,7 +59,7 @@ const PessoaContatosCad = props => {
                 console.log('Erro ao cadastrar ', err)
             })
 
-        props.setShowCad(false)
+            document.getElementById('ck-contato').checked = false
     }
 
     const textHandler = (event) => {
@@ -108,7 +112,7 @@ const PessoaContatosCad = props => {
         
     return (
         <main className='pessoa-contato-cad__main' style ={{paddingTop: '10px'}} >
-            <Form>
+            <Form className='form-form-100'>
 
                 <RadioBox
                     name='tipo_contato'
