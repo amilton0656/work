@@ -50,7 +50,7 @@ const RecursoCad = props => {
         menu: null,
         link: '',
         nav: '',
-        notshow: false,
+        notshow: 0,
     }
 
 
