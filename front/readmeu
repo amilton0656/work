@@ -6,6 +6,7 @@ react-icons
 sweetalert2
 
 bcryptjs
+crypto-browserify
 pdfMake
 
 react-modal

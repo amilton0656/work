@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import Erp from '../modulos/erp/Erp'
 import IntranetLayout from '../modulos/intranet/IntranetLayout'
 
+import EmprestimoLayout from '../modulos/emprestimo/EmprestimoLayout'
 import EmprestimoSAC from '../modulos/emprestimo/sac/EmprestimoSAC'
 import EmprestimoSACLista from '../modulos/emprestimo/sac/EmprestimoSACLista'
 import EmprestimoSACListaPDF from '../modulos/emprestimo/sac/EmprestimoSACListaPDF'
@@ -51,6 +52,7 @@ const Rotas = () => {
                 <Route path="/emprestimosac/lista" element={<EmprestimoSACLista />} />
                 <Route path="/emprestimosac/listapdf" element={<EmprestimoSACListaPDF />} />
 
+                <Route path="/emprestimo" element={<EmprestimoLayout />} />
                 <Route path="/emprestimoprice" element={<EmprestimoPrice />} />
                 <Route path="/emprestimoprice/lista" element={<EmprestimoPriceLista />} />
                 <Route path="/emprestimoprice/listapdf" element={<EmprestimoPriceListaPDF />} />

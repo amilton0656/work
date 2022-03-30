@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import './App.css'
 import Rotas from './routes/Rotas';
 
-import IntraneLayout from './modulos/intranet/IntranetLayout'
-
 function App() {
 
   const navigate = useNavigate()
@@ -17,7 +15,6 @@ function App() {
     
     <div className='app-main'>
         <Rotas />
-        {/* <IntraneLayout /> */}
     </div>
     )
   }

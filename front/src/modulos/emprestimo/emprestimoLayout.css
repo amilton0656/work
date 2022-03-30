@@ -1,0 +1,44 @@
+.emprest-layout__header {
+    width: 100%;
+    height: 100px;
+    background: steelblue;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.emprest-layout__title {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+.emprest-layout__subtitleSAC {
+    display: inline-block;
+    width: 30px;
+    text-align: right;
+    margin-right: 10px;
+    color: white;
+    font-size: 1rem;
+}
+
+.emprest-layout__subtitlePrice {
+    display: inline-block;
+    width: 38px;
+    text-align: left;
+    margin-left: 10px;
+    color: white;
+    font-size: 1rem;
+}
+
+.emprest-layout__subtitleBold {
+    font-weight: bold;
+    border-bottom: 1px solid white;
+}
+
+.emprest-layout__button-container {
+    display: flex;
+    align-items: center;
+}
