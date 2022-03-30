@@ -140,3 +140,23 @@ exports.servidorON = (req, res, next) => {
   res.send('Servidor ON')
 
 }
+
+exports.getAllUsuarios = (req, res, next) => {
+  Usuario.sequelize.query(`
+  select 
+  pes.nome as nomeusuario,
+  usu.*
+  from usuario usu
+
+  left join pessoas pes
+  on usu.id_pessoa = pes.id_pessoa
+
+  order by pes.nome`)
+    .then(recursos => {
+      res.status(200).json(recursos[0])
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json('Usuários não encontrados.')
+    })
+}

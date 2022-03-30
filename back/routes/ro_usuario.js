@@ -6,7 +6,7 @@ const md_auth = require('../util/autenticacao')
 
 const router = express.Router()
 
-router.get('/usuarios', usuarioController.getUsuarios)
+router.get('/usuarios', usuarioController.getAllUsuarios)
 router.get('/usuario/:id', md_auth.auth, usuarioController.getUsuario)
 router.post('/usuario', usuarioController.addUsuario)
 router.put('/usuario/:id', usuarioController.updUsuario)

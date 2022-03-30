@@ -14,7 +14,26 @@ const UsuarioCad = props => {
     const initialState = {
         nome: '',
         email: '',
-        senha: ''
+        senha: '',
+
+        pw_usuario: '',
+        id_perfil: null,
+        id_pessoa: null,
+        nm_nick: '',
+        nu_recurso_automatico: null,
+        bloquear_registros: null,
+        fg_somente_seus: null,
+        id_setor: null,
+        bloqueado: null,
+        email_notificacao: '',
+        cotacm: null,
+        fg_receber_notificacao_projeto: null,
+        ck_entregaunidade: null,
+        app_id: '',
+        suprimentos: null,
+        ck_webtab_max: null,
+        ck_webtab_outros: null,
+        ck_webtab_pbmail: null,
     }
 
     const navigate = useNavigate()
@@ -70,6 +89,25 @@ const UsuarioCad = props => {
         ? <button className={classes['botaoBox-button']} type="button" onClick={editHandler}>Salvar</button>
         : <button className={classes['botaoBox-button']} type="submit" >Salvar</button>
 
+    
+        // pw_usuario: Sequelize.STRING(10),
+        // id_perfil: Sequelize.INTEGER,
+        // id_pessoa: Sequelize.INTEGER,
+        // nm_nick: Sequelize.STRING(30),
+        // nu_recurso_automatico: Sequelize.INTEGER,
+        // bloquear_registros: Sequelize.INTEGER,
+        // fg_somente_seus: Sequelize.INTEGER,
+        // id_setor: Sequelize.INTEGER,
+        // bloqueado: Sequelize.INTEGER,
+        // email_notificacao: Sequelize.STRING(100),
+        // cotacm: Sequelize.INTEGER,
+        // fg_receber_notificacao_projeto: Sequelize.INTEGER,
+        // ck_entregaunidade: Sequelize.INTEGER,
+        // app_id: Sequelize.STRING(100),
+        // suprimentos: Sequelize.INTEGER,
+        // ck_webtab_max: Sequelize.INTEGER,
+        // ck_webtab_outros: Sequelize.INTEGER,
+        // ck_webtab_pbmail: Sequelize.INTEGER,
     
 
     return (
