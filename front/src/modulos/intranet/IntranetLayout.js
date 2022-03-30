@@ -3,20 +3,14 @@ import React, { useState } from 'react'
 import './IntranetLayout.css'
 import IntranetHeader from './header/IntranetHeader'
 
-import Card from '../../components/Card'
-
 import MensagensLista from './body/mensagens/MensagensLista'
 import EmpreendsLista from './body/empreendimentos/EmpreendsLista'
-
-import MensagemCub from './body/mensagens/MensagemCub'
 
 
 
 const IntranetLayout = () => {
 
 
-
-    const [tamanhoTela, setTamanhoTela] = useState(window.innerWidth)
 
     const closeSubsHandle = () => {
         const elems = document.querySelectorAll(`input[id*=ck-intra]`)

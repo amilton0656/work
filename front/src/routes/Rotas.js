@@ -64,7 +64,7 @@ const Rotas = () => {
 
                 <Route path="/erp/navigator" element={<ErpNavigator />} />
 
-                <Route path="/teste" element={<RecursoLista />} />
+                <Route path="/teste" element={<Teste />} />
                 <Route path="/menu" element={<Menu01 />} />
 
             </Routes>

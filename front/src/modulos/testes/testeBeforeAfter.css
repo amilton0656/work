@@ -1,0 +1,138 @@
+.simple-content {
+    font-size: 2rem;
+    color: green;
+    text-transform: uppercase;
+}
+
+.simple-content::before {
+    content: '*****     ';
+    color: blue;
+}
+.simple-content::after  {
+    content: '     *****';
+    color: blue;
+}
+
+/* ******************************** */
+
+blockquote {
+    font-size: 1.5rem;
+    color: red;
+    text-transform: lowercase;
+}
+
+blockquote::before,
+blockquote::after {
+    content: '"';
+    font-size: 2rem;
+}
+
+/* ************** tool tip ****************** */
+
+.paragrafo-container {
+    padding: 100px;
+    text-align: justify;
+    font-size: 1.3rem;
+
+}
+
+a[data-tool-tip] {
+    position: relative;
+}
+
+a[data-tool-tip]::after {
+    content: attr(data-tool-tip);
+    display: block;
+    position: absolute;
+    background: gray;
+    padding: 1rem 3rem;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+    transform: scale(0);
+    transition: 
+        transform ease-out 150ms,
+        bottom ease-out 150ms;
+}
+
+a[data-tool-tip]:hover::after {
+    transform: scale(1);
+    bottom: 100%;
+}
+
+/* ******************************** */
+
+.counters {
+    background: lightgray;
+    text-align: left;
+    padding: 5rem 8rem;
+    margin-top: 7rem;
+
+    counter-reset: counter-name;
+}
+
+.section {
+    position: relative;
+}
+
+.section::before {
+    counter-increment: counter-name;
+    content: counter(counter-name);
+    position: absolute;
+    bottom: -0.3rem;
+    left: -2.5rem;
+    background: white;
+    padding: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid gray;
+    color: gray;
+    box-sizing: border-box;
+}
+
+.counters ol {
+    counter-reset: ordered-list;
+    list-style: none;
+}
+
+.counters li::before {
+    counter-increment: ordered-list;
+    content: 'list item ' counter(ordered-list) ') '
+}
+
+/* ************* teste******************* */
+
+.span-teste {
+    font-style: italic;
+    font-weight: bold;
+    position: relative;
+}
+
+.span-teste::after {
+    content: attr(msg);
+    display: block;
+    position: absolute;
+    left: -80%;
+    bottom: 100%;
+    white-space: nowrap;
+    background: gray;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transform: scale(0);
+    transition: transform ease-out 0.5s;
+
+}
+
+.span-teste:hover::after {
+    transform: scale(1);
+    transition: transform ease-out 0.5s;
+    bottom: 100%;
+}

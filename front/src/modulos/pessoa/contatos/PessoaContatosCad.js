@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import classes from '../PessoaCad.module.css'
 import clienteAxios from '../../../config/axios'
 import { pessoasActions } from '../../../store/pessoaReducers'
 import RadioBox from '../../../components/RadioBox'
