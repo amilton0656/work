@@ -17,11 +17,11 @@ import ListaIcones from '../pessoa/lista/ListaIcones'
 
 const nomeEmpresa = 'COTA Empreendimentos Imobiliários Ltda'
 
-const RecursoLista = () => {
+const UsuarioLista = () => {
     
-    const [recursos, setRecursos] = useState([])
+    const [usuarios, setUsuarios] = useState([])
+    const [usuariosAll, setUsuariosAll] = useState([])
 
-    const [pessoasAll, setPessoasAll] = useState([])
     const [pessoas, setPessoas] = useState([])
     const [icones, setIcones] = useState(false)
     const [id, setId] = useState('')
@@ -39,9 +39,11 @@ const RecursoLista = () => {
     const dispatch = useDispatch()
 
     const atualizar = () => {
-        clienteAxios.get('/recursos',{ headers: { Authorization: token } })
+        clienteAxios.get('/usuarios',{ headers: { Authorization: token } })
             .then(resposta => {
-                setRecursos(resposta.data)
+                setUsuarios(resposta.data)
+                setUsuariosAll(resposta.data)
+                console.log('usuarios ', resposta.data)
             })
             .catch(err => {
             })
@@ -57,7 +59,7 @@ const RecursoLista = () => {
         setPrint(false)
     }, [print])
 
-    const deleteHandle = id => {
+    const deleteHandler = id => {
         Swal.fire({
             title: 'Tem certeza?',
             text: "Você está excluindo este registro!",
@@ -94,7 +96,7 @@ const RecursoLista = () => {
         }
     }
 
-    const textHandle = (event) => {
+    const textHandler = (event) => {
         setBusca(event.target.value.toUpperCase())
         onBuscar(event.target.value.toUpperCase())
     }
@@ -104,8 +106,8 @@ const RecursoLista = () => {
         const filtra = new Promise((resolve, reject) => {
 
             resolve(
-                pessoasAll.filter(function (pessoa) {
-                    const pp = pessoa.nome
+                usuariosAll.filter(function (usuario) {
+                    const pp = usuario.nomeusuario
                     if (pp) {
                         return pp.toLowerCase().search(
                             busca.toLowerCase()) !== -1
@@ -118,19 +120,19 @@ const RecursoLista = () => {
 
         filtra
             .then(res => {
-                setPessoas(res)
+                setUsuarios(res)
             }
             )
     }
 
-    if (!recursos) {
+    if (!usuarios) {
         return <div>Não há registros</div>
     }
 
     const goToForm = (recurso) => {
         setGetLista(true)
         const id = recurso ? recurso.id_recurso : null
-        navigate('/recurso/formdados', { state: id })
+        navigate('/usuario/formdados', { state: id })
     }
 
     const FichaCadastral = (id_recurso) => {
@@ -149,7 +151,7 @@ const RecursoLista = () => {
             <div className='pessoa-list__layout'>
                 {isLoading && <Spinner />}
                 <div className='pessoa-list__header'>
-                    <h2>Recursos</h2>
+                    <h2>Usuários</h2>
                     <div className='pessoa-list__header-buttons'>
 
                         <div>
@@ -188,7 +190,7 @@ const RecursoLista = () => {
                                 className='form-input pessoa-list__input-busca'
                                 id="busca"
                                 name="busca"
-                                onChange={textHandle}
+                                onChange={textHandler}
                                 value={busca}
                             />
                         </div>
@@ -197,20 +199,20 @@ const RecursoLista = () => {
                 <ul className='pessoa-list__container-list'>
 
                     {
-                        recursos.map(recurso => (
+                        usuarios.map(usuario => (
                             <div style={{ background: 'white' }}>
-                                <div className='recurso-list__item' key={recurso.id_recurso} onClick={() => clickHandle(recurso.id_recurso)} >
+                                <div className='recurso-list__item' key={usuario.id_usuario} onClick={() => clickHandle(usuario.id_usuario)} >
                                     <li
-                                        className={icones && id === recurso.id_recurso ? 'recurso-list__linha recurso-list__bold' : 'recurso-list__linha'}
+                                        className={icones && id === usuario.id_usuario ? 'recurso-list__linha recurso-list__bold' : 'recurso-list__linha'}
 
-                                    >{recurso.id_recurso} - {recurso.nm_recurso}
+                                    >{usuario.nomeusuario}
                                     </li>
 
-                                    {icones && id === recurso.id_recurso &&
+                                    {icones && id === usuario.id_usuario &&
                                         <ListaIcones
-                                            onClick1={() => goToForm(recurso)}
-                                            onClick2={() => FichaCadastral(recurso.id_recurso)}
-                                            onClick3={() => deleteHandle(recurso.id_recurso)}
+                                            onClick1={() => goToForm(usuario)}
+                                            onClick2={() => FichaCadastral(usuario.id_usuario)}
+                                            onClick3={() => deleteHandler(usuario.id_usuario)}
                                         />
                                     }
 
@@ -264,4 +266,4 @@ const RecursoLista = () => {
     );
 }
 
-export default RecursoLista;
+export default UsuarioLista;

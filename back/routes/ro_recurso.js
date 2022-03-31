@@ -6,7 +6,7 @@ const md_auth = require('../util/autenticacao')
 
 const router = express.Router()
 
-router.get('/recursos', md_auth.auth, Controller.getAllRecursos)
+router.get('/recursos', Controller.getAllRecursos)
 router.get('/recursos/not', md_auth.auth, Controller.getRecursosNotShow)
 router.get('/recurso/:id', md_auth.auth, Controller.getRecursoById)
 router.post('/recurso/add', md_auth.auth, Controller.addRecurso)

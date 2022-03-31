@@ -151,7 +151,7 @@ exports.getAllUsuarios = (req, res, next) => {
   left join pessoas pes
   on usu.id_pessoa = pes.id_pessoa
 
-  order by pes.nome`)
+  order by usu.nm_nick`)
     .then(recursos => {
       res.status(200).json(recursos[0])
     })
