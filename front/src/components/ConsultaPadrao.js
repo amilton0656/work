@@ -4,6 +4,10 @@ import clienteAxios from '../config/axios'
 import Spinner from '../spinner/Spinner'
 import Button from './Button'
 import ListaIcones from '../modulos/pessoa/lista/ListaIcones'
+import PrintPrint from './PrintPrint'
+import Cabecalho from './Cabecalho'
+
+import './consultaPadrao.css'
 
 const ConsultaPadrao = props => {
     
@@ -13,8 +17,12 @@ const ConsultaPadrao = props => {
     const [busca, setBusca] = useState('')
     const [icones, setIcones] = useState(false)
     const [id, setId] = useState('')
+    const [print, setPrint] = useState(false)
 
-    const { api, fieldId, fieldName, fieldAux } = props
+    let pagina = 0
+
+    const { api, fieldId, fieldName, fieldAux,
+            nomeEmpresa, tituloDocumento } = props
 
     const { token } = useSelector(state => state.login.login)
 
@@ -68,7 +76,15 @@ const ConsultaPadrao = props => {
         props.setShowLista(false)
     }
 
-    const clickHandle = id => {
+    const clickHandle = (idClicked) => {
+
+        if (idClicked === id) {
+            setIcones(!icones)
+        } else {
+            setIcones(true)
+            setId(idClicked)
+
+        }
 
     }
 
@@ -84,47 +100,51 @@ const ConsultaPadrao = props => {
 
     }
 
+    useEffect(() => {
+        setPrint(false)
+    }, [print])
+
     return (
         <>
-            <div className='pessoa-list__layout'>
+            <div className='consulta-padrao__layout'>
                 {isLoading && <Spinner />}
-                <div className='pessoa-list__header'>
+                <div className='consulta-padrao__header'>
                     <h2>{props.title}</h2>
-                    <div className='pessoa-list__header-buttons'>
+                    <div className='consulta-padrao__header-buttons'>
 
                         <div>
                             <Button
-                                className='pessoa-list__header-button'
+                                className='consulta-padrao__header-button'
                                 bg='lightgreen'
                                 c='green'
                                 title='Novo'
-                                onClick={() => goToForm(null)}
+                                onClick={props.onClick1}
                             />
                         </div>
                         <div>
                             <Button
-                                className='pessoa-list__header-button'
+                                className='consulta-padrao__header-button'
                                 bg='green'
                                 title='Imprimir'
-                                onClick={() => {}}
+                                onClick={() => setPrint(true)}
                             />
                         </div>
                         <div>
                             <Button
-                                className='pessoa-list__header-button'
+                                className='consulta-padrao__header-button'
                                 bg='grey'
                                 title='Sair'
-                                onClick={() => {}}
+                                onClick={props.onClick3}
                             />
                         </div>
 
                     </div>
-                    <div className='pessoa-list__busca'>
+                    <div className='consulta-padrao__busca'>
 
-                        <div className='pessoa-list__input-box'>
+                        <div className='consulta-padrao__input-box'>
                             <label htmlFor="busca">Busca:</label>
                             <input
-                                className='form-input pessoa-list__input-busca'
+                                className='form-input consulta-padrao__input-busca'
                                 id="busca"
                                 name="busca"
                                 onChange={textHandle}
@@ -133,23 +153,23 @@ const ConsultaPadrao = props => {
                         </div>
                     </div>
                 </div>
-                <ul className='pessoa-list__container-list'>
+                <ul className='consulta-padrao__container-list'>
 
                     {
                         data.map((reg, i) => (
                             <div style={{ background: 'white' }}>
-                                <div className='pessoa-list__item' key={i} onClick={() => clickHandle(reg[fieldId])} >
+                                <div className='consulta-padrao__item' key={i} onClick={() => clickHandle(reg[fieldId])} >
                                     <li
-                                        className={icones && id === reg[fieldId] ? 'pessoa-list__linha pessoa-list__bold' : 'pessoa-list__linha'}
+                                        className={icones && id === reg[fieldId] ? 'consulta-padrao__linha consulta-padrao__bold' : 'consulta-padrao__linha'}
 
                                     >{reg[fieldName]}
                                     </li>
 
                                     {icones && id === reg[fieldId] &&
                                         <ListaIcones
-                                            onClick1={() => goToForm(reg)}
-                                            onClick2={() => FichaCadastral(reg[fieldId])}
-                                            onClick3={() => deletePessoaHandle(reg[fieldId])}
+                                            onClick1={() => props.onClick11(reg)}
+                                            onClick2={() => props.onClick12(reg[fieldId])}
+                                            onClick3={() => props.onClick13(reg[fieldId])}
                                         />
                                     }
 
@@ -160,7 +180,45 @@ const ConsultaPadrao = props => {
                     }
                 </ul>
             </div>
-           
+            {
+                print &&
+                <PrintPrint>
+                    <div style={{ padding: '30px ' }}>
+                        <Cabecalho
+                            nomeEmpresa={nomeEmpresa}
+                            tituloDocumento={tituloDocumento}
+                            pagina = {++pagina}
+                        />
+                        {
+                            data.map((reg, index) => (
+                                <div style={{ background: 'white' }}>
+
+                                    <div
+                                        className={index > 0 && index % 38 === 0 ? 'consulta-padrao__item page-break' : 'consulta-padrao__item'}
+                                        key={reg[fieldId]}
+                                        onClick={() => clickHandle(reg[fieldId])}
+                                    >
+                                        <li >
+                                        {reg[fieldName]}
+
+                                        </li>
+
+                                    </div>
+                                        {index > 0 && index % 38 === 0 &&
+                                            <Cabecalho
+                                                nomeEmpresa={nomeEmpresa}
+                                                tituloDocumento={tituloDocumento}
+                                                pagina = {++pagina}
+                                            />
+                                        }
+                                </div>
+                            )
+                            )
+                        }
+
+                    </div>
+                </PrintPrint>
+            }
         </>
     );
 }

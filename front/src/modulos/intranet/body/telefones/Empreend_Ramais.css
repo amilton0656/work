@@ -5,12 +5,38 @@
     padding: 10px 0;
     font-size: 1.5rem;
     text-align: center;
-    margin-bottom: 4px;
     font-weight: bold;
-    margin-top: 0;
+    margin: 0 0 4px 0;
     justify-content: flex-start;
     color: white;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.intra-ramais__button-fechar {
+    /* marginRight: '20px', paddingTop: '3px', color: 'grey' */
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding: 10px 0 10px 200px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+.intra-ramais__card {
+    transition: max-height 0.5s;
+    overflow: hidden;
+    max-height: 0px;
+    margin-top: 0px;
+}
+
+#ckk-intra__ramais {
+    display: none;
+}
+
+#ckk-intra__ramais:checked ~ .intra-ramais__card {
+    transition: max-height 0.5s;
+    max-height: 1000px;
 }
 
 .intra-ramais__items li{

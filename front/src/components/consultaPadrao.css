@@ -1,0 +1,164 @@
+.consulta-padrao__layout {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 100vw;
+}
+
+.consulta-padrao__header {
+    display: flex;
+    flex-direction: column;
+    background: steelblue;
+    width: 100%;
+}
+
+.consulta-padrao__header h2 {
+    margin: 0 auto;
+    padding: 15px;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    color: white;
+    display: flex;
+}
+
+.consulta-padrao__header-buttons {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.consulta-padrao__header-button {
+    width: 100px;
+}
+
+.consulta-padrao__busca {
+    width: 100%;
+    margin: 0 0 10px 0px;
+}
+
+.consulta-padrao__list {
+    width: 100%;
+    padding: 0;
+    background: white;
+}
+
+.consulta-padrao__input-box {
+
+}
+
+.consulta-padrao__input-box {
+    width: 90%;
+    flex: none;
+    margin: 0 auto;
+}
+
+.consulta-padrao__item {
+    margin: 0;
+    padding: 5px 0 0 15px;
+    border-bottom: 1px solid rgb(160, 160, 160);
+}
+
+.consulta-padrao__linha {
+    font-size: 1.2rem;
+    list-style: none;
+    list-style-type: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.consulta-padrao__item:hover {
+    background: lightgray;
+}
+
+.consulta-padrao__bold {
+    font-weight: bold;
+}
+
+.pessoa_list__icones {
+    width: 300px;
+    margin: 2px 0;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    background: white;
+    z-index: 20;
+    padding: 10px;
+}
+
+.pessoa_list__icones-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.pessoa_list__icones-button:hover {
+    cursor: pointer;
+
+    background: lightgreen;
+    border-radius: 10px;
+}
+
+.pessoa_list__icones:checked .pessoa_list__icones-button {
+    display: block;
+}
+
+.consulta-padrao__container-list {
+    flex: none;
+    width: 95%;
+    padding: 0 0 0 10px;
+    overflow: scroll;
+
+    max-height: 480px;
+    margin-top: 10px;
+
+}
+
+@media (min-width: 460px) {
+
+    .consulta-padrao__container-list {
+        width: 100%;
+        padding: 0;
+        height: calc(100vh)
+    }
+
+    .consulta-padrao__layout {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .consulta-padrao__header h2 {
+        font-size: 2rem;
+    }
+
+    .consulta-padrao__input-busca {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .consulta-padrao__input-box {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
+
+    .consulta-padrao__busca {
+        margin: 0;
+    }
+
+}
+
+@media print {
+    @page {
+        size: A4;
+    }
+
+    .consulta-padrao__linha {
+        list-style: none;
+        list-style-type: none;
+    }
+
+}

@@ -3,60 +3,74 @@ import { FaPhone } from 'react-icons/fa'
 import { AiOutlineClose } from 'react-icons/ai'
 
 import './Empreend_Ramais.css'
+import './Empreend_Telefones.css'
 import Card from '../../../../components/Card'
 
 const Empreend_Ramais = () => {
 
     const [mostrar, setMostrar] = useState(false)
 
+    const clickFecharHandle = () => {
+        const elem = document.getElementById('ckk-intra__ramais')
+        elem.checked = false
+    }
+
     return (
         <div>
+            <input type='checkbox' id='ckk-intra__ramais' />
+            <label 
+                className='intra-ramais__button' 
+                htmlFor='ckk-intra__ramais' style={{ marginRight: '20px' }}
+            >
+                <span style={{marginRight: '20px'}}>Ramais</span>
+                <FaPhone size={25} color='white' />
+            </label>  
 
-            <div className="intra-ramais__button" onClick={() => setMostrar(!mostrar)}
+            <div className="intra-ramais__card" onClick={() => setMostrar(!mostrar)}
 
-            >  <span style={{ marginRight: '20px' }}>Ramais</span>  <FaPhone size={25} color='white' />
+            >  
 
-            </div>
 
-            {
-                mostrar
-                    ? <div style={{ marginTop: '10px' }}>
-                        <Card styles={{ background: '#FAF0E6' }}>
-                            <div className='intra-fones__fecharfones-Container' onClick={() => setMostrar(!mostrar)}>
-                                <button type="button" className='intra-fones__button'
-                                ><span style={{ marginRight: '20px', paddingTop: '3px', color: 'grey' }}>Fechar</span>  <AiOutlineClose size={20} color='grey' /></button>
+                {
+                    1
+                        ? <div className=''>
+                            <Card styles={{ background: '#FAF0E6' }}>
+                                <div className='' onClick={clickFecharHandle}>
+                                <button type="button" className='intra-fones__button'  onClick={() => setMostrar(!mostrar)}
+                                    ><div className='intra-ramais__button-fechar' ><span style={{dislpay: 'inline-block', marginRight: '10px'}}>Fechar</span><AiOutlineClose size={20} color='grey' /></div>  </button>
 
-                            </div>
+                                </div>
 
-                            <ul class="intra-ramais__items">
-                                <li>250 - Amilton</li>
-                                <li>246 - Antônio</li>
-                                <li>203 - Cinira</li>
-                                <li>224 - Copa</li>
-                                <li>252 - David</li>
-                                <li>208 - Eugênio</li>
-                                <li>215 - Fabio</li>
-                                <li>201 - Heliane</li>
-                                <li>248 - Lidia</li>
-                                <li>211 - Liliane</li>
-                                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9 - Luize</li>
-                                <li>210 - Marco</li>
-                                <li>213 - Michelli</li>
-                                <li>212 - Paulão</li>
-                                <li>214 - Sala de Reuniões</li>
-                                <li>255 - Sueli</li>
-                                <li>202 - Tânia</li>
-                                {/* <li>207 - Vanessa</li>
+                                <ul class="intra-ramais__items">
+                                    <li>250 - Amilton</li>
+                                    <li>246 - Antônio</li>
+                                    <li>203 - Cinira</li>
+                                    <li>224 - Copa</li>
+                                    <li>252 - David</li>
+                                    <li>208 - Eugênio</li>
+                                    <li>215 - Fabio</li>
+                                    <li>201 - Heliane</li>
+                                    <li>248 - Lidia</li>
+                                    <li>211 - Liliane</li>
+                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9 - Luize</li>
+                                    <li>210 - Marco</li>
+                                    <li>213 - Michelli</li>
+                                    <li>212 - Paulão</li>
+                                    <li>214 - Sala de Reuniões</li>
+                                    <li>255 - Sueli</li>
+                                    <li>202 - Tânia</li>
+                                    {/* <li>207 - Vanessa</li>
                             <li>210 - Zezo</li>
                             <li>239 - Grasy</li>
                             <li>237 - Eugênio</li>
                         <li>246 - Marco</li> */}
-                            </ul>
-                        </Card>
+                                </ul>
+                            </Card>
 
-                    </div>
-                    : null
-            }
+                        </div>
+                        : null
+                }
+            </div>
         </div>
     )
 }

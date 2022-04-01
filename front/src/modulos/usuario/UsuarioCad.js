@@ -1,190 +1,284 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
-import classes from './UsuarioCad.module.css'
-import { usuariosActions } from '../../store/usuarioReducers'
 import clienteAxios from '../../config/axios'
-
-import Header from './HeaderUsuario'
-import ListaAuxiliar from '../../components/ListaAuxiliar'
 import Form from '../../components/Form'
 import Input from '../../components/Input'
+import Button from '../../components/Button'
+
+import '../../css/cadastro.css'
+
+const classes = ''
+
+const Header = props => {
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const getOutHandle = () => {
+        navigate(-1)
+    }
+    return (
+        <div className='cadastro__header-buttons'>
+            <h2 className='cadastro__title'>Cadastro de Usuários</h2>
+
+            <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                <Button
+                    className='w150'
+                    bg='transparent'
+                    c='white'
+                    title='<<<  Voltar'
+                    onClick={getOutHandle}
+                    style={{ textAlign: 'right' }}
+                    span='btn-span-right'
+                />
+            </div>
+        </div>
+    )
+}
 
 const UsuarioCad = props => {
 
-    
     const dispatch = useDispatch()
-    
+
     const initialState = {
-        nome: '',
-        email: '',
-        senha: '',
-        
-        pw_usuario: '',
-        id_perfil: null,
-        id_pessoa: null,
-        nm_nick: '',
-        nu_recurso_automatico: null,
-        bloquear_registros: null,
-        fg_somente_seus: null,
-        id_setor: null,
-        bloqueado: null,
-        email_notificacao: '',
-        cotacm: null,
-        fg_receber_notificacao_projeto: null,
-        ck_entregaunidade: null,
-        app_id: '',
-        suprimentos: null,
-        ck_webtab_max: null,
-        ck_webtab_outros: null,
-        ck_webtab_pbmail: null,
+        nm_recurso: '',
+        tx_uri: '',
+        tx_nomeform: '',
+        tx_nomeacao: '',
+        ordem: null,
+        menu: null,
+        link: '',
+        nav: '',
+        notshow: 0,
     }
 
+
+    const { token } = useSelector(state => state.login.login)
+
     const navigate = useNavigate()
-    
+
     const location = useLocation()
+
+    const id_recurso = location.state
+
+    const [formData, setFormData] = useState(initialState)
+
+    useEffect(() => {
+
+        if (id_recurso) {
+            console.log('vai buscar ', id_recurso)
+            clienteAxios.get(`/recurso/${id_recurso}`, { headers: { Authorization: token } })
+                .then(resposta => {
+                    resposta.data.notshow = resposta.data.notshow === null ? 0 : resposta.data.notshow
+                    setFormData(resposta.data)
+                })
+                .catch(err => {
+                    console.log('Erro ao buscar ', err)
+                })
+        }
+    }, [])
+
+    const addHandle = event => {
+
+        event.preventDefault()
+
+        clienteAxios.post('/recurso/add', formData, { headers: { Authorization: token } })
+            .then(resposta => {
+                navigate('/recurso/lista', { state: true })
+            })
+            .catch(err => {
+                console.log('Erro ao cadastrar ', err)
+            })
+    }
+
+    const editHandle = event => {
+
+        event.preventDefault()
+
+        clienteAxios.put('/recurso/upd', formData, { headers: { Authorization: token } })
+            .then(resposta => {
+                navigate('/recurso/lista', { state: true })
+            })
+            .catch(err => {
+                console.log('Erro ao atualizar')
+            })
+
+    }
     
-    const [formData, setFormData] = useState(location.state || initialState)
-    const [showLista, setShowLista] = useState(false)
-    const [itemSelected, setItemSelected] = useState({})
-    
+
+    const onKeyPressHandle = e => {
+        if (e.which === 13 || e.keyCode == 13) {
+            alert('digitou enter')
+        }
+    }
+
     const textHandler = (event) => {
-        
+
         let dataEntered = event.target.value
-        if (event.target.name === 'nome') {
-            dataEntered = dataEntered.toUpperCase()
+
+        if (event.target.name === 'notshow') {
+            console.log('chegu .. ',event.target.value)
+            dataEntered = event.target.value === false ? '0' : '1'
         }
 
         setFormData({
             ...formData,
             [event.target.name]: dataEntered
         })
-
     }
 
-
-    const submitHandler = event => {
-        event.preventDefault()
-
-        clienteAxios.post('/usuario/add', formData)
-            .then(resposta => {
-            })
-            .catch(err => {
-                console.log('Erro ao cadastrar')
-            })
-
-        setFormData(initialState)
-        navigate('/usuario/lista', true)
+    const nextField = (keyCode, field) => {
+        if (keyCode == 13) {
+            document.getElementById(field).focus()
+        }
     }
 
-    const editHandler = () => {
+    const onClickButton=id_recurso ? editHandle : addHandle
 
-        clienteAxios.put('/usuario/upd', formData)
-            .then(resposta => {
-
-            })
-            .catch(err => {
-                console.log('Erro ao cadastrar')
-            })
-
-        setFormData(initialState)
-        navigate('/usuario/lista', true)
-    }
-
-    const botao = formData.id
-        ? <button className={classes['botaoBox-button']} type="button" onClick={editHandler}>Salvar</button>
-        : <button className={classes['botaoBox-button']} type="submit" >Salvar</button>
-
-
-    // pw_usuario: Sequelize.STRING(10),
-    // id_perfil: Sequelize.INTEGER,
-    // id_pessoa: Sequelize.INTEGER,
-    // nm_nick: Sequelize.STRING(30),
-    // nu_recurso_automatico: Sequelize.INTEGER,
-    // bloquear_registros: Sequelize.INTEGER,
-    // fg_somente_seus: Sequelize.INTEGER,
-    // id_setor: Sequelize.INTEGER,
-    // bloqueado: Sequelize.INTEGER,
-    // email_notificacao: Sequelize.STRING(100),
-    // cotacm: Sequelize.INTEGER,
-    // fg_receber_notificacao_projeto: Sequelize.INTEGER,
-    // ck_entregaunidade: Sequelize.INTEGER,
-    // app_id: Sequelize.STRING(100),
-    // suprimentos: Sequelize.INTEGER,
-    // ck_webtab_max: Sequelize.INTEGER,
-    // ck_webtab_outros: Sequelize.INTEGER,
-    // ck_webtab_pbmail: Sequelize.INTEGER,
-
-    const mostrarHandle = e => {
-        e.preventDefault()
-        setShowLista(true)
-    }
-
-    const auxSelected = reg => {
-        console.log('auxSelected ', reg)
-    }
-
+    console.log('o que veio ',formData.notshow)
+    
     return (
-        <div className={classes.container}>
-            {
-                showLista && <ListaAuxiliar
-                    setShowLista={setShowLista}
-                    field='nm_recurso'
-                    api='/recursos'
-                    auxSelected = {auxSelected}
-                />
-            }
+        <div className='cadastro__container'>
+            <main className='cadastro__main'>
+                <Header />
+                <Form className='cadastro__form'>
 
-            <Header />
+                    {/* ID */}
+                    <Input
+                        // disabled
+                        label='Id:'
+                        type='text'
+                        id='id_recurso'
+                        name='id_recurso'
+                        next='nome'
+                        value={formData.id_recurso || ''}
+                        onChange={textHandler}
+                        onKeyDown={e => nextField(e.keyCode, 'nome')}
+                    />
 
-            <main className={classes.main}>
-                <h2>Cadastro</h2>
+                    {/* Descrição */}
+                    <Input
+                        label='Descrição:'
+                        type='text'
+                        id='nm_recurso'
+                        name='nm_recurso'
+                        next='tx_uri'
+                        value={formData.nm_recurso}
+                        onChange={textHandler}
+                        onKeyDown={e => nextField(e.keyCode, 'tx_uri')}
+                    />
 
-                <form onSubmit={submitHandler} className={classes.form}>
+                    {/* Uri */}
+                    <Input
+                        label='Uri:'
+                        type='text'
+                        id='tx_uri'
+                        name='tx_uri'
+                        next='tx_nomeform'
+                        value={formData.tx_uri}
+                        onChange={textHandler}
+                        onKeyDown={e => nextField(e.keyCode, 'tx_nomeform')}
+                    />
 
-                    <button onClick={mostrarHandle}>Mostrar</button>
+                    {/* Form */}
+                    <Input
+                        label='Form:'
+                        type='text'
+                        id='tx_nomeform'
+                        name='tx_nomeform'
+                        next='tx_nomeacao'
+                        value={formData.tx_nomeform}
+                        onChange={textHandler}
+                        onKeyDown={e => nextField(e.keyCode, 'tx_nomeacao')}
+                    />
 
-                    {/* Nome */}
-                    <div className={classes.inputBox}>
-                        <label htmlFor="nome">Nome:</label>
+                    {/* Ação */}
+                    <Input
+                        label='Ação:'
+                        type='text'
+                        id='tx_nomeacao'
+                        name='tx_nomeacao'
+                        next='ordem'
+                        value={formData.tx_nomeacao}
+                        onChange={textHandler}
+                        onKeyDown={e => nextField(e.keyCode, 'ordem')}
+                    />
+
+                    {/* ordem */}
+                    <Input
+                        className='w100'
+                        label='Ordem:'
+                        type='number'
+                        id='ordem'
+                        name='ordem'
+                        next='menu'
+                        value={formData.ordem}
+                        onChange={textHandler}
+                        onKeyDown={e => nextField(e.keyCode, 'menu')}
+                    />
+
+                    {/* menu */}
+                    <Input
+                        className='w100'
+                        label='Menu:'
+                        type='number'
+                        id='menu'
+                        name='menu'
+                        next='link'
+                        value={formData.menu}
+                        onChange={textHandler}
+                        onKeyDown={e => nextField(e.keyCode, 'link')}
+                    />
+
+                    {/* link */}
+                    <Input
+                        label='Link:'
+                        type='text'
+                        id='link'
+                        name='link'
+                        next='nav'
+                        value={formData.link}
+                        onChange={textHandler}
+                        onKeyDown={e => nextField(e.keyCode, 'nav')}
+                    />
+
+                    {/* nav */}
+                    <Input
+                        label='Navegação:'
+                        type='text'
+                        id='nav'
+                        name='nav'
+                        next='ordem'
+                        value={formData.nav}
+                        onChange={textHandler}
+                        onKeyDown={e => nextField(e.keyCode, 'ordem')}
+                    />
+
+                    {/* Não mostrar */}
+                    <div className='form-checkboxBox'>
                         <input
-                            className={classes['login-input']}
-                            id="nome"
-                            name="nome"
+                            type='checkbox'
+                            className='form-input'
+                            id="notshow"
+                            name="notshow"
+                            defaultChecked={formData.notshow === null || 
+                                            formData.notshow.toString() === '0' ||
+                                            formData.notshow === false
+                                            ? false : true}
                             onChange={textHandler}
-                            value={formData.nome}
+                            value={formData.notshow}
                         />
+                        <label htmlFor="notshow">Não mostrar:</label>
                     </div>
-
-                    {/* Email */}
-                    <div className={classes.inputBox}>
-                        <label htmlFor="email">Email:</label>
-                        <input
-                            className={classes['login-input']}
-                            id="email"
-                            name="email"
-                            onChange={textHandler}
-                            value={formData.email}
-                        />
-                    </div>
-
-                    {/* Senha */}
-                    <div className={classes.inputBox}>
-                        <label htmlFor="senha">Senha:</label>
-                        <input
-                            className={classes['login-input']}
-                            id="senha"
-                            name="senha"
-                            onChange={textHandler}
-                            value={formData.senha}
-                        />
-                    </div>
-
-                    <div className={classes.botaoBox}>
-                        {botao}
-                    </div>
-                </form>
-
+                    <div style={{ marginTop: '20px', width: '100%', textAlign: 'center' }}>
+                    <Button
+                        className='w150'
+                        title='Salvar'
+                        onClick={onClickButton}
+                    />
+                </div>
+                </Form>
             </main>
         </div>
     );
