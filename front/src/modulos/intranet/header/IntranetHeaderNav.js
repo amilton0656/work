@@ -26,8 +26,6 @@ const IntranetHeaderNav = () => {
         }
     }
 
-    
-
     return (
         <ul className='intra-nav__dropdown'>
             <li key={1} className='intra-nav__dropdown-item'>
