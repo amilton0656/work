@@ -73,7 +73,7 @@
     width: 100%;
 }
 
-.intra-fones__input{
+.intra-fones__input {
     width: 100%;
     padding: 0.6rem 0.5rem;
     font-size: 1rem;
@@ -81,6 +81,10 @@
     border: 1px solid grey;
     background: white;
     color: rgb(160, 161, 160);
+}
+
+.intra-fones__container-registro {
+    border-bottom: 1px solid grey;
 }
 
 @media (min-width: 990px) {

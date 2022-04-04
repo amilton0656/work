@@ -7,6 +7,7 @@ const md_auth = require('../util/autenticacao')
 const router = express.Router();
 
 router.get('/pessoas', md_auth.auth, controller.getPessoas)
+router.get('/pessoas/auxiliar', md_auth.auth, controller.getPessoasAuxiliar)
 router.get('/grupopessoas', md_auth.auth, controller.getGrupoPessoas)
 router.get('/pessoa/:id', md_auth.auth, controller.getPessoaById)
 router.get('/pessoacompleta/:id', md_auth.auth, controller.getPessoaCompletaById)

@@ -5,6 +5,10 @@ import clienteAxios from '../../config/axios'
 import Form from '../../components/Form'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
+import RadioBox from '../../components/RadioBox'
+import { FiSearch } from 'react-icons/fi'
+
+import ListaAuxiliar from '../../components/ListaAuxiliar'
 
 import '../../css/cadastro.css'
 
@@ -18,6 +22,7 @@ const Header = props => {
     const getOutHandle = () => {
         navigate(-1)
     }
+
     return (
         <div className='cadastro__header-buttons'>
             <h2 className='cadastro__title'>Cadastro de Usuários</h2>
@@ -42,15 +47,29 @@ const UsuarioCad = props => {
     const dispatch = useDispatch()
 
     const initialState = {
-        nm_recurso: '',
-        tx_uri: '',
-        tx_nomeform: '',
-        tx_nomeacao: '',
-        ordem: null,
-        menu: null,
-        link: '',
-        nav: '',
-        notshow: 0,
+        pw_usuario: '',
+        id_perfil: null,
+        id_pessoa: null,
+        nm_nick: '',
+        nu_recurso_automatico: null,
+        bloquear_registros: 0,
+        fg_somente_seus: 0,
+        id_setor: null,
+        bloqueado: 0,
+        email_notificacao: '',
+        cotacm: 0,
+        fg_receber_notificacao_projeto: 0,
+        ck_entregaunidade: 0,
+        app_id: '',
+        suprimentos: 0,
+        ck_webtab_max: 0,
+        ck_webtab_outros: 0,
+        ck_webtab_pbmail: 0,
+    }
+
+    const initialStateAuxiliar = {
+        nomeUsuario: '',
+        nomeSetor: ''
     }
 
 
@@ -63,6 +82,8 @@ const UsuarioCad = props => {
     const id_recurso = location.state
 
     const [formData, setFormData] = useState(initialState)
+    const [formDataAuxiliar, setFormDataAuxiliar] = useState(initialStateAuxiliar)
+    const [showAuxiliarPessoas, setShowAuxiliarPessoas] = useState(false)
 
     useEffect(() => {
 
@@ -105,7 +126,7 @@ const UsuarioCad = props => {
             })
 
     }
-    
+
 
     const onKeyPressHandle = e => {
         if (e.which === 13 || e.keyCode == 13) {
@@ -118,8 +139,24 @@ const UsuarioCad = props => {
         let dataEntered = event.target.value
 
         if (event.target.name === 'notshow') {
-            console.log('chegu .. ',event.target.value)
+            console.log('chegu .. ', event.target.value)
             dataEntered = event.target.value === false ? '0' : '1'
+        }
+
+        if (event.target.name === 'fg_somente_seus') {
+            dataEntered = event.target.value === '0' ? '1' : '0'
+        }
+
+        if (event.target.name === 'bloquear_registros') {
+            dataEntered = event.target.value === '0' ? '1' : '0'
+        }
+
+        if (event.target.name === 'bloqueado') {
+            dataEntered = event.target.value === '0' ? '1' : '0'
+        }
+
+        if (event.target.name === 'bloqueado') {
+            dataEntered = event.target.value === '0' ? '1' : '0'
         }
 
         setFormData({
@@ -134,151 +171,277 @@ const UsuarioCad = props => {
         }
     }
 
-    const onClickButton=id_recurso ? editHandle : addHandle
+    const onClickButton = id_recurso ? editHandle : addHandle
 
-    console.log('o que veio ',formData.notshow)
-    
+    const clickSelectedHandle = (reg) => {
+
+        console.log(reg.nome)
+        setFormDataAuxiliar({
+            ...formDataAuxiliar,
+            nomeUsuario: reg.nome
+        })
+        setFormData({
+            ...formData,
+            id_pessoa: reg.id_pessoa
+        })
+
+    }
+
     return (
         <div className='cadastro__container'>
             <main className='cadastro__main'>
                 <Header />
                 <Form className='cadastro__form'>
 
-                    {/* ID */}
+                    <div className='form-input-box-with-icon'>
+                        {/* NomeUsuario */}
+                        <Input
+                            disabled
+                            style={{ width: '90%' }}
+                            label='Pessoa:'
+                            type='text'
+                            id='nomeUsuario'
+                            name='nomeUsuario'
+                            next='nm_nick'
+                            value={formDataAuxiliar.nomeUsuario}
+                            onChange={textHandler}
+                            onKeyDown={e => nextField(e.keyCode, 'nm_nick')}
+                        />
+                        <div className='form-input-box-with-icon__icon' onClick={() => setShowAuxiliarPessoas(!showAuxiliarPessoas)}><FiSearch size={20} color='black' /></div>
+
+                    </div>
+
                     <Input
-                        // disabled
-                        label='Id:'
+                        className='w300'
+                        label='Login:'
                         type='text'
-                        id='id_recurso'
-                        name='id_recurso'
-                        next='nome'
-                        value={formData.id_recurso || ''}
+                        id='nm_nick'
+                        name='nm_nick'
+                        next='pw_usuario'
+                        value={formData.nm_nick}
                         onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'nome')}
+                        onKeyDown={e => nextField(e.keyCode, 'pw_usuario')}
                     />
 
-                    {/* Descrição */}
                     <Input
-                        label='Descrição:'
+                        className='w300'
+                        label='Senha:'
                         type='text'
-                        id='nm_recurso'
-                        name='nm_recurso'
-                        next='tx_uri'
-                        value={formData.nm_recurso}
+                        id='pw_usuario'
+                        name='pw_usuario'
+                        next='fg_somente_seus'
+                        value={formData.pw_usuario}
                         onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'tx_uri')}
+                        onKeyDown={e => nextField(e.keyCode, 'fg_somente_seus')}
                     />
 
-                    {/* Uri */}
-                    <Input
-                        label='Uri:'
-                        type='text'
-                        id='tx_uri'
-                        name='tx_uri'
-                        next='tx_nomeform'
-                        value={formData.tx_uri}
-                        onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'tx_nomeform')}
-                    />
-
-                    {/* Form */}
-                    <Input
-                        label='Form:'
-                        type='text'
-                        id='tx_nomeform'
-                        name='tx_nomeform'
-                        next='tx_nomeacao'
-                        value={formData.tx_nomeform}
-                        onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'tx_nomeacao')}
-                    />
-
-                    {/* Ação */}
-                    <Input
-                        label='Ação:'
-                        type='text'
-                        id='tx_nomeacao'
-                        name='tx_nomeacao'
-                        next='ordem'
-                        value={formData.tx_nomeacao}
-                        onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'ordem')}
-                    />
-
-                    {/* ordem */}
-                    <Input
-                        className='w100'
-                        label='Ordem:'
-                        type='number'
-                        id='ordem'
-                        name='ordem'
-                        next='menu'
-                        value={formData.ordem}
-                        onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'menu')}
-                    />
-
-                    {/* menu */}
-                    <Input
-                        className='w100'
-                        label='Menu:'
-                        type='number'
-                        id='menu'
-                        name='menu'
-                        next='link'
-                        value={formData.menu}
-                        onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'link')}
-                    />
-
-                    {/* link */}
-                    <Input
-                        label='Link:'
-                        type='text'
-                        id='link'
-                        name='link'
-                        next='nav'
-                        value={formData.link}
-                        onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'nav')}
-                    />
-
-                    {/* nav */}
-                    <Input
-                        label='Navegação:'
-                        type='text'
-                        id='nav'
-                        name='nav'
-                        next='ordem'
-                        value={formData.nav}
-                        onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'ordem')}
-                    />
-
-                    {/* Não mostrar */}
+                    {/* Apenas seus registros */}
                     <div className='form-checkboxBox'>
                         <input
                             type='checkbox'
                             className='form-input'
-                            id="notshow"
-                            name="notshow"
-                            defaultChecked={formData.notshow === null || 
-                                            formData.notshow.toString() === '0' ||
-                                            formData.notshow === false
-                                            ? false : true}
+                            id="fg_somente_seus"
+                            name="fg_somente_seus"
+                            defaultChecked={formData.fg_somente_seus.toString() === '0' ? false : true}
                             onChange={textHandler}
-                            value={formData.notshow}
+                            value={formData.fg_somente_seus}
                         />
-                        <label htmlFor="notshow">Não mostrar:</label>
+                        <label htmlFor="fg_somente_seus">Pode ver apenas os seus registros</label>
                     </div>
-                    <div style={{ marginTop: '20px', width: '100%', textAlign: 'center' }}>
-                    <Button
-                        className='w150'
-                        title='Salvar'
-                        onClick={onClickButton}
+
+                    {/* Pode bloquear registros */}
+                    <div className='form-checkboxBox'>
+                        <input
+                            type='checkbox'
+                            className='form-input'
+                            id="bloquear_registros"
+                            name="bloquear_registros"
+                            defaultChecked={formData.bloquear_registros.toString() === '0' ? false : true}
+                            onChange={textHandler}
+                            value={formData.bloquear_registros}
+                        />
+                        <label htmlFor="bloquear_registros">Pode bloquear registros</label>
+                    </div>
+
+                    <Input
+                        className='w200'
+                        label='Num Rotina para Login:'
+                        type='number'
+                        id='nu_recurso_automatico'
+                        name='nu_recurso_automatico'
+                        next='fg_somente_seus'
+                        value={formData.nu_recurso_automatico}
+                        onChange={textHandler}
+                        onKeyDown={e => nextField(e.keyCode, 'fg_somente_seus')}
                     />
-                </div>
+                    <div className='form-input-box-with-icon'>
+                        {/* nomeSetor */}
+                        <Input
+                            disabled
+                            style={{ width: '90%' }}
+                            label='Setor:'
+                            type='text'
+                            id='nomeSetor'
+                            name='nomeSetor'
+                            next='nm_nick'
+                            value={formDataAuxiliar.nomeSetor}
+                            onChange={textHandler}
+                            onKeyDown={e => nextField(e.keyCode, 'nm_nick')}
+                        />
+                        <div className='form-input-box-with-icon__icon' onClick={() => setShowAuxiliarPessoas(!showAuxiliarPessoas)}><FiSearch size={20} color='black' /></div>
+
+                    </div>
+
+                    {/* Usuário bloqueado */}
+                    <div className='form-checkboxBox'>
+                        <input
+                            type='checkbox'
+                            className='form-input'
+                            id="bloqueado"
+                            name="bloqueado"
+                            defaultChecked={formData.bloqueado.toString() === '0' ? false : true}
+                            onChange={textHandler}
+                            value={formData.bloqueado}
+                        />
+                        <label htmlFor="bloqueado">Usuário bloqueado</label>
+                    </div>
+
+                    {/* Entrega de Unidade */}
+                    <div className='form-checkboxBox'>
+                        <input
+                            type='checkbox'
+                            className='form-input'
+                            id="ck_entregaunidade"
+                            name="ck_entregaunidade"
+                            defaultChecked={formData.ck_entregaunidade.toString() === '0' ? false : true}
+                            onChange={textHandler}
+                            value={formData.ck_entregaunidade}
+                        />
+                        <label htmlFor="ck_entregaunidade">Entrega de Unidade</label>
+                    </div>
+
+                    {/* Entrega de Unidade */}
+                    <Input
+                        label='Email para Notificações:'
+                        type='text'
+                        id='email_notificacao'
+                        name='email_notificacao'
+                        next='fg_somente_seus'
+                        value={formData.email_notificacao}
+                        onChange={textHandler}
+                        onKeyDown={e => nextField(e.keyCode, 'fg_somente_seus')}
+                    />
+
+                    {/* Entrega de Unidade */}
+                    <div className='form-checkboxBox'>
+                        <input
+                            type='checkbox'
+                            className='form-input'
+                            id="fg_receber_notificacao_projeto"
+                            name="fg_receber_notificacao_projeto"
+                            defaultChecked={formData.fg_receber_notificacao_projeto.toString() === '0' ? false : true}
+                            onChange={textHandler}
+                            value={formData.fg_receber_notificacao_projeto}
+                        />
+                        <label htmlFor="fg_receber_notificacao_projeto">Não receber notificações de alterações nos projetos</label>
+                    </div>
+
+                    {/* Suprimentos */}
+                    <RadioBox
+                        name='suprimentos'
+                        label='Suprimentos:'
+                        direction='column'
+                    >
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='suprimentos'
+                                id="suprimentos1"
+                                onChange={textHandler}
+
+                                value={formData.suprimentos}
+                                checked={formData.suprimentos.toString() === "1"}
+                            /><label htmlFor="suprimentos1">Nenhum</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='suprimentos'
+                                id="suprimentos2"
+                                onChange={textHandler}
+                                value={formData.suprimentos}
+                                checked={formData.suprimentos.toString() === "2"}
+                            /><label htmlFor="suprimentos2">Técnico</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='suprimentos'
+                                id="suprimentos3"
+                                onChange={textHandler}
+                                value={formData.suprimentos}
+                                checked={formData.suprimentos.toString() === "3"}
+                            /><label htmlFor="suprimentos3">Engenheiro</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='suprimentos'
+                                id="suprimentos4"
+                                onChange={textHandler}
+                                value={formData.suprimentos}
+                                checked={formData.suprimentos.toString() === "4"}
+                            /><label htmlFor="suprimentos4">Diretor Técnico</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='suprimentos'
+                                id="suprimentos5"
+                                onChange={textHandler}
+                                value={formData.suprimentos}
+                                checked={formData.suprimentos.toString() === "5"}
+                            /><label htmlFor="suprimentos5">Diretor Operacional</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='suprimentos'
+                                id="suprimentos6"
+                                onChange={textHandler}
+                                value={formData.suprimentos}
+                                checked={formData.suprimentos.toString() === "6"}
+                            /><label htmlFor="suprimentos6">Diretor Presidente</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='suprimentos'
+                                id="suprimentos7"
+                                onChange={textHandler}
+                                value={formData.suprimentos}
+                                checked={formData.suprimentos.toString() === "7"}
+                            /><label htmlFor="suprimentos7">Compras</label>
+                        </div>
+                    </RadioBox>
+
+                    <div style={{ marginTop: '20px', width: '100%', textAlign: 'center' }}>
+                        <Button
+                            className='w150'
+                            title='Salvar'
+                            onClick={onClickButton}
+                        />
+                    </div>
                 </Form>
+                {
+                    showAuxiliarPessoas &&
+                    <ListaAuxiliar
+                        api='/pessoas/auxiliar'
+                        field='nome'
+                        onClickSelection={(reg) => clickSelectedHandle(reg)}
+                        onClickClose={() => setShowAuxiliarPessoas(false)}
+                    />
+                }
             </main>
         </div>
     );

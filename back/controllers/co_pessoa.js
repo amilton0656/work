@@ -299,5 +299,22 @@ exports.getPessoaCompletaById = (req, res, next) => {
     })
 }
 
+exports.getPessoasAuxiliar = (req, res, next) => {
+
+  Pessoa.sequelize.query(`
+  select
+      id_pessoa, nome
+      from pessoas
+      order by nome
+  `)
+    .then(pessoas => {
+      res.status(200).json(pessoas[0])
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json('Usuário não encontrado.')
+    })
+}
+
 
 

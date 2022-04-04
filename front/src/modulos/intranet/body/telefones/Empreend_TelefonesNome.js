@@ -22,7 +22,7 @@ const Empreend_TelefonesNome = (pessoa) => {
     : null
 
     return (
-        <div className="intra-card-contato">
+        <div className="intra-fones__container-registro">
             {mostrarNome}
             {mostrarContatos}
         </div>

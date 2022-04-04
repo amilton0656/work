@@ -15,6 +15,7 @@ const Input = props => {
     return (
         <div
             className={`form.inputBox ${props.className}`}
+            style={props.style}
         >
             <label htmlFor={props.id}>{props.label}</label>
             <input

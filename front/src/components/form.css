@@ -22,6 +22,19 @@
     width: 100%;
 }
 
+.form-input-box-with-icon {
+    display: flex;
+}
+
+.form-input-box-with-icon__icon {
+    padding-top: 31px;
+    margin-left: 10px;
+}
+
+.form-input-box-with-icon__icon:hover {
+    cursor: pointer;
+}
+
 /* .inputBoxCPF {
     display: flex;
     flex-direction: column;
@@ -148,6 +161,7 @@ padding: 0px;
     margin-right: 10px;
     width: 30px;
 }
+
 /* 
 .w100 {
     width: 100px;

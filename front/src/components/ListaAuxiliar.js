@@ -33,6 +33,7 @@ const ListaAuxiliar = props => {
                 setDataAll(resposta.data)
                 setData(resposta.data)
                 setIsLoading(false)
+                console.log('ei chegou ', resposta.data)
             })
             .catch(err => {
                 setIsLoading(false)
@@ -72,8 +73,14 @@ const ListaAuxiliar = props => {
     }
 
     const itemSelectedHandle = reg => {
-        props.auxSelected(reg)
-        props.setShowLista(false)
+        props.onClickSelection(reg)
+        props.onClickClose()
+    }
+
+    if (data.lenght === 0) {
+        return <div>
+            Nenhum registro encontrado!
+        </div>
     }
 
     return (
@@ -111,7 +118,7 @@ const ListaAuxiliar = props => {
                                 className='lista-aux__button'
                                 bg='steelblue'
                                 title='Selecionar'
-                                onClick={() => { }}
+                                onClick={() => itemSelectedHandle(null)}
                             />
                         </div>
                         <div>
@@ -119,7 +126,7 @@ const ListaAuxiliar = props => {
                                 className='lista-aux__button'
                                 bg='gray'
                                 title='Fechar'
-                                onClick={() => props.setShowLista(false)}
+                                onClick={() => props.onClickClose()}
                             />
                         </div>
 
