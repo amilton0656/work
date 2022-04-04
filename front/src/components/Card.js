@@ -2,7 +2,7 @@
 const Card = props => {
   
   return (
-    <div style={{ ...styles, ...props.styles }}>
+    <div style={{ ...styles, ...props.styles }} className={props.className} > 
       {props.children}
     </div>
   )

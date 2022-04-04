@@ -35,9 +35,9 @@ const Empreend_Ramais = () => {
                     1
                         ? <div className=''>
                             <Card styles={{ background: '#FAF0E6' }}>
-                                <div className='' onClick={clickFecharHandle}>
-                                <button type="button" className='intra-fones__button'  onClick={() => setMostrar(!mostrar)}
-                                    ><div className='intra-ramais__button-fechar' ><span style={{dislpay: 'inline-block', marginRight: '10px'}}>Fechar</span><AiOutlineClose size={20} color='grey' /></div>  </button>
+                                <div  onClick={clickFecharHandle}>
+                                <button type="button" style={{width:'100%', border: 'none'}}  onClick={() => setMostrar(!mostrar)}
+                                    ><div className='intra-ramais__button-fechar' ><span style={{fontSize: '1rem'}}>Fechar</span><AiOutlineClose size={20} color='grey' /></div>  </button>
 
                                 </div>
 

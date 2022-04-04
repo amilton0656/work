@@ -71,9 +71,6 @@
     display: flex; 
     flex-direction: column; 
     width: 100%;
-    /* position: relative; */
-    /* z-index: 0; */
-
 }
 
 .intra-fones__input{

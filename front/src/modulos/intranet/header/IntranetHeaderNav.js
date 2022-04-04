@@ -26,6 +26,12 @@ const IntranetHeaderNav = () => {
         }
     }
 
+    const clickClear = item => {
+        const elems = document.querySelectorAll(`input[id*=ck-intra]`)
+        for ( var i = 0 ; i < elems.length ; i++ )
+            elems[i].checked = false
+    }
+
     return (
         <ul className='intra-nav__dropdown'>
             <li key={1} className='intra-nav__dropdown-item'>
@@ -35,7 +41,7 @@ const IntranetHeaderNav = () => {
                 <ul className='intra-nav__dropdown-submenu'>
                     {
                         menuEmpreendimentos.map((emp, i) => (
-                            <li key={i} className='intra-nav__dropdown-submenu-item'>
+                            <li key={i} className='intra-nav__dropdown-submenu-item' onClick={() => clickClear()}>
                                 <a href={emp.link} className='intra-nav__dropdown-submenu-link'>{emp.nome}</a>
                             </li>
                         ))
@@ -49,7 +55,7 @@ const IntranetHeaderNav = () => {
                 <ul className='intra-nav__dropdown-submenu'>
                     {
                         menuAdministrativo.map((emp, i) => (
-                            <li key={i} className='intra-nav__dropdown-submenu-item'>
+                            <li key={i} className='intra-nav__dropdown-submenu-item' onClick={() => clickClear()}>
                                 <a href={emp.link} className='intra-nav__dropdown-submenu-link'>{emp.nome}</a>
                             </li>
                         ))
@@ -63,7 +69,7 @@ const IntranetHeaderNav = () => {
                 <ul className='intra-nav__dropdown-submenu'>
                     {
                         menuNoticias.map((emp, i) => (
-                            <li key={i} className='intra-nav__dropdown-submenu-item'>
+                            <li key={i} className='intra-nav__dropdown-submenu-item' onClick={() => clickClear()}>
                                 <a href={emp.link} className='intra-nav__dropdown-submenu-link' target="_blank">{emp.nome}</a>
                             </li>
                         ))
@@ -77,7 +83,7 @@ const IntranetHeaderNav = () => {
                 <ul className='intra-nav__dropdown-submenu'>
                     {
                         menuBancos.map((emp, i) => (
-                            <li key={i} className='intra-nav__dropdown-submenu-item'>
+                            <li key={i} className='intra-nav__dropdown-submenu-item' onClick={() => clickClear()}>
                                 <a href={emp.link} className='intra-nav__dropdown-submenu-link' target="_blank">{emp.nome}</a>
                             </li>
                         ))
@@ -91,7 +97,7 @@ const IntranetHeaderNav = () => {
                 <ul className='intra-nav__dropdown-submenu'>
                     {
                         menuOrgaos.map((emp, i) => (
-                            <li key={i} className='intra-nav__dropdown-submenu-item' >
+                            <li key={i} className='intra-nav__dropdown-submenu-item' onClick={() => clickClear()}>
                                 <a href={emp.link} className='intra-nav__dropdown-submenu-link' target="_blank">{emp.nome}</a>
                             </li>
                         ))
@@ -105,7 +111,7 @@ const IntranetHeaderNav = () => {
                 <ul className='intra-nav__dropdown-submenu'>
                     {
                         menuUteis.map((emp, i) => (
-                            <li key={i} className='intra-nav__dropdown-submenu-item'>
+                            <li key={i} className='intra-nav__dropdown-submenu-item' onClick={() => clickClear()}>
                                 <a href={emp.link} className='intra-nav__dropdown-submenu-link' target="_blank">{emp.nome}</a>
                             </li>
                         ))
