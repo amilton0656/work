@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 
-import Card from '../../components/Card'
+import Card from './Card'
 
-import './teste.css'
-import '../../components/listaAuxiliar.css'
-
+import './msg.css'
 
 const Msg = props => {
 

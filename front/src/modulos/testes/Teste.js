@@ -1,5 +1,5 @@
 import {  useState } from 'react'
-import Msg from './Msg';
+import Msg from '../../components/Msg'
 
 
 const Teste = () => {

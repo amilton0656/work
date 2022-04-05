@@ -7,41 +7,50 @@ import { convertToReal } from '../../../../util/util'
 import PrintPrint from '../../../../components/PrintPrint'
 import { AiOutlineClose } from 'react-icons/ai'
 import { AiFillPrinter } from 'react-icons/ai'
+import Card from '../../../../components/Card'
 
 import './MensagemCubPeriodo.css'
 import ProponenteCadDados from '../../../pessoa/dados/PessoaCadDados'
 
-
-
-
 const MensagemCubPeriodo = props => {
-
 
     const [meses, setMeses] = useState([])
     const [loading, setLoading] = useState(true)
     const [print, setPrint] = useState(false)
+    const [inicio, setInicio] = useState(false)
+    
+    
+    useEffect(() => {
+        indices()
+        setInicio(true)
+    }, [])
 
     useEffect(() => {
-
-        indices()
-
-    }, [])
+        if (inicio) {
+            const elem = document.getElementById('ckk-cub')
+            if (elem) {
+                elem.checked = true
+            }
+        }
+    }, [inicio])
 
     useEffect(() => {
         setPrint(false)
     }, [print])
+    
+    const showHandle = () => {
+        const elem = document.getElementById('ckk-cub')
+        if (elem) {
+            elem.checked = true
+        }
+    }
 
     const indices = () => {
-
-        console.log('entrou no indices')
 
         const dataAtual = new Date()
         const mesAtual = dataAtual.getMonth() + 1
         const anoAtual = dataAtual.getFullYear()
         const dataOne = (anoAtual - 1) + '-' + (mesAtual) + '-01'
-
-
-
         const dataTwo = (anoAtual) + '-' + (mesAtual) + '-01'
 
         setLoading(true)
@@ -61,13 +70,6 @@ const MensagemCubPeriodo = props => {
             })
     }
 
-    // const printHandle = () => {
-    //     setPrint(true)
-    //     setPrint(false)
-    //     setTimeout(() => {
-    //     }, 1000);
-    // }
-
     const conteudo = (
         <div id='cub-periodo-print' style={{ marginTop: '15px', width: '100%' }}>
 
@@ -82,7 +84,6 @@ const MensagemCubPeriodo = props => {
                 <div>
                 </div>
             </div>
-
 
         </div>
     )
@@ -103,12 +104,22 @@ const MensagemCubPeriodo = props => {
         </div>
     )
 
+    const fechar = () => {
+        const elem = document.getElementById('ckk-cub')
+        if (elem) {
+            elem.checked = false
+        }
 
+        setTimeout(() => {
+            props.setMostrarMais(false)
+        }, 500)
+
+    }
 
     if (!meses.length > 0) return null
 
-    return (
-        <div>
+    return ( 
+        <div className='ckk-cub__show' >
             {titulo}
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div>
@@ -125,7 +136,7 @@ const MensagemCubPeriodo = props => {
                 <div>
                     <button
                         className='intra-cub__periodo-button'
-                        onClick={() => props.setMostrarMais(false)}>
+                        onClick={() => fechar()}>
                         <span style={{ marginRight: '20px', paddingTop: '3px', color: 'grey' }}>
                             Fechar
                         </span>
@@ -148,9 +159,7 @@ const MensagemCubPeriodo = props => {
                 </PrintPrint>
             }
 
-
         </div>
-
     )
 
 

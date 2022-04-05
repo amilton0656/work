@@ -1,19 +1,19 @@
 const express = require('express')
 
-const usuarioController = require('../controllers/co_usuario')
+const controller = require('../controllers/co_usuario')
 
 const md_auth = require('../util/autenticacao')
 
 const router = express.Router()
 
-router.get('/usuarios', usuarioController.getAllUsuarios)
-router.get('/usuario/:id', md_auth.auth, usuarioController.getUsuario)
-router.post('/usuario', usuarioController.addUsuario)
-router.put('/usuario/:id', usuarioController.updUsuario)
-router.delete('/usuario/:id', usuarioController.delUsuario)
-router.post('/auth', usuarioController.getAuth)
-router.post('/login', usuarioController.getAuthByCpf)
-// router.post('/jwt', usuarioController.getJwt)
-router.get('/', usuarioController.servidorON)
+router.get('/usuarios', controller.getAllUsuarios)
+router.get('/usuario/:id_usuario', controller.getUsuario)
+router.post('/usuario', controller.addUsuario)
+router.put('/usuario/:id', controller.updUsuario)
+router.delete('/usuario/:id', controller.delUsuario)
+router.post('/auth', controller.getAuth)
+router.post('/login', controller.getAuthByCpf)
+// router.post('/jwt', controller.getJwt)
+router.get('/', controller.servidorON)
 
 module.exports = router

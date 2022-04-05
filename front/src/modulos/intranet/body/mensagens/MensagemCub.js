@@ -60,10 +60,7 @@ const MensagemCub = () => {
     const handleMostrarMais = () => {
         setMostrarMais(!mostrarMais)
         setAberto(!aberto)
-
     }
-
-
 
     return (
         <div style ={{margin: '10px'}}>
@@ -76,21 +73,20 @@ const MensagemCub = () => {
                     <div><span>Comercial : </span>R$ {comValor} - {comIndice} %</div>
 
                 </div>
-                <p
+                <div
                     style={{ cursor: 'pointer', fontSize: '0.9rem', textAlign: 'right', marginTop: '20px' }}
                     onClick={() => handleMostrarMais()}
 
-                >{
+                ><span className={mostrarMais ? 'ckk-cub__span' : ''}>Útimos 12 meses...</span></div>{
                     mostrarMais
-                            ? null
-                            : <span>Útimos 12 meses...</span>
-                    }</p>
-                {
-                    mostrarMais
-                        ? <MensagemCubPeriodo setMostrarMais={setMostrarMais} />
-                        : null
-                }
+                            ? <>
+                            <input type='checkbox' id='ckk-cub' style={{display:'none'}} />
+                            <MensagemCubPeriodo setMostrarMais={setMostrarMais} />
+                        </>
+                            : null
+                    }
             </Card>
+
         </div>
 
     )

@@ -52,10 +52,10 @@ const UsuarioCad = props => {
         id_pessoa: null,
         nm_nick: '',
         nu_recurso_automatico: null,
-        bloquear_registros: 0,
-        fg_somente_seus: 0,
+        bloquear_registros: '0',
+        fg_somente_seus: '0',
         id_setor: null,
-        bloqueado: 0,
+        bloqueado: '0',
         email_notificacao: '',
         cotacm: 0,
         fg_receber_notificacao_projeto: 0,
@@ -79,7 +79,7 @@ const UsuarioCad = props => {
 
     const location = useLocation()
 
-    const id_recurso = location.state
+    const id_usuario = location.state
 
     const [formData, setFormData] = useState(initialState)
     const [formDataAuxiliar, setFormDataAuxiliar] = useState(initialStateAuxiliar)
@@ -87,12 +87,24 @@ const UsuarioCad = props => {
 
     useEffect(() => {
 
-        if (id_recurso) {
-            console.log('vai buscar ', id_recurso)
-            clienteAxios.get(`/recurso/${id_recurso}`, { headers: { Authorization: token } })
+        if (id_usuario) {
+            clienteAxios.get(`/usuario/${id_usuario}`, { headers: { Authorization: token } })
                 .then(resposta => {
-                    resposta.data.notshow = resposta.data.notshow === null ? 0 : resposta.data.notshow
-                    setFormData(resposta.data)
+                    const resp = resposta.data[0]
+
+                    setFormDataAuxiliar({
+                        nomeUsuario: resposta.data[0].nomeusuario,
+                        nomeSetor: resposta.data[0].nomesetor
+                    })
+
+                    delete resp.nomeusuario
+                    delete resp.nomesetor
+
+                    resp.fg_somente_seus = resp.fg_somente_seus === null ? 0 : resp.fg_somente_seus
+                    resp.bloquear_registros = resp.bloquear_registros === null ? 0 : resp.bloquear_registros
+
+                    setFormData(resp)
+
                 })
                 .catch(err => {
                     console.log('Erro ao buscar ', err)
@@ -124,7 +136,6 @@ const UsuarioCad = props => {
             .catch(err => {
                 console.log('Erro ao atualizar')
             })
-
     }
 
 
@@ -171,11 +182,10 @@ const UsuarioCad = props => {
         }
     }
 
-    const onClickButton = id_recurso ? editHandle : addHandle
+    const onClickButton = id_usuario ? editHandle : addHandle
 
     const clickSelectedHandle = (reg) => {
 
-        console.log(reg.nome)
         setFormDataAuxiliar({
             ...formDataAuxiliar,
             nomeUsuario: reg.nome
@@ -356,12 +366,22 @@ const UsuarioCad = props => {
                             <input
                                 type='radio'
                                 name='suprimentos'
-                                id="suprimentos1"
+                                id="suprimentos0"
                                 onChange={textHandler}
 
                                 value={formData.suprimentos}
+                                checked={formData.suprimentos.toString() === "0"}
+                            /><label htmlFor="suprimentos0">Nenhum</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='suprimentos'
+                                id="suprimentos1"
+                                onChange={textHandler}
+                                value={formData.suprimentos}
                                 checked={formData.suprimentos.toString() === "1"}
-                            /><label htmlFor="suprimentos1">Nenhum</label>
+                            /><label htmlFor="suprimentos1">Técnico</label>
                         </div>
                         <div className='form-radioBoxLinha'>
                             <input
@@ -371,7 +391,7 @@ const UsuarioCad = props => {
                                 onChange={textHandler}
                                 value={formData.suprimentos}
                                 checked={formData.suprimentos.toString() === "2"}
-                            /><label htmlFor="suprimentos2">Técnico</label>
+                            /><label htmlFor="suprimentos2">Engenheiro</label>
                         </div>
                         <div className='form-radioBoxLinha'>
                             <input
@@ -381,7 +401,7 @@ const UsuarioCad = props => {
                                 onChange={textHandler}
                                 value={formData.suprimentos}
                                 checked={formData.suprimentos.toString() === "3"}
-                            /><label htmlFor="suprimentos3">Engenheiro</label>
+                            /><label htmlFor="suprimentos3">Diretor Técnico</label>
                         </div>
                         <div className='form-radioBoxLinha'>
                             <input
@@ -391,7 +411,7 @@ const UsuarioCad = props => {
                                 onChange={textHandler}
                                 value={formData.suprimentos}
                                 checked={formData.suprimentos.toString() === "4"}
-                            /><label htmlFor="suprimentos4">Diretor Técnico</label>
+                            /><label htmlFor="suprimentos4">Diretor Operacional</label>
                         </div>
                         <div className='form-radioBoxLinha'>
                             <input
@@ -401,7 +421,7 @@ const UsuarioCad = props => {
                                 onChange={textHandler}
                                 value={formData.suprimentos}
                                 checked={formData.suprimentos.toString() === "5"}
-                            /><label htmlFor="suprimentos5">Diretor Operacional</label>
+                            /><label htmlFor="suprimentos5">Diretor Presidente</label>
                         </div>
                         <div className='form-radioBoxLinha'>
                             <input
@@ -411,17 +431,7 @@ const UsuarioCad = props => {
                                 onChange={textHandler}
                                 value={formData.suprimentos}
                                 checked={formData.suprimentos.toString() === "6"}
-                            /><label htmlFor="suprimentos6">Diretor Presidente</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='suprimentos'
-                                id="suprimentos7"
-                                onChange={textHandler}
-                                value={formData.suprimentos}
-                                checked={formData.suprimentos.toString() === "7"}
-                            /><label htmlFor="suprimentos7">Compras</label>
+                            /><label htmlFor="suprimentos6">Compras</label>
                         </div>
                     </RadioBox>
 

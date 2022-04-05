@@ -12,6 +12,7 @@ const assisTecSolicitacaoRoutes = require('./ro_assistecsolicitacao')
 const portalRoutes = require('./ro_portal')
 const propostaRoutes = require('./ro_proposta')
 const recursoRoutes = require('./ro_recurso')
+const empresaRoutes = require('./ro_empresa')
 
 module.exports = [
     usuarioRoutes,
@@ -27,5 +28,6 @@ module.exports = [
     assisTecSolicitacaoRoutes,
     portalRoutes,
     propostaRoutes,
-    recursoRoutes
+    recursoRoutes,
+    empresaRoutes
 ]

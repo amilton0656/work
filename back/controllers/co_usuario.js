@@ -40,11 +40,35 @@ exports.delUsuario = (req, res, next) => {
     .catch(err => console.log(err))
 }
 
+// exports.getUsuario = (req, res, next) => {
+//   const id_usuario = req.params.id_usuario
+//   console.log('chegou usuario ', id_usuario)
+//   Usuario.findByPk(id_usuario)
+//     .then(usuario => {
+//       res.status(200).json(usuario)
+//     })
+// }
+
 exports.getUsuario = (req, res, next) => {
-  const id = req.params.id
-  Usuario.findByPk(id)
+  const id_usuario = req.params.id_usuario
+  console.log('chegou usuario ', id_usuario)
+  Usuario.sequelize.query(`
+    select usu.*,
+    pes.id_pessoa, pes.nome as nomeusuario,
+    setor.descricao as nomesetor
+
+    from usuario usu
+
+    left join pessoas pes
+    on pes.id_pessoa = usu.id_pessoa
+
+    left join gq_setores setor
+    on setor.id = usu.id_setor
+
+    where id_usuario = :id_usuario`,
+  { replacements: { id_usuario } })
     .then(usuario => {
-      res.status(200).json(usuario)
+      res.status(200).json(usuario[0])
     })
 }
 

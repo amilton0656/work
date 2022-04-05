@@ -33,7 +33,6 @@ const ListaAuxiliar = props => {
                 setDataAll(resposta.data)
                 setData(resposta.data)
                 setIsLoading(false)
-                console.log('ei chegou ', resposta.data)
             })
             .catch(err => {
                 setIsLoading(false)

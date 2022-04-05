@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import ConsultaPadrao from '../../components/ConsultaPadrao'
 
-const UsuarioLista = () => {
+const EmpresaLista = () => {
 
     const navigate = useNavigate()
 
@@ -40,4 +40,4 @@ const UsuarioLista = () => {
     );
 }
 
-export default UsuarioLista;
+export default EmpresaLista;
