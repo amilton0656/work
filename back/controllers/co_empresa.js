@@ -48,7 +48,7 @@ exports.delEmpresa = (req, res, next) => {
 
 exports.getEmpresaById = (req, res, next) => {
   const id = req.params.id
-  console.log('id ', id)
+  console.log('id empresa', id)
   Empresa.findByPk(id)
     .then(empresa => {
       res.status(200).json(empresa)

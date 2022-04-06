@@ -1,0 +1,34 @@
+.teste-msg__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.teste-msg__card {
+    width: 300px;
+    max-height: 1300px;
+    transform: scale(0);
+    transition: all 0.2s ease;
+}
+
+#ckk-msg {
+    display: 'none';
+}
+
+#ckk-msg:checked ~ .teste-msg__card {
+    animation: movimento 0.3s forwards;
+
+    /* transform: scale(1);
+    transition: all 0.3s ease; */
+}
+
+@keyframes movimento {
+    0%    { transform: scale(0); }
+
+    70% {transform: scale(1.1);}
+    /* 70% {transform: scale(0.9);} */
+
+    100%  {transform: scale(1);}
+}

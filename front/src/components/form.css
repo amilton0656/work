@@ -11,6 +11,68 @@
 
 } 
 
+.form-form__no-top-border {
+    border-top: none;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+}
+
+.form-form__top-header {
+    height: 50px;
+    width: 100%;
+    background: red; 
+    border: 1px solid grey;
+    border-bottom: none;
+    border-radius: 5px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    overflow: hidden;
+    background: white;
+    display: flex;
+
+}
+
+.form-form__tabs {
+
+    padding: 15px;
+    text-align: center;
+    width: 50%;
+    background: rgba(128, 128, 128, 0.075);
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+    box-sizing: content-box;
+    position: relative;
+    outline: none;
+  }
+  .form-form__tabs:not(:last-child){
+    border-right: 1px solid rgba(0, 0, 0, 0.274);
+  }
+  
+  .form-form__active-tabs  {
+    background: rgb(228, 226, 226); 
+    border-bottom: 1px solid transparent;
+  }
+  
+  .form-form__active-tabs::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 2px);
+    height: 5px;
+    background: rgb(88, 147, 241);
+  }
+
+  .form-form__tab-content {
+    display: none;
+  }
+
+  .form-form__tab-active-content {
+    display: block;
+  }
+
 .form-form-100 {
     width: 100%;
     padding: 10px 5px;

@@ -41,7 +41,7 @@ const ConsultaPadrao = props => {
 
     useEffect(() => {
         getData(api)
-    }, [])
+    }, [props.atualizar])
 
     const searchHandle = busca => {
 
@@ -66,6 +66,7 @@ const ConsultaPadrao = props => {
             }
             )
     }
+
     const textHandle = (event) => {
         setBusca(event.target.value.toUpperCase())
         searchHandle(event.target.value.toUpperCase())
@@ -85,18 +86,6 @@ const ConsultaPadrao = props => {
             setId(idClicked)
 
         }
-
-    }
-
-    const goToForm = item => {
-
-    }
-    
-    const FichaCadastral = id => {
-
-    }  
-    
-    const deletePessoaHandle = id => {
 
     }
 

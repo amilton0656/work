@@ -92,7 +92,14 @@ const Empreendimento = sequelize.define('empreendimentos', {
   banco: Sequelize.STRING(5),
   agencia: Sequelize.STRING(10),
   conta_corrente: Sequelize.STRING(20),
+  habitese_num: Sequelize.STRING(20),
+  duracao_meses: Sequelize.INTEGER,
+  valor_orc: Sequelize.DECIMAL(14, 2),
+  valor_mo: Sequelize.DECIMAL(14, 2),
+  imposto_mo: Sequelize.DECIMAL(6, 3),
+  data_base: Sequelize.STRING(7),
 }, {
+  tableName: 'empreendimentos',
   timestamp: false,
   createdAt: false,
   updatedAt: false

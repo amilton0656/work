@@ -23,6 +23,12 @@ import RecursoLista from '../modulos/recurso/RecursoLista'
 import UsuarioCad from '../modulos/usuario/UsuarioCad'
 import UsuarioLista from '../modulos/usuario/UsuarioLista'
 
+import EmpresaCad from '../modulos/empresa/EmpresaCad'
+import EmpresaLista from '../modulos/empresa/EmpresaLista'
+
+import EmpreendimentoCad from '../modulos/empreendimento/EmpreendimentoCad'
+import EmpreendimentoLista from '../modulos/empreendimento/EmpreendimentoLista'
+
 import ErpNavigator from '../modulos/erp/menu/ErpNavigator'
 
 import TesteScroll from '../modulos/testes/TesteScroll'
@@ -63,12 +69,17 @@ const Rotas = () => {
                 <Route path="/pessoa/formdados" element={<PessoaCadDados />} />
                 <Route path="/pessoa/fichacadastral" element={<PessoaFichaCadastral />} />
 
-
                 <Route path="/usuario/lista" element={<UsuarioLista />} />     
                 <Route path="/usuario/formdados" element={<UsuarioCad />} />
 
                 <Route path="/recurso/lista" element={<RecursoLista />} />
                 <Route path="/recurso/formdados" element={<RecursoCad />} />
+
+                <Route path="/empresa/lista" element={<EmpresaLista />} />
+                <Route path="/empresa/formdados" element={<EmpresaCad />} />
+
+                <Route path="/empreendimento/lista" element={<EmpreendimentoLista />} />
+                <Route path="/empreendimento/formdados" element={<EmpreendimentoCad />} />
 
                 <Route path="/erp/navigator" element={<ErpNavigator />} />
 

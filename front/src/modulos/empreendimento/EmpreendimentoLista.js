@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 
 import ConsultaPadrao from '../../components/ConsultaPadrao'
 
-const EmpresaLista = () => {
+const EmpreendimentoLista = () => {
 
     const [atualizar, setAtualizar] = useState(1)
 
@@ -16,9 +16,9 @@ const EmpresaLista = () => {
 
     const goToForm = (reg) => {
 
-        const id = reg ? reg.id_empresa : null
+        const id = reg ? reg.id_empreendimento : null
 
-        navigate('/empresa/formdados', { state: id })
+        navigate('/empreendimento/formdados', { state: id })
     }
 
     const deleteHandle = id => {
@@ -32,7 +32,7 @@ const EmpresaLista = () => {
             confirmButtonText: 'OK, excluído!'
         }).then((result) => {
             if (result.isConfirmed) {
-                clienteAxios.delete(`/empresa/del/${id}`, { headers: { Authorization: token } })
+                clienteAxios.delete(`/empreendimento/del/${id}`, { headers: { Authorization: token } })
                     .then(resposta => {
                         setAtualizar(2)
                     })
@@ -52,10 +52,10 @@ const EmpresaLista = () => {
         <>
             <ConsultaPadrao
                 atualizar={atualizar}
-                title = 'Empresas'
-                api = '/empresas'
-                fieldId = 'id_empresa'
-                fieldName = 'nm_empresa'
+                title = 'Empreendimentos'
+                api = '/empreendimentos'
+                fieldId = 'id_empreendimento'
+                fieldName = 'nome'
                 fieldAux = ''
                 onClick1 = {() => goToForm(null)}
                 onClick2 = {() => {}}
@@ -66,11 +66,11 @@ const EmpresaLista = () => {
                 onClick13 = {(reg) => deleteHandle(reg)}  //del
 
                 nomeEmpresa='COTA Empreendimentos Imobiliários Ltda.'
-                tituloDocumento='Relação de Empresas'
+                tituloDocumento='Relação de Empreendimentos'
 
             />
         </>
     );
 }
 
-export default EmpresaLista;
+export default EmpreendimentoLista;
