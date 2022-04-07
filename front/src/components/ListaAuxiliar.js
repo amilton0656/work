@@ -8,7 +8,7 @@ import './listaAuxiliar.css'
 
 const Backdrop = props => {
     return (
-        <div className="lista-aux__backdrop">
+        <div className="lista-aux__backdrop" style={{height: props.heightDrop}}>
             {props.children}
         </div>
     )
@@ -81,11 +81,11 @@ const ListaAuxiliar = props => {
             Nenhum registro encontrado!
         </div>
     }
-
+    
     return (
-        <Backdrop setShowLista={props.setShowLista} >
+        <Backdrop setShowLista={props.setShowLista} heightDrop={props.heightDrop}>
             <div className='lista-aux__main'>
-                <div className='lista-aux__container'>
+                <div className='lista-aux__container' style={{top: props.topLista}}>
                     {isLoading && <Spinner />}
                     <div className='lista-aux__busca'>
 

@@ -25,6 +25,7 @@
     border: 1px solid grey;
     border-radius: 10px;
     padding-bottom: 20px;
+    position: absolute;
 }
 
 .lista-aux__busca {

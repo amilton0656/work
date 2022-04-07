@@ -6,6 +6,9 @@ import Form from '../../components/Form'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 import RadioBox from '../../components/RadioBox'
+import { FiSearch } from 'react-icons/fi'
+import EmpreendimentoCadTab1 from './EmpreendimentoCadTab1'
+import EmpreendimentoCadTab2 from './EmpreendimentoCadTab2'
 
 const classes = ''
 
@@ -19,7 +22,7 @@ const Header = props => {
     }
     return (
         <div className='pessoa-container__header-buttons'>
-            <h2 className='pessoa-main__title'>Cadastro de Empreendimntos</h2>
+            <h2 className='pessoa-main__title'>Cadastro de Empreendimentos</h2>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                 <Button
@@ -65,7 +68,7 @@ const EmpreendimentoCad = props => {
         referencia: null,
         juros_financiamento: null,
         id_empreiteira: null,
-        id_empreendimento: null,
+        id_empresa: null,
         taxa_vpl: null,
         custo_adm: null,
         corretagem_perc: null,
@@ -134,6 +137,12 @@ const EmpreendimentoCad = props => {
 
     }
 
+    const initialStateAuxiliar = {
+        nomeEmpresa: '',
+        nomeEmpreiteira: '',
+        nomeEngenheiro: ''
+    }
+
 
     const { token } = useSelector(state => state.login.login)
 
@@ -144,6 +153,8 @@ const EmpreendimentoCad = props => {
     const id_empreendimento = location.state
 
     const [formData, setFormData] = useState(initialState)
+    const [formDataAuxiliar, setFormDataAuxiliar] = useState(initialStateAuxiliar)
+
     const [toggleState, setToggleState] = useState(1);
 
     useEffect(() => {
@@ -260,286 +271,31 @@ const EmpreendimentoCad = props => {
                     </button>
 
                 </div>
-                <Form className={classe1}>
 
-                    {/* Situação */}
-                    <RadioBox
-                        name='empreend_status'
-                        label='Situação:'
-                        direction='column'
-                    >
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='empreend_status'
-                                id="empreend_status1"
-                                onChange={textHandle}
+                <EmpreendimentoCadTab1
+                    classe1={classe1}
+                    textHandle={textHandle}
+                    nextField={nextField}
+                    onClickButton={onClickButton}
+                    formData={formData}
+                    setFormData={setFormData}
+                    formDataAuxiliar={formDataAuxiliar}
+                    setFormDataAuxiliar={setFormDataAuxiliar}
+                />
 
-                                value={formData.empreend_status}
-                                checked={formData.empreend_status.toString() === "1"}
-                            /><label htmlFor="empreend_status1">Lançamento</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='empreend_status'
-                                id="empreend_status2"
-                                onChange={textHandle}
-                                value={formData.empreend_status}
-                                checked={formData.empreend_status.toString() === "2"}
-                            /><label htmlFor="empreend_status2">Em construção</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='empreend_status'
-                                id="empreend_status3"
-                                onChange={textHandle}
-                                value={formData.empreend_status}
-                                checked={formData.empreend_status.toString() === "3"}
-                            /><label htmlFor="empreend_status3">Concluído</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='empreend_status'
-                                id="empreend_status4"
-                                onChange={textHandle}
-                                value={formData.empreend_status}
-                                checked={formData.empreend_status.toString() === "4"}
-                            /><label htmlFor="empreend_status4">Terceiros</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='empreend_status'
-                                id="empreend_status5"
-                                onChange={textHandle}
-                                value={formData.empreend_status}
-                                checked={formData.empreend_status.toString() === "5"}
-                            /><label htmlFor="empreend_status5">Vendido</label>
-                        </div>
-                    </RadioBox>
-
-                    {/* Apelido */}
-                    <Input
-                        className='w200'
-                        label='Apelido:'
-                        type='text'
-                        id='apelido'
-                        name='apelido'
-                        next='nome'
-                        value={formData.apelido}
-                        onChange={textHandle}
-                        onKeyDown={e => nextField(e.keyCode, 'nome')}
-                    />
-
-                    {/* Nome */}
-                    <Input
-                        label='Nome:'
-                        type='text'
-                        id='nome'
-                        name='nome'
-                        next='endereco'
-                        value={formData.nome}
-                        onChange={textHandle}
-                        onKeyDown={e => nextField(e.keyCode, 'endereco')}
-                    />
-
-                    {/* Endereço */}
-                    <Input
-                        label='Endereço:'
-                        type='text'
-                        id='endereco'
-                        name='endereco'
-                        next='complemento'
-                        value={formData.endereco}
-                        onChange={textHandle}
-                        onKeyDown={e => nextField(e.keyCode, 'complemento')}
-                    />
-
-                    {/* Complemento */}
-                    <Input
-                        label='Complemento:'
-                        type='text'
-                        id='complemento'
-                        name='complemento'
-                        next='bairro'
-                        value={formData.complemento}
-                        onChange={textHandle}
-                        onKeyDown={e => nextField(e.keyCode, 'bairro')}
-                    />
-
-                    {/* Bairro */}
-                    <Input
-                        label='Bairro:'
-                        type='text'
-                        id='bairro'
-                        name='bairro'
-                        next='cep'
-                        value={formData.bairro}
-                        onChange={textHandle}
-                        onKeyDown={e => nextField(e.keyCode, 'cep')}
-                    />
-
-                    {/* CEP */}
-                    <Input
-                        label='CEP:'
-                        type='text'
-                        id='cep'
-                        name='cep'
-                        next='municipio'
-                        value={formData.cep}
-                        onChange={textHandle}
-                        onKeyDown={e => nextField(e.keyCode, 'municipio')}
-                    />
-
-                    {/* Município */}
-                    <Input
-                        label='Município:'
-                        type='text'
-                        id='municipio'
-                        name='municipio'
-                        next='tx_nomeform'
-                        value={formData.municipio}
-                        onChange={textHandle}
-                        onKeyDown={e => nextField(e.keyCode, 'tx_nomeform')}
-                    />
-
-                    {/* UF */}
-                    <div className='form-inputBox'>
-                        <label htmlFor="uf">UF:</label>
-                        <select
-                            className='form-input'
-                            id="uf"
-                            name="uf"
-                            onChange={textHandle}
-                            value={formData.uf}
-                        >
-                            <option value="SC">SANTA CATARINA</option>
-                            <option value="AC">ACRE</option>
-                            <option value="AL">ALAGOAS</option>
-                            <option value="AP">AMAPÁ</option>
-                            <option value="AM">AMAZONAS</option>
-                            <option value="BA">BAHIA</option>
-                            <option value="CE">CEARÁ</option>
-                            <option value="DF">DISTRITO FEDERAL</option>
-                            <option value="ES">ESPÍRITO SANTO</option>
-                            <option value="GO">GOIÁS</option>
-                            <option value="MA">MARANHÃO</option>
-                            <option value="MT">MATO GROSSO</option>
-                            <option value="MS">MATO GROSSO DO SUL</option>
-                            <option value="MG">MINAS GERAIS</option>
-                            <option value="PA">PARÁ</option>
-                            <option value="PB">PARAÍBA</option>
-                            <option value="PR">PARANÁ</option>
-                            <option value="PE">PERNAMBUCO</option>
-                            <option value="PI">PIAUÍ</option>
-                            <option value="RJ">RIO DE JANEIRO</option>
-                            <option value="RN">RIO GRANDE DO NORTE</option>
-                            <option value="RS">RIO GRANDE DO SUL</option>
-                            <option value="RO">Rondônia</option>
-                            <option value="RR">Roraima</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
-                        </select>
-                    </div>
-
-                    {/* Telefones */}
-                    <Input
-                        label='Telefones:'
-                        type='text'
-                        id='telefones'
-                        name='telefones'
-                        next='email'
-                        value={formData.telefones}
-                        onChange={textHandle}
-                        onKeyDown={e => nextField(e.keyCode, 'email')}
-                    />
-
-                    {/* Email */}
-                    <Input
-                        label='Email:'
-                        type='text'
-                        id='email'
-                        name='email'
-                        next='cep'
-                        value={formData.email}
-                        onChange={textHandle}
-                        onKeyDown={e => nextField(e.keyCode, 'cep')}
-                    />
+                <EmpreendimentoCadTab2
+                    classe2={classe2}
+                    textHandle={textHandle}
+                    nextField={nextField}
+                    onClickButton={onClickButton}
+                    formData={formData}
+                    setFormData={setFormData}
+                    formDataAuxiliar={formDataAuxiliar}
+                    setFormDataAuxiliar={setFormDataAuxiliar}
+                />
 
 
-                    <div style={{ marginTop: '20px', width: '100%', textAlign: 'center' }}>
-                        <Button
-                            className='w150'
-                            title='Salvar'
-                            onClick={onClickButton}
-                        />
-                    </div>
-                </Form>
-                <Form className={classe2}>
 
-                    {/* Situação */}
-                    <RadioBox
-                        name='empreend_status'
-                        label='Situação:'
-                        direction='column'
-                    >
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='empreend_status'
-                                id="empreend_status1"
-                                onChange={textHandle}
-
-                                value={formData.empreend_status}
-                                checked={formData.empreend_status.toString() === "1"}
-                            /><label htmlFor="empreend_status1">Lançamento</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='empreend_status'
-                                id="empreend_status2"
-                                onChange={textHandle}
-                                value={formData.empreend_status}
-                                checked={formData.empreend_status.toString() === "2"}
-                            /><label htmlFor="empreend_status2">Em construção</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='empreend_status'
-                                id="empreend_status3"
-                                onChange={textHandle}
-                                value={formData.empreend_status}
-                                checked={formData.empreend_status.toString() === "3"}
-                            /><label htmlFor="empreend_status3">Concluído</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='empreend_status'
-                                id="empreend_status4"
-                                onChange={textHandle}
-                                value={formData.empreend_status}
-                                checked={formData.empreend_status.toString() === "4"}
-                            /><label htmlFor="empreend_status4">Terceiros</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='empreend_status'
-                                id="empreend_status5"
-                                onChange={textHandle}
-                                value={formData.empreend_status}
-                                checked={formData.empreend_status.toString() === "5"}
-                            /><label htmlFor="empreend_status5">Vendido</label>
-                        </div>
-                    </RadioBox>
-                    </Form>
             </main>
         </div>
     );

@@ -11,6 +11,8 @@
 
 } 
 
+/* *****     tabs     ***** */
+
 .form-form__no-top-border {
     border-top: none;
     border-top-left-radius: 0%;
@@ -33,7 +35,6 @@
 }
 
 .form-form__tabs {
-
     padding: 15px;
     text-align: center;
     width: 50%;
@@ -51,18 +52,19 @@
   .form-form__active-tabs  {
     background: rgb(228, 226, 226); 
     border-bottom: 1px solid transparent;
+    
   }
   
   .form-form__active-tabs::before {
     content: "";
     display: block;
     position: absolute;
-    top: -5px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% + 2px);
     height: 5px;
-    background: rgb(88, 147, 241);
+    /* background: navy; */
   }
 
   .form-form__tab-content {
@@ -72,6 +74,8 @@
   .form-form__tab-active-content {
     display: block;
   }
+
+  /* *****     end tabs     ***** */
 
 .form-form-100 {
     width: 100%;
