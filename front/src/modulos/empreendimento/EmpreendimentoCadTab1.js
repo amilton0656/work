@@ -56,6 +56,55 @@ const EmpreendimentoCadTab1 = props => {
         <>
             <Form className={props.classe1}>
 
+                {/* Nome */}
+                <Input
+                    label='Nome:'
+                    type='text'
+                    id='nome'
+                    name='nome'
+                    next='endereco'
+                    value={props.formData.nome}
+                    onChange={props.textHandle}
+                    onKeyDown={e => props.nextField(e.keyCode, 'endereco')}
+                />
+                <div className='empr-cad__box-areas'>
+                    {/* Apelido */}
+                    <Input
+                        className='w200'
+                        label='Apelido:'
+                        type='text'
+                        id='apelido'
+                        name='apelido'
+                        next='nome'
+                        value={props.formData.apelido}
+                        onChange={props.textHandle}
+                        onKeyDown={e => props.nextField(e.keyCode, 'nome')}
+                    />
+                    <Input
+                        label='Referência:'
+                        type='number'
+                        id='referencia'
+                        name='referencia'
+                        value={props.formData.referencia}
+                        onChange={props.textHandler}
+                        className='w100'
+                    />
+                </div>
+
+                {/* Apelido */}
+                <Input
+                    className='w200'
+                    label='Apelido:'
+                    type='text'
+                    id='apelido'
+                    name='apelido'
+                    next='nome'
+                    value={props.formData.apelido}
+                    onChange={props.textHandle}
+                    onKeyDown={e => props.nextField(e.keyCode, 'nome')}
+                />
+
+
                 {/* Situação */}
                 <RadioBox
                     name='empreend_status'
@@ -115,30 +164,34 @@ const EmpreendimentoCadTab1 = props => {
                     </div>
                 </RadioBox>
 
-                {/* Apelido */}
-                <Input
-                    className='w200'
-                    label='Apelido:'
-                    type='text'
-                    id='apelido'
-                    name='apelido'
-                    next='nome'
-                    value={props.formData.apelido}
-                    onChange={props.textHandle}
-                    onKeyDown={e => props.nextField(e.keyCode, 'nome')}
-                />
+                {/* Encerrado  */}
+                <div className='form-checkboxBox'>
+                    <input
+                        type='checkbox'
+                        className='form-input'
+                        id="encerrado"
+                        name="encerrado"
+                        defaultChecked={props.formData.encerrado.toString() === '0' ? false : true}
+                        onChange={props.textHandler}
+                        value={props.formData.encerrado}
+                    />
+                    <label htmlFor="encerrado">Encerrado</label>
+                </div>
 
-                {/* Nome */}
-                <Input
-                    label='Nome:'
-                    type='text'
-                    id='nome'
-                    name='nome'
-                    next='endereco'
-                    value={props.formData.nome}
-                    onChange={props.textHandle}
-                    onKeyDown={e => props.nextField(e.keyCode, 'endereco')}
-                />
+                {/* Na garantia  */}
+                <div className='form-checkboxBox'>
+                    <input
+                        type='checkbox'
+                        className='form-input'
+                        id="nagarantia"
+                        name="nagarantia"
+                        defaultChecked={props.formData.nagarantia.toString() === '0' ? false : true}
+                        onChange={props.textHandler}
+                        value={props.formData.nagarantia}
+                    />
+                    <label htmlFor="nagarantia">Na garantia</label>
+                </div>
+
 
                 {/* Endereço */}
                 <Input
@@ -361,7 +414,7 @@ const EmpreendimentoCadTab1 = props => {
                 />
             }
 
-{
+            {
                 showAuxiliarEngenheiros &&
                 <ListaAuxiliar
                     heightDrop='1160px'

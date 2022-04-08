@@ -9,6 +9,7 @@ import RadioBox from '../../components/RadioBox'
 import { FiSearch } from 'react-icons/fi'
 import EmpreendimentoCadTab1 from './EmpreendimentoCadTab1'
 import EmpreendimentoCadTab2 from './EmpreendimentoCadTab2'
+import EmpreendimentoCadTab3 from './EmpreendimentoCadTab3'
 
 const classes = ''
 
@@ -62,18 +63,18 @@ const EmpreendimentoCad = props => {
         num_incorporacao: '',
         num_alvara: '',
         num_projeto: '',
-        engenheiro: '',
-        crea: '',
-        tipo: '0',
+    engenheiro: '',
+    crea: '',
+    tipo: '0',
         referencia: null,
         juros_financiamento: null,
         id_empreiteira: null,
         id_empresa: null,
         taxa_vpl: null,
-        custo_adm: null,
-        corretagem_perc: null,
+        custo_adm: '0',
+    corretagem_perc: null,
         bonus_perc: null,
-        terceiros: null,
+    terceiros: null,
         empreend_status: '1',
         id_indice: null,
         taxa_vpl_negativo: null,
@@ -81,42 +82,42 @@ const EmpreendimentoCad = props => {
         area_privativa: null,
         qtde_unidades: null,
         apelido: '',
-        incorporacao: null,
+    incorporacao: null,
         percexecutado: null,
         limitedescontoavista: null,
-        antigo: null,
+        antigo: '0',
         desconto_oportunidade: null,
-        ctb_tipo: null,
-        ctb_scp: null,
-        ctb_enviado: null,
+        ctb_tipo: '0',
+        ctb_scp: '0',
+        ctb_enviado: '0',
         desconto_qdoinserido: null,
         id_engenheiro: null,
-        custoobraencerrado: null,
+        custoobraencerrado: '0',
         valor_vpl_negativo: null,
         desconto_avista_corretor: null,
         area_privativa_aptos: null,
         desc_av_dinheiro: null,
-        encerrado: null,
+        encerrado: '0',
         desc_av_direta: null,
         desc_av_lojas: null,
         data_conclusao2: null,
-        id_padrao_empreendimento: null,
-        valor_cub: null,
-        valor_contrato: null,
-        percentual_mo: null,
-        percentual_material: null,
-        valor_taxas_impostos: null,
+        id_padrao_empreendimento: '0',
+    valor_cub: null,
+    valor_contrato: null,
+    percentual_mo: null,
+    percentual_material: null,
+    valor_taxas_impostos: null,
         custototal: null,
         cubporm2: null,
         custototalviab: null,
         cubporm2viab: null,
-        valor_taxas_impostos_material: null,
+    valor_taxas_impostos_material: null,
         endereco_pedido: '',
-        tabweb_bancaria: '',
-        tabweb_direta: '',
-        tabweb_bancaria_cota: '',
-        tabweb_direta_cota: '',
-        nagarantia: false,
+    tabweb_bancaria: '',
+    tabweb_direta: '',
+    tabweb_bancaria_cota: '',
+    tabweb_direta_cota: '',
+        nagarantia: '0',
         incorporacao_data: null,
         projeto_data: null,
         alvara_data: null,
@@ -129,7 +130,7 @@ const EmpreendimentoCad = props => {
         agencia: '',
         conta_corrente: '',
         habitese_num: '',
-        duracao_meses: null,
+    duracao_meses: null,
         valor_orc: null,
         valor_mo: null,
         imposto_mo: null,
@@ -236,15 +237,12 @@ const EmpreendimentoCad = props => {
         setToggleState(index)
     }
 
-    let classe1 = 'form-form form-form__no-top-border form-form__tab-content'
-    if (toggleState === 1) {
-        classe1 = classe1 + ' form-form__tab-active-content'
-    }
+    const classe = 'form-form form-form__no-top-border form-form__tab-content'
+    const classeActive = ' form-form__tab-active-content'
 
-    let classe2 = 'form-form form-form__no-top-border form-form__tab-content'
-    if (toggleState === 2) {
-        classe2 = classe2 + ' form-form__tab-active-content'
-    }
+    const classe1 = toggleState === 1 ? classe + classeActive : classe
+    const classe2 = toggleState === 2 ? classe + classeActive : classe
+    const classe3 = toggleState === 3 ? classe + classeActive : classe
 
     return (
         <div className='pessoa-container'>
@@ -285,6 +283,17 @@ const EmpreendimentoCad = props => {
 
                 <EmpreendimentoCadTab2
                     classe2={classe2}
+                    textHandle={textHandle}
+                    nextField={nextField}
+                    onClickButton={onClickButton}
+                    formData={formData}
+                    setFormData={setFormData}
+                    formDataAuxiliar={formDataAuxiliar}
+                    setFormDataAuxiliar={setFormDataAuxiliar}
+                />
+
+                <EmpreendimentoCadTab3
+                    classe2={classe3}
                     textHandle={textHandle}
                     nextField={nextField}
                     onClickButton={onClickButton}

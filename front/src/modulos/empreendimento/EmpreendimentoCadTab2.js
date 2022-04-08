@@ -67,8 +67,8 @@ const EmpreendimentoCadTab2 = props => {
                             formData={props.formData}
                             setFormData={props.setFormData}
                             className='w150'
-                            id="financ_valor"
-                            name="financ_valor"
+                            id="area_privativa_aptos"
+                            name="area_privativa_aptos"
                             onChange={() => { }}
                         />
 
@@ -78,8 +78,8 @@ const EmpreendimentoCadTab2 = props => {
                             formData={props.formData}
                             setFormData={props.setFormData}
                             className='w150'
-                            id="financ_valor"
-                            name="financ_valor"
+                            id="area_privativa"
+                            name="area_privativa"
                             onChange={() => { }}
                         />
                     </div>
@@ -91,8 +91,8 @@ const EmpreendimentoCadTab2 = props => {
                             formData={props.formData}
                             setFormData={props.setFormData}
                             className='w150'
-                            id="financ_valor"
-                            name="financ_valor"
+                            id="area_equivalente"
+                            name="area_equivalente"
                             onChange={() => { }}
                         />
 
@@ -102,8 +102,8 @@ const EmpreendimentoCadTab2 = props => {
                             formData={props.formData}
                             setFormData={props.setFormData}
                             className='w150'
-                            id="financ_valor"
-                            name="financ_valor"
+                            id="area_total"
+                            name="area_total"
                             onChange={() => { }}
                         />
                     </div>
@@ -119,19 +119,19 @@ const EmpreendimentoCadTab2 = props => {
                             className='w150'
                             label='Incorporação:'
                             type='text'
-                            id='nome'
-                            name='nome'
+                            id='num_incorporacao'
+                            name='num_incorporacao'
                             next='endereco'
-                            value={props.formData.nome}
+                            value={props.formData.num_incorporacao}
                             onChange={props.textHandle}
                             onKeyDown={e => props.nextField(e.keyCode, 'endereco')}
                         />
                         <Input
                             label='Data:'
                             type='date'
-                            id='data_expedicao'
-                            name='data_expedicao'
-                            value={props.formData.data_expedicao}
+                            id='incorporacao_data'
+                            name='incorporacao_data'
+                            value={props.formData.incorporacao_data}
                             onChange={props.textHandler}
                             className='w150'
                         />
@@ -143,19 +143,19 @@ const EmpreendimentoCadTab2 = props => {
                             className='w150'
                             label='Alvará:'
                             type='text'
-                            id='nome'
-                            name='nome'
+                            id='num_alvara'
+                            name='num_alvara'
                             next='endereco'
-                            value={props.formData.nome}
+                            value={props.formData.num_alvara}
                             onChange={props.textHandle}
                             onKeyDown={e => props.nextField(e.keyCode, 'endereco')}
                         />
                         <Input
                             label='Data:'
                             type='date'
-                            id='data_expedicao'
-                            name='data_expedicao'
-                            value={props.formData.data_expedicao}
+                            id='alvara_data'
+                            name='alvara_data'
+                            value={props.formData.alvara_data}
                             onChange={props.textHandler}
                             className='w150'
                         />
@@ -167,19 +167,19 @@ const EmpreendimentoCadTab2 = props => {
                             className='w150'
                             label='Projeto:'
                             type='text'
-                            id='nome'
-                            name='nome'
+                            id='num_projeto'
+                            name='num_projeto'
                             next='endereco'
-                            value={props.formData.nome}
+                            value={props.formData.num_projeto}
                             onChange={props.textHandle}
                             onKeyDown={e => props.nextField(e.keyCode, 'endereco')}
                         />
                         <Input
                             label='Data:'
                             type='date'
-                            id='data_expedicao'
-                            name='data_expedicao'
-                            value={props.formData.data_expedicao}
+                            id='projeto_data'
+                            name='projeto_data'
+                            value={props.formData.projeto_data}
                             onChange={props.textHandler}
                             className='w150'
                         />
@@ -191,19 +191,19 @@ const EmpreendimentoCadTab2 = props => {
                             className='w150'
                             label='Matrícula:'
                             type='text'
-                            id='nome'
-                            name='nome'
+                            id='matricula_num'
+                            name='matricula_num'
                             next='endereco'
-                            value={props.formData.nome}
+                            value={props.formData.matricula_num}
                             onChange={props.textHandle}
                             onKeyDown={e => props.nextField(e.keyCode, 'endereco')}
                         />
                         <Input
                             label='Num. Ofício:'
                             type='text'
-                            id='data_expedicao'
-                            name='data_expedicao'
-                            value={props.formData.data_expedicao}
+                            id='matricula_num_ofic_reg_imov'
+                            name='matricula_num_ofic_reg_imov'
+                            value={props.formData.matricula_num_ofic_reg_imov}
                             onChange={props.textHandler}
                             className='w150'
                         />
@@ -215,19 +215,19 @@ const EmpreendimentoCadTab2 = props => {
                             className='w150'
                             label='Habite-se:'
                             type='text'
-                            id='nome'
-                            name='nome'
+                            id='habitese_num'
+                            name='habitese_num'
                             next='endereco'
-                            value={props.formData.nome}
+                            value={props.formData.habitese_num}
                             onChange={props.textHandle}
                             onKeyDown={e => props.nextField(e.keyCode, 'endereco')}
                         />
                         <Input
                             label='Data:'
                             type='date'
-                            id='data_expedicao'
-                            name='data_expedicao'
-                            value={props.formData.data_expedicao}
+                            id='data_habitese'
+                            name='data_habitese'
+                            value={props.formData.data_habitese}
                             onChange={props.textHandler}
                             className='w150'
                         />
@@ -239,19 +239,19 @@ const EmpreendimentoCadTab2 = props => {
                             className='w150'
                             label='LAP:'
                             type='text'
-                            id='nome'
-                            name='nome'
+                            id='lap_num'
+                            name='lap_num'
                             next='endereco'
-                            value={props.formData.nome}
+                            value={props.formData.lap_num}
                             onChange={props.textHandle}
                             onKeyDown={e => props.nextField(e.keyCode, 'endereco')}
                         />
                         <Input
                             label='Data:'
                             type='date'
-                            id='data_expedicao'
-                            name='data_expedicao'
-                            value={props.formData.data_expedicao}
+                            id='lap_data'
+                            name='lap_data'
+                            value={props.formData.lap_data}
                             onChange={props.textHandler}
                             className='w150'
                         />
@@ -262,10 +262,10 @@ const EmpreendimentoCadTab2 = props => {
                         // className='w150'
                         label='Órgão Emissor:'
                         type='text'
-                        id='nome'
-                        name='nome'
+                        id='lap_orgao'
+                        name='lap_orgao'
                         next='endereco'
-                        value={props.formData.nome}
+                        value={props.formData.lap_orgao}
                         onChange={props.textHandle}
                         onKeyDown={e => props.nextField(e.keyCode, 'endereco')}
                     />
@@ -275,107 +275,177 @@ const EmpreendimentoCadTab2 = props => {
                     <legend> Outros </legend>
 
                     <Input
-                            className='w150'
-                            label='Início:'
-                            type='date'
-                            id='nome'
-                            name='nome'
-                            next='endereco'
-                            value={props.formData.nome}
-                            onChange={props.textHandle}
-                            onKeyDown={e => props.nextField(e.keyCode, 'endereco')}
-                        />
+                        className='w150'
+                        label='Início da Obra:'
+                        type='date'
+                        id='data_inicio'
+                        name='data_inicio'
+                        next='endereco'
+                        value={props.formData.data_inicio}
+                        onChange={props.textHandle}
+                        onKeyDown={e => props.nextField(e.keyCode, 'endereco')}
+                    />
                     {/* Conclusão */}
                     <div className='empr-cad__box-areas'>
-                    <Input
+                        <Input
                             label='Conclusão (Eng):'
                             type='date'
-                            id='data_expedicao'
-                            name='data_expedicao'
-                            value={props.formData.data_expedicao}
+                            id='data_conclusao'
+                            name='data_conclusao'
+                            value={props.formData.data_conclusao}
                             onChange={props.textHandler}
                             className='w150'
                         />
                         <Input
                             label='Conclusão (Prop):'
                             type='date'
-                            id='data_expedicao'
-                            name='data_expedicao'
-                            value={props.formData.data_expedicao}
+                            id='data_conclusao2'
+                            name='data_conclusao2'
+                            value={props.formData.data_conclusao2}
                             onChange={props.textHandler}
                             className='w150'
                         />
                     </div>
 
                     {/* Tipo Contabilidade */}
-                <RadioBox
-                    name='empreend_status'
-                    label='Tipo Contabilidade:'
-                    direction='column'
-                >
-                    <div className='form-radioBoxLinha'>
-                        <input
-                            type='radio'
-                            name='empreend_status'
-                            id="empreend_status1"
-                            onChange={props.textHandle}
+                    <RadioBox
+                        name='empreend_status'
+                        label='Tipo Contabilidade:'
+                        direction='column'
+                    >
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='ctb_tipo'
+                                id="ctb_tipo1"
+                                onChange={props.textHandle}
 
-                            value={props.formData.empreend_status}
-                            checked={props.formData.empreend_status.toString() === "1"}
-                        /><label htmlFor="empreend_status1">Terreno adquirido para venda</label>
-                    </div>
-                    <div className='form-radioBoxLinha'>
+                                value={props.formData.ctb_tipo}
+                                checked={props.formData.ctb_tipo.toString() === "1"}
+                            /><label htmlFor="ctb_tipo1">Terreno adquirido para venda</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='ctb_tipo'
+                                id="ctb_tipo2"
+                                onChange={props.textHandle}
+                                value={props.formData.ctb_tipo}
+                                checked={props.formData.ctb_tipo.toString() === "2"}
+                            /><label htmlFor="ctb_tipo2">Terreno decorrente de loteamento</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='ctb_tipo'
+                                id="ctb_tipo3"
+                                onChange={props.textHandle}
+                                value={props.formData.ctb_tipo}
+                                checked={props.formData.ctb_tipo.toString() === "3"}
+                            /><label htmlFor="ctb_tipo3">Lote oriundo de desmembramento de terreno</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='ctb_tipo'
+                                id="ctb_tipo4"
+                                onChange={props.textHandle}
+                                value={props.formData.ctb_tipo}
+                                checked={props.formData.ctb_tipo.toString() === "4"}
+                            /><label htmlFor="ctb_tipo4">Unidade resultante de incorporação imobiliária</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='ctb_tipo'
+                                id="ctb_tipo5"
+                                onChange={props.textHandle}
+                                value={props.formData.ctb_tipo}
+                                checked={props.formData.ctb_tipo.toString() === "5"}
+                            /><label htmlFor="ctb_tipo5">Prédio construído/em construção para venda</label>
+                        </div>
+                        <div className='form-radioBoxLinha'>
+                            <input
+                                type='radio'
+                                name='ctb_tipo'
+                                id="ctb_tipo5"
+                                onChange={props.textHandle}
+                                value={props.formData.ctb_tipo}
+                                checked={props.formData.ctb_tipo.toString() === "5"}
+                            /><label htmlFor="ctb_tipo5">Outras</label>
+                        </div>
+                    </RadioBox>
+
+                    {/* Enviado para contabilidade */}
+                    <div className='form-checkboxBox'>
                         <input
-                            type='radio'
-                            name='empreend_status'
-                            id="empreend_status2"
-                            onChange={props.textHandle}
-                            value={props.formData.empreend_status}
-                            checked={props.formData.empreend_status.toString() === "2"}
-                        /><label htmlFor="empreend_status2">Terreno decorrente de loteamento</label>
+                            type='checkbox'
+                            className='form-input'
+                            id="ctb_enviado"
+                            name="ctb_enviado"
+                            defaultChecked={props.formData.ctb_enviado.toString() === '0' ? false : true}
+                            onChange={props.textHandler}
+                            value={props.formData.ctb_enviado}
+                        />
+                        <label htmlFor="ctb_enviado">Enviado para contabilidade</label>
                     </div>
-                    <div className='form-radioBoxLinha'>
+
+                    {/* SCP */}
+                    <div className='form-checkboxBox'>
                         <input
-                            type='radio'
-                            name='empreend_status'
-                            id="empreend_status3"
-                            onChange={props.textHandle}
-                            value={props.formData.empreend_status}
-                            checked={props.formData.empreend_status.toString() === "3"}
-                        /><label htmlFor="empreend_status3">Lote oriundo de desmembramento de terreno</label>
+                            type='checkbox'
+                            className='form-input'
+                            id="ctb_scp"
+                            name="ctb_scp"
+                            defaultChecked={props.formData.ctb_scp.toString() === '0' ? false : true}
+                            onChange={props.textHandler}
+                            value={props.formData.ctb_scp}
+                        />
+                        <label htmlFor="ctb_scp">SCP</label>
                     </div>
-                    <div className='form-radioBoxLinha'>
+
+                    {/* Custo Obra Encerrado */}
+                    <div className='form-checkboxBox'>
                         <input
-                            type='radio'
-                            name='empreend_status'
-                            id="empreend_status4"
-                            onChange={props.textHandle}
-                            value={props.formData.empreend_status}
-                            checked={props.formData.empreend_status.toString() === "4"}
-                        /><label htmlFor="empreend_status4">Unidade resultante de incorporação imobiliária</label>
+                            type='checkbox'
+                            className='form-input'
+                            id="custoobraencerrado"
+                            name="custoobraencerrado"
+                            defaultChecked={props.formData.custoobraencerrado.toString() === '0' ? false : true}
+                            onChange={props.textHandler}
+                            value={props.formData.custoobraencerrado}
+                        />
+                        <label htmlFor="custoobraencerrado">Custo da obra encerrado</label>
                     </div>
-                    <div className='form-radioBoxLinha'>
+
+                    {/* Custo Administrativo  */}
+                    <div className='form-checkboxBox'>
                         <input
-                            type='radio'
-                            name='empreend_status'
-                            id="empreend_status5"
-                            onChange={props.textHandle}
-                            value={props.formData.empreend_status}
-                            checked={props.formData.empreend_status.toString() === "5"}
-                        /><label htmlFor="empreend_status5">Prédio construído/em construção para venda</label>
+                            type='checkbox'
+                            className='form-input'
+                            id="custo_adm"
+                            name="custo_adm"
+                            defaultChecked={props.formData.custo_adm.toString() === '0' ? false : true}
+                            onChange={props.textHandler}
+                            value={props.formData.custo_adm}
+                        />
+                        <label htmlFor="custo_adm">Custo administrativo</label>
                     </div>
-                    <div className='form-radioBoxLinha'>
+
+                    {/* Antigo  */}
+                    <div className='form-checkboxBox'>
                         <input
-                            type='radio'
-                            name='empreend_status'
-                            id="empreend_status5"
-                            onChange={props.textHandle}
-                            value={props.formData.empreend_status}
-                            checked={props.formData.empreend_status.toString() === "5"}
-                        /><label htmlFor="empreend_status5">Outras</label>
+                            type='checkbox'
+                            className='form-input'
+                            id="antigo"
+                            name="antigo"
+                            defaultChecked={props.formData.antigo.toString() === '0' ? false : true}
+                            onChange={props.textHandler}
+                            value={props.formData.antigo}
+                        />
+                        <label htmlFor="antigo">Antigo</label>
                     </div>
-                </RadioBox>
-                    </fieldset>
+                </fieldset>
 
 
 
