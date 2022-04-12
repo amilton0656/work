@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
 import ConsultaPadrao from '../../components/ConsultaPadrao'
+import LoggedBar from '../../components/LoggedBar'
 
 const UsuarioLista = () => {
 
@@ -18,6 +19,7 @@ const UsuarioLista = () => {
 
     return (
         <>
+            <LoggedBar />
             <ConsultaPadrao
                 title = 'Usuários'
                 api = '/usuarios'

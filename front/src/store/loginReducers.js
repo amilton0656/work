@@ -33,9 +33,19 @@ const loginSlice = createSlice({
             state.login = {
                 ...state.login,
                 id: action.payload.id,
-                usuario: action.payload.usuario,
+                usuario: action.payload.nome,
                 auth: action.payload.auth,
-                token: action.payload.token
+                token: action.payload.token,
+            }
+        },
+
+        logout(state, action) {
+            state.login = {
+                ...state.login,
+                id: '',
+                usuario: '',
+                auth: false,
+                token: ''
             }
         }
 

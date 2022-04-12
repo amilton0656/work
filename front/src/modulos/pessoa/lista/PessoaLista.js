@@ -19,6 +19,7 @@ import PessoaListaPdf from './PessoaListaPdf'
 import PessoaFichaCadastral from './PessoaFichaCadastral'
 import PessoaFichaCadastralPdf from './PessoaFichaCadastralPdf'
 import ListaIcones from './ListaIcones'
+import LoggedBar from '../../../components/LoggedBar'
 
 const nomeEmpresa = 'COTA Empreendimentos Imobiliários Ltda'
 
@@ -189,6 +190,7 @@ const PessoaLista = () => {
 
     return (
         <>
+        <LoggedBar />
             <div className='pessoa-list__layout'>
                 {isLoading && <Spinner />}
                 <div className='pessoa-list__header'>

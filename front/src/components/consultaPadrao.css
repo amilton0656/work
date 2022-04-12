@@ -1,10 +1,11 @@
 .consulta-padrao__layout {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     display: flex;
     flex-direction: column;
     background: white;
-    width: 100vw;
+    width: 100%;
+    max-width: 1100px;
 }
 
 .consulta-padrao__header {
@@ -12,6 +13,14 @@
     flex-direction: column;
     background: steelblue;
     width: 100%;
+}
+
+.consulta-padrao__title {
+    width: 100%;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 5px;
 }
 
 .consulta-padrao__header h2 {
@@ -28,6 +37,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 10px;
 }
 
 .consulta-padrao__header-button {
@@ -116,6 +126,13 @@
     margin-top: 10px;
 
 }
+/* @media (min-width: 1300px) {
+    .consulta-padrao__layout {
+        width: 80%;
+        margin: 0 auto;
+        min-width: 800px;
+    }
+} */
 
 @media (min-width: 460px) {
 
@@ -125,10 +142,10 @@
         height: calc(100vh)
     }
 
-    .consulta-padrao__layout {
+    /* .consulta-padrao__layout {
         width: 80%;
         margin: 0 auto;
-    }
+    } */
 
     .consulta-padrao__header h2 {
         font-size: 2rem;

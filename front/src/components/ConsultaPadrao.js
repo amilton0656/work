@@ -98,7 +98,7 @@ const ConsultaPadrao = props => {
             <div className='consulta-padrao__layout'>
                 {isLoading && <Spinner />}
                 <div className='consulta-padrao__header'>
-                    <h2>{props.title}</h2>
+                    <div className='consulta-padrao__title'>{props.title}</div>
                     <div className='consulta-padrao__header-buttons'>
 
                         <div>

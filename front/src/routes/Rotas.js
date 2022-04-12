@@ -1,6 +1,7 @@
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 
+import Login from '../modulos/login/Login'
 import Erp from '../modulos/erp/Erp'
 import IntranetLayout from '../modulos/intranet/IntranetLayout'
 
@@ -53,6 +54,8 @@ const Rotas = () => {
         <>
             <Routes>
                 <Route path="/" element={<IntranetLayout />} />
+
+                <Route path="/login" element={<Login />} />
 
                 <Route path="/erp" element={<Erp />} />
 
