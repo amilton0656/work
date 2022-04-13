@@ -10,6 +10,7 @@ import { FiSearch } from 'react-icons/fi'
 import EmpreendimentoCadTab1 from './EmpreendimentoCadTab1'
 import EmpreendimentoCadTab2 from './EmpreendimentoCadTab2'
 import EmpreendimentoCadTab3 from './EmpreendimentoCadTab3'
+import LoggedBar from '../../components/LoggedBar'
 
 const classes = ''
 
@@ -22,8 +23,8 @@ const Header = props => {
         navigate(-1)
     }
     return (
-        <div className='pessoa-container__header-buttons'>
-            <h2 className='pessoa-main__title'>Cadastro de Empreendimentos</h2>
+        <div className='cadastro__header-buttons'>
+            <div className='cadastro__title'>Cadastro de Empreendimentos</div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                 <Button
@@ -101,7 +102,7 @@ const EmpreendimentoCad = props => {
         desc_av_direta: null,
         desc_av_lojas: null,
         data_conclusao2: null,
-        id_padrao_empreendimento: '0',
+        id_padrao_empreendimento: '1',
     valor_cub: null,
     valor_contrato: null,
     percentual_mo: null,
@@ -163,8 +164,21 @@ const EmpreendimentoCad = props => {
         if (id_empreendimento) {
             clienteAxios.get(`/empreendimento/${id_empreendimento}`, { headers: { Authorization: token } })
                 .then(resposta => {
-                    resposta.data.fg_somente_seus = resposta.data.fg_somente_seus === null ? 0 : resposta.data.fg_somente_seus
+                    resposta.data.custo_adm = resposta.data.custo_adm === null ? 0 : resposta.data.custo_adm
+                    resposta.data.id_padrao_empreendimento = resposta.data.id_padrao_empreendimento === null ? 1 : resposta.data.id_padrao_empreendimento
+                    resposta.data.tipo = resposta.data.tipo === null ? 1 : resposta.data.tipo
+
+                    resposta.data.empreend_status = resposta.data.empreend_status === null ? 1 : resposta.data.empreend_status
+                    resposta.data.antigo = resposta.data.antigo === null ? 1 : resposta.data.antigo
+                    resposta.data.ctb_tipo = resposta.data.ctb_tipo === null ? 1 : resposta.data.ctb_tipo
+                    resposta.data.ctb_scp = resposta.data.ctb_scp === null ? 1 : resposta.data.ctb_scp
+                    resposta.data.ctb_enviado = resposta.data.ctb_enviado === null ? 1 : resposta.data.ctb_enviado
+                    resposta.data.custoobraencerrado = resposta.data.custoobraencerrado === null ? 1 : resposta.data.custoobraencerrado
+                    resposta.data.encerrado = resposta.data.encerrado === null ? 1 : resposta.data.encerrado
+                    resposta.data.nagarantia = resposta.data.nagarantia === null ? 1 : resposta.data.nagarantia
+                    
                     setFormData(resposta.data)
+                    console.log('chegou ' , resposta.data)
                 })
                 .catch(err => {
                     console.log('Erro ao buscar ', err)
@@ -245,8 +259,10 @@ const EmpreendimentoCad = props => {
     const classe3 = toggleState === 3 ? classe + classeActive : classe
 
     return (
-        <div className='pessoa-container'>
-            <main className='pessoa-main'>
+        <>
+        <LoggedBar />
+        <div className='cadastro__container'>
+            <main className='cadastro__main'>
                 <Header />
                 <div className='form-form__top-header'>
                     <button
@@ -307,7 +323,8 @@ const EmpreendimentoCad = props => {
 
             </main>
         </div>
-    );
+        </>
+    )
 }
 
 export default EmpreendimentoCad;

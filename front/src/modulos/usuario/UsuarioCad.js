@@ -9,10 +9,9 @@ import RadioBox from '../../components/RadioBox'
 import { FiSearch } from 'react-icons/fi'
 
 import ListaAuxiliar from '../../components/ListaAuxiliar'
+import LoggedBar from '../../components/LoggedBar'
 
 import '../../css/cadastro.css'
-
-const classes = ''
 
 const Header = props => {
 
@@ -25,7 +24,7 @@ const Header = props => {
 
     return (
         <div className='cadastro__header-buttons'>
-            <h2 className='cadastro__title'>Cadastro de Usuários</h2>
+            <div className='cadastro__title'>Cadastro de Usuários</div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                 <Button
@@ -103,6 +102,15 @@ const UsuarioCad = props => {
                     resp.fg_somente_seus = resp.fg_somente_seus === null ? 0 : resp.fg_somente_seus
                     resp.bloquear_registros = resp.bloquear_registros === null ? 0 : resp.bloquear_registros
 
+                    resp.bloqueado = resp.bloqueado === null ? 0 : resp.bloqueado
+                    resp.cotacm = resp.cotacm === null ? 0 : resp.cotacm
+                    resp.fg_receber_notificacao_projeto = resp.fg_receber_notificacao_projeto === null ? 0 : resp.fg_receber_notificacao_projeto
+                    resp.ck_entregaunidade = resp.ck_entregaunidade === null ? 0 : resp.ck_entregaunidade
+                    resp.suprimentos = resp.suprimentos === null ? 0 : resp.suprimentos
+                    resp.ck_webtab_max = resp.ck_webtab_max === null ? 0 : resp.ck_webtab_max
+                    resp.ck_webtab_outros = resp.ck_webtab_outros === null ? 0 : resp.ck_webtab_outros
+                    resp.ck_webtab_pbmail = resp.ck_webtab_pbmail === null ? 0 : resp.ck_webtab_pbmail
+
                     setFormData(resp)
 
                 })
@@ -116,9 +124,9 @@ const UsuarioCad = props => {
 
         event.preventDefault()
 
-        clienteAxios.post('/recurso/add', formData, { headers: { Authorization: token } })
+        clienteAxios.post('/usuario/add', formData, { headers: { Authorization: token } })
             .then(resposta => {
-                navigate('/recurso/lista', { state: true })
+                navigate('/usuario/lista', { state: true })
             })
             .catch(err => {
                 console.log('Erro ao cadastrar ', err)
@@ -129,15 +137,14 @@ const UsuarioCad = props => {
 
         event.preventDefault()
 
-        clienteAxios.put('/recurso/upd', formData, { headers: { Authorization: token } })
+        clienteAxios.put('/usuario/upd', formData, { headers: { Authorization: token } })
             .then(resposta => {
-                navigate('/recurso/lista', { state: true })
+                navigate('/usuario/lista', { state: true })
             })
             .catch(err => {
                 console.log('Erro ao atualizar')
             })
     }
-
 
     const onKeyPressHandle = e => {
         if (e.which === 13 || e.keyCode == 13) {
@@ -150,7 +157,6 @@ const UsuarioCad = props => {
         let dataEntered = event.target.value
 
         if (event.target.name === 'notshow') {
-            console.log('chegu .. ', event.target.value)
             dataEntered = event.target.value === false ? '0' : '1'
         }
 
@@ -194,10 +200,11 @@ const UsuarioCad = props => {
             ...formData,
             id_pessoa: reg.id_pessoa
         })
-
     }
 
     return (
+        <>
+        <LoggedBar />
         <div className='cadastro__container'>
             <main className='cadastro__main'>
                 <Header />
@@ -454,6 +461,7 @@ const UsuarioCad = props => {
                 }
             </main>
         </div>
+        </>
     );
 }
 

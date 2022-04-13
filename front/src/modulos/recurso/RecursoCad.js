@@ -5,10 +5,9 @@ import clienteAxios from '../../config/axios'
 import Form from '../../components/Form'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
+import LoggedBar from '../../components/LoggedBar'
 
-
-
-const classes = ''
+import '../../css/cadastro.css'
 
 const Header = props => {
 
@@ -19,8 +18,8 @@ const Header = props => {
         navigate(-1)
     }
     return (
-        <div className='pessoa-container__header-buttons'>
-            <h2 className='pessoa-main__title'>Cadastro de Pessoa</h2>
+        <div className='cadastro__header-buttons'>
+            <div className='cadastro__title'>Cadastro de Pessoa</div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                 <Button
@@ -118,7 +117,6 @@ const RecursoCad = props => {
         let dataEntered = event.target.value
 
         if (event.target.name === 'notshow') {
-            console.log('chegu .. ',event.target.value)
             dataEntered = event.target.value === false ? '0' : '1'
         }
 
@@ -139,10 +137,13 @@ const RecursoCad = props => {
     console.log('o que veio ',formData.notshow)
     
     return (
-        <div className='pessoa-container'>
-            <main className='pessoa-main'>
+        <>
+        <LoggedBar />
+        
+        <div className='cadastro__container'>
+            <main className='cadastro__main'>
                 <Header />
-                <Form className='pessoa-form'>
+                <Form className='cadastro__form'>
 
                     {/* ID */}
                     <Input
@@ -281,7 +282,8 @@ const RecursoCad = props => {
                 </Form>
             </main>
         </div>
-    );
+        </>
+    )
 }
 
 export default RecursoCad;

@@ -44,7 +44,6 @@ const Login = () => {
         clienteAxios.post('/auth',usuario)
         .then(resposta => {
                 if (resposta.status === 200) {
-                    console.log('chegando usuaruio', resposta.data )
                     dispatch(loginActions.login(resposta.data))
                 } else {
                     Swal.fire('Acesso não autorizado!')

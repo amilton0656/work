@@ -18,6 +18,8 @@ const EmpreendimentoLista = () => {
 
         const id = reg ? reg.id_empreendimento : null
 
+        console.log('id    ..', id)
+
         navigate('/empreendimento/formdados', { state: id })
     }
 

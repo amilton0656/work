@@ -14,8 +14,10 @@ import InputNumber from '../../../components/InputNumber'
 import Button from '../../../components/Button'
 import RadioBox from '../../../components/RadioBox'
 import PessoaContatosLista from '../contatos/PessoaContatosLista'
+import LoggedBar from '../../../components/LoggedBar'
 
-import './pessoaCadDados.css'
+// import './pessoaCadDados.css'
+import '../../../css/cadastro.css'
 
 const classes = {}
 const classes2 = {}
@@ -30,8 +32,8 @@ const Header = props => {
         dispatch(pessoasActions.setPessoa({}))
     }
     return (
-        <div className='pessoa-container__header-buttons'>
-            <h2 className='pessoa-main__title'>Cadastro de Pessoa</h2>
+        <div className='cadastro__header-buttons'>
+            <div className='cadastro__title'>Cadastro de Pessoas</div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                 <Button
@@ -495,10 +497,12 @@ const PessoaCadDados = props => {
 
 
     return (
-        <div className='pessoa-container'>
-            <main className='pessoa-main'>
+        <>
+        <LoggedBar />
+        <div className='cadastro__container'>
+            <main className='cadastro__main'>
                 <Header />
-                <Form className='pessoa-form'>
+                <Form className='cadastro__form'>
                     <div>{formDataI.id_pessoa}</div>
 
                     <RadioBox
@@ -1066,7 +1070,8 @@ const PessoaCadDados = props => {
 
             </main>
         </div >
-    );
+        </>
+    )
 }
 
 export default PessoaCadDados;

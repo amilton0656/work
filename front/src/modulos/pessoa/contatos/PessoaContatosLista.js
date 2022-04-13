@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import { BsTrash } from 'react-icons/bs'
 import { FaRegEdit } from 'react-icons/fa'
 import { pessoasActions } from '../../../store/pessoaReducers'
-import ListaIcones from '../lista/ListaIcones'
+import ListaIcones from '../../../components/ListaIcones'
 
 import PessoaContatosCad from './PessoaContatosCad'
 

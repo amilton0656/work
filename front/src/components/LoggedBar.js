@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import './loggedBar.css'
@@ -8,18 +9,24 @@ const LoggedBar = props => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const usuario = useSelector(state => state.login.login.usuario)
+    const empresa = props.empresa || 'COTA Empreendimentos Imobiliários Ltda'
+    const auth = useSelector(state => state.login.login.auth)
+    
+    useEffect(() => {
+        if (!auth) {
+            navigate(-1)
+        }
+    }, [])
+
+
     const logout = () => {
-        console.log('enviou...')
         dispatch(loginActions.logout())
         navigate('/erp')
     }
 
-    if (!useSelector(state => state.login.login.auth)) {
-        logout()
-    }
 
-    const usuario = useSelector(state => state.login.login.usuario)
-    const empresa = props.empresa || 'COTA Empreendimentos Imobiliários Ltda'
+
     return ( 
         <div className="log-bar__container">
             <div className='log-bar__empresa'>{empresa}</div>

@@ -13,7 +13,7 @@ const UsuarioLista = () => {
         navigate('/usuario/formdados', { state: id })
     }
 
-    const deleteHandler = (reg) => {
+    const deleteHandle = (reg) => {
         console.log('del', reg)
     }
 
@@ -32,7 +32,7 @@ const UsuarioLista = () => {
 
                 onClick11 = {(reg) => goToForm(reg)}  //edit
                 onClick12 = {() => {}}  //pdf
-                onClick13 = {(reg) => deleteHandler(reg)}  //del
+                onClick13 = {(reg) => deleteHandle(reg)}  //del
 
                 nomeEmpresa='COTA Empreendimentos Imobiliários Ltda.'
                 tituloDocumento='Relação de Usuários'

@@ -3,14 +3,14 @@ import { useSelector } from 'react-redux'
 import clienteAxios from '../config/axios'
 import Spinner from '../spinner/Spinner'
 import Button from './Button'
-import ListaIcones from '../modulos/pessoa/lista/ListaIcones'
+import ListaIcones from './ListaIcones'
 import PrintPrint from './PrintPrint'
 import Cabecalho from './Cabecalho'
 
 import './consultaPadrao.css'
 
 const ConsultaPadrao = props => {
-    
+
     const [data, setData] = useState([])
     const [dataAll, setDataAll] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -22,7 +22,7 @@ const ConsultaPadrao = props => {
     let pagina = 0
 
     const { api, fieldId, fieldName, fieldAux,
-            nomeEmpresa, tituloDocumento } = props
+        nomeEmpresa, tituloDocumento } = props
 
     const { token } = useSelector(state => state.login.login)
 
@@ -151,7 +151,11 @@ const ConsultaPadrao = props => {
                                     <li
                                         className={icones && id === reg[fieldId] ? 'consulta-padrao__linha consulta-padrao__bold' : 'consulta-padrao__linha'}
 
-                                    >{reg[fieldName]}
+                                    >
+                                        <div className='consulta-padrao__container-li'>
+                                            <div className='consulta-padrao__container-li-id'>{reg[fieldId]}</div>
+                                            <div className='consulta-padrao__container-li-nome'>{reg[fieldName]}</div>
+                                        </div>
                                     </li>
 
                                     {icones && id === reg[fieldId] &&
@@ -176,7 +180,7 @@ const ConsultaPadrao = props => {
                         <Cabecalho
                             nomeEmpresa={nomeEmpresa}
                             tituloDocumento={tituloDocumento}
-                            pagina = {++pagina}
+                            pagina={++pagina}
                         />
                         {
                             data.map((reg, index) => (
@@ -188,18 +192,18 @@ const ConsultaPadrao = props => {
                                         onClick={() => clickHandle(reg[fieldId])}
                                     >
                                         <li >
-                                        {reg[fieldName]}
+                                            {reg[fieldName]}
 
                                         </li>
 
                                     </div>
-                                        {index > 0 && index % 38 === 0 &&
-                                            <Cabecalho
-                                                nomeEmpresa={nomeEmpresa}
-                                                tituloDocumento={tituloDocumento}
-                                                pagina = {++pagina}
-                                            />
-                                        }
+                                    {index > 0 && index % 38 === 0 &&
+                                        <Cabecalho
+                                            nomeEmpresa={nomeEmpresa}
+                                            tituloDocumento={tituloDocumento}
+                                            pagina={++pagina}
+                                        />
+                                    }
                                 </div>
                             )
                             )
