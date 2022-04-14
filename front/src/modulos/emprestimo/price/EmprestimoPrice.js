@@ -10,7 +10,6 @@ import Button from '../../../components/Button'
 
 import '../emprestimo.css'
 
-
 const initialState = {
     valorEmprestimo: null,
     carencia: '2',
@@ -67,13 +66,10 @@ const EmprestimoPrice = () => {
         })
     }
 
-
     const calcularHandle = async () => {
 
         await setValores()
-
     }
-
 
     const setValores = async () => {
 

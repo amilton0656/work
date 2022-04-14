@@ -6,7 +6,10 @@ import Form from '../../components/Form'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 
-const classes = ''
+import LoggedBar from '../../components/LoggedBar'
+
+import '../../css/cadastro.css'
+
 
 const Header = props => {
 
@@ -17,8 +20,8 @@ const Header = props => {
         navigate(-1)
     }
     return (
-        <div className='pessoa-container__header-buttons'>
-            <h2 className='pessoa-main__title'>Cadastro de Empresas</h2>
+        <div className='cadastro__header-buttons'>
+            <div className='cadastro__title'>Cadastro de Empresas</div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                 <Button
@@ -136,10 +139,12 @@ const EmpresaCad = props => {
     const onClickButton=id_empresa ? editHandle : addHandle
     
     return (
-        <div className='pessoa-container'>
-            <main className='pessoa-main'>
+        <>
+        <LoggedBar />
+        <div className='cadastro__container'>
+            <main className='cadastro__main'>
                 <Header />
-                <Form className='pessoa-form'>
+                <Form className='cadastro__form'>
 
                     {/* Razão Social */}
                     <Input
@@ -191,7 +196,8 @@ const EmpresaCad = props => {
                 </Form>
             </main>
         </div>
-    );
+        </>
+    )
 }
 
 export default EmpresaCad;

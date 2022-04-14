@@ -26,6 +26,49 @@ const MensagensLista = () => {
                     </div>
                     : null
             }
+                        {/* ************************ Expediente - Semana Santa 2022 */}
+                        <MensagemText
+                titulo="Expediente - Semana Santa"
+                data="14/04/2022"
+                cor="red"
+                texto={
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
+                        <br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Encerramento:</span>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Admininistração </span></div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Obras (Bliss)</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 20/ABR/2022, quarta-feira, no horário normal </span></div>
+                                </div>
+                                {/* <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div> */}
+                            </div>
+
+                        </div>
+
+                        <div style={{ marginTop: '30px' }}>
+                            <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Retorno:</span>
+
+                        </div>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.2rem', flex: 1 }}>
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Admininistração </span></div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Obras (Bliss)</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 25/ABR/2022, segunda-feira, no horário normal </span></div>
+                                </div>
+                                {/* <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div> */}
+                            </div>
+
+                        </div>
+                        <br />
+
+                    </div>
+
+                } />
 
 
             {/* ************************ Expediente - Carnaval 2022 */}
