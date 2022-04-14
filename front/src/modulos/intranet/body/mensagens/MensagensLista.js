@@ -26,11 +26,11 @@ const MensagensLista = () => {
                     </div>
                     : null
             }
-                        {/* ************************ Expediente - Semana Santa 2022 */}
+                        {/* ************************ Expediente - Feriado */}
                         <MensagemText
-                titulo="Expediente - Semana Santa"
+                titulo="Expediente - Feriado"
                 data="14/04/2022"
-                cor="red"
+                cor="steelblue"
                 texto={
                     <div className="card-text" style={{ fontSize: '1.5rem' }}>
                         <br />
