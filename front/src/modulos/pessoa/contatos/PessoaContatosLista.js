@@ -11,8 +11,6 @@ import PessoaContatosCad from './PessoaContatosCad'
 
 import './pessoaContatosLista.css'
 
-
-
 const PessoaContatosLista = props => {
 
     const [icones, setIcones] = useState(false)

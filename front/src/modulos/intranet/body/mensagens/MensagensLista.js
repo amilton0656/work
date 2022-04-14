@@ -26,8 +26,8 @@ const MensagensLista = () => {
                     </div>
                     : null
             }
-                        {/* ************************ Expediente - Feriado */}
-                        <MensagemText
+            {/* ************************ Expediente - Feriado */}
+            <MensagemText
                 titulo="Expediente - Feriado"
                 data="14/04/2022"
                 cor="steelblue"
