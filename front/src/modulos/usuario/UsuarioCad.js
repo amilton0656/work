@@ -11,6 +11,8 @@ import { FiSearch } from 'react-icons/fi'
 import ListaAuxiliar from '../../components/ListaAuxiliar'
 import LoggedBar from '../../components/LoggedBar'
 
+import UsuarioEmpresasLista from './UsuarioEmpresasLista'
+
 import '../../css/cadastro.css'
 
 const Header = props => {
@@ -215,7 +217,7 @@ const UsuarioCad = props => {
                         <Input
                             disabled
                             style={{ width: '90%' }}
-                            label='Pessoa:'
+                            label='Pessoax:'
                             type='text'
                             id='nomeUsuario'
                             name='nomeUsuario'
@@ -441,6 +443,13 @@ const UsuarioCad = props => {
                             /><label htmlFor="suprimentos6">Compras</label>
                         </div>
                     </RadioBox>
+
+                    {id_usuario &&
+                    <UsuarioEmpresasLista
+                        id_usuario={id_usuario}
+                        formData={formData}
+                        addHandle={addHandle}
+                    />}
 
                     <div style={{ marginTop: '20px', width: '100%', textAlign: 'center' }}>
                         <Button

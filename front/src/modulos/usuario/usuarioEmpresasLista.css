@@ -1,0 +1,63 @@
+.contato-main {
+        margin-top: 15px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    
+.contato-container__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: gray;
+}
+
+.contato-button {
+    border: none;
+    background: rgba(0, 128, 0, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: white; 
+    position: relative;
+    cursor: pointer;
+
+    transform: rotate(0deg);
+    transition: all 0.5s ease;
+}
+
+.contato-button::before {
+    content: '+';
+    font-size: 2.5rem;
+    position: absolute;
+    top: -4px;
+    left: 9px;
+}
+
+#ck-usuario-empresa:checked ~ div .contato-button {
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.contato-items {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.contato-item {
+    border-top: 1px solid grey;
+    padding: 5px;
+    width: 100%;
+    list-style: none;
+}
+.contato-item:first-child {
+    border-top: none;
+}
+

@@ -1,14 +1,14 @@
 const UsuarioEmpresa = require('../models/mo_usuarioEmpresa')
 
 exports.addUsuarioEmpresa = (req, res, next) => {
-  const indiceData = req.body
-  UsuarioEmpresa.create(indiceData)
-    .then(indiceData => {
-      res.status(200).json(indiceData)
+  const usuarioEmpresa = req.body
+  UsuarioEmpresa.create(usuarioEmpresa)
+    .then(usuarioEmpresa => {
+      res.status(200).json(usuarioEmpresa)
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json('Data não encontrada.')
+      res.status(500).json('Erro ao salvar.')
     })
 }
 
@@ -25,7 +25,7 @@ exports.updUsuarioEmpresa = (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json('Data não encontrada.')
+      res.status(500).json('Erro ao aualizar.')
     })
 }
 
@@ -41,7 +41,7 @@ exports.delUsuarioEmpresa = (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json('Data não encontrada.')
+      res.status(500).json('Erro ao excluir.')
     })
 }
 
@@ -68,6 +68,6 @@ exports.getEmpresasByUsuario = (req, res, next) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500).json('Data não encontrada.')
+      res.status(500).json('Empresa não encontrada.')
     })
 }
