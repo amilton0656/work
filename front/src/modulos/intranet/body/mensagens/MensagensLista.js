@@ -26,6 +26,18 @@ const MensagensLista = () => {
                     </div>
                     : null
             }
+
+            {/* ************************ niver MArco */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="25/04/2022"
+                cor="#28A745"
+                img="img/aniv11.png"
+                nome="MARCO"
+                local="(Engenharia)"
+                dataExt="24/abril - Domingo"
+            />
+
             {/* ************************ Expediente - Feriado */}
             <MensagemText
                 titulo="Expediente - Feriado"
