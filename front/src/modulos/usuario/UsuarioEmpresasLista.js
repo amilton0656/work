@@ -96,7 +96,7 @@ const UsuarioEmpresasLista = props => {
                 <div>Empresas</div>
                 <label className='contato-button' onClick={novoContatoHandle}></label>
             </div>
-                {0 && <UsuarioEmpresasCad
+                {1 && <UsuarioEmpresasCad
                     id_pessoa={props.id_pessoa}
                     empresa={empresa}
                     atualizar={atualizar}
@@ -112,8 +112,8 @@ const UsuarioEmpresasLista = props => {
 
                             {icones && 1 === item.id_usuario &&
                                 <ListaIcones
-                                onClick1={() => editContatoHandle(item)}
-                                onClick3={() => deletePessoaHandler(item.id_empresa)}
+                                    onClick1={() => editContatoHandle(item)}
+                                    onClick3={() => deletePessoaHandler(item.id_empresa)}
                                 />
                             }
 

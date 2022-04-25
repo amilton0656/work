@@ -22,7 +22,7 @@ const initialStateAuxiliar = {
 
 const UsuarioEmpresasCad = props => {
 
-    const [formData, setFormData] = useState(props.contato || initialState)
+    const [formData, setFormData] = useState(props.empresa || initialState)
     const [formDataAuxiliar, setFormDataAuxiliar] = useState(initialStateAuxiliar)
     const [showAuxiliarEmpresas, setShowAuxiliarEmpresas] = useState(false)
 
@@ -31,12 +31,12 @@ const UsuarioEmpresasCad = props => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if (props.contato.id_contato) {
-            setFormData(props.contato)
+        if (props.empresa.id_empresa) {
+            setFormData(props.empresa)
         } else {
             setFormData({ id_pessoa: props.id_pessoa, ...initialState })
         }
-    }, [props.contato])
+    }, [props.empresa])
 
     const addHandle = event => {
         event.preventDefault()
