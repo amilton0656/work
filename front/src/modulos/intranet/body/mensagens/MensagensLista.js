@@ -27,8 +27,19 @@ const MensagensLista = () => {
                     : null
             }
 
-                        {/* ************************ bolinho marco */}
-                        <MensagemText
+            {/* ************************ niver Heliane */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="26/04/2022"
+                cor="steelblue"
+                img="img/aniv08.png"
+                nome="HELIANE"
+                local="(Financeiro)"
+                dataExt="26/abril - Terça-feira"
+            />
+
+            {/* ************************ bolinho marco */}
+            <MensagemText
                 titulo="Aniversário"
                 data="25/04/2022"
                 cor="#28A745"
