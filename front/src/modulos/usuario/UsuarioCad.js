@@ -12,6 +12,7 @@ import ListaAuxiliar from '../../components/ListaAuxiliar'
 import LoggedBar from '../../components/LoggedBar'
 
 import UsuarioEmpresasLista from './UsuarioEmpresasLista'
+import UsuarioEmpreendimentosLista from './UsuarioEmpreendimentosLista'
 
 import '../../css/cadastro.css'
 
@@ -206,270 +207,277 @@ const UsuarioCad = props => {
 
     return (
         <>
-        <LoggedBar />
-        <div className='cadastro__container'>
-            <main className='cadastro__main'>
-                <Header />
-                <Form className='cadastro__form'>
+            <LoggedBar />
+            <div className='cadastro__container'>
+                <main className='cadastro__main'>
+                    <Header />
+                    <Form className='cadastro__form'>
 
-                    <div className='form-input-box-with-icon'>
-                        {/* NomeUsuario */}
+                        <div className='form-input-box-with-icon'>
+                            {/* NomeUsuario */}
+                            <Input
+                                disabled
+                                style={{ width: '90%' }}
+                                label='Pessoax:'
+                                type='text'
+                                id='nomeUsuario'
+                                name='nomeUsuario'
+                                next='nm_nick'
+                                value={formDataAuxiliar.nomeUsuario}
+                                onChange={textHandler}
+                                onKeyDown={e => nextField(e.keyCode, 'nm_nick')}
+                            />
+                            <div className='form-input-box-with-icon__icon' onClick={() => setShowAuxiliarPessoas(!showAuxiliarPessoas)}><FiSearch size={20} color='black' /></div>
+
+                        </div>
+
                         <Input
-                            disabled
-                            style={{ width: '90%' }}
-                            label='Pessoax:'
+                            className='w300'
+                            label='Login:'
                             type='text'
-                            id='nomeUsuario'
-                            name='nomeUsuario'
-                            next='nm_nick'
-                            value={formDataAuxiliar.nomeUsuario}
+                            id='nm_nick'
+                            name='nm_nick'
+                            next='pw_usuario'
+                            value={formData.nm_nick}
                             onChange={textHandler}
-                            onKeyDown={e => nextField(e.keyCode, 'nm_nick')}
+                            onKeyDown={e => nextField(e.keyCode, 'pw_usuario')}
                         />
-                        <div className='form-input-box-with-icon__icon' onClick={() => setShowAuxiliarPessoas(!showAuxiliarPessoas)}><FiSearch size={20} color='black' /></div>
 
-                    </div>
-
-                    <Input
-                        className='w300'
-                        label='Login:'
-                        type='text'
-                        id='nm_nick'
-                        name='nm_nick'
-                        next='pw_usuario'
-                        value={formData.nm_nick}
-                        onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'pw_usuario')}
-                    />
-
-                    <Input
-                        className='w300'
-                        label='Senha:'
-                        type='text'
-                        id='pw_usuario'
-                        name='pw_usuario'
-                        next='fg_somente_seus'
-                        value={formData.pw_usuario}
-                        onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'fg_somente_seus')}
-                    />
-
-                    {/* Apenas seus registros */}
-                    <div className='form-checkboxBox'>
-                        <input
-                            type='checkbox'
-                            className='form-input'
-                            id="fg_somente_seus"
-                            name="fg_somente_seus"
-                            defaultChecked={formData.fg_somente_seus.toString() === '0' ? false : true}
-                            onChange={textHandler}
-                            value={formData.fg_somente_seus}
-                        />
-                        <label htmlFor="fg_somente_seus">Pode ver apenas os seus registros</label>
-                    </div>
-
-                    {/* Pode bloquear registros */}
-                    <div className='form-checkboxBox'>
-                        <input
-                            type='checkbox'
-                            className='form-input'
-                            id="bloquear_registros"
-                            name="bloquear_registros"
-                            defaultChecked={formData.bloquear_registros.toString() === '0' ? false : true}
-                            onChange={textHandler}
-                            value={formData.bloquear_registros}
-                        />
-                        <label htmlFor="bloquear_registros">Pode bloquear registros</label>
-                    </div>
-
-                    <Input
-                        className='w200'
-                        label='Num Rotina para Login:'
-                        type='number'
-                        id='nu_recurso_automatico'
-                        name='nu_recurso_automatico'
-                        next='fg_somente_seus'
-                        value={formData.nu_recurso_automatico}
-                        onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'fg_somente_seus')}
-                    />
-                    <div className='form-input-box-with-icon'>
-                        {/* nomeSetor */}
                         <Input
-                            disabled
-                            style={{ width: '90%' }}
-                            label='Setor:'
+                            className='w300'
+                            label='Senha:'
                             type='text'
-                            id='nomeSetor'
-                            name='nomeSetor'
-                            next='nm_nick'
-                            value={formDataAuxiliar.nomeSetor}
+                            id='pw_usuario'
+                            name='pw_usuario'
+                            next='fg_somente_seus'
+                            value={formData.pw_usuario}
                             onChange={textHandler}
-                            onKeyDown={e => nextField(e.keyCode, 'nm_nick')}
+                            onKeyDown={e => nextField(e.keyCode, 'fg_somente_seus')}
                         />
-                        <div className='form-input-box-with-icon__icon' onClick={() => setShowAuxiliarPessoas(!showAuxiliarPessoas)}><FiSearch size={20} color='black' /></div>
 
-                    </div>
+                        {/* Apenas seus registros */}
+                        <div className='form-checkboxBox'>
+                            <input
+                                type='checkbox'
+                                className='form-input'
+                                id="fg_somente_seus"
+                                name="fg_somente_seus"
+                                defaultChecked={formData.fg_somente_seus.toString() === '0' ? false : true}
+                                onChange={textHandler}
+                                value={formData.fg_somente_seus}
+                            />
+                            <label htmlFor="fg_somente_seus">Pode ver apenas os seus registros</label>
+                        </div>
 
-                    {/* Usuário bloqueado */}
-                    <div className='form-checkboxBox'>
-                        <input
-                            type='checkbox'
-                            className='form-input'
-                            id="bloqueado"
-                            name="bloqueado"
-                            defaultChecked={formData.bloqueado.toString() === '0' ? false : true}
+                        {/* Pode bloquear registros */}
+                        <div className='form-checkboxBox'>
+                            <input
+                                type='checkbox'
+                                className='form-input'
+                                id="bloquear_registros"
+                                name="bloquear_registros"
+                                defaultChecked={formData.bloquear_registros.toString() === '0' ? false : true}
+                                onChange={textHandler}
+                                value={formData.bloquear_registros}
+                            />
+                            <label htmlFor="bloquear_registros">Pode bloquear registros</label>
+                        </div>
+
+                        <Input
+                            className='w200'
+                            label='Num Rotina para Login:'
+                            type='number'
+                            id='nu_recurso_automatico'
+                            name='nu_recurso_automatico'
+                            next='fg_somente_seus'
+                            value={formData.nu_recurso_automatico}
                             onChange={textHandler}
-                            value={formData.bloqueado}
+                            onKeyDown={e => nextField(e.keyCode, 'fg_somente_seus')}
                         />
-                        <label htmlFor="bloqueado">Usuário bloqueado</label>
-                    </div>
+                        <div className='form-input-box-with-icon'>
+                            {/* nomeSetor */}
+                            <Input
+                                disabled
+                                style={{ width: '90%' }}
+                                label='Setor:'
+                                type='text'
+                                id='nomeSetor'
+                                name='nomeSetor'
+                                next='nm_nick'
+                                value={formDataAuxiliar.nomeSetor}
+                                onChange={textHandler}
+                                onKeyDown={e => nextField(e.keyCode, 'nm_nick')}
+                            />
+                            <div className='form-input-box-with-icon__icon' onClick={() => setShowAuxiliarPessoas(!showAuxiliarPessoas)}><FiSearch size={20} color='black' /></div>
 
-                    {/* Entrega de Unidade */}
-                    <div className='form-checkboxBox'>
-                        <input
-                            type='checkbox'
-                            className='form-input'
-                            id="ck_entregaunidade"
-                            name="ck_entregaunidade"
-                            defaultChecked={formData.ck_entregaunidade.toString() === '0' ? false : true}
+                        </div>
+
+                        {/* Usuário bloqueado */}
+                        <div className='form-checkboxBox'>
+                            <input
+                                type='checkbox'
+                                className='form-input'
+                                id="bloqueado"
+                                name="bloqueado"
+                                defaultChecked={formData.bloqueado.toString() === '0' ? false : true}
+                                onChange={textHandler}
+                                value={formData.bloqueado}
+                            />
+                            <label htmlFor="bloqueado">Usuário bloqueado</label>
+                        </div>
+
+                        {/* Entrega de Unidade */}
+                        <div className='form-checkboxBox'>
+                            <input
+                                type='checkbox'
+                                className='form-input'
+                                id="ck_entregaunidade"
+                                name="ck_entregaunidade"
+                                defaultChecked={formData.ck_entregaunidade.toString() === '0' ? false : true}
+                                onChange={textHandler}
+                                value={formData.ck_entregaunidade}
+                            />
+                            <label htmlFor="ck_entregaunidade">Entrega de Unidade</label>
+                        </div>
+
+                        {/* Entrega de Unidade */}
+                        <Input
+                            label='Email para Notificações:'
+                            type='text'
+                            id='email_notificacao'
+                            name='email_notificacao'
+                            next='fg_somente_seus'
+                            value={formData.email_notificacao}
                             onChange={textHandler}
-                            value={formData.ck_entregaunidade}
+                            onKeyDown={e => nextField(e.keyCode, 'fg_somente_seus')}
                         />
-                        <label htmlFor="ck_entregaunidade">Entrega de Unidade</label>
-                    </div>
 
-                    {/* Entrega de Unidade */}
-                    <Input
-                        label='Email para Notificações:'
-                        type='text'
-                        id='email_notificacao'
-                        name='email_notificacao'
-                        next='fg_somente_seus'
-                        value={formData.email_notificacao}
-                        onChange={textHandler}
-                        onKeyDown={e => nextField(e.keyCode, 'fg_somente_seus')}
-                    />
+                        {/* Entrega de Unidade */}
+                        <div className='form-checkboxBox'>
+                            <input
+                                type='checkbox'
+                                className='form-input'
+                                id="fg_receber_notificacao_projeto"
+                                name="fg_receber_notificacao_projeto"
+                                defaultChecked={formData.fg_receber_notificacao_projeto.toString() === '0' ? false : true}
+                                onChange={textHandler}
+                                value={formData.fg_receber_notificacao_projeto}
+                            />
+                            <label htmlFor="fg_receber_notificacao_projeto">Não receber notificações de alterações nos projetos</label>
+                        </div>
 
-                    {/* Entrega de Unidade */}
-                    <div className='form-checkboxBox'>
-                        <input
-                            type='checkbox'
-                            className='form-input'
-                            id="fg_receber_notificacao_projeto"
-                            name="fg_receber_notificacao_projeto"
-                            defaultChecked={formData.fg_receber_notificacao_projeto.toString() === '0' ? false : true}
-                            onChange={textHandler}
-                            value={formData.fg_receber_notificacao_projeto}
+                        {/* Suprimentos */}
+                        <RadioBox
+                            name='suprimentos'
+                            label='Suprimentos:'
+                            direction='column'
+                        >
+                            <div className='form-radioBoxLinha'>
+                                <input
+                                    type='radio'
+                                    name='suprimentos'
+                                    id="suprimentos0"
+                                    onChange={textHandler}
+
+                                    value={formData.suprimentos}
+                                    checked={formData.suprimentos.toString() === "0"}
+                                /><label htmlFor="suprimentos0">Nenhum</label>
+                            </div>
+                            <div className='form-radioBoxLinha'>
+                                <input
+                                    type='radio'
+                                    name='suprimentos'
+                                    id="suprimentos1"
+                                    onChange={textHandler}
+                                    value={formData.suprimentos}
+                                    checked={formData.suprimentos.toString() === "1"}
+                                /><label htmlFor="suprimentos1">Técnico</label>
+                            </div>
+                            <div className='form-radioBoxLinha'>
+                                <input
+                                    type='radio'
+                                    name='suprimentos'
+                                    id="suprimentos2"
+                                    onChange={textHandler}
+                                    value={formData.suprimentos}
+                                    checked={formData.suprimentos.toString() === "2"}
+                                /><label htmlFor="suprimentos2">Engenheiro</label>
+                            </div>
+                            <div className='form-radioBoxLinha'>
+                                <input
+                                    type='radio'
+                                    name='suprimentos'
+                                    id="suprimentos3"
+                                    onChange={textHandler}
+                                    value={formData.suprimentos}
+                                    checked={formData.suprimentos.toString() === "3"}
+                                /><label htmlFor="suprimentos3">Diretor Técnico</label>
+                            </div>
+                            <div className='form-radioBoxLinha'>
+                                <input
+                                    type='radio'
+                                    name='suprimentos'
+                                    id="suprimentos4"
+                                    onChange={textHandler}
+                                    value={formData.suprimentos}
+                                    checked={formData.suprimentos.toString() === "4"}
+                                /><label htmlFor="suprimentos4">Diretor Operacional</label>
+                            </div>
+                            <div className='form-radioBoxLinha'>
+                                <input
+                                    type='radio'
+                                    name='suprimentos'
+                                    id="suprimentos5"
+                                    onChange={textHandler}
+                                    value={formData.suprimentos}
+                                    checked={formData.suprimentos.toString() === "5"}
+                                /><label htmlFor="suprimentos5">Diretor Presidente</label>
+                            </div>
+                            <div className='form-radioBoxLinha'>
+                                <input
+                                    type='radio'
+                                    name='suprimentos'
+                                    id="suprimentos6"
+                                    onChange={textHandler}
+                                    value={formData.suprimentos}
+                                    checked={formData.suprimentos.toString() === "6"}
+                                /><label htmlFor="suprimentos6">Compras</label>
+                            </div>
+                        </RadioBox>
+
+                        {id_usuario &&
+                            <UsuarioEmpresasLista
+                                id_usuario={id_usuario}
+                                formData={formData}
+                                addHandle={addHandle}
+                            />}
+
+                        {id_usuario &&
+                            <UsuarioEmpreendimentosLista
+                                id_usuario={id_usuario}
+                                formData={formData}
+                                addHandle={addHandle}
+                            />}
+
+                        <div style={{ marginTop: '20px', width: '100%', textAlign: 'center' }}>
+                            <Button
+                                className='w150'
+                                title='Salvar'
+                                onClick={onClickButton}
+                            />
+                        </div>
+                    </Form>
+                    {
+                        showAuxiliarPessoas &&
+                        <ListaAuxiliar
+                            api='/pessoas/auxiliar'
+                            field='nome'
+                            onClickSelection={(reg) => clickSelectedHandle(reg)}
+                            onClickClose={() => setShowAuxiliarPessoas(false)}
                         />
-                        <label htmlFor="fg_receber_notificacao_projeto">Não receber notificações de alterações nos projetos</label>
-                    </div>
-
-                    {/* Suprimentos */}
-                    <RadioBox
-                        name='suprimentos'
-                        label='Suprimentos:'
-                        direction='column'
-                    >
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='suprimentos'
-                                id="suprimentos0"
-                                onChange={textHandler}
-
-                                value={formData.suprimentos}
-                                checked={formData.suprimentos.toString() === "0"}
-                            /><label htmlFor="suprimentos0">Nenhum</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='suprimentos'
-                                id="suprimentos1"
-                                onChange={textHandler}
-                                value={formData.suprimentos}
-                                checked={formData.suprimentos.toString() === "1"}
-                            /><label htmlFor="suprimentos1">Técnico</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='suprimentos'
-                                id="suprimentos2"
-                                onChange={textHandler}
-                                value={formData.suprimentos}
-                                checked={formData.suprimentos.toString() === "2"}
-                            /><label htmlFor="suprimentos2">Engenheiro</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='suprimentos'
-                                id="suprimentos3"
-                                onChange={textHandler}
-                                value={formData.suprimentos}
-                                checked={formData.suprimentos.toString() === "3"}
-                            /><label htmlFor="suprimentos3">Diretor Técnico</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='suprimentos'
-                                id="suprimentos4"
-                                onChange={textHandler}
-                                value={formData.suprimentos}
-                                checked={formData.suprimentos.toString() === "4"}
-                            /><label htmlFor="suprimentos4">Diretor Operacional</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='suprimentos'
-                                id="suprimentos5"
-                                onChange={textHandler}
-                                value={formData.suprimentos}
-                                checked={formData.suprimentos.toString() === "5"}
-                            /><label htmlFor="suprimentos5">Diretor Presidente</label>
-                        </div>
-                        <div className='form-radioBoxLinha'>
-                            <input
-                                type='radio'
-                                name='suprimentos'
-                                id="suprimentos6"
-                                onChange={textHandler}
-                                value={formData.suprimentos}
-                                checked={formData.suprimentos.toString() === "6"}
-                            /><label htmlFor="suprimentos6">Compras</label>
-                        </div>
-                    </RadioBox>
-
-                    {id_usuario &&
-                    <UsuarioEmpresasLista
-                        id_usuario={id_usuario}
-                        formData={formData}
-                        addHandle={addHandle}
-                    />}
-
-                    <div style={{ marginTop: '20px', width: '100%', textAlign: 'center' }}>
-                        <Button
-                            className='w150'
-                            title='Salvar'
-                            onClick={onClickButton}
-                        />
-                    </div>
-                </Form>
-                {
-                    showAuxiliarPessoas &&
-                    <ListaAuxiliar
-                        api='/pessoas/auxiliar'
-                        field='nome'
-                        onClickSelection={(reg) => clickSelectedHandle(reg)}
-                        onClickClose={() => setShowAuxiliarPessoas(false)}
-                    />
-                }
-            </main>
-        </div>
+                    }
+                </main>
+            </div>
         </>
     );
 }

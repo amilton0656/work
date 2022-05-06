@@ -9,43 +9,36 @@ import Button from '../../components/Button'
 import { FiSearch } from 'react-icons/fi'
 import ListaAuxiliar from '../../components/ListaAuxiliar'
 
-import './usuarioEmpresasCad.css'
+import './usuarioEmpreendimentosCad.css'
 
 const initialState = {
     id_usuario: null,
-    id_empresa: null
+    id_empreendimento: null
 }
 
 const initialStateAuxiliar = {
-    nomeEmpresa: ''
+    nomeEmpreendimento: ''
 }
 
-const UsuarioEmpresasCad = props => {
+const UsuarioEmpreendimentosCad = props => {
 
-    const [formData, setFormData] = useState(props.empresa || initialState)
+    const [formData, setFormData] = useState(props.empreendimento || initialState)
     const [formDataAuxiliar, setFormDataAuxiliar] = useState(initialStateAuxiliar)
-    const [showAuxiliarEmpresas, setShowAuxiliarEmpresas] = useState(false)
+    const [showAuxiliarEmpreendimentos, setShowAuxiliarEmpreendimentos] = useState(false)
 
     const { token } = useSelector(state => state.login.login)
 
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if (props.empresa.id_empresa) {
-            setFormData(props.empresa)
+        if (props.empreendimento.id_empreendimento) {
+            setFormData(props.empreendimento)
         } else {
             setFormData({ id_pessoa: props.id_pessoa, ...initialState })
         }
-    }, [props.empresa])
+    }, [props.empreendimento])
 
     const addHandle = event => {
-
-        var altura = window.innerHeight
-|| document.documentElement.clientHeight
-|| document.body.clientHeight;
-
-console.log(altura)
-
         event.preventDefault()
 
         clienteAxios.post('/pessoacontato/add', formData, { headers: { Authorization: token } })
@@ -102,7 +95,7 @@ console.log(altura)
 
         setFormDataAuxiliar({
             ...formDataAuxiliar,
-            nomeEmpresa: reg.nm_empresa
+            nomeEmpreendimento: reg.nm_empreendimento
         })
         setFormData({
             ...formData,
@@ -137,7 +130,7 @@ console.log(altura)
         )
 
     return (
-        <main className='usuario-empresa-cad__main' style={{ paddingTop: '10px' }} >
+        <main className='usuario-empreendimento-cad__main' style={{ paddingTop: '10px' }} >
             <Form className='form-form-100'>
 
                 <div className='form-input-box-with-icon'>
@@ -145,27 +138,27 @@ console.log(altura)
                     <Input
                         disabled
                         style={{ width: '90%' }}
-                        label='Empresa:'
+                        label='Empreendimento:'
                         type='text'
-                        id='nomeEmpresa'
-                        name='nomeEmpresa'
+                        id='nomeEmpreendimento'
+                        name='nomeEmpreendimento'
                         next='nm_nick'
-                        value={formDataAuxiliar.nomeEmpresa}
+                        value={formDataAuxiliar.nomeEmpreendimento}
                         onChange={textHandler}
                     // onKeyDown={e => nextField(e.keyCode, 'nm_nick')}
                     />
                     {
-                        showAuxiliarEmpresas &&
+                        showAuxiliarEmpreendimentos &&
                         <ListaAuxiliar
                             heightDrop='190vh'
                             topLista='620px'
-                            api='/empresas'
-                            field='nm_empresa'
+                            api='/empreendimentos'
+                            field='nm_empreendimento'
                             onClickSelection={(reg) => clickSelectedHandle(reg)}
-                            onClickClose={() => setShowAuxiliarEmpresas(false)}
+                            onClickClose={() => setShowAuxiliarEmpreendimentos(false)}
                         />
                     }
-                    <div className='form-input-box-with-icon__icon' onClick={() => setShowAuxiliarEmpresas(!showAuxiliarEmpresas)}><FiSearch size={20} color='black' /></div>
+                    <div className='form-input-box-with-icon__icon' onClick={() => setShowAuxiliarEmpreendimentos(!showAuxiliarEmpreendimentos)}><FiSearch size={20} color='black' /></div>
 
                 </div>
             </Form>
@@ -173,4 +166,4 @@ console.log(altura)
     );
 }
 
-export default UsuarioEmpresasCad;
+export default UsuarioEmpreendimentosCad;

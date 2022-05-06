@@ -4,50 +4,48 @@ import clienteAxios from '../../config/axios'
 import Swal from 'sweetalert2'
 import { BsTrash } from 'react-icons/bs'
 import { FaRegEdit } from 'react-icons/fa'
-// import { pessoasActions } from '../../../store/pessoaReducers'
 import ListaIcones from '../../components/ListaIcones'
 
-import UsuarioEmpresasCad from './UsuarioEmpresasCad'
+import UsuarioEmpreendimentosCad from './UsuarioEmpreendimentosCad'
 
-import './usuarioEmpresasLista.css'
+import './usuarioEmpreendimentosLista.css'
 
-const UsuarioEmpresasLista = props => {
+const UsuarioEmpreendimentosLista = props => {
 
     const [icones, setIcones] = useState(false)
-    const [empresa, setEmpresa] = useState('')
-    const [empresas, setEmpresas] = useState([])
+    const [empreendimento, setEmpreendimento] = useState('')
+    const [empreendimentos, setEmpreendimentos] = useState([])
 
     const { token } = useSelector(state => state.login.login)
 
     const dispatch = useDispatch()
 
-    const clickHandle = (empresa) => {
+    const clickHandle = (empreendimento) => {
         if (!icones) {
-            document.getElementById('ck-usuario-empresa').checked = false
+            document.getElementById('ck-usuario-empreendimento').checked = false
         }
         setIcones(!icones)
-        setEmpresa(empresa)
+        setEmpreendimento(empreendimento)
     }
 
     const novoContatoHandle = () => {
-        const elem = document.getElementById('ck-usuario-empresa')
+        const elem = document.getElementById('ck-usuario-empreendimento')
         elem.checked = !elem.checked
-        setEmpresa({})
-        console.log(window.screen.height)
+        setEmpreendimento({})
     }
 
-    const editContatoHandle = (empresa) => {
+    const editContatoHandle = (empreendimento) => {
         setIcones(false)
-        const elem = document.getElementById('ck-usuario-empresa')
+        const elem = document.getElementById('ck-usuario-empreendimento')
         elem.checked = true
-        setEmpresa(empresa)
+        setEmpreendimento(empreendimento)
     }
 
     const atualizar = () => {
         if (props.id_usuario) {
-            clienteAxios.get(`/usuarioempresas/${props.id_usuario}`, { headers: { Authorization: token } })
+            clienteAxios.get(`/usuarioempreendimentos/${props.id_usuario}`, { headers: { Authorization: token } })
                 .then(resposta => {
-                    setEmpresas(resposta.data)
+                    setEmpreendimentos(resposta.data)
                     console.log(resposta.data)
                     // dispatch(pessoasActions.loadContatos(resposta.data))
                 })
@@ -92,29 +90,29 @@ const UsuarioEmpresasLista = props => {
     return (
 
         <main className='contato-main'>
-            <input id='ck-usuario-empresa' type='checkbox'  />
+            <input id='ck-usuario-empreendimento' type='checkbox'  />
             <div className='contato-container__header'>
-                <div>Empresas</div>
+                <div>Empreendimentos</div>
                 <label className='contato-button' onClick={novoContatoHandle}></label>
             </div>
-                {1 && <UsuarioEmpresasCad
+                {1 && <UsuarioEmpreendimentosCad
                     id_pessoa={props.id_pessoa}
-                    empresa={empresa}
+                    empreendimento={empreendimento}
                     atualizar={atualizar}
                     />}
             <ul className='contato-items'>
                 {
-                    empresas.map(item => (
+                    empreendimentos.map(item => (
                         <li
-                        className='contato-item' key={item.id_empresa}
+                        className='contato-item' key={item.id_empreendimento}
                         onClick={() => clickHandle(item)}
                         >
-                            {item.nomeempresa}
+                            {item.nomeempreendimento}
 
                             {icones && 1 === item.id_usuario &&
                                 <ListaIcones
                                     onClick1={() => editContatoHandle(item)}
-                                    onClick3={() => deletePessoaHandler(item.id_empresa)}
+                                    onClick3={() => deletePessoaHandler(item.id_empreendimento)}
                                 />
                             }
 
@@ -127,4 +125,4 @@ const UsuarioEmpresasLista = props => {
     );
 }
 
-export default UsuarioEmpresasLista;
+export default UsuarioEmpreendimentosLista;
