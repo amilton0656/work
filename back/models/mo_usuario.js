@@ -28,7 +28,7 @@ const Usuario = sequelize.define('usuario', {
   suprimentos: Sequelize.INTEGER,
   ck_webtab_max: Sequelize.INTEGER,
   ck_webtab_outros: Sequelize.INTEGER,
-  ck_webtab_pbmail: Sequelize.INTEGER,
+  ck_webtab_pbmall: Sequelize.INTEGER,
 }, {
   tableName: 'usuario',
   timestamp: false,

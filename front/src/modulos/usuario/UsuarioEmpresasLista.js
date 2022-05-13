@@ -98,7 +98,7 @@ const UsuarioEmpresasLista = props => {
                 <label className='contato-button' onClick={novoContatoHandle}></label>
             </div>
                 {1 && <UsuarioEmpresasCad
-                    id_pessoa={props.id_pessoa}
+                    id_usuario={props.id_usuario}
                     empresa={empresa}
                     atualizar={atualizar}
                     />}

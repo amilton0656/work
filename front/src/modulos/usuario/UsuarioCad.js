@@ -66,7 +66,7 @@ const UsuarioCad = props => {
         suprimentos: 0,
         ck_webtab_max: 0,
         ck_webtab_outros: 0,
-        ck_webtab_pbmail: 0,
+        ck_webtab_pbmall: 0,
     }
 
     const initialStateAuxiliar = {
@@ -94,6 +94,8 @@ const UsuarioCad = props => {
                 .then(resposta => {
                     const resp = resposta.data[0]
 
+                    console.log('resposta ', resposta.data[0])
+
                     setFormDataAuxiliar({
                         nomeUsuario: resposta.data[0].nomeusuario,
                         nomeSetor: resposta.data[0].nomesetor
@@ -103,6 +105,7 @@ const UsuarioCad = props => {
                     delete resp.nomesetor
 
                     resp.fg_somente_seus = resp.fg_somente_seus === null ? 0 : resp.fg_somente_seus
+
                     resp.bloquear_registros = resp.bloquear_registros === null ? 0 : resp.bloquear_registros
 
                     resp.bloqueado = resp.bloqueado === null ? 0 : resp.bloqueado
@@ -112,7 +115,7 @@ const UsuarioCad = props => {
                     resp.suprimentos = resp.suprimentos === null ? 0 : resp.suprimentos
                     resp.ck_webtab_max = resp.ck_webtab_max === null ? 0 : resp.ck_webtab_max
                     resp.ck_webtab_outros = resp.ck_webtab_outros === null ? 0 : resp.ck_webtab_outros
-                    resp.ck_webtab_pbmail = resp.ck_webtab_pbmail === null ? 0 : resp.ck_webtab_pbmail
+                    resp.ck_webtab_pbmall = resp.ck_webtab_pbmall === null ? 0 : resp.ck_webtab_pbmall
 
                     setFormData(resp)
 
@@ -127,6 +130,8 @@ const UsuarioCad = props => {
 
         event.preventDefault()
 
+        alert('add')
+
         clienteAxios.post('/usuario/add', formData, { headers: { Authorization: token } })
             .then(resposta => {
                 navigate('/usuario/lista', { state: true })
@@ -139,6 +144,9 @@ const UsuarioCad = props => {
     const editHandle = event => {
 
         event.preventDefault()
+
+        // alert('edit')
+        console.log('formData', formData)
 
         clienteAxios.put('/usuario/upd', formData, { headers: { Authorization: token } })
             .then(resposta => {
@@ -171,12 +179,49 @@ const UsuarioCad = props => {
             dataEntered = event.target.value === '0' ? '1' : '0'
         }
 
-        if (event.target.name === 'bloqueado') {
+        if (event.target.name === 'ck_entregaunidade') {
             dataEntered = event.target.value === '0' ? '1' : '0'
         }
 
         if (event.target.name === 'bloqueado') {
             dataEntered = event.target.value === '0' ? '1' : '0'
+        }
+
+        if (event.target.name === 'fg_receber_notificacao_projeto') {
+            dataEntered = event.target.value === '0' ? '1' : '0'
+        }
+
+        if (event.target.name === 'suprimentos') {
+            switch (event.target.id) {
+
+                case 'suprimentos0':
+                    dataEntered = '0'
+                    break
+
+                case 'suprimentos1':
+                    dataEntered = '1'
+                    break
+
+                case 'suprimentos2':
+                    dataEntered = '2'
+                    break
+
+                case 'suprimentos3':
+                    dataEntered = '3'
+                    break
+
+                case 'suprimentos4':
+                    dataEntered = '4'
+                    break
+
+                case 'suprimentos5':
+                    dataEntered = '5'
+                    break
+
+                case 'suprimentos6':
+                    dataEntered = '6'
+                    break
+            }
         }
 
         setFormData({
@@ -205,6 +250,13 @@ const UsuarioCad = props => {
         })
     }
 
+    console.log('formData', formData)
+    console.log('xxxxx', formData.fg_somente_seus.toString() === '1')
+
+    const aaa = formData.fg_somente_seus.toString() === '1'
+    console.log('aaa', aaa)
+    
+
     return (
         <>
             <LoggedBar />
@@ -218,7 +270,7 @@ const UsuarioCad = props => {
                             <Input
                                 disabled
                                 style={{ width: '90%' }}
-                                label='Pessoax:'
+                                label='Pessoa:'
                                 type='text'
                                 id='nomeUsuario'
                                 name='nomeUsuario'
@@ -262,7 +314,7 @@ const UsuarioCad = props => {
                                 className='form-input'
                                 id="fg_somente_seus"
                                 name="fg_somente_seus"
-                                defaultChecked={formData.fg_somente_seus.toString() === '0' ? false : true}
+                                checked={formData.fg_somente_seus.toString() === '1' ? true : false}
                                 onChange={textHandler}
                                 value={formData.fg_somente_seus}
                             />
@@ -276,7 +328,7 @@ const UsuarioCad = props => {
                                 className='form-input'
                                 id="bloquear_registros"
                                 name="bloquear_registros"
-                                defaultChecked={formData.bloquear_registros.toString() === '0' ? false : true}
+                                checked={formData.bloquear_registros.toString() === '0' ? false : true}
                                 onChange={textHandler}
                                 value={formData.bloquear_registros}
                             />
@@ -319,7 +371,7 @@ const UsuarioCad = props => {
                                 className='form-input'
                                 id="bloqueado"
                                 name="bloqueado"
-                                defaultChecked={formData.bloqueado.toString() === '0' ? false : true}
+                                checked={formData.bloqueado.toString() === '0' ? false : true}
                                 onChange={textHandler}
                                 value={formData.bloqueado}
                             />
@@ -333,14 +385,14 @@ const UsuarioCad = props => {
                                 className='form-input'
                                 id="ck_entregaunidade"
                                 name="ck_entregaunidade"
-                                defaultChecked={formData.ck_entregaunidade.toString() === '0' ? false : true}
+                                checked={formData.ck_entregaunidade.toString() === '0' ? false : true}
                                 onChange={textHandler}
                                 value={formData.ck_entregaunidade}
                             />
                             <label htmlFor="ck_entregaunidade">Entrega de Unidade</label>
                         </div>
 
-                        {/* Entrega de Unidade */}
+                        {/* Email para Notificações */}
                         <Input
                             label='Email para Notificações:'
                             type='text'
@@ -352,14 +404,14 @@ const UsuarioCad = props => {
                             onKeyDown={e => nextField(e.keyCode, 'fg_somente_seus')}
                         />
 
-                        {/* Entrega de Unidade */}
+                        {/* Não receber notificações de alterações nos projetos */}
                         <div className='form-checkboxBox'>
                             <input
                                 type='checkbox'
                                 className='form-input'
                                 id="fg_receber_notificacao_projeto"
                                 name="fg_receber_notificacao_projeto"
-                                defaultChecked={formData.fg_receber_notificacao_projeto.toString() === '0' ? false : true}
+                                checked={formData.fg_receber_notificacao_projeto.toString() === '0' ? false : true}
                                 onChange={textHandler}
                                 value={formData.fg_receber_notificacao_projeto}
                             />

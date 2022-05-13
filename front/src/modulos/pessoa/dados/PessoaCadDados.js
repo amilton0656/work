@@ -798,7 +798,7 @@ const PessoaCadDados = props => {
                                     className='form-input'
                                     id="uniao_estavel"
                                     name="uniao_estavel"
-                                    defaultChecked={formDataII.uniao_estavel.toString() === '0' ? false : true}
+                                    checked={formDataII.uniao_estavel.toString() === '0' ? false : true}
                                     onChange={textHandlerII}
                                     value={formDataII.uniao_estavel}
                                 />

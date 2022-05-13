@@ -34,21 +34,16 @@ const UsuarioEmpresasCad = props => {
         if (props.empresa.id_empresa) {
             setFormData(props.empresa)
         } else {
-            setFormData({ id_pessoa: props.id_pessoa, ...initialState })
+            setFormData({ id_usuario: props.id_usuario, ...initialState })
         }
     }, [props.empresa])
 
-    const addHandle = event => {
+    const addHandle = id_empresa => {
 
-        var altura = window.innerHeight
-|| document.documentElement.clientHeight
-|| document.body.clientHeight;
-
-console.log(altura)
-
-        event.preventDefault()
-
-        clienteAxios.post('/pessoacontato/add', formData, { headers: { Authorization: token } })
+        clienteAxios.post('/usuarioempresas', 
+            { id_usuario: props.id_usuario, id_empresa: id_empresa }, 
+            { headers: { Authorization: token } 
+        })
             .then(resposta => {
                 // dispatch(pessoasActions.loadContatos(resposta.data))
             })
@@ -56,7 +51,7 @@ console.log(altura)
                 console.log('Erro ao cadastrar ', err)
             })
 
-        document.getElementById('ck-contato').checked = false
+        // document.getElementById('ck-contato').checked = false
     }
 
     const editHandle = () => {
@@ -98,8 +93,6 @@ console.log(altura)
 
     const clickSelectedHandle = (reg) => {
 
-        console.log(reg)
-
         setFormDataAuxiliar({
             ...formDataAuxiliar,
             nomeEmpresa: reg.nm_empresa
@@ -108,8 +101,9 @@ console.log(altura)
             ...formData,
             id_usuario: reg.id_usuario
         })
-    }
 
+        addHandle(reg.id_empresa)
+    }
 
     const botao = !!formData.id_contato
         ? (

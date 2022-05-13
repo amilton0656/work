@@ -1,15 +1,27 @@
 const UsuarioEmpresa = require('../models/mo_usuarioEmpresa')
 
 exports.addUsuarioEmpresa = (req, res, next) => {
-  const usuarioEmpresa = req.body
-  UsuarioEmpresa.create(usuarioEmpresa)
-    .then(usuarioEmpresa => {
-      res.status(200).json(usuarioEmpresa)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json('Erro ao salvar.')
-    })
+  const registro = req.body
+  const id_usuario = registro.id_usuario
+  const id_empresa = registro.id_empresa
+
+  UsuarioEmpresa.sequelize.query(`
+  select * 
+  from usuario_empresa
+
+  where id_usuario = :id_usuario
+  and id_empresa = :id_empresa`,
+  { replacements: { id_usuario, id_empresa } })
+  .then(indiceData => {
+    if (indiceData[0].length > 0) {
+    } else {
+      UsuarioEmpresa.create(registro)
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(500).json('Erro ao inserir.')
+  })
 }
 
 exports.updUsuarioEmpresa = (req, res, next) => {
@@ -30,24 +42,49 @@ exports.updUsuarioEmpresa = (req, res, next) => {
 }
 
 exports.delUsuarioEmpresa = (req, res, next) => {
-  const id = req.params.id
+  const registro = req.body
+  const id_usuario = registro.id_usuario
+  const id_empresa = registro.id_empresa
 
-  UsuarioEmpresa.findByPk(id)
-    .then(indiceData => {
-      indiceData.destroy(indiceData)
-    })
-    .then(id => {
-      res.status(200).json(id)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json('Erro ao excluir.')
-    })
+  UsuarioEmpresa.sequelize.query(`
+  select * 
+  from usuario_empresa
+
+  where id_usuario = :id_usuario
+  and id_empresa = :id_empresa`,
+  { replacements: { id_usuario, id_empresa } })
+  .then(indiceData => {
+    if (indiceData[0].length > 0) {
+    } else {
+      UsuarioEmpresa.create(registro)
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(500).json('Erro ao inserir.')
+  })
+}
+
+exports.getEmpresaByUsuario = (req, res, next) => {
+  const registro = req.body
+  const id_usuario = registro.id_usuario
+  const id_empresa = registro.id_empresa
+
+  // UsuarioEmpresa.findByPk(id)
+  //   .then(indiceData => {
+  //     indiceData.destroy(indiceData)
+  //   })
+  //   .then(id => {
+  //     res.status(200).json(id)
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //     res.status(500).json('Erro ao excluir.')
+  //   })
 }
 
 exports.getEmpresasByUsuario = (req, res, next) => {
   const id_usuario = req.params.id_usuario
-  console.log('id_usuario..', id_usuario)
   UsuarioEmpresa.sequelize.query(`
     select usu.*, 
     pes.nome as nomeusuario,

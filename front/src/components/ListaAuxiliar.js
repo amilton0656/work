@@ -8,7 +8,7 @@ import './listaAuxiliar.css'
 
 const Backdrop = props => {
     return (
-        <div className="lista-aux__backdrop" style={{height: props.heightDrop}}>
+        <div className="lista-aux__backdrop" style={{height: props.heightDrop}} onClick={() => props.onClickClose()}>
             {props.children}
         </div>
     )
@@ -83,9 +83,9 @@ const ListaAuxiliar = props => {
     }
     
     return (
-        <Backdrop setShowLista={props.setShowLista} heightDrop={props.heightDrop}>
+        <Backdrop setShowLista={props.setShowLista}>
             <div className='lista-aux__main'>
-                <div className='lista-aux__container' style={{top: props.topLista}}>
+                <div className='lista-aux__container' >
                     {isLoading && <Spinner />}
                     <div className='lista-aux__busca'>
 
