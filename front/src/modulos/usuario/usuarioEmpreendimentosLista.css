@@ -37,7 +37,7 @@
     left: 9px;
 }
 
-#ck-usuario-empresa:checked ~ div .contato-button {
+#ck-usuario-empreendimento:checked ~ div .contato-button {
     transform: rotate(45deg);
     transition: all 0.5s ease;
 }

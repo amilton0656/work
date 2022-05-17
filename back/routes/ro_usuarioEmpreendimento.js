@@ -8,7 +8,6 @@ const router = express.Router()
 
 router.get('/usuarioempreendimentos/:id_usuario', controller.getEmpreendimentosByUsuario)
 router.post('/usuarioempreendimentos', controller.addUsuarioEmpreendimento)
-router.put('/usuarioempreendimentos/:id', controller.updUsuarioEmpreendimento)
-router.delete('/usuarioempreendimentos/:id', controller.delUsuarioEmpreendimento)
+router.delete('/usuarioempreendimentos/:usuario/:empreendimento', controller.delUsuarioEmpreendimento)
 
 module.exports = router

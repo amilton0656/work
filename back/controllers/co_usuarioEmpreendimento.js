@@ -1,48 +1,51 @@
 const UsuarioEmpreendimento = require('../models/mo_usuarioEmpreendimento')
 
 exports.addUsuarioEmpreendimento = (req, res, next) => {
-  const usuarioEmpreendimento = req.body
-  UsuarioEmpreendimento.create(usuarioEmpreendimento)
-    .then(usuarioEmpreendimento => {
-      res.status(200).json(usuarioEmpreendimento)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json('Erro ao salvar.')
-    })
-}
+  const registro = req.body
+  const id_usuario = registro.id_usuario
+  const id_empreendimento = registro.id_empreendimento
 
-exports.updUsuarioEmpreendimento = (req, res, next) => {
-  const id = req.params.id
-  const body = req.body
+  UsuarioEmpreendimento.sequelize.query(`
+  select * 
+  from empreendimento_usuario
 
-  UsuarioEmpreendimento.findByPk(id)
-    .then(indiceData => {
-      indiceData.update(body)
-    })
-    .then(indiceData => {
-      res.status(200).json(body)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json('Erro ao aualizar.')
-    })
+  where id_usuario = :id_usuario
+  and id_empreendimento = :id_empreendimento`,
+  { replacements: { id_usuario, id_empreendimento } })
+  .then(indiceData => {
+    if (indiceData[0].length > 0) {
+    } else {
+      UsuarioEmpreendimento.create(registro)
+    }
+  })
+  .then(resp => {
+    res.status(200).json(resp)
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(500).json('Erro ao inserir.')
+  })
 }
 
 exports.delUsuarioEmpreendimento = (req, res, next) => {
-  const id = req.params.id
+  const id_usuario = req.params.usuario
+  const id_empreendimento = req.params.empreendimento
 
-  UsuarioEmpreendimento.findByPk(id)
-    .then(indiceData => {
-      indiceData.destroy(indiceData)
-    })
-    .then(id => {
-      res.status(200).json(id)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json('Erro ao excluir.')
-    })
+  UsuarioEmpreendimento.sequelize.query(`
+  delete 
+  from empreendimento_usuario
+
+  where id_usuario = :id_usuario
+  and id_empreendimento = :id_empreendimento`,
+  { replacements: { id_usuario, id_empreendimento } })
+  .then(item => {
+    console.log('deletou')
+    res.status(200).json('Exclusão efetuada.')
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(500).json('Erro ao inserir.')
+  })
 }
 
 exports.getEmpreendimentosByUsuario = (req, res, next) => {

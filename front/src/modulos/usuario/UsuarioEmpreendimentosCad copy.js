@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import clienteAxios from '../../config/axios'
+import RadioBox from '../../components/RadioBox'
 import Input from '../../components/Input'
 import Form from '../../components/Form'
+import Button from '../../components/Button'
 import { FiSearch } from 'react-icons/fi'
 import ListaAuxiliar from '../../components/ListaAuxiliar'
 
@@ -25,28 +28,70 @@ const UsuarioEmpreendimentosCad = props => {
 
     const { token } = useSelector(state => state.login.login)
 
-    useEffect(() => {
-        setFormData({ id_usuario: props.id_usuario, id_empreendimento: null })
-    }, [])
+    const dispatch = useDispatch()
 
-    const addHandle = id_empreendimento => {
-        clienteAxios.post('/usuarioempreendimentos', 
-            { id_usuario: props.id_usuario, id_empreendimento: id_empreendimento }, 
-            { headers: { Authorization: token } 
-        })
+    useEffect(() => {
+        if (props.empreendimento.id_empreendimento) {
+            setFormData(props.empreendimento)
+        } else {
+            setFormData({ id_pessoa: props.id_pessoa, ...initialState })
+        }
+    }, [props.empreendimento])
+
+    const addHandle = event => {
+        event.preventDefault()
+
+        clienteAxios.post('/pessoacontato/add', formData, { headers: { Authorization: token } })
             .then(resposta => {
-                props.atualizar()
-                setFormDataAuxiliar(initialStateAuxiliar)
-                props.novoContatoHandle()
+                // dispatch(pessoasActions.loadContatos(resposta.data))
             })
             .catch(err => {
                 console.log('Erro ao cadastrar ', err)
             })
 
-            setFormDataAuxiliar(initialStateAuxiliar)
+        document.getElementById('ck-contato').checked = false
+    }
+
+    const editHandle = () => {
+
+        console.log('indo ', formData)
+
+        clienteAxios.put('/pessoacontato/upd', formData, { headers: { Authorization: token } })
+            .then(resposta => {
+                props.atualizar()
+            })
+            .catch(err => {
+                console.log('Erro ao cadastrar ', err)
+            })
+
+        document.getElementById('ck-contato').checked = false
+    }
+
+    const textHandler = (event) => {
+
+        let dataEntered = event.target.value
+
+        if (event.target.name === 'tipo') {
+            if (event.target.id === 'tipo1') {
+                dataEntered = '1'
+            } else {
+                dataEntered = '2'
+            }
+        }
+
+        if (event.target.name === 'whatsapp') {
+            dataEntered = event.target.value === '0' ? '1' : '0'
+        }
+
+        setFormData({
+            ...formData,
+            [event.target.name]: dataEntered
+        })
     }
 
     const clickSelectedHandle = (reg) => {
+
+        console.log(reg)
 
         setFormDataAuxiliar({
             ...formDataAuxiliar,
@@ -56,9 +101,33 @@ const UsuarioEmpreendimentosCad = props => {
             ...formData,
             id_usuario: reg.id_usuario
         })
-
-        addHandle(reg.id_empreendimento)
     }
+
+
+    const botao = !!formData.id_contato
+        ? (
+            <div style={{ marginTop: '20px', width: '100%', textAlign: 'center' }}>
+                <Button
+                    bg='rgba(0,128,0,0.8'
+                    type='button'
+                    className='w150'
+                    title='Salvar Contato'
+                    onClick={editHandle}
+                />
+            </div>
+
+        )
+        : (
+            <div style={{ marginTop: '20px', width: '100%', textAlign: 'center' }}>
+                <Button
+                    bg='rgba(0,128,0,0.8'
+                    type='button'
+                    className='w150'
+                    title='Salvar Contato'
+                    onClick={addHandle}
+                />
+            </div>
+        )
 
     return (
         <main className='usuario-empreendimento-cad__main' style={{ paddingTop: '10px' }} >
@@ -75,6 +144,8 @@ const UsuarioEmpreendimentosCad = props => {
                         name='nomeEmpreendimento'
                         next='nm_nick'
                         value={formDataAuxiliar.nomeEmpreendimento}
+                        onChange={textHandler}
+                    // onKeyDown={e => nextField(e.keyCode, 'nm_nick')}
                     />
                     {
                         showAuxiliarEmpreendimentos &&
@@ -95,4 +166,4 @@ const UsuarioEmpreendimentosCad = props => {
     );
 }
 
-export default UsuarioEmpreendimentosCad
+export default UsuarioEmpreendimentosCad;

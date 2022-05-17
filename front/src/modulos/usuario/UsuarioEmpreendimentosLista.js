@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import clienteAxios from '../../config/axios'
 import Swal from 'sweetalert2'
-import { BsTrash } from 'react-icons/bs'
-import { FaRegEdit } from 'react-icons/fa'
 import ListaIcones from '../../components/ListaIcones'
 
 import UsuarioEmpreendimentosCad from './UsuarioEmpreendimentosCad'
@@ -18,8 +16,6 @@ const UsuarioEmpreendimentosLista = props => {
 
     const { token } = useSelector(state => state.login.login)
 
-    const dispatch = useDispatch()
-
     const clickHandle = (empreendimento) => {
         if (!icones) {
             document.getElementById('ck-usuario-empreendimento').checked = false
@@ -28,35 +24,26 @@ const UsuarioEmpreendimentosLista = props => {
         setEmpreendimento(empreendimento)
     }
 
-    const novoContatoHandle = () => {
-        const elem = document.getElementById('ck-usuario-empreendimento')
-        elem.checked = !elem.checked
-        setEmpreendimento({})
-    }
-
-    const editContatoHandle = (empreendimento) => {
-        setIcones(false)
-        const elem = document.getElementById('ck-usuario-empreendimento')
-        elem.checked = true
-        setEmpreendimento(empreendimento)
-    }
-
     const atualizar = () => {
         if (props.id_usuario) {
             clienteAxios.get(`/usuarioempreendimentos/${props.id_usuario}`, { headers: { Authorization: token } })
                 .then(resposta => {
                     setEmpreendimentos(resposta.data)
-                    console.log(resposta.data)
-                    // dispatch(pessoasActions.loadContatos(resposta.data))
                 })
                 .catch(err => {
-                    // dispatch(descargaEmpreendimentosError())
                 })
         }
-
     }
 
-    const deletePessoaHandler = id => {
+    const novoContatoHandle = () => {
+        const elem = document.getElementById('ck-usuario-empreendimento')
+        elem.checked = !elem.checked
+        setEmpreendimento({})
+        atualizar()
+    }
+
+    const deleteEmpreendimentoHandler = item => {
+        console.log('delete ', item )
         Swal.fire({
             title: 'Tem certeza?',
             text: "Você está excluindo este registro!",
@@ -67,12 +54,12 @@ const UsuarioEmpreendimentosLista = props => {
             confirmButtonText: 'OK, excluído!'
         }).then((result) => {
             if (result.isConfirmed) {
-                clienteAxios.delete(`/pessoacontato/del/${id}`, { headers: { Authorization: token } })
+                clienteAxios.delete(`/usuarioempreendimentos/${item.id_usuario}/${item.id_empreendimento}`)
                     .then(resposta => {
                         atualizar()
                     })
                     .catch(err => {
-                        // dispatch(descargaEmpreendimentosError())
+                        console.log('deletou msg erro')
                     })
 
                 Swal.fire(
@@ -96,9 +83,9 @@ const UsuarioEmpreendimentosLista = props => {
                 <label className='contato-button' onClick={novoContatoHandle}></label>
             </div>
                 {1 && <UsuarioEmpreendimentosCad
-                    id_pessoa={props.id_pessoa}
-                    empreendimento={empreendimento}
+                    id_usuario={props.id_usuario}
                     atualizar={atualizar}
+                    novoContatoHandle={novoContatoHandle}
                     />}
             <ul className='contato-items'>
                 {
@@ -109,10 +96,9 @@ const UsuarioEmpreendimentosLista = props => {
                         >
                             {item.nomeempreendimento}
 
-                            {icones && 1 === item.id_usuario &&
+                            {icones  &&
                                 <ListaIcones
-                                    onClick1={() => editContatoHandle(item)}
-                                    onClick3={() => deletePessoaHandler(item.id_empreendimento)}
+                                    onClick3={() => deleteEmpreendimentoHandler(item)}
                                 />
                             }
 

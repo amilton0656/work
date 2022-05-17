@@ -83,7 +83,7 @@ const ListaAuxiliar = props => {
     }
     
     return (
-        <Backdrop setShowLista={props.setShowLista}>
+        <Backdrop setShowLista={props.setShowLista} onClickClose={props.onClickClose}>
             <div className='lista-aux__main'>
                 <div className='lista-aux__container' >
                     {isLoading && <Spinner />}

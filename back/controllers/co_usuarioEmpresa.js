@@ -18,69 +18,34 @@ exports.addUsuarioEmpresa = (req, res, next) => {
       UsuarioEmpresa.create(registro)
     }
   })
+  .then(resp => {
+    res.status(200).json(resp)
+  })
   .catch(err => {
     console.log(err)
     res.status(500).json('Erro ao inserir.')
   })
 }
 
-exports.updUsuarioEmpresa = (req, res, next) => {
-  const id = req.params.id
-  const body = req.body
-
-  UsuarioEmpresa.findByPk(id)
-    .then(indiceData => {
-      indiceData.update(body)
-    })
-    .then(indiceData => {
-      res.status(200).json(body)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).json('Erro ao aualizar.')
-    })
-}
-
 exports.delUsuarioEmpresa = (req, res, next) => {
-  const registro = req.body
-  const id_usuario = registro.id_usuario
-  const id_empresa = registro.id_empresa
+  const id_usuario = req.params.usuario
+  const id_empresa = req.params.empresa
 
   UsuarioEmpresa.sequelize.query(`
-  select * 
+  delete 
   from usuario_empresa
 
   where id_usuario = :id_usuario
   and id_empresa = :id_empresa`,
   { replacements: { id_usuario, id_empresa } })
-  .then(indiceData => {
-    if (indiceData[0].length > 0) {
-    } else {
-      UsuarioEmpresa.create(registro)
-    }
+  .then(item => {
+    console.log('deletou')
+    res.status(200).json('Exclusão efetuada.')
   })
   .catch(err => {
     console.log(err)
     res.status(500).json('Erro ao inserir.')
   })
-}
-
-exports.getEmpresaByUsuario = (req, res, next) => {
-  const registro = req.body
-  const id_usuario = registro.id_usuario
-  const id_empresa = registro.id_empresa
-
-  // UsuarioEmpresa.findByPk(id)
-  //   .then(indiceData => {
-  //     indiceData.destroy(indiceData)
-  //   })
-  //   .then(id => {
-  //     res.status(200).json(id)
-  //   })
-  //   .catch(err => {
-  //     console.log(err)
-  //     res.status(500).json('Erro ao excluir.')
-  //   })
 }
 
 exports.getEmpresasByUsuario = (req, res, next) => {

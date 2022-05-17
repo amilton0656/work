@@ -1,11 +1,11 @@
-.usuario-empresa-cad__main {
+.usuario-empreendimento-cad__main {
     padding-top: 10px;
     max-height: 0;
     overflow: hidden;
     transition: all 0.7s ease;
 }
 
-#ck-usuario-empresa:checked ~ .usuario-empresa-cad__main {
+#ck-usuario-empreendimento:checked ~ .usuario-empreendimento-cad__main {
     max-height: 400px;
     transition: all 0.5s ease;
 }

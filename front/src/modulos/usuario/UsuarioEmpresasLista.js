@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector} from 'react-redux'
 import clienteAxios from '../../config/axios'
 import Swal from 'sweetalert2'
-import { BsTrash } from 'react-icons/bs'
-import { FaRegEdit } from 'react-icons/fa'
-// import { pessoasActions } from '../../../store/pessoaReducers'
 import ListaIcones from '../../components/ListaIcones'
 
 import UsuarioEmpresasCad from './UsuarioEmpresasCad'
@@ -19,8 +16,6 @@ const UsuarioEmpresasLista = props => {
 
     const { token } = useSelector(state => state.login.login)
 
-    const dispatch = useDispatch()
-
     const clickHandle = (empresa) => {
         if (!icones) {
             document.getElementById('ck-usuario-empresa').checked = false
@@ -29,36 +24,26 @@ const UsuarioEmpresasLista = props => {
         setEmpresa(empresa)
     }
 
-    const novoContatoHandle = () => {
-        const elem = document.getElementById('ck-usuario-empresa')
-        elem.checked = !elem.checked
-        setEmpresa({})
-        console.log(window.screen.height)
-    }
-
-    const editContatoHandle = (empresa) => {
-        setIcones(false)
-        const elem = document.getElementById('ck-usuario-empresa')
-        elem.checked = true
-        setEmpresa(empresa)
-    }
-
     const atualizar = () => {
         if (props.id_usuario) {
             clienteAxios.get(`/usuarioempresas/${props.id_usuario}`, { headers: { Authorization: token } })
                 .then(resposta => {
                     setEmpresas(resposta.data)
-                    console.log(resposta.data)
-                    // dispatch(pessoasActions.loadContatos(resposta.data))
                 })
                 .catch(err => {
-                    // dispatch(descargaEmpreendimentosError())
                 })
         }
-
     }
 
-    const deletePessoaHandler = id => {
+    const novoContatoHandle = () => {
+        const elem = document.getElementById('ck-usuario-empresa')
+        elem.checked = !elem.checked
+        setEmpresa({})
+        atualizar()
+    }
+
+    const deleteEmpresaHandler = item => {
+        console.log('delete ', item )
         Swal.fire({
             title: 'Tem certeza?',
             text: "Você está excluindo este registro!",
@@ -69,12 +54,12 @@ const UsuarioEmpresasLista = props => {
             confirmButtonText: 'OK, excluído!'
         }).then((result) => {
             if (result.isConfirmed) {
-                clienteAxios.delete(`/pessoacontato/del/${id}`, { headers: { Authorization: token } })
+                clienteAxios.delete(`/usuarioempresas/${item.id_usuario}/${item.id_empresa}`)
                     .then(resposta => {
                         atualizar()
                     })
                     .catch(err => {
-                        // dispatch(descargaEmpreendimentosError())
+                        console.log('deletou msg erro')
                     })
 
                 Swal.fire(
@@ -99,8 +84,8 @@ const UsuarioEmpresasLista = props => {
             </div>
                 {1 && <UsuarioEmpresasCad
                     id_usuario={props.id_usuario}
-                    empresa={empresa}
                     atualizar={atualizar}
+                    novoContatoHandle={novoContatoHandle}
                     />}
             <ul className='contato-items'>
                 {
@@ -111,10 +96,9 @@ const UsuarioEmpresasLista = props => {
                         >
                             {item.nomeempresa}
 
-                            {icones && 1 === item.id_usuario &&
+                            {icones  &&
                                 <ListaIcones
-                                    onClick1={() => editContatoHandle(item)}
-                                    onClick3={() => deletePessoaHandler(item.id_empresa)}
+                                    onClick3={() => deleteEmpresaHandler(item)}
                                 />
                             }
 
