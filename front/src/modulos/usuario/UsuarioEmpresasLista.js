@@ -13,15 +13,20 @@ const UsuarioEmpresasLista = props => {
     const [icones, setIcones] = useState(false)
     const [empresa, setEmpresa] = useState('')
     const [empresas, setEmpresas] = useState([])
+    const [id, setId] = useState('')
 
     const { token } = useSelector(state => state.login.login)
 
     const clickHandle = (empresa) => {
-        if (!icones) {
+
+        if (empresa.id_empresa === id) {
+            setIcones(!icones)
             document.getElementById('ck-usuario-empresa').checked = false
+        } else {
+            setIcones(true)
+            setId(empresa.id_empresa)
+
         }
-        setIcones(!icones)
-        setEmpresa(empresa)
     }
 
     const atualizar = () => {
@@ -91,12 +96,12 @@ const UsuarioEmpresasLista = props => {
                 {
                     empresas.map(item => (
                         <li
-                        className='contato-item' key={item.id_empresa}
-                        onClick={() => clickHandle(item)}
+                            className={icones && id === item.id_empresa ? 'contato-item consulta-padrao__bold' : 'contato-item'}
+                            onClick={() => clickHandle(item)}
                         >
                             {item.nomeempresa}
 
-                            {icones  &&
+                            {icones  && id === item.id_empresa &&
                                 <ListaIcones
                                     onClick3={() => deleteEmpresaHandler(item)}
                                 />

@@ -57,6 +57,11 @@
     width: 100%;
     list-style: none;
 }
+
+.contato-item__bold {
+    font-weight: bold;
+}
+
 .contato-item:first-child {
     border-top: none;
 }

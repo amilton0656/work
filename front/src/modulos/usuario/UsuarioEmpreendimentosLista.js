@@ -13,15 +13,21 @@ const UsuarioEmpreendimentosLista = props => {
     const [icones, setIcones] = useState(false)
     const [empreendimento, setEmpreendimento] = useState('')
     const [empreendimentos, setEmpreendimentos] = useState([])
+    const [id, setId] = useState('')
 
     const { token } = useSelector(state => state.login.login)
 
     const clickHandle = (empreendimento) => {
-        if (!icones) {
+
+        if (empreendimento.id_empreendimento === id) {
+            setIcones(!icones)
             document.getElementById('ck-usuario-empreendimento').checked = false
+        } else {
+            setIcones(true)
+            setId(empreendimento.id_empreendimento)
+
         }
-        setIcones(!icones)
-        setEmpreendimento(empreendimento)
+
     }
 
     const atualizar = () => {
@@ -91,12 +97,12 @@ const UsuarioEmpreendimentosLista = props => {
                 {
                     empreendimentos.map(item => (
                         <li
-                        className='contato-item' key={item.id_empreendimento}
+                        className={icones && id === item.id_empreendimento ? 'contato-item consulta-padrao__bold' : 'contato-item'}
                         onClick={() => clickHandle(item)}
                         >
                             {item.nomeempreendimento}
 
-                            {icones  &&
+                            {icones  && id === item.id_empreendimento &&
                                 <ListaIcones
                                     onClick3={() => deleteEmpreendimentoHandler(item)}
                                 />

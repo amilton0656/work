@@ -206,3 +206,5 @@ export const dataFormatada = () => {
 
       return `${diaSemana}, ${dia} de ${mes} de ${ano}`
 }
+
+

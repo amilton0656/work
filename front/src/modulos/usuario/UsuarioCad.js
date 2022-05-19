@@ -250,9 +250,6 @@ const UsuarioCad = props => {
         })
     }
 
-    console.log('formData', formData)
-    console.log('xxxxx', formData.fg_somente_seus.toString() === '1')
-
     const aaa = formData.fg_somente_seus.toString() === '1'
     console.log('aaa', aaa)
     
