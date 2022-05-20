@@ -11,6 +11,8 @@ const UsuarioRecursos = () => {
     const [dataOrdem, setDataOrdem] = useState([])
 
     const { token } = useSelector(state => state.login.login)
+    const id_usuario = useSelector(state => state.login.login.id_usuario)
+    console.log('id_usuario', id_usuario)
 
     const getData = (api) => {
         setIsLoading(true)
@@ -59,16 +61,15 @@ const UsuarioRecursos = () => {
     }
 
     useEffect(() => {
-        getData('/recursos')
+        getData(`/usuariorecursosall/${id_usuario}`)
 }, [])
 
     return ( 
         <div>
             {
                 data.map(item => (
-                    <li className='usu-rec__linha'>
-                        <div style={{width: '30px', marginLeft: '10px', paddingRight: '10px'}}><input type="checkbox" /></div>
-                        <div style={{width: '100px'}}>{item.id_recurso}</div>
+                    <li className={item.id > 0 ? 'usu-rec__linha usu-rec__bold' : 'usu-rec__linha'}>
+                        <div style={{width: '100px', marginLeft: '10px'}}>{item.id_recurso}</div>
                         <div>{item.nm_recurso}</div>
                     </li>
                 ))

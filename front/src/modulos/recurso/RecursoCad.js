@@ -117,7 +117,7 @@ const RecursoCad = props => {
         let dataEntered = event.target.value
 
         if (event.target.name === 'notshow') {
-            dataEntered = event.target.value === false ? '0' : '1'
+            dataEntered = event.target.value === '0' ? '1' : '0'
         }
 
         setFormData({
@@ -263,10 +263,11 @@ const RecursoCad = props => {
                             className='form-input'
                             id="notshow"
                             name="notshow"
-                            defaultChecked={formData.notshow === null || 
-                                            formData.notshow.toString() === '0' ||
-                                            formData.notshow === false
-                                            ? false : true}
+                            // checked={formData.notshow === null || 
+                            //                 formData.notshow.toString() === '0' ||
+                            //                 formData.notshow === false
+                            //                 ? false : true}
+                            checked={formData.notshow.toString() === '0' ? false : true}
                             onChange={textHandler}
                             value={formData.notshow}
                         />

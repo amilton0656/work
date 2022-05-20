@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     login: {
-        id: '',
+        id_usuario: '',
         usuario: '',
         auth: false,
         token: ''
@@ -32,7 +32,7 @@ const loginSlice = createSlice({
         login(state, action) {
             state.login = {
                 ...state.login,
-                id: action.payload.id,
+                id_usuario: action.payload.id_usuario,
                 usuario: action.payload.nome,
                 auth: action.payload.auth,
                 token: action.payload.token,
@@ -42,7 +42,7 @@ const loginSlice = createSlice({
         logout(state, action) {
             state.login = {
                 ...state.login,
-                id: '',
+                id_usuario: '',
                 usuario: '',
                 auth: false,
                 token: ''
