@@ -23,7 +23,7 @@ import RecursoLista from '../modulos/recurso/RecursoLista'
 
 import UsuarioCad from '../modulos/usuario/UsuarioCad'
 import UsuarioLista from '../modulos/usuario/UsuarioLista'
-import UsuarioRecursos from '../modulos/usuario/UsuarioRecursos'
+import UsuarioRecursoLista from '../modulos/usuario/UsuarioRecursoLista'
 
 import EmpresaCad from '../modulos/empresa/EmpresaCad'
 import EmpresaLista from '../modulos/empresa/EmpresaLista'
@@ -75,7 +75,7 @@ const Rotas = () => {
 
                 <Route path="/usuario/lista" element={<UsuarioLista />} />     
                 <Route path="/usuario/formdados" element={<UsuarioCad />} />
-                <Route path="/usuario/recursos" element={<UsuarioRecursos />} />
+                <Route path="/usuario/recursos" element={<UsuarioRecursoLista />} />
 
                 <Route path="/recurso/lista" element={<RecursoLista />} />
                 <Route path="/recurso/formdados" element={<RecursoCad />} />

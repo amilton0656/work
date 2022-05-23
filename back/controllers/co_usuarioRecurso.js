@@ -1,6 +1,6 @@
 const UsuarioRecurso = require('../models/mo_usuarioRecurso')
 
-exports.addUsuarioRecurso = (req, res, next) => {
+exports.updUsuarioRecurso = (req, res, next) => {
   const registro = req.body
   const id_usuario = registro.id_usuario
   const id_recurso = registro.id_recurso
@@ -15,33 +15,14 @@ exports.addUsuarioRecurso = (req, res, next) => {
   .then(indiceData => {
     if (indiceData[0].length > 0) {
       UsuarioRecurso.destroy(registro)
+      console.log('deletou')
     } else {
       UsuarioRecurso.create(registro)
+      console.log('inseriu')
     }
   })
   .then(resp => {
     res.status(200).json(resp)
-  })
-  .catch(err => {
-    console.log(err)
-    res.status(500).json('Erro ao inserir.')
-  })
-}
-
-exports.delUsuarioRecurso = (req, res, next) => {
-  const id_usuario = req.params.usuario
-  const id_recurso = req.params.empresa
-
-  UsuarioRecurso.sequelize.query(`
-  delete 
-  from usuario_empresa
-
-  where id_usuario = :id_usuario
-  and id_recurso = :id_recurso`,
-  { replacements: { id_usuario, id_recurso } })
-  .then(item => {
-    console.log('deletou')
-    res.status(200).json('Exclusão efetuada.')
   })
   .catch(err => {
     console.log(err)

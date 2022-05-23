@@ -8,7 +8,6 @@ const router = express.Router()
 
 router.get('/usuariorecursos/:id_usuario', controller.getRecursosByUsuario)
 router.get('/usuariorecursosall/:id_usuario', controller.getRecursosByUsuarioAll)
-router.post('/usuariorecursos', controller.addUsuarioRecurso)
-router.delete('/usuariorecursos/:usuario/:recurso', controller.delUsuarioRecurso)
+router.post('/usuariorecurso', controller.updUsuarioRecurso)
 
 module.exports = router
