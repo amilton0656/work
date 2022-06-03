@@ -14,8 +14,16 @@ exports.updUsuarioRecurso = (req, res, next) => {
   { replacements: { id_usuario, id_recurso } })
   .then(indiceData => {
     if (indiceData[0].length > 0) {
-      UsuarioRecurso.destroy(registro)
-      console.log('deletou')
+      UsuarioRecurso.sequelize.query(`
+      delete 
+      from usuario_recurso
+    
+      where id_usuario = :id_usuario
+      and id_recurso = :id_recurso`,
+      { replacements: { id_usuario, id_recurso } })
+      .then(resp => {
+        console.log('deletou')
+      })
     } else {
       UsuarioRecurso.create(registro)
       console.log('inseriu')

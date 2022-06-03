@@ -31,6 +31,8 @@ import EmpresaLista from '../modulos/empresa/EmpresaLista'
 import EmpreendimentoCad from '../modulos/empreendimento/EmpreendimentoCad'
 import EmpreendimentoLista from '../modulos/empreendimento/EmpreendimentoLista'
 
+import PropostaCad from '../modulos/proposta/PropostaCad'
+
 import ErpNavigator from '../modulos/erp/menu/ErpNavigator'
 
 import TesteScroll from '../modulos/testes/TesteScroll'
@@ -85,6 +87,8 @@ const Rotas = () => {
 
                 <Route path="/empreendimento/lista" element={<EmpreendimentoLista />} />
                 <Route path="/empreendimento/formdados" element={<EmpreendimentoCad />} />
+
+                <Route path="/proposta/formdados" element={<PropostaCad />} />
 
                 <Route path="/erp/navigator" element={<ErpNavigator />} />
 
