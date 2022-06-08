@@ -27,6 +27,52 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ Expediente - Feriado de Corpus Christi */}
+            <MensagemText
+                titulo="Expediente - Feriado de Corpus Christi"
+                data="08/06/2022"
+                cor="steelblue"
+                texto={
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
+                        <br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Encerramento:</span>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Admininistração </span></div> 
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Obras (Bliss)</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 15/JUN/2022, quarta-feira, no horário normal </span></div>
+                                </div>
+                                {/* <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div> */}
+                            </div>
+
+                        </div>
+
+                        <div style={{ marginTop: '30px' }}>
+                            <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Retorno:</span>
+
+                        </div>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.2rem', flex: 1 }}>
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Admininistração </span></div>
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Obras (Bliss)</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 20/JUN/2022, segunda-feira, no horário normal </span></div>
+                                </div>
+                                {/* <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div> */}
+                            </div>
+
+                        </div>
+                        <br />
+
+                    </div>
+
+                } />
+
             {/* ************************ bolinho liliane */}
             <MensagemText
                 titulo="Aniversário"
