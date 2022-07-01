@@ -27,8 +27,19 @@ const MensagensLista = () => {
                     : null
             }
 
-             {/* ************************ bolinho amilton */}
-             <MensagemText
+            {/* ************************ niver Fabio */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="01/07/2022"
+                cor="#28A745"
+                img="img/aniv08.png"
+                nome="FABIO"
+                local="(Presidência)"
+                dataExt="01/julho - Sexta-feira"
+            />
+
+            {/* ************************ bolinho amilton */}
+            <MensagemText
                 titulo="Aniversário"
                 data="13/06/2022"
                 cor="steelblue"
@@ -64,7 +75,7 @@ const MensagensLista = () => {
 
                         <div style={{ display: 'flex', marginLeft: 40 }}>
                             <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
-                                <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Admininistração </span></div> 
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Admininistração </span></div>
                                 <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div>
                                 <div style={{ display: 'flex' }}>
                                     <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Obras (Bliss)</span></div>
@@ -105,7 +116,7 @@ const MensagensLista = () => {
                 cor="#28A745"
                 texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
-                    <span className='intra-card__texto-nome'>Liliane</span>,  em comemoração ao seu aniversário, está oferecendo um 
+                    <span className='intra-card__texto-nome'>Liliane</span>,  em comemoração ao seu aniversário, está oferecendo um
                     <span className='intra-card__texto-bolo'> bolinho</span>
                     , hoje, às 14:00, no 11º andar (copa).
                 </p>} />
