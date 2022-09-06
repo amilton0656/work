@@ -77,6 +77,8 @@ export const menuUteis = [
   {nome: 'Google', link: 'http://www.google.com.br'},
   {nome: 'Horário Oficial do Brasil', link: 'http://www.horariodebrasilia.org'},
   {nome: 'Código do Banco', link: 'https://www.codigobanco.com'},
+  {nome: 'Sienge', link: 'https://cotaemp.sienge.com.br/'},
+  {nome: 'Hinc', link: 'https://www.hinc.com.br/'},
   {nome: 'WhatsApp', link: 'https://web.whatsapp.com/'},
 
 ]
