@@ -50,7 +50,9 @@ let decoded = base64_decode(encoded);
         setrrr('entrou')
         console.log('enrou useeffect')
 
-            axios.get('https://api.postmon.com.br/v1/cep/88080-250', 
+        //C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --disable-web-security --user-data-dir="c:/MiCarpeta"
+
+            axios.get('https://api.sienge.com.br/cotaemp/public/api/v1/customers', 
             {
                 headers: {
                   'Authorization': `Basic ${encodedToken}` ,
@@ -61,7 +63,7 @@ let decoded = base64_decode(encoded);
             )
                 .then(resposta => {
                     // const { logradouro, bairro, cidade, estado } = resposta.data
-                    setDataAll(resposta.data)
+                    setDataAll(resposta.data.results)
                     setrrr('sim')
     
                 })
@@ -84,12 +86,14 @@ let decoded = base64_decode(encoded);
         //     })
     }, [])
 
+    console.log(dataAll)
+
     return (
         <>
             {
-                // dataAll.map((reg, i) => (
-                //     <div style={{ background: 'white' }}></div>
-                // ))
+                dataAll.map((reg, i) => (
+                    <div key={i}> ----      {reg.name} - {reg.cpf}</div>
+                ))
 
             }
             <div>
