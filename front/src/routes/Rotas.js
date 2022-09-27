@@ -43,6 +43,7 @@ import InputButton from '../components/InputWithButton'
 import PrintPrint from '../components/PrintPrint'
 import TesteReport from '../exemplos/TesteReport'
 import Teste from '../modulos/testes/Teste'
+import TesteSiengeLista from '../modulos/sienge/TesteSiengeLista'
 
 
 const Rotas = () => {
@@ -94,6 +95,8 @@ const Rotas = () => {
 
                 <Route path="/teste" element={<Teste />} />
                 <Route path="/menu" element={<Menu01 />} />
+
+                <Route path="/sienge" element={<TesteSiengeLista />} />
 
             </Routes>
 
