@@ -8,6 +8,7 @@ const router = express.Router()
 
 router.get('/sienge', controller.getAllClientes)
 
+
 // router.get('/usuarios', controller.getAllUsuarios)
 // router.get('/usuario/:id_usuario', controller.getUsuario)
 // router.post('/usuario', controller.addUsuario)

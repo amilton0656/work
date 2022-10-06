@@ -17,6 +17,7 @@ exports.getAllClientes = (req, res, next) => {
                 .then(resposta => {
                     console.log('sim', resposta.data)
                     res.status(200).json(resposta.data.results)
+                    
     
                 })
 
