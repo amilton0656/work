@@ -16,6 +16,7 @@ const portalRoutes = require('./ro_portal')
 const propostaRoutes = require('./ro_proposta')
 const recursoRoutes = require('./ro_recurso')
 const empresaRoutes = require('./ro_empresa')
+const siengeRoutes = require('./ro_sienge')
 
 
 module.exports = [
@@ -36,5 +37,6 @@ module.exports = [
     propostaRoutes,
     recursoRoutes,
     empresaRoutes,
-    usuarioEmpreendimentoRoutes
+    usuarioEmpreendimentoRoutes,
+    siengeRoutes
 ]
