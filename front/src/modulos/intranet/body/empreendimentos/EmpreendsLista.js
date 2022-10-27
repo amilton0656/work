@@ -26,29 +26,37 @@ const EmpreendLista = ({ history }) => {
                     : null
             }
 
-            <Empreend_Modelo 
-                logo = 'img/Vivaz Condominio Jardim - Logo.jpg' 
-                fachada = 'img/Vivaz Condominio Jardim - Fachada.jpg' />
+            <Empreend_Modelo
+                logo='img/Bliss Living - Logo.jpg'
+                fachada='img/Bliss Living - Fachada.jpg' />
 
-            <Empreend_Modelo 
-                logo = 'img/Porto Mare Residence - Logo.jpg' 
-                fachada = 'img/Porto Mare Residence - Fachada.jpg' />  
+            <Empreend_Modelo
+                logo='img/Residencial Dalva Schutz - Logo.jpg'
+                fachada='img/Residencial Dalva Schultz - Fachada.jpg' />
 
-            <Empreend_Modelo 
-                logo = 'img/Horizonte Novo Estreito - Logo.jpg' 
-                fachada = 'img/Horizonte Novo Estreito - Fachada.jpg' />  
+            <Empreend_Modelo
+                logo='img/Vivaz Condominio Jardim - Logo.jpg'
+                fachada='img/Vivaz Condominio Jardim - Fachada.jpg' />
 
-            <Empreend_Modelo 
-                logo = 'img/Urban Classic - Logo.jpg' 
-                fachada = 'img/Urban Classic - Fachada.jpg' />  
+            <Empreend_Modelo
+                logo='img/Porto Mare Residence - Logo.jpg'
+                fachada='img/Porto Mare Residence - Fachada.jpg' />
 
-            <Empreend_Modelo 
-                logo = 'img/City_Logo.jpg' 
-                fachada = 'img/City_Fachada.jpg' />     
+            <Empreend_Modelo
+                logo='img/Horizonte Novo Estreito - Logo.jpg'
+                fachada='img/Horizonte Novo Estreito - Fachada.jpg' />
 
-            <Empreend_Modelo 
-                logo = 'img/SolarDeGaia - Logo.jpg' 
-                fachada = 'img/SolarDeGaia - Fachada.jpg' />              
+            <Empreend_Modelo
+                logo='img/Urban Classic - Logo.jpg'
+                fachada='img/Urban Classic - Fachada.jpg' />
+
+            <Empreend_Modelo
+                logo='img/City_Logo.jpg'
+                fachada='img/City_Fachada.jpg' />
+
+            <Empreend_Modelo
+                logo='img/SolarDeGaia - Logo.jpg'
+                fachada='img/SolarDeGaia - Fachada.jpg' />
 
         </div>
     )
