@@ -27,14 +27,67 @@ const MensagensLista = () => {
                     : null
             }
 
-             {/* ************************ bolinho david-cinira */}
-             <MensagemText
+            {/* ************************ Expediente - Feriado de Corpus Christi */}
+            <MensagemText
+                titulo="Expediente - Jogos do Brasil - Fase de Grupos"
+                data="21/11/2022"
+                cor="green"
+                texto={
+                    <div className="card-text" style={{ fontSize: '1.5rem', color: 'blue' }}>
+                        <br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 24/11/2022 <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>- (Quinta-feira):</span></span>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Das 08:00 às 12:00 - Horário Normal </span></div>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Retorno às 13:00 - Encerramento às 14:30 </span></div>
+                            </div>
+
+                        </div>
+
+                        <div style={{ marginTop: '30px' }}>
+                            <br />
+                            <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 28/11/2022<span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>- (Segunda-feira):</span></span>
+
+                            <div style={{ display: 'flex', marginLeft: 40 }}>
+                                <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                    <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Das 08:00 às 12:00 - Horário Normal </span></div>
+                                    <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Retorno às 15:15 - Encerramento às 18:00 </span></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div style={{ marginTop: '30px' }}>
+                            <br />
+                            <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 02/12/2022<span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>- (Sexta-feira):</span></span>
+
+                            <div style={{ display: 'flex', marginLeft: 40 }}>
+                                <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                    <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Das 08:00 às 12:00 - Horário Normal </span></div>
+                                    <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Retorno às 13:00 - Encerramento às 14:30 </span></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <br />
+
+                    </div>
+
+                } />
+
+            {/* ************************ bolinho david-cinira */}
+            <MensagemText
                 titulo="Aniversários"
                 data="14/11/2022"
                 cor="#28A745"
                 texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
-                    <span className='intra-card__texto-nome'>David</span>, comemorando seu aniversário ocorrido na sexta-feira 
+                    <span className='intra-card__texto-nome'>David</span>, comemorando seu aniversário ocorrido na sexta-feira
                     e <span className='intra-card__texto-nome'>Cinira</span>,
                     antecipando a comemoração de seu aniversário, que acontece amanhã, convidam a
                     todos para aquele tradicional
@@ -63,8 +116,8 @@ const MensagensLista = () => {
                 dataExt="11/novembro - Sexta-feira"
             />
 
-             {/* ************************ bolinho eugenio-cida */}
-             <MensagemText
+            {/* ************************ bolinho eugenio-cida */}
+            <MensagemText
                 titulo="Aniversários"
                 data="22/09/2022"
                 cor="#28A745"
@@ -88,8 +141,8 @@ const MensagensLista = () => {
                 dataExt="24/setembro - Sábado"
             />
 
-                        {/* ************************ bolinho Lidia */}
-                        <MensagemText
+            {/* ************************ bolinho Lidia */}
+            <MensagemText
                 titulo="Aniversário"
                 data="15/09/2022"
                 cor="steelblue"
