@@ -34,7 +34,10 @@ const MensagensLista = () => {
                 cor="green"
                 texto={
                     <div className="card-text" style={{ fontSize: '1.5rem', color: 'blue' }}>
-                        <br />
+
+<br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'green' }}>Administração: </span>
+                        <br /><br />
                         <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 24/11/2022 <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>- (Quinta-feira):</span></span>
 
                         <div style={{ display: 'flex', marginLeft: 40 }}>
