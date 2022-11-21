@@ -35,10 +35,10 @@ const MensagensLista = () => {
                 texto={
                     <div className="card-text" style={{ fontSize: '1.5rem', color: 'blue' }}>
 
-<br />
+                        <br />
                         <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'green' }}>Administração: </span>
                         <br /><br />
-                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 24/11/2022 <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>- (Quinta-feira):</span></span>
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 24/11/2022 <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}> - (Quinta-feira):</span></span>
 
                         <div style={{ display: 'flex', marginLeft: 40 }}>
                             <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
@@ -50,7 +50,7 @@ const MensagensLista = () => {
 
                         <div style={{ marginTop: '30px' }}>
                             <br />
-                            <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 28/11/2022<span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>- (Segunda-feira):</span></span>
+                            <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 28/11/2022<span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}> - (Segunda-feira):</span></span>
 
                             <div style={{ display: 'flex', marginLeft: 40 }}>
                                 <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
@@ -64,7 +64,7 @@ const MensagensLista = () => {
 
                         <div style={{ marginTop: '30px' }}>
                             <br />
-                            <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 02/12/2022<span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>- (Sexta-feira):</span></span>
+                            <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 02/12/2022<span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}> - (Sexta-feira):</span></span>
 
                             <div style={{ display: 'flex', marginLeft: 40 }}>
                                 <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
