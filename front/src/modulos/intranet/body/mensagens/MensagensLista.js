@@ -27,7 +27,49 @@ const MensagensLista = () => {
                     : null
             }
 
-            {/* ************************ Expediente - Feriado de Corpus Christi */}
+            {/* ************************ Expediente - Fim de Ano */}
+            <MensagemText
+                titulo="Expediente - Fim de Ano"
+                data="29/11/2022"
+                cor="red"
+                texto={
+                    <div className="card-text" style={{ fontSize: '1.5rem', color: 'blue' }}>
+
+                        <br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'blue' }}>Administração/Assistência Técnica: </span>
+                        <br /><br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4c4c4c' }}>Encerramento:</span>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Dia 16/12/2022</span></div>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Sexta-feira - No horário normal </span></div>
+                            </div>
+
+                        </div>
+
+                        <br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4c4c4c' }}>Retorno:</span>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Dia 09/01/2023</span></div>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Segunda-feira - No horário normal </span></div>
+                            </div>
+
+                        </div>
+
+
+
+
+                        <br />
+
+                    </div>
+
+                } />
+
+
+            {/* ************************ Expediente - Jogos do Brasil - Fase de Grupos */}
             <MensagemText
                 titulo="Expediente - Jogos do Brasil - Fase de Grupos"
                 data="21/11/2022"
