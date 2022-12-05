@@ -27,6 +27,37 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ Expediente - Jogos do Brasil - Oitavas */}
+            <MensagemText
+                titulo="Expediente - Jogos do Brasil - Brasil X Coreia do Sul"
+                data="05/12/2022"
+                cor="green"
+                texto={
+                    <div className="card-text" style={{ fontSize: '1.5rem', color: 'blue' }}>
+
+                        <br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'green' }}>Administração: </span>
+                        <br /><br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 05/12/2022 <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}> - (Segunda-feira):</span></span>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Das 08:00 às 12:00 - Horário Normal </span></div>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Retorno às 13:00 - Encerramento às 14:30 </span></div>
+                            </div>
+
+                        </div>
+
+                        
+
+                        
+
+                        <br />
+
+                    </div>
+
+                } />
+
             {/* ************************ Expediente - Fim de Ano */}
             <MensagemText
                 titulo="Expediente - Fim de Ano"
