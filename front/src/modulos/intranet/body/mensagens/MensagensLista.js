@@ -27,6 +27,39 @@ const MensagensLista = () => {
                     : null
             }
 
+                        {/* ************************ Expediente - Jogos do Brasil - Oitavas */}
+                        <MensagemText
+                titulo="Expediente - Jogos do Brasil - Brasil X Croácia"
+                data="07/12/2022"
+                cor="green"
+                texto={
+                    <div className="card-text" style={{ fontSize: '1.5rem', color: 'blue' }}>
+
+                        <br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'green' }}>Administração: </span>
+                        <br /><br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Dia 09/12/2022 <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}> - (Sexta-feira):</span></span>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Das 08:00 às 11:00 </span></div>
+                                <div style={{ width: '450px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Retorno às 14:15 - Se NÃO houver prorrogação </span></div>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Retorno às 15:15 - Se HOUVER prorrogação </span></div>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Encerramento às 18:00 </span></div>
+                            </div>
+
+                        </div>
+
+                        
+
+                        
+
+                        <br />
+
+                    </div>
+
+                } />
+
             {/* ************************ Expediente - Jogos do Brasil - Oitavas */}
             <MensagemText
                 titulo="Expediente - Jogos do Brasil - Brasil X Coreia do Sul"
