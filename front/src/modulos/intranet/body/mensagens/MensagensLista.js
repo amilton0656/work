@@ -27,8 +27,8 @@ const MensagensLista = () => {
                     : null
             }
 
-                        {/* ************************ Expediente - Jogos do Brasil - Oitavas */}
-                        <MensagemText
+            {/* ************************ Expediente - Jogos do Brasil - Oitavas */}
+            <MensagemText
                 titulo="Expediente - Jogos do Brasil - Brasil X Croácia"
                 data="07/12/2022"
                 cor="green"
@@ -45,14 +45,14 @@ const MensagensLista = () => {
                                 <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Das 08:00 às 11:00 </span></div>
                                 <div style={{ width: '450px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Retorno às 14:15 - Se NÃO houver prorrogação </span></div>
                                 <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Retorno às 15:15 - Se HOUVER prorrogação </span></div>
-                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Encerramento às 18:00 </span></div>
+                                <div style={{ width: '400px' }}><span style={{ color: 'green', fontSize: '1.3rem' }}>Encerramento às 17:30 </span></div>
                             </div>
 
                         </div>
 
-                        
 
-                        
+
+
 
                         <br />
 
@@ -81,9 +81,9 @@ const MensagensLista = () => {
 
                         </div>
 
-                        
 
-                        
+
+
 
                         <br />
 
