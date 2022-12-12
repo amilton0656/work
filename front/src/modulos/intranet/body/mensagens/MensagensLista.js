@@ -27,8 +27,28 @@ const MensagensLista = () => {
                     : null
             }
 
-                        {/* ************************ bolinho Paulao */}
-                        <MensagemText
+            {/* ************************ Confraternização */}
+            <MensagemText
+                titulo="Confraternização"
+                data="12/12/2022"
+                cor="red"
+                texto={
+                    <div>
+                        <br />
+                        <div className="card-text" style={{ fontSize: '1.1em' }}>
+                            <div >
+                                <div >A diretoria convida você para um almoco de confraternização na quarta-feira, dia 14/12,
+                                    no horário das 12:00 às 14:00, no escritório da empresa.<br /><br /> Contamos com sua presença. </div>
+
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+
+                } />
+
+            {/* ************************ bolinho Paulao */}
+            <MensagemText
                 titulo="Aniversário"
                 data="12/12/2022"
                 cor="steelblue"
@@ -73,10 +93,6 @@ const MensagensLista = () => {
                             </div>
 
                         </div>
-
-
-
-
 
                         <br />
 
