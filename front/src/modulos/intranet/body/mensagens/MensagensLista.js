@@ -30,7 +30,7 @@ const MensagensLista = () => {
             {/* ************************ bolinho Paulao */}
             <MensagemText
                 titulo="Aniversário"
-                data="09/01/2023"
+                data="10/01/2023"
                 cor="steelblue"
                 texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
@@ -43,7 +43,7 @@ const MensagensLista = () => {
             {/* ************************ niver Paulao */}
             <MensagemNiver
                 titulo="Aniversário"
-                data="09/01/2023"
+                data="10/01/2023"
                 cor="steelblue"
                 img="img/aniv11.png"
                 nome="MICHELLI"
