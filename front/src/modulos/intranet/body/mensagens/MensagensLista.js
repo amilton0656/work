@@ -27,6 +27,63 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ Expediente - Carnaval */}
+            <MensagemText
+                titulo="Expediente - Carnaval"
+                data="13/02/2023"
+                cor="red"
+                texto={
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
+                        <br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Encerramento:</span>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Admininistração </span></div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 17/FEV/2023, sexta-feira, no horário normal </span></div>
+                                </div>
+                                {/* <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div> */}
+                            </div>
+
+                        </div>
+
+                        <div style={{ marginTop: '30px' }}>
+                            <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Retorno:</span>
+
+                        </div>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.2rem', flex: 1 }}>
+                            <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Administração</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 22/FEV/2023, quarta-feira, às 12:00 </span></div>
+                                </div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 22/FEV/2023, quarta-feira, às 08:00 </span></div>
+                                </div>
+                                
+                                {/* <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div> */}
+                            </div>
+
+                        </div>
+                        <br />
+                        <br />
+                        <div className="card-text" style={{ fontSize: '1.1em' }}>
+                            <div >
+                                <div >As obras (BLISS), neste período, terão expediente normal.</div>
+
+                            </div>
+                        </div>
+                        <br />
+
+                    </div>
+
+                } />
+
+
             {/* ************************ bolinho sueli */}
             <MensagemText
                 titulo="Aniversário"
