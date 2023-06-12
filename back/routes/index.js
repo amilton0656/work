@@ -38,5 +38,5 @@ module.exports = [
     recursoRoutes,
     empresaRoutes,
     usuarioEmpreendimentoRoutes,
-    siengeRoutes
+
 ]
