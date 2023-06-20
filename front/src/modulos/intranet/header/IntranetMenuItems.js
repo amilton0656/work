@@ -58,6 +58,7 @@ export const menuBancos = [
   { nome: 'Itau', link: 'http://www.itau.com.br/empresas' },
   { nome: 'Inter', link: 'http://www.bancointer.com.br' },
   { nome: 'Sicredi', link: 'https://www.sicredi.com.br' },
+  { nome: 'Únilos', link: 'https://www.unilos.coop.br/' },
 ]
 
 export const menuOrgaos = [
