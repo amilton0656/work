@@ -27,8 +27,32 @@ const MensagensLista = () => {
                     : null
             }
 
-                        {/* ************************ bolinho amilton */}
-                        <MensagemText
+            {/* ************************ bolinho Antônio */}
+            <MensagemText
+                titulo="Aniversário"
+                data="02/08/2023"
+                cor="steelblue"
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
+                    <br />
+                    <span className='intra-card__texto-nome'>Antônio</span>,  comemorando seu aniversário, convida a
+                    todos para aquele tradicional
+                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
+                </p>} />
+
+            {/* ************************ niver Antônio */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="02/08/2023"
+                cor="steelblue"
+                img="img/aniv01.png"
+                nome="ANTÔNIOO"
+                local="(RH)"
+                dataExt="02/agosto - Quarta-feira"
+            />
+
+
+            {/* ************************ bolinho amilton */}
+            <MensagemText
                 titulo="Aniversário"
                 data="13/06/2023"
                 cor="#28A745"
@@ -75,15 +99,15 @@ const MensagensLista = () => {
                 dataExt="26/abril - Quarta-feira"
             />
 
-             {/* ************************ bolinho Marco */}
-             <MensagemText
+            {/* ************************ bolinho Marco */}
+            <MensagemText
                 titulo="Aniversário"
                 data="20/04/2023"
                 cor="#28A745"
                 texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Marco</span>,  comemorando seu aniversário, convida a
-                    todos para um 
+                    todos para um
                     <span className='intra-card__texto-bolo'> bolinho especial</span>
                     , nesta segunda-feira, às 09:00, no 11º andar (copa).
                 </p>} />
@@ -128,7 +152,7 @@ const MensagensLista = () => {
 
                         <div style={{ display: 'flex', marginLeft: 40 }}>
                             <div style={{ marginTop: '20px', fontSize: '1.2rem', flex: 1 }}>
-                            <div style={{ display: 'flex' }}>
+                                <div style={{ display: 'flex' }}>
                                     <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Administração</span></div>
                                     <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 22/FEV/2023, quarta-feira, às 12:00 </span></div>
                                 </div>
@@ -136,7 +160,7 @@ const MensagensLista = () => {
                                     <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica</span></div>
                                     <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 22/FEV/2023, quarta-feira, às 08:00 </span></div>
                                 </div>
-                                
+
                                 {/* <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div> */}
                             </div>
 
