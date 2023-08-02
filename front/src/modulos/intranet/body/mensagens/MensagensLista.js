@@ -45,8 +45,8 @@ const MensagensLista = () => {
                 data="02/08/2023"
                 cor="steelblue"
                 img="img/aniv01.png"
-                nome="ANTÔNIOO"
-                local="(RH)"
+                nome="ANTÔNIO"
+                local="(Compras)"
                 dataExt="02/agosto - Quarta-feira"
             />
 
