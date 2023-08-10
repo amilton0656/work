@@ -64,7 +64,7 @@ export const menuBancos = [
 export const menuOrgaos = [
   { nome: 'Presidência - Planalto', link: 'http://www.jfsc.gov.br' },
   { nome: 'Tribunal de Justiça Federal - SC', link: 'http://www.tj.sc.gov.br' },
-  { nome: 'Receita Federal', link: 'http://www.receita.fazenda.gov.br' },
+  { nome: 'Receita Federal', link: 'https://www.gov.br/receitafederal/pt-br' },
   { nome: 'Previdência Social', link: 'http://www.previdenciasocial.gov.br' },
   { nome: 'Fazenda Estadual', link: 'http://www.sef.sc.gov.br' },
   { nome: 'Junta Comercial de SC', link: 'http://www.jucesc.sc.gov.br' },
