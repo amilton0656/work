@@ -43,7 +43,7 @@ const MensagensLista = () => {
             {/* ************************ niver Tania */}
             <MensagemNiver
                 titulo="Aniversário"
-                data="11/08/2022"
+                data="11/08/2023"
                 cor="#28A745"
                 img="img/aniv04.png"
                 nome="TANIA"
