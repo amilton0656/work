@@ -59,6 +59,7 @@ export const menuBancos = [
   { nome: 'Inter', link: 'http://www.bancointer.com.br' },
   { nome: 'Sicredi', link: 'https://www.sicredi.com.br' },
   { nome: 'Únilos', link: 'https://www.unilos.coop.br/' },
+  { nome: 'Redasset', link: 'https://redasset.com.br/' },
 ]
 
 export const menuOrgaos = [
