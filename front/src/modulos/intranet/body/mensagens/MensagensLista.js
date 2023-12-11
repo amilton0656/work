@@ -48,7 +48,7 @@ const MensagensLista = () => {
                 img="img/aniv01.png"
                 nome="PAULÃO"
                 local="(Comercial)"
-                dataExt="11/Dezembro - Domingo"
+                dataExt="11/Dezembro - Segunda-feira"
             />
 
             {/* ************************ bolinho Carine */}
