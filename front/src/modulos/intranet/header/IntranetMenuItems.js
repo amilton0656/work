@@ -52,7 +52,7 @@ export const menuBancos = [
   { nome: 'Brasil - Office', link: 'file:///C:/BancoBrasil/officeIE/index.html' },
   { nome: 'CEF', link: 'http://www.caixa.gov.br' },
   { nome: 'Real', link: 'https://www.secureweb.com.br' },
-  { nome: 'Safra', link: 'https://www.safra.com.br' },
+  { nome: 'Safra', link: 'https://www.safra.com.br/pessoa-juridica.htm' },
   { nome: 'Santander', link: 'http://www.santander.com.br' },
   { nome: 'Credicard', link: 'http://www.credicard.com.br/home/default.htm' },
   { nome: 'Itau', link: 'http://www.itau.com.br/empresas' },
