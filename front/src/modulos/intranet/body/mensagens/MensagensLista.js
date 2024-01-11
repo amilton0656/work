@@ -27,6 +27,17 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ niver Leydi */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="11/01/2024"
+                cor="steelblue"
+                img="img/aniv08.png"
+                nome="LEIDY"
+                local="(Marketing)"
+                dataExt="11/Janeiro - Quinta-feira"
+            />
+
             {/* ************************ bolinho Paulao */}
             <MensagemText
                 titulo="Aniversário"
@@ -50,6 +61,8 @@ const MensagensLista = () => {
                 local="(Comercial)"
                 dataExt="11/Dezembro - Segunda-feira"
             />
+
+
 
             {/* ************************ bolinho Carine */}
             <MensagemText
