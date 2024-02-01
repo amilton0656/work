@@ -27,6 +27,70 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ Expediente - Carnaval */}
+            <MensagemText
+                titulo="Expediente - Carnaval"
+                data="01/02/2024"
+                cor="red"
+                texto={
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
+                        <br />
+
+
+                        <div style={{ marginTop: '10px' }}>
+                            <span style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>Administração:</span>
+
+                        </div>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.2rem', flex: 1 }}>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Encerramento</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 09/FEV/2024, sexta-feira, às 17:30 </span></div>
+                                </div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Retorno</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 14/FEV/2024, quarta-feira, às 13:30 </span></div>
+                                </div>
+
+                                {/* <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div> */}
+                            </div>
+
+                        </div>
+
+
+                        <div style={{ marginTop: '30px' }}>
+                            <span style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>Obras (BLISS) / Assistência Técnica:</span>
+
+                        </div>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.2rem', flex: 1 }}>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Expediente normal</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Não haverá paradas nos dias 12 (segunda),</span></div>
+                                </div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}></span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}> 13 (terça) e 14 (quarta) </span></div>
+                                </div>
+
+
+                                {/* <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Assistência Técnica </span></div> */}
+                            </div>
+
+                        </div>
+                        <div className="card-text" style={{ fontSize: '1.1em' }}>
+                            <div >
+
+                            </div>
+                        </div>
+                        <br />
+
+                    </div>
+
+                } />
+
             {/* ************************ niver Leydi */}
             <MensagemNiver
                 titulo="Aniversário"
