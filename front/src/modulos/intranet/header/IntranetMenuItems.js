@@ -89,7 +89,7 @@ export const menuUteis = [
   { nome: 'Hinc-beta', link: 'https://beta.hinc.com.br/' },
   { nome: 'CV', link: 'https://cota.cvcrm.com.br/' },
   { nome: 'WhatsApp', link: 'https://web.whatsapp.com/' },
-  { nome: 'Bard', link: 'https://bard.google.com/' },
+  { nome: 'Gemini', link: 'https://gemini.google.com/app' },
   { nome: 'ChatGPT', link: 'https://chat.openai.com/auth/login' },
 
 ]
