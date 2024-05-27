@@ -46,11 +46,11 @@ const MensagensLista = () => {
                         <div style={{ display: 'flex', marginLeft: 40 }}>
                             <div style={{ marginTop: '20px', fontSize: '1.2rem', flex: 1 }}>
                                 <div style={{ display: 'flex' }}>
-                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Encerramento</span></div>
+                                    <div style={{ width: '150px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Encerramento</span></div>
                                     <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 29/MAI/2024, quarta-feira, às 18:00 </span></div>
                                 </div>
                                 <div style={{ display: 'flex' }}>
-                                    <div style={{ width: '200px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Retorno</span></div>
+                                    <div style={{ width: '150px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Retorno</span></div>
                                     <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 03/JUN/2024, segunda-feira, às 08:00 </span></div>
                                 </div>
 
