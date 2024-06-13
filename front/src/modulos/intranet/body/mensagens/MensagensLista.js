@@ -27,6 +27,31 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ bolinho Amilton */}
+            <MensagemText
+                titulo="Aniversário"
+                data="13/06/2024"
+                cor="steelblue"
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
+                    <br />
+                    <span className='intra-card__texto-nome'>Amilton</span>,  comemorando seu aniversário, convida a
+                    todos para aquele tradicional
+                    <span className='intra-card__texto-bolo'> bolinho</span>
+                    , hoje, às 16:00, no 11º andar (recepção).
+                </p>} />
+
+            {/* ************************ niver Amilton */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="13/06/2024"
+                cor="steelblue"
+                img="img/aniv11.png"
+                nome="AMILTON"
+                local="(TI)"
+                dataExt="13/junho - Quinta-feira"
+            />
+
+
             {/* ************************ Expediente - Feriado de Corpus Christi */}
 
             <MensagemText
@@ -88,6 +113,8 @@ const MensagensLista = () => {
                     </div>
 
                 } />
+
+
 
 
 
