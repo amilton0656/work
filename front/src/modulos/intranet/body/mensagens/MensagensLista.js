@@ -26,6 +26,16 @@ const MensagensLista = () => {
                     </div>
                     : null
             }
+            {/* ************************ niver Fabio */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="01/07/2024"
+                cor="#28A745"
+                img="img/aniv01.png"
+                nome="FÁBIO"
+                local="(Diretoria)"
+                dataExt="01/Julho - Segunda-feira"
+            />
 
             {/* ************************ bolinho Amilton */}
             <MensagemText
