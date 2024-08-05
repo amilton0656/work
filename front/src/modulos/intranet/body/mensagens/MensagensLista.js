@@ -49,7 +49,7 @@ const MensagensLista = () => {
                 img="img/aniv04.png"
                 nome="ANA CLARA"
                 local="(Engenharia)"
-                dataExt="05/outubro - Segunda-feira"
+                dataExt="05/agosto - Segunda-feira"
             />
 
             {/* ************************ bolinho antonio */}
