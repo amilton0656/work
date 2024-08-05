@@ -27,6 +27,31 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ bolinho Ana Clara */}
+            <MensagemText
+                titulo="Aniversário"
+                data="05/08/2024"
+                cor="#28A745"
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
+                    <br />
+                    <span className='intra-card__texto-nome'>Ana Clara</span>,  comemorando o seu aniversário, convida a
+                    todos para aquele tradicional
+                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
+                </p>} />
+
+
+
+            {/* ************************ niver Ana Clara */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="05/08/2024"
+                cor="#28A745"
+                img="img/aniv04.png"
+                nome="ANA CLARA"
+                local="(Engenharia)"
+                dataExt="05/outubro - Segunda-feira"
+            />
+
             {/* ************************ bolinho antonio */}
             <MensagemText
                 titulo="Aniversário"
