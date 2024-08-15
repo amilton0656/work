@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import './IntranetHeader.css'
-import logo from './img/Logo-3.png'
+import logo from './img/logo-intra.png'
 import predio from './img/predios.png'
 import { FiMenu } from 'react-icons/fi'
 import IntranetHeaderNav from './IntranetHeaderNav'

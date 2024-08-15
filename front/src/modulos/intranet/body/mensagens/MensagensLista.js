@@ -31,7 +31,7 @@ const MensagensLista = () => {
             <MensagemText
                 titulo="Aniversário"
                 data="12/08/2024"
-                cor="steelblue"
+                cor="#ff8026"
                 texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Tania</span>,  comemorando seu aniversário, convida a
@@ -44,7 +44,7 @@ const MensagensLista = () => {
             <MensagemNiver
                 titulo="Aniversário"
                 data="12/08/2024"
-                cor="steelblue"
+                cor="#ff8026"
                 img="img/aniv04.png"
                 nome="TANIA"
                 local="(Financeiro)"
@@ -55,7 +55,7 @@ const MensagensLista = () => {
             <MensagemText
                 titulo="Aniversário"
                 data="05/08/2024"
-                cor="#28A745"
+                cor="#a7a3ab"
                 texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
                     <span className='intra-card__texto-nome'>Ana Clara</span>,  comemorando o seu aniversário, convida a
@@ -69,7 +69,7 @@ const MensagensLista = () => {
             <MensagemNiver
                 titulo="Aniversário"
                 data="05/08/2024"
-                cor="#28A745"
+                cor="#a7a3ab"
                 img="img/aniv04.png"
                 nome="ANA CLARA"
                 local="(Engenharia)"

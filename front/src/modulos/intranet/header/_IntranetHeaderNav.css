@@ -28,7 +28,7 @@
 
 
 .intra-nav__dropdown-item:hover {
-    background: rgba(167, 163, 171, 0.4);
+    background: rgba(0, 0, 0, 0.1);
     color: var(--third);
 }
 
@@ -48,7 +48,7 @@ input[id^=ck-intra]:checked~.intra-nav__dropdown-submenu {
 } */
 
 .intra-nav__dropdown-link {
-    color: rgba(167, 163, 171, 1);
+    color: rgba(0, 0, 0, 0.5);
     text-decoration: none;
     display: inline-block;
     height: 100%;

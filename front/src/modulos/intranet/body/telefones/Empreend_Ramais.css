@@ -1,6 +1,6 @@
 .intra-ramais__button {
     width: 100%;
-    background: steelBlue;
+    background: #ff8026;
     border-radius: 5px;
     padding: 10px 0;
     font-size: 1.5rem;
@@ -39,14 +39,13 @@
     display: none;
 }
 
-#ckk-intra__ramais:checked ~ .intra-ramais__card {
+#ckk-intra__ramais:checked~.intra-ramais__card {
     transition: max-height 0.5s;
     max-height: 1000px;
 }
 
-.intra-ramais__items li{
+.intra-ramais__items li {
     padding: 5px;
     list-style: none;
     font-size: 1.5rem;
 }
-
