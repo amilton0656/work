@@ -50,7 +50,7 @@ export const menuBancos = [
   { nome: 'Bradesco', link: 'http://www.bradesco.com.br' },
   { nome: 'Banco do Brasil', link: 'http://www.bb.com.br' },
   { nome: 'Brasil - Office', link: 'file:///C:/BancoBrasil/officeIE/index.html' },
-  { nome: 'CEF', link: 'http://www.caixa.gov.br' },
+  { nome: 'CEF', link: 'https://www.caixa.gov.br' },
   { nome: 'Real', link: 'https://www.secureweb.com.br' },
   { nome: 'Safra', link: 'https://www.safra.com.br/pessoa-juridica.htm' },
   { nome: 'Santander', link: 'http://www.santander.com.br' },
