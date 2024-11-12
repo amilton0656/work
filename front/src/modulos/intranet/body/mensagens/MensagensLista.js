@@ -27,6 +27,47 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ Expediente - Fim de Ano */}
+            <MensagemText
+                titulo="Expediente - Fim de Ano"
+                data="12/11/2024"
+                cor="#ff8026"
+                texto={
+                    <div className="card-text" style={{ fontSize: '1.5rem', color: 'blue' }}>
+
+                        <br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: "#1a181b" }}>Administração/Assistência Técnica: </span>
+                        <br /><br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4c4c4c' }}>Encerramento:</span>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                <div style={{ width: '400px' }}><span style={{ color: "#403d43", fontSize: '1.3rem' }}>Dia 18/12/2024</span></div>
+                                <div style={{ width: '400px' }}><span style={{ color: "#403d43", fontSize: '1.3rem' }}>Quarta-feira - No horário normal </span></div>
+                            </div>
+
+                        </div>
+
+                        <br />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4c4c4c' }}>Retorno:</span>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.5rem', flex: 1 }}>
+                                <div style={{ width: '400px' }}><span style={{ color: "#403d43", fontSize: '1.3rem' }}>Dia 08/01/2025</span></div>
+                                <div style={{ width: '400px' }}><span style={{ color: "#403d43", fontSize: '1.3rem' }}>Quarta-feira - No horário normal </span></div>
+                            </div>
+
+                        </div>
+
+
+
+
+                        <br />
+
+                    </div>
+
+                } />
+
             {/* ************************ bolinho David  */}
             <MensagemText
                 titulo="Aniversário"
