@@ -34,7 +34,7 @@ const MensagensLista = () => {
                 cor="#a7a3ab"
                 texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
-                    <span className='intra-card__texto-nome'>Cinira</span>,  antecipando a comemoração do seu aniversário, convida a
+                    <span className='intra-card__texto-nome'>Cinira</span>,  comemorando o seu aniversário, convida a
                     todos para aquele tradicional
                     <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
                 </p>} />
