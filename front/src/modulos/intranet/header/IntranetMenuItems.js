@@ -47,19 +47,20 @@ export const menuNoticias = [
 ]
 
 export const menuBancos = [
-  { nome: 'Bradesco', link: 'http://www.bradesco.com.br' },
   { nome: 'Banco do Brasil', link: 'http://www.bb.com.br' },
+  { nome: 'Bradesco', link: 'http://www.bradesco.com.br' },
   { nome: 'Brasil - Office', link: 'file:///C:/BancoBrasil/officeIE/index.html' },
   { nome: 'CEF', link: 'https://www.caixa.gov.br' },
+  { nome: 'Credicard', link: 'http://www.credicard.com.br/home/default.htm' },
+  { nome: 'Inter', link: 'http://www.bancointer.com.br' },
+  { nome: 'Itau', link: 'http://www.itau.com.br/empresas' },
   { nome: 'Real', link: 'https://www.secureweb.com.br' },
+  { nome: 'Redasset', link: 'https://redasset.com.br/' },
   { nome: 'Safra', link: 'https://www.safra.com.br/pessoa-juridica.htm' },
   { nome: 'Santander', link: 'http://www.santander.com.br' },
-  { nome: 'Credicard', link: 'http://www.credicard.com.br/home/default.htm' },
-  { nome: 'Itau', link: 'http://www.itau.com.br/empresas' },
-  { nome: 'Inter', link: 'http://www.bancointer.com.br' },
   { nome: 'Sicredi', link: 'https://www.sicredi.com.br' },
+  { nome: 'Unicred', link: 'https://www.unicred.com.br/valorcapital/home' },
   { nome: 'Únilos', link: 'https://www.unilos.coop.br/' },
-  { nome: 'Redasset', link: 'https://redasset.com.br/' },
 ]
 
 export const menuOrgaos = [
