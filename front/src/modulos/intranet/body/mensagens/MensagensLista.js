@@ -27,6 +27,30 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ bolinho liliane */}
+            <MensagemText
+                titulo="Aniversário"
+                data="19/05/2025"
+                cor="#ff8026"
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
+                    <br />
+                    <span className='intra-card__texto-nome'>Liliane</span>,  comemorando seu aniversário, convida a
+                    todos para aquele tradicional
+                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
+                </p>} />
+
+            {/* ************************ niver Liliane */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="19/05/2025"
+                cor="#ff8026"
+                img="img/aniv01.png"
+                nome="LILIANE"
+                local="(Diretoria)"
+                dataExt="20/maio - Terça-feira"
+            />
+
+
             {/* ************************ bolinho heliane */}
             <MensagemText
                 titulo="Aniversário"
@@ -34,10 +58,9 @@ const MensagensLista = () => {
                 cor="#a7a3ab"
                 texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
-                    <span className='intra-card__texto-nome'>Heliane</span>,  comemorando seu aniversário, convida a
+                    <span className='intra-card__texto-nome'>Marco</span>,  comemorando seu aniversário, convida a
                     todos para aquele tradicional
-                    <span className='intra-card__texto-bolo'> bolinho</span>
-                    , hoje, às 16:00, no 11º andar (recepção).
+                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
                 </p>} />
 
             {/* ************************ niver Heliane */}
