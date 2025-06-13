@@ -27,6 +27,48 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ Expediente - Feriado de Corpus Christi */}
+
+            <MensagemText
+                titulo="Expediente - Feriado de Corpus Christi"
+                data="16/06/2025"
+                cor="#ff8026"
+                texto={
+                    <div className="card-text" style={{ fontSize: '1.5rem' }}>
+                        <br />
+
+
+                        <div style={{ marginTop: '10px' }}>
+                            <span style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>Administração / Assistência Técnica:</span>
+
+                        </div>
+
+                        <div style={{ display: 'flex', marginLeft: 40 }}>
+                            <div style={{ marginTop: '20px', fontSize: '1.2rem', flex: 1 }}>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '150px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Encerramento</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 18/JUN/2025, quarta-feira, às 18:00 </span></div>
+                                </div>
+                                <div style={{ display: 'flex' }}>
+                                    <div style={{ width: '150px' }}><span style={{ color: 'blue', fontSize: '1.3rem' }}>Retorno</span></div>
+                                    <div><span style={{ marginLeft: 30, fontSize: '1.3rem' }}>Dia 23/JUN/2025, segunda-feira, às 08:00 </span></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <br />
+
+                    </div>
+
+                } />
+
+
             {/* ************************ bolinho Amilton */}
             <MensagemText
                 titulo="Aniversário"
