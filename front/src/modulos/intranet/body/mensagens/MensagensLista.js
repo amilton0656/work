@@ -27,7 +27,7 @@ const MensagensLista = () => {
                     : null
             }
 
-            {/* ************************ Expediente - Feriado de Corpus Christi */}
+            {/* ************************ Expediente - Feriado de Corpus    Christi */}
 
             <MensagemText
                 titulo="Expediente - Feriado de Corpus Christi"
