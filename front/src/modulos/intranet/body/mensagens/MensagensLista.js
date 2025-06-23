@@ -1159,14 +1159,14 @@ const MensagensLista = () => {
                     , hoje, às 16:00, no 11º andar (recepção).
                 </p>} />
 
-            {/* ************************ niver Paulao */}
+            {/* ************************ niver Paulao ****/}
             <MensagemNiver
                 titulo="Aniversário"
                 data="12/12/2022"
                 cor="steelblue"
                 img="img/aniv08.png"
                 nome="PAULÃO"
-                local="(Comercial)"
+                local="(Comercial_)"
                 dataExt="11/Dezembro - Domingo"
             />
 
