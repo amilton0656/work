@@ -27,6 +27,17 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ niver Fabio */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="01/07/2025"
+                cor="#a7a3ab"
+                img="img/aniv08.png"
+                nome="FABIO"
+                local="(Presidência)"
+                dataExt="01/julho - Terça-feira"
+            />
+
             {/* ************************ Expediente - Feriado de Corpus    Christi */}
 
             <MensagemText
