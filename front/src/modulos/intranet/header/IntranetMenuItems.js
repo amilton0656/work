@@ -87,6 +87,7 @@ export const menuUteis = [
   { nome: 'Código do Banco', link: 'https://www.codigobanco.com' },
   { nome: 'Sienge', link: 'https://cotaemp.sienge.com.br/' },
   { nome: 'CV', link: 'https://cota.cvcrm.com.br/' },
+  { nome: 'Fastbuilt', link: 'https://app.fastbuilt.com.br/dashboard/' },
   { nome: 'Prevision', link: 'https://app.prevision.com.br/login' },
   { nome: 'Hinc', link: 'https://www.hinc.com.br/' },
   { nome: 'Hinc-beta', link: 'https://beta.hinc.com.br/' },
