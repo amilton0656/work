@@ -36,7 +36,7 @@ const MensagensLista = () => {
                     <br />
                     <span className='intra-card__texto-nome'>Antônio</span>,  comemorando seu aniversário, convida a
                     todos para aquele tradicional
-                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
+                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 15:30, no 11º andar (recepção).
                 </p>} />
 
             {/* ************************ niver Antonio */}
