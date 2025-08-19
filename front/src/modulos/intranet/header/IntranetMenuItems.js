@@ -52,6 +52,7 @@ export const menuBancos = [
   { nome: 'Brasil - Office', link: 'file:///C:/BancoBrasil/officeIE/index.html' },
   { nome: 'CEF', link: 'https://www.caixa.gov.br' },
   { nome: 'Credicard', link: 'http://www.credicard.com.br/home/default.htm' },
+  { nome: 'Fibra', link: 'https://portal.bancofibra.com.br/produtos.html' },
   { nome: 'Inter', link: 'http://www.bancointer.com.br' },
   { nome: 'Itau', link: 'http://www.itau.com.br/empresas' },
   { nome: 'Real', link: 'https://www.secureweb.com.br' },
