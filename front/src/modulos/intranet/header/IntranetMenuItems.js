@@ -59,6 +59,7 @@ export const menuBancos = [
   { nome: 'Redasset', link: 'https://redasset.com.br/' },
   { nome: 'Safra', link: 'https://www.safra.com.br/pessoa-juridica.htm' },
   { nome: 'Santander', link: 'http://www.santander.com.br' },
+  { nome: 'Sicoob', link: 'https://www.sicoob.com.br/sicoobnet/' },
   { nome: 'Sicredi', link: 'https://www.sicredi.com.br' },
   { nome: 'Unicred', link: 'https://www.unicred.com.br/valorcapital/home' },
   { nome: 'Únilos', link: 'https://www.unilos.coop.br/' },
