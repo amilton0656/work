@@ -39,7 +39,8 @@ const MensagensLista = () => {
                     <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
                 </p>} />
 
-            {/* ************************ niver Lidia */}
+            {/* ************************ niver Lidia */} start
+            
             <MensagemNiver
                 titulo="Aniversário"
                 data="15/09/2025"

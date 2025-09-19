@@ -75,7 +75,7 @@ export const menuOrgaos = [
   { nome: 'Prefeitura Mun. Florianópolis', link: 'http://www.pmf.sc.gov.br' },
   { nome: 'Fazenda Municipal', link: 'http://sefinnet.pmf.sc.gov.br' },
   { nome: 'Sinduscon - Fpolis', link: 'http://www.sinduscon-fpolis.org.br' },
-  { nome: 'SPC', link: 'http://www.connectsa.com.br' },
+  { nome: 'Serasa', link: 'http://www.connectsa.com.br' },
 ]
 
 export const menuUteis = [
