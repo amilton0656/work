@@ -27,6 +27,31 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ bolinho eugenio-cida */}
+            <MensagemText
+                titulo="Aniversários"
+                data="24/09/2025"
+                cor="#a7a3ab"
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
+                    <br />
+                    <span className='intra-card__texto-nome'>Eugênio e Cida</span>, comemorando os seus aniversários, convidam a
+                    todos para aquele tradicional
+                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 15:30, no 11º andar (recepção).
+                </p>} />
+
+            {/* ************************ niver Eugenio e Cida */}
+            <MensagemNiver2
+                titulo="Aniversários"
+                data="24/09/2025"
+                cor="#a7a3ab"
+                img="img/aniv12.png"
+                nome="EUGÊNIO"
+                local="(Engenharia)"
+                nome2="MARIA APARECIDA"
+                local2="(Copa)"
+                dataExt="24/setembro - Quarta-feira"
+            />
+
             {/* ************************ bolinho Lidia */}
             <MensagemText
                 titulo="Aniversário"
@@ -39,8 +64,8 @@ const MensagensLista = () => {
                     <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
                 </p>} />
 
-            {/* ************************ niver Lidia */} start
-            
+            {/* ************************ niver Lidia */}
+
             <MensagemNiver
                 titulo="Aniversário"
                 data="15/09/2025"
