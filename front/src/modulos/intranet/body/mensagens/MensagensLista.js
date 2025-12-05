@@ -27,61 +27,11 @@ const MensagensLista = () => {
                     : null
             }
 
-            {/* ************************ bolinho Carine */}
-            <MensagemText
-                titulo="Aniversário"
-                data="24/11/2025"
-                cor="#a7a3ab"
-                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
-                    <br />
-                    <span className='intra-card__texto-nome'>Carine</span>,  comemorando seu aniversário, convida a
-                    todos para aquele tradicional
-                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
-                </p>} />
-
-
-            {/* ************************ niver Carine */}
-            <MensagemNiver
-                titulo="Aniversário"
-                data="24/11/2025"
-                cor="#a7a3ab"
-                img="img/aniv11.png"
-                nome="CARINE"
-                local="(Recepção)"
-                dataExt="24/novembro - Segunda-feira"
-            />
-
-
-            {/* ************************ bolinho cinira */}
-            <MensagemText
-                titulo="Aniversário"
-                data="17/11/2025"
-                cor="#ff8026" yarn start
-                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
-                    <br />
-                    <span className='intra-card__texto-nome'>Cinira</span>,  comemorando o seu aniversário, convida a
-                    todos para aquele tradicional
-                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
-                </p>} />
-
-
-
-            {/* ************************ niver Cinira */}
-            <MensagemNiver
-                titulo="Aniversário"
-                data="17/11/2025"
-                cor="#ff8026" yarn start
-                img="img/aniv04.png"
-                nome="CINIRA"
-                local="(Contabilidade)"
-                dataExt="15/novembro - Sábado"
-            />
-
             {/* ************************ Expediente - Fim de Ano */}
             <MensagemText
                 titulo="Expediente - Fim de Ano"
-                data="13/11/2025"
-                cor="#a7a3ab"
+                data="05/12/2025"
+                cor="#ff8026"
                 texto={
                     <div className="card-text" style={{ fontSize: '1.5rem', color: 'blue' }}>
 
@@ -117,6 +67,58 @@ const MensagensLista = () => {
                     </div>
 
                 } />
+
+            {/* ************************ bolinho Carine */}
+            <MensagemText
+                titulo="Aniversário"
+                data="24/11/2025"
+                cor="#a7a3ab"
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
+                    <br />
+                    <span className='intra-card__texto-nome'>Carine</span>,  comemorando seu aniversário, convida a
+                    todos para aquele tradicional
+                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
+                </p>} />
+
+
+            {/* ************************ niver Carine */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="24/11/2025"
+                cor="#a7a3ab"
+                img="img/aniv11.png"
+                nome="CARINE"
+                local="(Recepção)"
+                dataExt="24/novembro - Segunda-feira"
+            />
+
+
+            {/* ************************ bolinho cinira */}
+            <MensagemText
+                titulo="Aniversário"
+                data="17/11/2025"
+                cor="#ff8026"
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
+                    <br />
+                    <span className='intra-card__texto-nome'>Cinira</span>,  comemorando o seu aniversário, convida a
+                    todos para aquele tradicional
+                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
+                </p>} />
+
+
+
+            {/* ************************ niver Cinira */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="17/11/2025"
+                cor="#ff8026" yarn start
+                img="img/aniv04.png"
+                nome="CINIRA"
+                local="(Contabilidade)"
+                dataExt="15/novembro - Sábado"
+            />
+
+
 
             {/* ************************ bolinho David  */}
             <MensagemText

@@ -61,11 +61,7 @@ const Empreend_Ramais = () => {
                                     <li>237 - Steffany</li>
                                     <li>255 - Sueli</li>
                                     <li>202 - Tânia</li>
-                                    {/* <li>207 - Vanessa</li>
-                            <li>210 - Zezo</li>
-                            <li>239 - Grasy</li>
-                            <li>237 - Eugênio</li>
-                        <li>246 - Marco</li> */}
+
                                 </ul>
                             </Card>
 
