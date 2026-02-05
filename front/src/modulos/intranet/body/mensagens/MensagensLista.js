@@ -27,6 +27,31 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ bolinho Sueli */}
+            <MensagemText
+                titulo="Aniversário"
+                data="05/02/2026"
+                cor="#a7a3ab"
+                texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
+                    <br />
+                    <span className='intra-card__texto-nome'>Sueli</span>,  comemorando o seu aniversário, convida a
+                    todos para aquele tradicional
+                    <span className='intra-card__texto-bolo'> bolinho</span>, hoje, às 16:00, no 11º andar (recepção).
+                </p>} />
+
+
+
+            {/* ************************ niver Sueli */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="05/02/2026"
+                cor="#a7a3ab"
+                img="img/aniv04.png"
+                nome="SUELI"
+                local="(RH)"
+                dataExt="05/fevereiro - Quinta-feira"
+            />
+
             {/* ************************ bolinho Fernanda */}
             <MensagemText
                 titulo="Aniversário"
@@ -575,7 +600,7 @@ const MensagensLista = () => {
             {/* ************************ bolinho Sueli */}
             <MensagemText
                 titulo="Aniversário"
-                data="05/02/2025"
+                data="05/02/2026"
                 cor="#a7a3ab"
                 texto={<p className="card-text" style={{ fontSize: '1.1em' }}>
                     <br />
@@ -594,7 +619,7 @@ const MensagensLista = () => {
                 img="img/aniv01.png"
                 nome="SUELI"
                 local="(RH)"
-                dataExt="05/fevereiro - Quarta-feira"
+                dataExt="05/fevereiro - Quinta-feira"
             />
 
             {/* ************************ bolinho Carine */}
