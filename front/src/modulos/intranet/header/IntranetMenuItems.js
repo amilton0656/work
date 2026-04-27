@@ -96,6 +96,7 @@ export const menuUteis = [
   { nome: 'WhatsApp', link: 'https://web.whatsapp.com/' },
   { nome: 'Gemini', link: 'https://gemini.google.com/app' },
   { nome: 'ChatGPT', link: 'https://chat.openai.com/auth/login' },
+  { nome: 'Claude', link: 'https://chat.chatbotapp.ai/' },
 
 ]
 
