@@ -91,12 +91,13 @@ export const menuUteis = [
   { nome: 'CV', link: 'https://cota.cvcrm.com.br/' },
   { nome: 'Fastbuilt', link: 'https://app.fastbuilt.com.br/dashboard/' },
   { nome: 'Prevision', link: 'https://app.prevision.com.br/login' },
-  { nome: 'Hinc', link: 'https://www.hinc.com.br/' },
-  { nome: 'Hinc-beta', link: 'https://beta.hinc.com.br/' },
+  // { nome: 'Hinc', link: 'https://www.hinc.com.br/' },
+  // { nome: 'Hinc-beta', link: 'https://beta.hinc.com.br/' },
   { nome: 'WhatsApp', link: 'https://web.whatsapp.com/' },
   { nome: 'Gemini', link: 'https://gemini.google.com/app' },
   { nome: 'ChatGPT', link: 'https://chat.openai.com/auth/login' },
   { nome: 'Claude', link: 'https://chat.chatbotapp.ai/' },
+  { nome: 'DeepSeek', link: 'https://chat.deepseek.com/' },
 
 ]
 
