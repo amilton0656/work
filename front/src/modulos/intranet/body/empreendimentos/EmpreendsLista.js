@@ -27,6 +27,10 @@ const EmpreendLista = ({ history }) => {
             }
 
             <Empreend_Modelo
+                logo='img/Cota365 - Logo.jpg'
+                fachada='img/Cota365 - Fachada.jpg' />
+
+            <Empreend_Modelo
                 logo='img/Bliss Living - Logo.jpg'
                 fachada='img/Bliss Living - Fachada.jpg' />
 
