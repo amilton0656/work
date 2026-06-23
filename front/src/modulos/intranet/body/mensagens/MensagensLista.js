@@ -27,6 +27,27 @@ const MensagensLista = () => {
                     : null
             }
 
+            {/* ************************ Confraternização */}
+            <MensagemText
+                titulo="Expediente - Brasil X Escócia"
+                data="23/06/2026"
+                cor="#a7a3ab"
+                texto={
+                    <div>
+                        <br />
+                        <div className="card-text" style={{ fontSize: '1.1em' }}>
+                            <div >
+                                <div >Em função do horário do jogo Brasil X Escócia, nesta quarta-feira, dia 24/JUN/2026, encerraremos o expediente às 16:30.
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+
+                } />
+
             {/* ************************ bolinho Amilton */}
             <MensagemText
                 titulo="Aniversário"
