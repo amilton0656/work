@@ -26,6 +26,17 @@ const MensagensLista = () => {
                     </div>
                     : null
             }
+
+            {/* ************************ niver Fabio */}
+            <MensagemNiver
+                titulo="Aniversário"
+                data="01/07/2026"
+                cor="#a7a3ab"
+                img="img/aniv08.png"
+                nome="FABIO"
+                local="(Presidência)"
+                dataExt="01/julho - Quarta-feira"
+            />
             {/* ************************ Brasil X Japão */}
             <MensagemText
                 titulo="Expediente - Jogo da Seleção Brasileira"
